@@ -1,0 +1,612 @@
+/*
+===================================
+zock!
+
+Developed by
+------------
+* Michael Schroeder:
+   michael.p.schroeder@gmail.com 
+*
+*
+
+http://zock.sf.net
+
+zock! is a free software licensed under GPL (General public license) v3
+      more information look in the root folder for "LICENSE".
+===================================
+*/
+
+/*
+this stylesheet is organized in different sections
+these are the following ones:
+
+>general/normal
+	if a something has no class defined, it should
+	have the form defined in this section
+
+>from top down (standard site)
+	mainly all the divs that form the structure
+	of the site, the two different menu types
+	included here,  not in the "special modes" section
+
+>special modes
+	well, all that has another form than normal & 
+	hasn't its place in the "from top to down" section
+	=> it think all affected elements are placed in the
+	#cnt div.
+
+*/
+
+
+/* =============== general/normal ============== */
+html, body {
+	font-family: 'Trebuchet MS';
+	font-size: 11px;
+	color: black;
+}
+
+body {
+	background: #337900;
+}
+
+h1{
+	font-size: 25px;
+	color: black;
+	text-decoration: none;
+}
+h2{
+	font-size: 18px;
+	color: black;
+	text-decoration: underline;
+}
+
+a:link, a:visited {
+	color: #337900;
+	text-decoration: none;
+}
+a:hover {
+	color: #33bb00;
+} 
+
+table {
+	font-size: 11px;
+	margin: 8px;
+}
+
+input, textarea, hr, select, button {
+	font-family: 'Trebuchet MS';
+	padding-left: 2px;
+}
+
+input[disabled] {
+	background: grey;
+}
+
+
+textarea {
+	font-size: 11px;
+}
+
+img {
+	border-style: none;
+}
+ul {
+	margin-left: 0px; padding: 0px;
+
+}
+li {
+/*	list-style: none;*/
+	margin-left: 20px; padding: 0px;
+}
+		  
+/* =============== from top to down (standard site) ============== */
+
+/*DIV-BOXES*/
+
+#style_comment, #style_comment>a {
+	font-size: 10px;
+	color: grey;
+	text-align: right;
+}
+#style_plain{
+	float: left;
+	position: absolute;
+}
+
+#plain>a, #plain {
+	font-size: 10px;
+	color: grey;
+	text-align: left;
+	font-weight: bold;
+}
+
+
+#style_logo {
+	position: absolute;
+	left: 680px;
+	top: -30px;
+	z-index: 1;
+}
+
+#motherdiv{
+	/* the div that will contain all the other following divs */
+	width: 750px;
+	margin: 30px 0px 0px 0px;
+	position: relative;
+	left: -50px;
+	background: transparent;
+}
+
+#top{
+	/* the div with the "banner"*/
+	height: 50px;
+	padding: 5px;
+	margin-top: 40px;
+	background: #337900;
+	text-align: left;
+	border-style: solid;
+	border-width: 0px;
+	border-color: black;
+	position: relative;
+	z-index: 0;
+}
+
+#menu_h_top{
+	padding-top: 13px;
+	background: url('img/zock_top.png') no-repeat;
+	z-index: 1;
+	position: relative;
+}
+
+
+#menu_h {
+	background: white;
+	color: black;
+	white-space: nowrap;
+	border-width: 0px 4px 0px 4px;
+	border-style: solid;
+	position: relative;
+	z-index: 1;
+}
+
+.menu_h_level_1 {
+	text-align: left;
+}
+.menu_h_level_2 {
+	text-align: right;
+}
+
+a.menulink:visited, a.menulink {
+	border-style: solid none solid solid;
+	padding: 0px 5px 0px 10px;
+	border-width: 0.5px;
+	color: black;
+	text-decoration: none;
+	background: #337900;
+	line-height: 2;
+}
+a.menulink:hover, a.menulinksel {
+	border-style: solid none solid solid;
+	padding: 0px 5px 0px 10px;
+	border-width: 0.5px;
+	background: #33bb00;
+	text-decoration: none;
+	color: black;
+	border-color: black;
+}
+
+.menu_h_level_1>a.menulink, .menu_h_level_1>a.menulink:hover,
+.menu_h_level_1>a.menulink:hover, .menu_h_level_1>a.menulinksel {
+	border-style: solid solid solid none;
+	display: inline;
+}
+
+#cnt_bottom {
+	padding-bottom: 13px;
+	background: url('img/zock_bottom.png') no-repeat;
+	background-position: bottom;
+}
+
+
+
+#cnt {
+	/* the div that'll contain the actual information/content */
+	padding: 1px 10px 10px 10px;
+	border-style: solid;
+	border-width: 0px 4px 0px 4px;
+	border-color: black;
+	text-align: left;
+	background: white;
+	overflow-y: visible;
+	position: relative;
+	z-index: 1;
+	visibility: visible;
+}
+
+
+
+/* the vertical menu is an optional menu & not always displayed*/
+	/*a div for an optional vertical menu*/
+#menu_v {
+	background: url('img/bg_floating_layer.png') repeat;
+	border-style: solid;
+	border-width: 0.5px;
+	color: black;
+	text-align: left;
+	width: auto;
+	max-width: 150px;
+	float: right;
+	overflow: hidden;
+	position: absolute;
+	right: 25px;
+	z-index: 3;
+	padding: 10px 10px 10px 10px;
+	}
+
+#menu_v>a.vmenulink, #menu_v>a.vmenulink:visited {
+	color: white;
+}
+#menu_v>a.vmenulink:hover {
+	color: black;
+}
+
+#menu_v_mmo {
+	display: none;
+}
+
+#menu_v_mmc {
+	display: block;
+}
+
+div.menu_v_mm {
+	background: transparent;
+	color: black;
+	text-align: center;
+	font-size: 15px;
+	font-weight: bolder;
+	width: auto;
+	height: auto;
+	float: right;
+	overflow: hidden;
+}
+a.vmenulink, a.vmenulink:visited {
+	color: #337900;
+}
+
+a.vmenulink:hover {
+	color: #33bb00;
+}
+#footer {
+	background: #337900;
+	font-size: 10px;
+	margin-bottom: 0px;
+	margin-top: 0px;
+	border-width: 0px;
+	border-style: solid;
+	position: relative;
+	z-index: 0;
+}
+a.footer, a.footer:visited {
+	color: white;
+}
+a.footer:hover {
+	color: black;
+}
+
+.footer {
+	background: transparent;
+	font-size: 10px;
+	text-align: left;
+
+}
+
+#servertime {
+	font-weight: normal;
+}
+
+#version_license, #version_license>a{
+	margin-top: 40px;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 9px;
+	color: black;
+}
+
+/* =============== special modes ============== */
+
+font.error, .piccomment {
+	font-family: sans-serif;
+	font-weight: bold;
+	text-align: center;
+	color: red;
+}
+
+div.error {
+	font-family: sans-serif;
+	font-weight: bold;
+	height: 40px;
+	color: red;
+	width: 500px;
+	padding-left: 80px;
+	margin-left: 60px;
+	padding-bottom: 10px;
+	background: url('img/zockwarningicon.png') no-repeat;
+	background-position: 0px center;
+	overflow: visible;
+	text-align: left;
+	vertical-align: center;
+	padding-top: 30px;
+}
+
+div.indication {
+	font-family: sans-serif;
+	font-weight: bold;
+	height: 40px;
+	color: blue;
+	width: 500px;
+	padding-left: 80px;
+	margin-left: 60px;
+	padding-bottom: 10px;
+	background-position: 0px center;
+	overflow: visible;
+	text-align: left;
+	vertical-align: center;
+	padding-top: 30px;
+}
+
+
+.showform {
+	margin: auto;
+	width: 300px;
+}
+
+.showformleft {
+	float: left;
+	width: 300px;
+	margin-left: 40px;
+}
+
+.showformright {
+	float: right;
+	width: 300px;
+	margin-right: 40px;
+}
+
+.sectionleft {
+	border-top-width: 0.5px;
+	border-top-style: solid;
+	border-color: black;
+	padding: 5px;
+}
+.sectionright {
+	border-top-width: 0.5px;
+	border-top-style: solid;
+	border-color: black;
+	padding: 5px;
+}
+
+.clearfloat {
+	clear: both;
+	position: relative;
+}
+
+input.readonly {
+	border-width: 0px;
+	background: transparent;
+	color: black;
+}
+
+.appearance {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 15px;
+	text-align: center;
+	border-color: black;
+	border-width: 1.5px;
+	background: transparent;
+	max-width: 450px;
+	border-style: solid;
+	border-width: 0.5px;
+}
+
+td.participantdetails{
+	padding-left: 10px;
+	text-align: left;
+}
+
+#overview {
+	overflow: auto;
+	height: 650px;
+}
+
+/*
+#overviewtitlerow {
+	overflow: auto;
+}
+
+#overviewtitletable, #overviewtitletable tr, #overviewtitletable td, #overviewcontenttable{
+	table-layout: fixed;
+}
+*/
+
+.highlighted {
+	background: url('img/bg_onmouseover.png');
+}
+
+.input {
+	text-align: center;
+	padding-right: 10px;
+	margin: 8px;
+}
+
+.title {
+	font-weight: bold;
+	padding-top: 15px;
+	border-color: black;
+	border-top-width: 5px;
+	white-space: nowrap;
+	margin: 8px;
+}
+.submit {
+	text-align: center;
+	padding-top: 30px;
+}
+
+.evlist {
+	padding-bottom: 5px;
+}
+
+.forgotpassword {
+	font-size: 9px;
+	text-align: left;
+}
+
+.explanation {
+	font-size: 9px;
+}
+
+td.ow, td.ow_date, td.ow_team, td.ow_correct, 
+td.ow_diff, td.ow_almost, td.ow_wrong , td.ow_summary, td.summaryall {
+	padding-right: 5px;
+	white-space: nowrap;
+
+}
+td.ow, td.ow_wrong {
+	text-align: center;
+}
+td.ow_almost{
+	text-decoration: underline;
+	text-align: center;
+}
+.ow_correct{
+	font-weight: bold;
+	text-align: center;
+}
+td.ow_diff{
+	text-decoration: underline;
+	text-align: center;
+	font-style: italic;
+}
+td.ow_team {
+	font-weight: bold;
+}
+.ow_summary {
+	font-style: italic;
+	font-size: 9px;
+}
+.ow_summaryall{
+	font-weight: bold;
+	font-style: italic;
+}
+
+.comment {
+	margin: auto;
+	max-width: 400px;
+	border-right: solid;
+	border-top: solid;
+	border-color: black;
+	border-width: 0.5px;
+	padding: 5px;
+	margin-bottom: 15px;
+}
+.cmttitlel{
+	width: 64%;
+	text-align: left;
+	float: right;
+}
+.cmttitler{
+	width: 32%;
+	text-align: right;
+	float: right;
+/*	margin-right: 10px;*/
+}
+.cmttitle {
+	font-weight: bold;
+	color: black;
+	padding: 10px 0px 10px 0px;
+}
+.cmttext {
+	padding: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 10px;
+}
+.cmtfooter, .message_intro {
+	font-size: 9px;
+	position: relative;
+	margin-left: 10px;
+	padding-bottom: 15px;
+	padding-top: 10px;
+} 
+.cmtfooterl {
+	width: 50%;
+	text-align: left;
+	float: left;
+}
+.cmtfooterr{
+	width: 50%;
+	text-align: right;
+	float: right; 
+}  
+.notvisible{
+	display: none;	
+}
+
+.floating_layer, .message_layer {
+	color: black;
+	border-style: solid;
+	border-width: 1px;
+	position: absolute;
+	z-index: 5;
+	left: 200px;
+	margin-top: 0px;
+	width: 410px;
+	padding: 20px;
+	background: url('img/bg_floating_layer.png') repeat;
+}
+
+
+.floating_layer{
+	display: none;
+}
+
+.floating_layer_close {
+	border-style: none;
+	border-width: 1px;
+	border-color: black;
+	font-weight: bold;
+	text-align: center;
+	margin: 3px;
+	background-color: transparent;
+	width: 15px;
+	float: right;
+}
+
+.floating_layer_close>a:hover, .floating_layer>a:hover {
+	color: black;
+}
+.floating_layer_close>a, .floating_layer>a {
+	color: white;
+}
+
+.floating_layer>a {
+	text-decoration: underline;
+}
+
+.infoBar{
+	padding-top: 10px;
+	padding-bottom: 30px;
+	text-align: center;
+}
+
+.actualphase{
+	font-weight: bold;
+}
+
+.eventinfo {
+	margin: 3px;
+}
+
+.topalign {
+	vertical-align: top;
+}

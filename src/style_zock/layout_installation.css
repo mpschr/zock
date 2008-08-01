@@ -1,0 +1,28 @@
+/*
+===================================
+zock!
+
+Developed by
+------------
+* Michael Schroeder:
+   michael.p.schroeder@gmail.com 
+*
+*
+
+http://zock.sf.net
+
+zock! is a free software licensed under GPL (General public license) v3
+      more information look in the root folder for "LICENSE".
+===================================
+*/
+
+/*
+ this stylesheet is only for the installation.
+*/
+
+#cnt_top{
+	padding-top: 13px;
+	background: url('img/zock_top.png') no-repeat;
+	z-index: 2;
+	position: relative;
+}

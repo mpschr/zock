@@ -1,0 +1,52 @@
+<?php
+/*
+=================================== 
+zock! 
+ 
+Developed by 
+------------ 
+* Michael Schroeder: 
+   michael.p.schroeder@gmail.com  
+* 
+* 
+ 
+http://zock.sf.net 
+ 
+zock! is a free software licensed under GPL (General public license) v3 
+      more information look in the root folder for "LICENSE". 
+=================================== 
+*/
+
+//IMPORTANT: In no case, edit this file by hand. 
+//You may ask yourself why: It is processed by a script and if one space character or something misses, it won't work anymore!
+
+//MySQL
+//-----
+
+$my_db['host'] = '';
+        // Your MYSQL server
+$my_db['user'] = '';
+        // Your MySQL username
+$my_db['pass'] = '';
+	// Your MySQL password
+$my_db['db'] = '';
+	// Your MySQL database name
+$my_db['prefix'] = '';
+	// MySQL tables prefix
+
+//SMTP
+//-----
+$my_smtp['host'] = '';
+	// Your SMTP host
+$my_smtp['username'] = '';
+	// Your SMTP username
+$my_smtp['pw'] = '';
+	// Your SMTP password
+$my_smtp['from'] = '';
+	// Your SMTP sender address
+$my_smtp['port'] = '';
+	// Your SMTP port
+
+
+
+?>		
