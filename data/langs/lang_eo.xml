@@ -1,0 +1,1709 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--
+=================================== 
+zock!-Language File 
+ 
+Translated by 
+
+* Michael Schroeder:
+   michael.p.schroeder@gmail.com
+* 
+* 
+ 
+http://zock.sf.net 
+ 
+zock! is a free software licensed under GPL (General public license) v3 
+      more information look in the root folder for "LICENSE". 
+=================================== 
+- Generation Time: Aug 02, 2008 at 09:31 PM
+-->
+<zock>
+    <zock_lang>
+        <label>admin_content</label>
+        <eo>De ĉi tie eblas al vi organizi vian vetoficejon: prilabori agordaĵojn, administri ludantistojn &amp; vetludojn kaj tiel plu. Pro simpleco rigardu menueron.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_activate</label>
+        <eo>Aktivigi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_activatedialog</label>
+        <eo>Tiu paĝo ne estas malfarebla. Ĉu vi efektive volas aktivigi tiun vetludon?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_activatefirst</label>
+        <eo>Ĉi tiu parto estas nur ekstraktebla se tiu vetludo estas aktivigita.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_active</label>
+        <eo>Ĉi tiu vetludo estas aktiva. La uzantoj povas registriĝi je ĝi.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_addemptymatches</label>
+        <eo>Aldonu blankaj matĉojn</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_addnew</label>
+        <eo>Starigu novan vetludon</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_adduser</label>
+        <eo>aldoni uzanton</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_approve</label>
+        <eo>allasi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_approved_message</label>
+        <eo>Saluton $1 Vi estas allasita ĉe la vetludo $2! Nun, vi eblas fari vetojn. http://donmiguel.sagex.ch</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_approved_subject</label>
+        <eo>Vi partprenas ĉe $1!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_changecompetitor</label>
+        <eo>Ŝanĝi konkursanton</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_competitorchangeto</label>
+        <eo>Ŝanĝu nomon je:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_competitortochange</label>
+        <eo>La ŝanĝota nomo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_currency</label>
+        <eo>Valuto:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_deadline</label>
+        <eo>Templimo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_deadlineover</label>
+        <eo>La templimo estas pasinta! Kvankam, eblas al vi aldoni plian uzanton al tiu ĉi vetludo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_deny</label>
+        <eo>rifuzi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_edit</label>
+        <eo>Kontrolu vetludon</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_enoughadds</label>
+        <eo>Vi ne povas aldoni pli da matĉoj je unu fojo. Unue konservu.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_home</label>
+        <eo>Gastiganto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_howmanyemptymatches</label>
+        <eo>Kiom da blankaj matĉoj vi volas aldoni?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_inactive</label>
+        <eo>Ĉi tiu vetludo ne estas aktivata kaj do ne videbla por la uzantoj. Post aktivigado de tiu vetludo la kampoj &quot;Tempolimo&quot;, &quot;Valuto&quot;, &quot;Vetomono po matĉo&quot; kaj &quot;Rondigekzakteco&quot; estos ne plu redaktebla.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_installevent</label>
+        <eo>Instali eventhoraron</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_matchday</label>
+        <eo>Matĉtago</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_matches_content</label>
+        <eo>Aldonu matĉojn aŭ prilabori la estantojn. Se vi deziru ŝanĝi la nomon de teamo, klaku sur &lt;b&gt;ŝanĝi konkursanto&lt;/b&gt;.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_matches_title</label>
+        <eo>Matĉoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_name</label>
+        <eo>Eventnomo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_nomatches</label>
+        <eo>Ankoraŭ ne havas matĉojn por tiu evento! Klaku sur &lt;b&gt;+ matĉoj&lt;/b&gt; por aldoni kelkajn. Bonvole atentu ke vi enigas la ludkomenco en la korekta formato.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_public</label>
+        <eo>Publika:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_results_title</label>
+        <eo>Rezultoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_round</label>
+        <eo>Rondigekzakteco:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_score</label>
+        <eo>Rezulto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_title</label>
+        <eo>Eventagordaĵoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_special</label>
+        <eo>Aldono</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_stake_permatch</label>
+        <eo>Vetmono po matĉo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_time</label>
+        <eo>Ludkomenco</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_title</label>
+        <eo>Vetludoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_usersapproved</label>
+        <eo>Uzantoj allasitaj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_usersdenied</label>
+        <eo>Uzantoj rifuzitaj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_userswaiting</label>
+        <eo>Uzantoj atendantaj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_visitor</label>
+        <eo>Vizitanto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_wait</label>
+        <eo>atendigi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_addnew</label>
+        <eo>Aldonu novan elementon</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_editbelow</label>
+        <eo>Redakti elementon el la suba listo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_listall</label>
+        <eo>tuta listo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_listalluncompleted</label>
+        <eo>listo el tutaj malkompletaj elementoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_listlanguncompleted</label>
+        <eo>listo el tutaj malkompletaj elementoj el via lingvo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_nextempty</label>
+        <eo>jena blanka elemento</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_previousempty</label>
+        <eo>maljena blanka elemento</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_lang_title</label>
+        <eo>Lingvoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_bank_account_text</label>
+        <eo>La subaj two kampoj estas por indiki kien la partoprenantoj devas transkontigi la vetmonon. </eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_bank_account_text2</label>
+        <eo>..la dua kampo estas por la &lt;b&gt;kontnumero&lt;/b&gt; (ekz. postkontonumer aŭ­ IBKN).. </eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_bank_account_text1</label>
+        <eo>La unua kampo estas por la &lt;b&gt;kontotipo&lt;/b&gt; (ekz. posta aŭ­ banka konto).. </eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_description</label>
+        <eo>Priskribo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_descriptiontext</label>
+        <eo>Mallonga priskribo/frapfrazo kiu estos montrata en la paĝkapo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_formlines</label>
+        <eo># Formularlinioj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_formlinestext</label>
+        <eo>Difinas kiom da linioj estas montrataj en longaj formularoj. Ekzemple en la paĝo Miaj vetoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_lang</label>
+        <eo>Elektu norman lingvon por la retejo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_name</label>
+        <eo>Nomo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_nametext</label>
+        <eo>Kio estu la nomo de via vetoficejo?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_style</label>
+        <eo>Stilo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_styletext</label>
+        <eo>Destinu stilon por la retejo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_title</label>
+        <eo>Agordaĵoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_title</label>
+        <eo>Ĉefuzanto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_answer</label>
+        <eo>Respondo al:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_comment</label>
+        <eo>Komento:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_commenttitle</label>
+        <eo>Titolo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_participatefirst</label>
+        <eo>Antaŭ vi povas skribi iajn komentojn, vi devas partopreni al vetludo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_reply</label>
+        <eo>Rispondu</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>comments_title</label>
+        <eo>Komentoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_attention</label>
+        <eo>Atentu:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_commentsave</label>
+        <eo>Nenia komento povis esti konservita!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_content</label>
+        <eo>Mi volas iri &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Jes, iru&quot;&gt;hejmen&lt;/a&gt;!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_doesnotparticipate</label>
+        <eo>Tiu ĉi uzanto ne partoprenas en tiu vetludo!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_filledform</label>
+        <eo>La plenigita formularo enhavas erarojn (ruĝe mariktajn).</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_login</label>
+        <eo>La salutnomo aŭ la pasvorto ne korektis!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_menu</label>
+        <eo>Tiu ĉi menuero ne haveblas por vi!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_myprofile_password</label>
+        <eo>Eraro okazis! Reprovu denove.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_names</label>
+        <eo>Vi devis enigi viajn nomojn.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_notinevent</label>
+        <eo>Vi ne permesatas vidi la informojn pri la ekstraktita vetludo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_register</label>
+        <eo>Vi ne povis esti registrita pro konflikto inter viaj enigaĵoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_register_exists</label>
+        <eo>Tiu ĉi uzantnomo jam estas uzata.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_register_save</label>
+        <eo>Eraro dum konservado! Denove reprovu registri vin.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_site</label>
+        <eo>Tiu ĉi paĝo ne disponeblas por vi!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_title</label>
+        <eo>Eraro</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_cup_phase</label>
+        <eo>Eblaj matĉaj finstatoj durante la finalfazo: &lt;b&gt;nur&lt;/b&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_deadline_day_before</label>
+        <eo>La veto enigendas plej malfrue ĝis &lt;b&gt;1 antaŭ meznokto&lt;/b&gt; je la tago antaŭ la matĉtago. Kiam la matĉtag ekkomencas (00:00), ne plu eblas veti!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_deadline_toolate</label>
+        <eo>Tiuj, kiuj estas tro malfrua: via peĉo, neniu ne plu ŝanĝeblas.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_finalaccount</label>
+        <eo>Fina Bilanco</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_finalaccount_gainplusjp</label>
+        <eo>La tuta gajnota sumo je la fino konsistas el la gajnita mono durante la vetludo kaj la porcio el la vetmonujo. La gajninta estas tiu, kiu gajnis plej mono.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_gain_nobodycorrect</label>
+        <eo>Se neniu vetis pri la korekta rezulto,</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_points_correct</label>
+        <eo>korekta veto valoras &lt;b&gt;$1 poento(j)n&lt;/b&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_points_almost</label>
+        <eo>ĝuste vetita matĉa finstato ($1 3-2 anstataŭ 4-1) valoras &lt;b&gt;$2 poento(j)n&lt;/b&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_gain_correcttip</label>
+        <eo>Se la korekta rezulto estas privetita, la koncerna ludanto ricevas la tutan vetmonon de tiu matĉo (do: # ludantoj * $1)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_gain_correcttips</label>
+        <eo>Se pluraj ludantoj privetis la saman rezulton, la tuta vetmono de tiu matĉo estos disdonata kiel eble plej bone inter ili. Ebla restaĵo iros vetmonujen.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_group_phase</label>
+        <eo>Ebla matĉa finstatoj durante la grupfazo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot</label>
+        <eo>La disdono dependas de la poentoj. Ju pli multajn poentojn oni havas, des pli granda estas la porcio el la ludmonujo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_distributeon</label>
+        <eo>Ĝi estos disdonata inter la unuaj $1 el la ranglisto.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_linformula</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_expformula</label>
+        <eo>La disdono okazos eksponenciala: La formulo estos: &lt;b&gt;&lt;i&gt;&quot;Porcio(Rango) = (1-k)^(Rango-1) * k * Vetmonujo&quot;&lt;/i&gt;&lt;/b&gt;. Estos malgranda restaĵo (logike). Por disdoni tiun restaĵon, la sama formulo estas aplikota ĝis neniu restaĵo estos. &lt;b&gt;k&lt;/b&gt; estas $1 en tiu vetludo. Do, la unue rangata ricevos iom pli ol $2 el la vetmonujo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_samerank</label>
+        <eo>Se pluraj ludantoj kolektis egalmulte poentojn, la vetmonujporcioj de la koncernaj rangoj estos sumigata kaj la rezulta sumo estos egale disdonata inter la koncerna ludantoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_overview</label>
+        <eo>Por certigi ke neniu eblas fraŭdi, ĉies vetoj videblas al la aliaj kaj la kontoj estas sekurigataj per pasvortoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_penalty_decision</label>
+        <eo>Se matĉo estas decidita per punŝotado, oni adicias unu golon por la gajninta teamo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_points</label>
+        <eo>Poentoj gajneblas durante la vetludo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_precise_tip</label>
+        <eo>Ĉiu matĉo estas privetata per preciza rezulto:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_rules</label>
+        <eo>Kielmaniere la vetludo funkcias estas klarigata per la sekvontaj poentoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_sealofapproval</label>
+        <eo>ne forgesenda: la altnivele koncipita kvalitsigelo de la vetoficejo $1</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_stake</label>
+        <eo>Vetmono</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_stakepermatch</label>
+        <eo>La vetmono por ĉiu matĉo (ĉiu veto) estas $1</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_staketotal</label>
+        <eo>Okazos $1 matĉojn. Tiu postulas ke la totala sumo estas $2! Tiu ĉi sumo estas trankontigenda antaŭ la unua veto fareblas.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>footer_contact</label>
+        <eo>kontakto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>footer_server_time</label>
+        <eo>Nuna serviltempo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_and</label>
+        <eo>kaj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_bank_account</label>
+        <eo>Konto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_bettingOffice</label>
+        <eo>vetoficejo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_by</label>
+        <eo>de</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_cancel</label>
+        <eo>nuligi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_defeat</label>
+        <eo>malvenko</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_edit</label>
+        <eo>prilabordi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_eg</label>
+        <eo>ekz.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_famname</label>
+        <eo>Familinomo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_furtherevents</label>
+        <eo>Pliaj vetludoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_goback</label>
+        <eo>malantaŭen</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_goforward</label>
+        <eo>antaŭen</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_hello</label>
+        <eo>Saluton</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_id</label>
+        <eo>id.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_langchange</label>
+        <eo>Ĉu vi volas ŝanĝi la lingvon?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_language</label>
+        <eo>Lingvo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_maximize</label>
+        <eo>malkaŝi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_minimize</label>
+        <eo>kaŝi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_name</label>
+        <eo>Nomo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_no</label>
+        <eo>Ne</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_nomatches</label>
+        <eo>Ankoraŭ ne estas jam luditaj matĉoj por tiu vetludo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_page</label>
+        <eo>Paĝo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_publicevents</label>
+        <eo>Publikaj vetludoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_read</label>
+        <eo>legi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_redirect</label>
+        <eo>Vi tuja estos plusendota.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_save</label>
+        <eo>konservi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_savechanges</label>
+        <eo>konservi ŝanĝojn</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_savednotok</label>
+        <eo>Paneo dum skribado!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_savedok</label>
+        <eo>sukcese konservita!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_show_info</label>
+        <eo>Montru informojn pri!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_thislanguage</label>
+        <eo>Esperanto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_tie</label>
+        <eo>remiso</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_time_at</label>
+        <eo>je</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_updating</label>
+        <eo>Ĝisdatigante...</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_upload</label>
+        <eo>alŝuti</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_victory</label>
+        <eo>venko</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_who</label>
+        <eo>Kiu</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_yes</label>
+        <eo>Jes</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_yourevents</label>
+        <eo>Viaj vetludoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_content</label>
+        <eo>Tiu paĝo donas al vi la ebleco de priveti sporteventojn.&lt;br /&gt; Por ke vi povas partopreni, vi devas registriĝi per la jena ligilo: &lt;a href=&quot;?menu=register&quot;&gt;Registri konton&lt;/a&gt;&lt;p /&gt; Se vi jam havas konton, klaku ĉi tie: &lt;a href=&quot;?menu=login&quot;&gt;Saluto&lt;/a&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_events</label>
+        <eo>Nun jenaj vetludoj estas aktiva:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_fun</label>
+        <eo>Amusiĝu!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_noevents</label>
+        <eo>Ankroaŭ ne estas aktivajn vetludojn.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_title</label>
+        <eo>Ĉefpaĝo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>home_welcome</label>
+        <eo>Bonvenon ĉe la vetoficejo!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_content</label>
+        <eo>Enigu la necesajn informojn por saluti:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_title</label>
+        <eo>Saluto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_yourlogin</label>
+        <eo>Via nomo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_yourpw</label>
+        <eo>Via pasvorto:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_content</label>
+        <eo>Vi sukcese salutis!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_newcomments</label>
+        <eo>Tiuj ĉi estas la lastaj komentoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_noevent</label>
+        <eo>Vi ankoraŭ partoprenas je neniu vetludo. Vi povas enskribiĝi kaj agordi aliajn agordaĵojn en &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;via profilo&lt;/a&gt;.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_title</label>
+        <eo>Ĉefpaĝo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_yourevent</label>
+        <eo>Vi partoprenas je jena vetludo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_yourevents</label>
+        <eo>Vi partoprenas je jenaj vetludoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>logout_content</label>
+        <eo>Vi nun estas adiaŭita kaj tuj estos plusendota.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>logout_title</label>
+        <eo>Adiaŭo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_appearance_nopicture</label>
+        <eo>Neniu bildo disponebla.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_appearance_picture</label>
+        <eo>Bildo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_appearance_text</label>
+        <eo>Teksto:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_appearance_title</label>
+        <eo>Aperaĵo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_content</label>
+        <eo>En ĉi tiu parto vi povas difini vian aperaĵon al la aliaj kaj la vetoficejan aperaĵon al vi. Plia vi povas ŝanĝi vian pasvorton. &lt;p /&gt; Uzu la submenuerojn de profilo por alveni al iu ajn agordaĵo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_password_content</label>
+        <eo>Enigu unufoje la nunan kaj dufoje la deziratan pasvorton por ŝanĝi ĝin.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_password_new</label>
+        <eo>du fojoj nova:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_password_old</label>
+        <eo>malnova</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_password_title</label>
+        <eo>Pasvorto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_approved</label>
+        <eo>allasita</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_changeemail</label>
+        <eo>Por ŝanĝi la retpoŝtadreson dufoje enigu ĝin.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_content</label>
+        <eo>Ĉi tie vi povas inter alie registriĝi je vetludoj.&lt;br/&gt; Je &quot;malfermitaj&quot; vetludoj vi povas ankoraŭ registriĝi, Je &quot;atendantaj&quot; vetludoj vi devas atendi ĝis allasado pro la Ĉefuzanto, je &quot;allasitaj&quot; kaj &quot;rifuzitaj&quot; vetludoj vi estas definitive allasita aŭ rifuzita.
+&lt;p/&gt;
+&lt;font class=&quot;error&quot;&gt; Se vi ŝanĝis ion (ekz. klaki sur partpreni) vi devas klaki sur &quot;konservi ŝanĝojn&quot; sube&lt;/font&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_denied</label>
+        <eo>rifuzita:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_email_notify</label>
+        <eo>Se vi faris tiun, skribu retleteron al $1 por informi la ĉefuzanto(j)n.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_eventinfo</label>
+        <eo>Tiu evento enhavas $1 matĉojn je kiuj oni vetas $2 po matĉo. Do, oni devas veti $3 por partopreni al tiu ĉi vetludo. Por esti allasota al tiu ĉi vetludo oni devasen pagi la ĵus menciitan sumon.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_open</label>
+        <eo>malfermita:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_participate</label>
+        <eo>partpreni</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_retire</label>
+        <eo>renonci</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_staketopay</label>
+        <eo>pagenda vetmono</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_title</label>
+        <eo>Agordaĵoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_waiting</label>
+        <eo>atendanta:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_wiringcomment</label>
+        <eo>Kiel &lt;b&gt;transkontigkomento&lt;/b&gt; skribu:&lt;/br&gt; &lt;i&gt;$1: $2 partprenas!&lt;/i&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_title</label>
+        <eo>Mia profilo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_participatefirst</label>
+        <eo>Vi devus partpreni je vetludo antaŭ ol priveti. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Iru partpreni&lt;/a&gt; aŭ &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;atendu&lt;/a&gt; ĝis vi estas allasita pro la ĉefuzanto.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_sametip</label>
+        <eo>Samaj&lt;br/&gt;Vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_tendency</label>
+        <eo>Tendenco (%)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_tip</label>
+        <eo>Veto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_tips</label>
+        <eo>Vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_title</label>
+        <eo>Miaj vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_content</label>
+        <eo>La superrigardo eblas al vi superrigardi ĉio esenca de vetludo. Kiel vetas viajn kunludantojn? Kiu estas plej bona? &lt;br /&gt; La kunigoj montras jam kolektitajn monon &amp; poentojn de specifa ludanto. &lt;br /&gt; Por ke vi povas vidi tiom kiom eble, vi povas kaŝi la dekstreflankan menuon.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_jackpot</label>
+        <eo>Vetmonujo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_noevents</label>
+        <eo>Bedaŭrinde ankoraŭ ne estas vetludoj kies superrigardo oni povus vidigi.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_onlyme</label>
+        <eo>nur mi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_summary</label>
+        <eo>Kunigo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_correcttips</label>
+        <eo>Ĝustaj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_summaryall</label>
+        <eo>Fina kunigo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>overview_title</label>
+        <eo>Superrigardo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_content</label>
+        <eo>Malkovru kiuj estas viaj kunludantoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_noevents</label>
+        <eo>Ankoraŭ ne estas enventoj je kiuj ludantoj povus partpreni.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_nousers</label>
+        <eo>Ĉi tiu vetludo havas neniun kunludanton.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_title</label>
+        <eo>Kunludantoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_gain</label>
+        <eo>Gajno</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_jackpotshare</label>
+        <eo>Porcio el Vetmon.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_points</label>
+        <eo>Poentoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_provisorygain</label>
+        <eo>prov. Gajno</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_rank</label>
+        <eo>Rango</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_title</label>
+        <eo>Ranglisto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_content</label>
+        <eo>Por ke vi povas enskribiĝi je vetludo, vi antaŭe devas fari uzantprofilon, per kiu vi povas saluti. Nur tiam vi povas partpreni je vetludo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_email</label>
+        <eo>Retpoŝtadreso</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_emailsubject</label>
+        <eo>Registrado je vetoficejo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_ok</label>
+        <eo>Vi estis registri sukcese. Retletero kun pasvorto estis sendita al vi. Ofte ĝi estas malpermesota pro la spamfiltrilo, do ĉi tie la retletero:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_title</label>
+        <eo>Registri</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>register_username</label>
+        <eo>Salutnomo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_normalview</label>
+        <eo>Norma Vidaĵo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_largeview</label>
+        <eo>Larĝa Vidaĵo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_monday</label>
+        <eo>Luno</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_tuesday</label>
+        <eo>Marto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_wednesday</label>
+        <eo>Merkredo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_friday</label>
+        <eo>Vendredo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_thursday</label>
+        <eo>Ĵaŭdo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_saturday</label>
+        <eo>Sabato</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_sunday</label>
+        <eo>Dimanĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_write</label>
+        <eo>skribi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_nexttips</label>
+        <eo>La plej proksimaj vetoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_bettinggameover</label>
+        <eo>Tiu ĉi vetludo ja pasis.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_correcttips</label>
+        <eo>Ĝustaj vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_closetips</label>
+        <eo>Preskaŭ ĝustaj vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>participants_wrongtips</label>
+        <eo>Malĝustaj vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_rememberme</label>
+        <eo>Memoru min per tiu ĉi komputilo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_gain_tojackpot</label>
+        <eo>la tuta vetmono de tiu matĉo iros ludmonujen.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_almosttips</label>
+        <eo>Preskaŭ</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_wrongtips</label>
+        <eo>Malĝustaj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_waitfortips</label>
+        <eo>La plej proksimaj vetoj ankoraŭ ne estas publika.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr</label>
+        <eo>Poentdisdonado</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr_correct</label>
+        <eo>Ĝuste vetita rezulto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr_diff</label>
+        <eo>Ĝuste vetita goldiferenco por la ĝusta teamo (ekz. 3-2 anstataŭ 2-1)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr_almost</label>
+        <eo>Ĝuste vetita matĉfino (kiel toto) por la ĝusta teamo (ekz. 1-0 anstataŭ 4-1)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr_wrong</label>
+        <eo>Fuŝaj vetoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_stake_fix</label>
+        <eo>Vetmono por vetludo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_stakemode_none</label>
+        <eo>neniom</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_stakemode_fix</label>
+        <eo>fiksa</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_stakemode_permatch</label>
+        <eo>po ludo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_bank_account_intro</label>
+        <eo>Indiku kien la gajno devas esti transkontigita post la vetludo:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_participatereally</label>
+        <eo>Ĉu vi vere volas partpreni je tiu vetludo?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_profilesettings</label>
+        <eo>Profilagordaĵoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_persdetails</label>
+        <eo>Personaj indikoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_withdrawreally</label>
+        <eo>Ĉu vi vere ne volas partpreni?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_title</label>
+        <eo>Mesaĝoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_send</label>
+        <eo>forsendi</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_internal</label>
+        <eo>Interna</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_receivers</label>
+        <eo>Adresulo(j)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_none</label>
+        <eo>neniuj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_add</label>
+        <eo>aldoni</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_singleusers</label>
+        <eo>Uzantoj unusolaj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_newmessage</label>
+        <eo>Ĉi tiu estas nova mesaĝo de $1, forsendita $2 $3:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_readparticipe</label>
+        <eo>legita!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_content</label>
+        <eo>Enhavo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_system</label>
+        <eo>Forsendsistemo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_notitle</label>
+        <eo>neniu titulo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_nocontent</label>
+        <eo>neniu enhavo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_messages_noreceivers</label>
+        <eo>neniuj ricevontoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_preferredlanguage</label>
+        <eo>Elektu vian preferatan lingvon por la retejo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_commentnumber</label>
+        <eo>kiuj estas montrataj en la &lt;i&gt;$1&lt;/i&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_bank_account_text3</label>
+        <eo>..kaj la tria por la &lt;b&gt;kontulo&lt;/b&gt; (adreso).</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_stake</label>
+        <eo>Vetmono</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_matchnb</label>
+        <eo># Matĉoj por ĉi tiu vetludo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_jackpotmode_fraction</label>
+        <eo>ono</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_jackpotexp</label>
+        <eo>Disdonu la vetmonujon al &lt;b&gt;ono&lt;/b&gt; (en %) aŭ al &lt;b&gt;fiksa&lt;/b&gt; nombro el la partprenantoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_jackpot_fraction</label>
+        <eo>Entajpu la onon je elcentoj (ekz. 33% por la unua triono)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_jackpot_fix</label>
+        <eo>Entajpu ĝis kiu rango la vetmonujo estos disdonata.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_distr</label>
+        <eo>Vetmonuja disdonado</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_distralgorithm</label>
+        <eo>Estas tri disdonadaj algorimtoj:&lt;br/&gt;
+&lt;b&gt;$1&lt;/b&gt;: Vi entajpas al kiuj rangoj ricevas kiom da elcentoj .&lt;br/&gt;
+&lt;b&gt;$2&lt;/b&gt;: La vetmonujo estas linia disdonata. Tiu varianto estas tre senekstrema. &lt;br/&gt; La formulo estas: &lt;i&gt;Porcio(Rango) = (Vetmonujo / &amp;#931;(Vetmonujulaj Rangoj)) * (Vetmonujuloj - (Rango – 1)).&lt;/i&gt;&lt;br/&gt;
+&lt;b&gt;$3&lt;/b&gt;: La vetmonujo estas exponenciala disdonata. Dependa de la koeficiento k (kiu vi indikas), tiu varianto povas esti tre ekstrema (tamen pli interesante por la unuaj). La Formula estas: &lt;i&gt;Porcio(Rango) = (1-k)^(Rango-1) * k * Vetmonujo&lt;/i&gt;.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_distr_lin</label>
+        <eo>linia</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_settings_distr_exp</label>
+        <eo>eksponentiala</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_firstjackpotfixfield</label>
+        <eo>Unue, difinu kiom da rangoj partprenas al vetmonujo!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_fixshares</label>
+        <eo>Tiu ĉi kampo indikas la fiksan disdonadon de la vetmonujo (klaku sur $1 aŭ en la kampo por efekti ŝanĝojn).</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_expshares</label>
+        <eo>Entajpu koeficienton (malpli granda ol 0) por la eksponenciala disdonado. La unua rango ricevos ĉirkaŭ tiun koeficienton el la vetmonujo (koeficiento * vetmonujo).</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_beton</label>
+        <eo>Je kio veti?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_betonexp</label>
+        <eo>Oni povas veti je &lt;br/&gt;
+-&lt;b&gt; Rezulto&lt;/b&gt; de la matĉo: 3-2, 1-3, 0-0&lt;br/&gt;
+-&lt;b&gt;Toto&lt;/b&gt; de la matĉo: 1 = gastiganto venkas, 2 = vizitanto venkas, x = nula matĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_toto</label>
+        <eo>Toto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_pointdistr_toto</label>
+        <eo>Ĝuste vetita toto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_komatchesexp</label>
+        <eo>Estas finalmatĉoj en ĉi tiu vetludo? En tiaj matĉoj devas esti venkinto, la venkito eksiĝas kaj no nula partio eblas.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_only</label>
+        <eo>nur</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_tietough</label>
+        <eo>Tamen ebligu nulan matĉon?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_afterpenalty</label>
+        <eo>Kiel estos la rezulto post ebla punŝotado?&lt;br/&gt;
+- aldonu tutajn punŝotojn al la rezulto&lt;br/&gt;
+- aldonu unu golon al la venkinta teama rezulto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_afterpenalty_addall</label>
+        <eo>aldonu tutajn</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_afterpenalty_addone</label>
+        <eo>aldonu unu</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_gain_stakeback</label>
+        <eo>ĉiuj tiuj, kiuj privetis la ĝustan matĉan finstaton ($1/$2/$3) tamen ricevos ilian vetmonon ($4) de tiu matĉo. La restaĵo el la vetmonoj iros ludmonujen.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_team</label>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_nostake</label>
+        <eo>Por tiu ĉi evento ne estas vetmonon. Do, vi devi pagi nenion.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_fixstake</label>
+        <eo>La vetmono por tiu ĉi vetludo estas fiksa sumo: $1.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_totalgain</label>
+        <eo>Entera gajno</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_beton_toto</label>
+        <eo>En ĉi tiu vetludo, oni vetos je toto (eblaj matĉaj finstatoj). Do, oni teorie havas la tri eblecojn: $1$2$3.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_beton_toto_1</label>
+        <eo>1 = Gastiganto gajnas</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_beton_toto_2</label>
+        <eo>2 = Gastiganto gajnas</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_beton_toto_x</label>
+        <eo>x = Remiso</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_matches_both_types</label>
+        <eo>Estas kaj $1 kaj $2 en ĉi tiu vetludo.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_inallmatches</label>
+        <eo>En ĉiuj matĉoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_in_matches</label>
+        <eo>En</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_tournamentmatches</label>
+        <eo>turnirmatĉoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_komatches</label>
+        <eo>nokaŭtaj matĉoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_allpossible</label>
+        <eo>$1/$2 &amp; $3 eblas.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_tieno</label>
+        <eo>&lt;b&gt;nur&lt;/b&gt; $1/$2 eblas.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_tietough</label>
+        <eo>La konsiderota resulto$1 estos la resulto al fino de la matĉo (sen punŝotado).</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_afterpenalties</label>
+        <eo>Se matĉo decidigas por punŝutado,</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_afterpenalties_one</label>
+        <eo>unu golo estos adiciigata al la rezulto de la gajninto.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_afterpenalties_all</label>
+        <eo>ĉiu punŝutgolo estos adiciigata al la rezulto.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_minute</label>
+        <eo>minuto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_minutes</label>
+        <eo>minutoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_minute_s</label>
+        <eo>minuto(j)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_hour</label>
+        <eo>horo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_hours</label>
+        <eo>horoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_hour_s</label>
+        <eo>horo(j)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_day</label>
+        <eo>tago</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_days</label>
+        <eo>tagoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_day_s</label>
+        <eo>tago(j)</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_bet_until</label>
+        <eo>La vetoj enigendas plej malfrue ĝis &lt;b&gt;$1 antaŭ $2&lt;/b&gt;.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_thefirstmatch</label>
+        <eo>la &lt;i&gt;unua&lt;/i&gt; matĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_match</label>
+        <eo>la matĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_points_diff</label>
+        <eo>ĝuste vetita goldiferenco ($1 0-3 anstataŭ 1-4) valoras &lt;b&gt;$2 poento(j)n&lt;/b&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_points_wrong</label>
+        <eo>tute fuŝa veto valoras &lt;b&gt;$3 poento(j)n&lt;/b&gt;</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>login_forgotpassword</label>
+    </zock_lang>
+    <zock_lang>
+        <label>login_senddata</label>
+    </zock_lang>
+    <zock_lang>
+        <label>login_userdatasubject</label>
+    </zock_lang>
+    <zock_lang>
+        <label>login_userdatamail</label>
+    </zock_lang>
+    <zock_lang>
+        <label>login_userdatasent</label>
+    </zock_lang>
+    <zock_lang>
+        <label>error_nouserwiththisemail</label>
+    </zock_lang>
+    <zock_lang>
+        <label>error_nofunctionalsmtp</label>
+    </zock_lang>
+    <zock_lang>
+        <label>general_writetoadmin</label>
+    </zock_lang>
+    <zock_lang>
+        <label>error_register_alreadyaccount</label>
+    </zock_lang>
+    <zock_lang>
+        <label>error_register_logintoolong</label>
+    </zock_lang>
+    <zock_lang>
+        <label>login_askfordata</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_siteurl</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_siteurltext</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notifications</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notificationstext</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notify_participate</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notify_newaccount</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notify_withdraw</label>
+    </zock_lang>
+    <zock_lang>
+        <label>register_emailhere</label>
+    </zock_lang>
+    <zock_lang>
+        <label>general_notification</label>
+    </zock_lang>
+    <zock_lang>
+        <label>register_newaccount</label>
+    </zock_lang>
+    <zock_lang>
+        <label>register_newaccounttext</label>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_notifywithdraw</label>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_notifywithdrawtxt</label>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_notifyparticipate</label>
+    </zock_lang>
+    <zock_lang>
+        <label>myprofile_settings_notifyparticipatetxt</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpactivated</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_modifysmtp</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpexp</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpserver</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtplogin</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_fromaddress</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_fromaddressexp</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpport</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpportexp</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_smtpdisactivated</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_mailnotsent</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_mailsent</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_testemail_subject</label>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_testemail_txt</label>
+    </zock_lang>
+    <zock_lang>
+        <label>general_contains</label>
+        <eo>enhavas</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_filter</label>
+        <eo>filtrilo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_filterverb</label>
+        <eo>filtri</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_filter_emptyresults</label>
+    </zock_lang>
+    <zock_lang>
+        <label>general_is</label>
+        <eo>estas</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_difftips</label>
+        <eo>Diferenco</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_monday_short</label>
+        <eo>Lu</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_tuesday_short</label>
+        <eo>Ma</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_wednesday_short</label>
+        <eo>Me</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_thursday_short</label>
+        <eo>Ĵa</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_friday_short</label>
+        <eo>Ve</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_saturday_short</label>
+        <eo>Sa</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_sunday_short</label>
+        <eo>Di</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_arrangematchdays</label>
+        <eo>Organizu la matĉtagojn</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_showingxoutofx</label>
+        <eo>Ranglisto post $1 el $2 matĉoj:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>ranking_showrankinguntil</label>
+        <eo>Vidigu la rangliston ĝis</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_match</label>
+        <eo>Matĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_date</label>
+        <eo>Dato</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_stakeback</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_stakebacknotpossible</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_betuntil</label>
+        <eo>Ĝis kiam veti?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_betuntilexp</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>general_before</label>
+        <eo>antaŭ</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_bettinggameinitiation</label>
+        <eo>Vetludkomenco</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_nextstep</label>
+        <eo>al sekva paso</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_nextstepdialog</label>
+        <eo>NUR se vi certegas ke ĉio estas agordita kiel vi viŝas, iru</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_displayinfo</label>
+        <eo>Vidigu informojn por tiuj agordaĵoj</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_finalaccount_jp</label>
+        <eo>La tuta gajnota sumo je la fino estas la porcio el la vetmonujo. La kunludanto kun plej poentoj ricevas la plej granda porcio kaj do estas la gajnanto.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_floored</label>
+        <eo>suben rondigita</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_jackpot_fixformula</label>
+        <eo>La fiksa disono okazos kiel indikata ĉi-sube:</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_name</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_date</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_matchnb</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_stake</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_currency</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_round</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_fraction</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_jackpotfix</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_jackpotfixshares</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_expshare</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_betuntil</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_pcorrect</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_pdiff</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_palmost</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_err_invalid_pwrong</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_createevent</label>
+        <eo>Krei Vetludo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_createtemplate</label>
+        <eo>Kreanta modelon</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_modeselection</label>
+        <eo>Moduselektado</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_scheduleactivation</label>
+        <eo>Horaro &amp; Aktivigo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_fromphase3</label>
+        <eo>Tiu ĉi parto nur estas ekstraktebla ekde la paŝo 3.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_phase3text</label>
+        <eo>Nun posiblas al vi &lt;a href=&quot;$1&quot;&gt; agordi la horaron &lt;/a&gt; durante la vetludo ankoraŭ estas nevidebla al la uzantoj. &lt;b&gt;Ĉio krom &quot;$2&quot;&lt;/b&gt; vi eblas agordi nun, agordeblas ankaŭ post la aktivado, &lt;b&gt;tamen&lt;/b&gt; nur aktivigu se vi vere volas ke la vetludo videblas al la uzantoj.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_komatch</label>
+        <eo>Nokaŭtmatĉo</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_showeventlist</label>
+        <eo>Vidigi la vetludliston</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_inputtypeexp</label>
+        <eo>Kiel vi volas enterigi la matĉrezulton?</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>error_incorrectmatchnb</label>
+        <eo></eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_events_existantmatchesremoved</label>
+        <eo>La ekzistantaj matĉoj estos forigataj!</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_finalaccount_points</label>
+        <eo>La venkinto estas tio, kio havas plej poentojn.</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_langlist</label>
+        <eo>Lingvlisto</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_installlang</label>
+        <eo>Instali lingvon</eo>
+    </zock_lang>
+</zock>
