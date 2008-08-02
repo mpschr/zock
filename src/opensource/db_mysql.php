@@ -1,6 +1,5 @@
 <?php
-//this is a very useful class, the only thing changed here is the addition of the lines 63-65 and the $my_db variable names and part of line 28
-
+//this is a very useful class
 /*
   ===========================
   boastMachine v3.1
@@ -39,6 +38,9 @@ class bDb {
 			// Cant connect to the server!
 			if(!$this->link) {
 				die(mysql_error());
+			}else{
+				mysql_query("SET NAMES 'utf8';");
+				mysql_query("SET CHARACTER SET 'utf8';"); 
 			}
 			// Cant select the database!
 			if(!@mysql_select_db($my_db['db'],$this->link)) {

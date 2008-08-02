@@ -46,7 +46,7 @@ if(isset($_REQUEST['langchange'])){
 	setcookie('lang', $_REQUEST['langchange'],time()+60*60*24*30);
 }
 
-define (VERSION, 'v0.5');
+define (VERSION, 'v0.5.1');
 
 //installing?
 if(is_dir('installation')){
@@ -54,7 +54,7 @@ if(is_dir('installation')){
 	define(INSTALLING, 'true');
 
 	if(!isset($_SESSION['dlang'])) $_SESSION['dlang'] = 'en';
-	include('installation/lang_'.$_SESSION['dlang'].'.php');
+	include('installation/ilang/install_'.$_SESSION['dlang'].'.php');
 	$langs = Array(
 		'long'	=> Array(
 			'English',
@@ -70,7 +70,7 @@ if(is_dir('installation')){
 
 	$settings = Array(
 		'name'		=>	'zock!',
-		'description'	=>	'Your Betting Office',
+		'description'	=>	$lang['instl_yourbettingoffice'],
 		'style' 	=>	'zock',
 		'email' 	=>	'zock@sagex.ch' );
 	//include style info file

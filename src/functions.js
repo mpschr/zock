@@ -45,7 +45,7 @@ function languageChange(url, dialog){
 // gets the language from the select form in the footer & sends to change the language
 	//=> called from every site
 
-	lang=document.getElementById('lang').value
+	lang=document.getElementById('langCh').value
 	document.location = url + "&langchange=" + lang
 }
 

@@ -52,10 +52,10 @@ if($style['plainviewcompatible']){
 	echo '<div id="plain"> <a href="'.$uri.'">'.$lang['general_largeview'].'</a></div>';
 }
 	?>
-	<div align="center"> <!-- will be closed by footer -->
+	<div align="center"> <!-- will be closed by footer.php -->
 
 
-	<div id="motherdiv"> <!-- will be closed by footer -->
+	<div id="motherdiv"> <!-- will be closed by footer.php -->
 
 	<? styleLogo(); ?>
 
@@ -117,11 +117,11 @@ $link = '?menu='.$rlink;
 $link_query = ereg_replace('menu='.$rlink,'', $_SERVER['QUERY_STRING'].'&');
 
 ?>
-</div> <!-- closes div menu_h -->
+</div> <!-- menu_h divs.. -->
 </div>
 </div>
 </div>
-</div>
+</div><!-- ..closed -->
 <?
 }
 ?>
@@ -146,10 +146,10 @@ if(!defined(INSTALLING)){
 //the most important part of the site =)
 include_once('cnt/'.$site);
 ?>
-</div><!-- cnt-div closed -->
+</div><!-- cnt-divs.. -->
 </div>
 </div>
 </div>
-</div>
+</div><!-- ..closed -->
 
 <?php 

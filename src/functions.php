@@ -73,6 +73,8 @@ Function index:
 >weekday
 >infoBarEventCreation
 >getStyleInfo
+>installLang
+>lookupLangName
  */
 
 
@@ -84,6 +86,7 @@ if(!defined(INSTALLING)) include("src/vars.php");
 include_once("src/opensource/db_mysql.php");
 //after loading the db class, we  want to us it and try to make an instance :)
 if(!defined(INSTALLING)) $db = new bDb;
+
 
 function init(){
 	//is only invoked @ first connect to the website
@@ -206,10 +209,18 @@ function languagesReader(){
 	$i = 0;
 	foreach ($languages[0] as $el){
 		if ($i > 0){
-			$langs['long'][] = $el;
-			$langs['short'][] = $shorts[$i];
+			$prelangs['long'][] = $el;
+			$prelangs['short'][] = $shorts[$i];
 		}
 		$i++;
+	}
+	
+	$flip = $copy = $prelangs['long'];
+	sort($copy);
+	$flip = array_flip($flip);
+	foreach($copy as $c){
+		$langs['short'][] = $prelangs['short'][$flip[$c]];
+		$langs['long'][] = $c;
 	}
 	return $langs;
 }
@@ -1460,6 +1471,53 @@ function infoBarEventCreation($p,$s=0){
 function getStyleInfo($name){
 	include('src/style_'.$name.'/info.php');
 	return $style;
+}
+
+function installLang($sh){
+	global $db, $my_db;
+	$db->query("ALTER TABLE ".$my_db['prefix']."_lang ADD COLUMN `".$sh."` longtext collate utf8_unicode_ci");
+	$handle = fopen("data/langs/lang_".$sh.".xml", "r");
+	if ($handle) {
+		while (!feof($handle)) {
+			$xmlCNT .= fgets($handle, 4096);
+		}
+		fclose($handle);
+	}
+	$p = xml_parser_create();
+	xml_parse_into_struct($p, $xmlCNT, $vals, $index);
+	$langcode = strtoupper($sh);
+	foreach($vals as $v){
+		if($v['tag']=='LABEL') $l = $v['value'];
+		if($v['tag']==$langcode) {
+			$i = $v['value'];
+			$db->query("UPDATE ".$my_db['prefix']."_lang 
+					SET `".$sh."`= '".mysql_real_escape_string($i)."' 
+					WHERE label LIKE '".$l."';");
+		}
+	}
+
+}
+
+function lookupLangName($sh){
+	$handle = fopen("data/langs/lang_".$sh.".xml", "r");
+	if ($handle) {
+		while (!feof($handle)) {
+			$xmlCNT .= fgets($handle, 4096);
+		}
+		fclose($handle);
+	}
+	$p = xml_parser_create();
+	xml_parse_into_struct($p, $xmlCNT, $vals);
+	xml_parser_free($p);
+	$next = false;
+	$langcode = strtoupper($sh);
+	foreach($vals as $v){
+		if($v['value']=='general_thislanguage') $next = true;
+		if($next && $v['tag']==$langcode) {
+			return $v['value'];
+		}
+	}
+
 }
 
 ?>

@@ -16,7 +16,7 @@ zock! is a free software licensed under GPL (General public license) v3
       more information look in the root folder for "LICENSE". 
 =================================== 
 */
-global $db, $settings;
+global $db, $settings, $langs;
 
 if($_REQUEST['setac'] == 'savesettings'){
 
@@ -26,6 +26,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 	if(!(is_numeric($data['formlines']))) $data['formlines'] = $settings['formlines'];
 	if(!($data['email1'] == $data['email2'] && stristr($data['email1'], '@') != FALSE))
 		$data['email1'] = $data['email2'] = $settings['email'];
+	if(!isset($data['lsel'])) $data['lsel'] = $_SESSION['dlang'];
 	
 	$update = array (	'lang' => $data['lsel'],
 				'name' => $data['name'],
@@ -44,6 +45,17 @@ if($_REQUEST['setac'] == 'savesettings'){
 	//the rest can be updated as it is
 	foreach ($update as $setting => $value)
 		$db->query("UPDATE ".PFIX."_settings SET value = '".$value."' WHERE setting = '".$setting."';");
+
+	//language install & remove
+	foreach ($data as $l=>$v){
+		if(substr($l, 0,4) == 'lang' && $v=='on'){
+			if(substr($l,4,1) == 'i')
+				installLang(str_replace('langi_', '', $l));
+			elseif(substr($l,4,1) == 'r')
+				$db->query("ALTER TABLE ".PFIX."_lang DROP COLUMN ".str_replace('langr_', '', $l).";");
+		}
+	}
+
 	redirect($rlink);
 //	print_r($_POST);
 
@@ -146,10 +158,44 @@ if($_REQUEST['setac'] == 'savesettings'){
 
 		//=> the language
 		echo '<div class="title">'.$lang['general_language'].'</div>';
+		if(sizeof($langs['short'])>1){
 			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_lang'], 40)).'</div>';
 			$select = makeLangSelect($settings['lang']);
 			echo '<div class="input">'.$select.'</div>';
-		
+		}
+		?><script type="text/javascript">
+			function showLangList(){
+				var c = document.getElementById("langlistdiv").getAttribute("class");
+				if(c=="input notvisible"){
+					document.getElementById("langlistdiv").setAttribute("class", "input");
+				}else{
+					document.getElementById("langlistdiv").setAttribute("class", "input notvisible");
+				}
+		}
+		</script><?
+		//=> install language
+		echo '<div>'.$lang['admin_settings_installlang'].'<br/>
+				<a href="javascript: showLangList()">'.$lang['admin_settings_langlist'].'</a></div>';
+		echo '<div class="input notvisible" id="langlistdiv">';
+		$langdircnt = scandir('data/langs');
+		echo '<b>'.$lang['general_remove'].':</b><br/>';
+		for ($x = 0 ; $x < sizeof($langs['short']) ; $x++){
+			if($langs['short'][$x] != $_SESSION['dlang'])
+				echo $langs['long'][$x].' <input type="checkbox" name="langr_'.$langs['short'][$x].'" /><br/>'; 
+		} 
+		echo '<br/><b>'.$lang['general_install'].':</b><br/>';
+		foreach ($langdircnt as $el){
+			if (is_file('data/langs/'.$el) && substr($el, -3) == 'xml'){
+				$l_short = substr($el, 5);
+				$l_short =  str_replace('.xml', '', $l_short);
+				if (!in_array($l_short, $langs['short'])){
+					$l_long = lookupLangName($l_short);
+					echo $l_long.' <input type="checkbox" name="langi_'.$l_short.'" /><br/>'; 
+				}
+			}
+		}
+		echo '</div>';
+
 		//=> the style
 		echo '<div class="title">'.$lang['admin_settings_style'].'</div>';
 			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_styletext'], 40)).'</div>';

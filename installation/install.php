@@ -16,6 +16,10 @@ zock! is a free software licensed under GPL (General public license) v3
       more information look in the root folder for "LICENSE". 
 =================================== 
 */
+
+
+
+
 if(isset($_REQUEST['installnow'])){
 
 	global $my_db;
@@ -108,6 +112,29 @@ if(isset($_REQUEST['installnow'])){
 		foreach($sqlqueries as $sqlquery){
 //			echo 'newquery<pre>'.$sqlquery.'</pre>';
 			$dbinstance->query($sqlquery);
+		}
+
+		// ADD language
+		$dbinstance->query("ALTER TABLE ".$my_db['prefix']."_lang ADD COLUMN `".$_SESSION['dlang']."` longtext collate utf8_unicode_ci");
+
+		$handle = fopen("data/langs/lang_".$_SESSION['dlang'].".xml", "r");
+		if ($handle) {
+		    while (!feof($handle)) {
+			$xmlCNT .= fgets($handle, 4096);
+		    }
+		    fclose($handle);
+		}
+		$p = xml_parser_create();
+		xml_parse_into_struct($p, $xmlCNT, $vals, $index);
+		$langcode = strtoupper($_SESSION['dlang']);
+		foreach($vals as $v){
+			if($v['tag']=='LABEL') $l = $v['value'];
+			if($v['tag']==$langcode) {
+				$i = $v['value'];
+				$dbinstance->query("UPDATE ".$my_db['prefix']."_lang 
+							SET `".$_SESSION['dlang']."`= '".mysql_real_escape_string($i)."' 
+							WHERE label LIKE '".$l."';");
+			}
 		}
 
 		$dbinstance->query("INSERT INTO ".$my_db['prefix']."_settings 

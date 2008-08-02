@@ -15,5 +15,9 @@ http://zock.sf.net
 zock! is a free software licensed under GPL (General public license) v3
       more information look in the root folder for "LICENSE".
 ===================================
+
+
+this defines the lowest part of the site.
+
 */
-?>		
+?>
