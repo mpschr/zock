@@ -62,7 +62,7 @@ if(isset($_REQUEST['installnow'])){
 
 		$buffer = Array();
 		$newbuffer = Array();
-		$handle = @fopen("installation/vars_template.php", "r");
+		$handle = @fopen("installation/vars_template.txt", "r");
 		if ($handle) {
 		    while (!feof($handle)) {
 			$buffer[] = fgets($handle, 4096);
@@ -70,7 +70,6 @@ if(isset($_REQUEST['installnow'])){
 		    fclose($handle);
 		}
 
-	
 		foreach ($buffer as $line){
 			if(ereg('\$my_db\[\'[a-z]+\'\]', $line)){
 				$what = ereg_replace('(\$my_db\[\')([a-z]+)(\'\]\ =\ )\'\'.+', '\\2', $line);
@@ -83,11 +82,10 @@ if(isset($_REQUEST['installnow'])){
 
 		$handle = fopen("src/vars.php" , "w");
 			foreach($newbuffer as $line){
-				echo $line;
 				fwrite($handle, $line);
 			}
 		fclose($handle);
-		@chmod('src/vars.php', 744);
+		@chmod('src/varss.php', 744);
 
 		echo 'creating tables<br/>';
 		
