@@ -46,7 +46,7 @@ if(isset($_REQUEST['langchange'])){
 	setcookie('lang', $_REQUEST['langchange'],time()+60*60*24*30);
 }
 
-define (VERSION, 'v0.5.1');
+define (VERSION, 'v0.5.3');
 
 //installing?
 if(is_dir('installation')){

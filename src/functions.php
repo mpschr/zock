@@ -821,7 +821,7 @@ function styleComment(){
 
 function generateEventInfo($id){
 	global $db, $lang, $settings;
-	$dbinfo =  $db->query("SELECT * FROM zock_events WHERE id=".$id.";");
+	$dbinfo =  $db->query("SELECT * FROM ".PFIX."_events WHERE id=".$id.";");
 	$e = $dbinfo[0];
 	$matchnb = $e['match_nb'];
 	$point++;

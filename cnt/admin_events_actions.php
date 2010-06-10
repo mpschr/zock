@@ -795,11 +795,11 @@ if($_REQUEST['evac'] == 'changecompetitor'){
 $data = $_POST;
 
 //home
-$sql1 = "UPDATE zock_event_".$data['eve']." 
+$sql1 = "UPDATE ".PFIX."_event_".$data['eve']." 
 		SET home = '".$data['changeto']."' 
 		WHERE home = '".$data['tochange']."'; ";
 ///visitor
-$sql2 = "UPDATE zock_event_".$data['eve']." 
+$sql2 = "UPDATE ".PFIX."_event_".$data['eve']." 
 		SET visitor = '".$data['changeto']."' 
 		WHERE visitor = '".$data['tochange']."'; ";
 $query1 = $db->query($sql1);
