@@ -26,7 +26,9 @@ echo 	'<ul>'
  	.'<li><a href="index.php?menu=admin&submenu=lang&langac=listall">'.$lang['admin_lang_listall'].'</a><br>'
 	.'<li><a href="index.php?menu=admin&submenu=lang&langac=listalluncompleted">'.$lang['admin_lang_listalluncompleted'].'</a>'
 	.'<li><a href="index.php?menu=admin&submenu=lang&langac=listlanguncompleted">'.$lang['admin_lang_listlanguncompleted'].'</a><p>'
-	.'</ul></ul><hr>';
+	.'</ul>'
+	.'<li><a href="index.php?menu=admin&submenu=lang&langac=newlang">'.$lang['admin_lang_newlang'].'</a><br>'
+    .'</ul><hr>';
 
 
 //========== edit an element
@@ -134,6 +136,29 @@ print_r($_POST);
 	}
 	echo '<p><a href="index.php?menu=admin&submenu=lang">'.$lang['general_goback'].'</a>';
 	echo ' || <a href="index.php?menu=admin&submenu=lang&langac=addnew">'.$lang['admin_lang_addnew'].'</a>';
+
+
+//========== install a new language
+}else if ($_REQUEST['langac'] == 'newlang'){
+    if($handle = opendir('data/langs')) {
+        echo $lang[$general_languages].'<br/>';
+
+        while (false !== ($file = readdir($handle))) {
+            if (substr($file,-3,3) == "xml" && substr($file,0,4) == "lang") {
+                $which = substr($file,5,2);
+                echo "<a href=\"index.php?menu=admin&submenu=lang&langac=newlanginst&which=$which\">".$lang['general_install']." $which</a> $file<br/>";
+            }
+        }
+    }
+    closedir($handle);
+ 
+//========== install a new language
+}else if ($_REQUEST['langac'] == 'newlanginst'){
+
+    echo $lang['general_installing']." ".$_REQUEST['which'];
+    installLang($_REQUEST['which']);
+    echo $lang['general_savedok']; 
+
 
 //========== normal view (lists & options)
 }else{ 
