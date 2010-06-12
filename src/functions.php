@@ -1332,7 +1332,7 @@ if ($rows == 0) {
 			$fix_shares = split(':', $event_info[0]['jp_distr_fix_shares']);
 			for($j = $jackpotters; $j > 0; $j--){
 				$counter++;
-				$jackpots[$counter] = (round($reciprocal*($fix_shares[$counter-1]*$jackpot))/$reciprocal);
+				$jackpots[$counter] = (round($reciprocal*(($fix_shares[$counter-1]/100)*$jackpot))/$reciprocal);
 			}
 			break;
 	}
