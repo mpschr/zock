@@ -122,13 +122,24 @@ if(isset($_REQUEST['ac']) && isset($_POST)){
 			   $subarray1 = array ( $matchnb[0]['nb'],
 					       $events['u']['e'.$id]['stake'].' '.$events['u']['e'.$id]['currency'],
 					      $matchnb[0]['nb']*$events['u']['e'.$id]['stake'].' '.$events['u']['e'.$id]['currency']);
-					$subarray2 = array ($events['u']['e'.$id]['name'], $mysettings['login']);
-					$subarray3 = array ($settings['email']);
-			   $flcnt = substitute($lang['myprofile_settings_eventinfo'], $subarray1);
-			   $flcnt .= '<p/>';
-			   $flcnt .= '<b>'.$lang['general_bank_account'].'</b><br/><br/>';
-			   $flcnt .= $settings['account_type'].': '.$settings['account_details'];
-			   $flcnt .= '.<br/>'.nl2br($settings['account_holder']);
+			   $subarray2 = array ($events['u']['e'.$id]['name'], $mysettings['login']);
+			   $subarray3 = array ($settings['email']);
+			   switch($e['stake_mode']){
+				case 'none':
+				     $flcnt = substitute($lang['myprofile_settings_eventinfo'], $subarray1);
+				     break;
+				case 'fix':
+				     $flcnt = substitute($lang['myprofile_settings_eventinfofix'], $subarray1);
+				     break;
+				case 'permatch':
+				     $flcnt = substitute($lang['myprofile_settings_eventinfo'], $subarray1);
+				     break;
+				     
+			   }
+			      $flcnt .= '<p/>';
+			      $flcnt .= '<b>'.$lang['general_bank_account'].'</b><br/><br/>';
+			      $flcnt .= $settings['account_type'].': '.$settings['account_details'];
+			      $flcnt .= '.<br/>'.nl2br($settings['account_holder']);
 					$flcnt .= '<br/><br/>'.substitute($lang['myprofile_settings_wiringcomment'], $subarray2);
 					$flcnt .= '<br/><br/>'.substitute($lang['myprofile_settings_email_notify'], $subarray3);
 			   echo makeFloatingLayer($events['u']['e'.$id]['name'], $flcnt, 1, $id); 	
