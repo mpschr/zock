@@ -32,44 +32,52 @@ if(isset($_REQUEST['ac'])){
 
 	//picture uplaod
 	if($_REQUEST['ac'] == 'app_pic'){
-		$fotoup = $_FILES['fotoup'];
+		$fotoupIn = $_FILES['fotoup'];
 		$file_upload = 'ok';
 
 		//Check Size
 
-		if ($fotoup['size'] > 200000){
+		if ($fotoupIn['size'] > 200000){
 			echo errorMsg('myprofile_appearance_picsize');
 			$file_upload="toobig";
 		}
 
 		//Check File-extension
-		if (!($fotoup['type'] == "image/jpeg" || $fotoup['type'] == "image/png")){
+		if (!($fotoupIn['type'] == "image/jpeg" || $fotoupIn['type'] == "image/png" || $fotoupIn['type'] == "image/gif")){
 			echo errorMsg('myprofile_appearance_jpgonly').'huhu';
 			$file_upload="false";
 		}
-
+		$fileexts["image/jpeg"] = ".jpg";
+		$fileexts["image/png"]  = ".png";
+		$fileexts["image/gif"]  = ".gif";
+		$fext = $fileexts[$fotoupIn['type']];
 
 		//1. generate picture name,2. save the pictures,3. delete old pictures, 4. save pic-name in db
 		$picid = generatePassword(12); //1.
-		$add='data/user_img/';
-		if (is_writeable('data/user_img/')){
+		// add file extension
+		$add='./data/user_img/';
+		if (is_writeable('./data/user_img/')) {
+    
 			if($file_upload == 'ok'){
-				while(file_exists($add.$picid)){
+				while(file_exists($add.$picid.$fext)){
 					$picid = generatePassword(12);	
 				}
-				
-				if(move_uploaded_file ($fotoup['tmp_name'], $add.$picid) 
-					&& thumbnailer($add.$picid, $add.$picid.'@thumb')){	//2.
-					if ($mysettings['picture'] != NULL){ 
-						chmod ($add.$mysettings['picture'], 0777);
-						chmod ($add.$mysettings['picture'].'@thumb', 0777);
-						@unlink($add.$mysettings['picture']);	//3.
-						@unlink($add.$mysettings['picture'].'@thumb');
+				if(move_uploaded_file ($fotoupIn['tmp_name'], $add.$picid.$fext) 
+					&& thumbnailer($add.$picid.$fext, $add.$picid.'@thumb'.$fext)){	//2.
+					if ($mysettings['picture'] != NULL){
+						$idx = strrpos($mysettings['picture'],'.');
+						$fextOld = substr($mysettings['picture'],$idx);
+						$fn = substr($mysettings['picture'],0,$idx);
+						chmod ($add.$fn.$fextOld, 0777);
+						chmod ($add.$fn.'@thumb'.$fextOld, 0777);
+						@unlink($add.$fn.$fextOld);	//3.
+						@unlink($add.$fn.'@thumb'.$fextOld);
 					}
+					
 					//4.
-					$query = "UPDATE ".PFIX."_users SET picture = '".$picid."' WHERE id = '".$_SESSION['userid']."'";
+					$query = "UPDATE ".PFIX."_users SET picture = '".$picid.$fext."' WHERE id = '".$_SESSION['userid']."'";
 					$db->query($query);
-//					$db->query("UPDATE ".PFIX."_users SET picture = '".$picid."' WHERE id = '".$_SESSION['userid']."'");
+//					$db->query("UPDATE ".PFIX."_users SET picture = '".$picid.$fext."' WHERE id = '".$_SESSION['userid']."'");
 					chmod ($add.$picid, 0777); 
 
 					echo $lang['general_savedok'];
@@ -78,7 +86,7 @@ if(isset($_REQUEST['ac'])){
 				}
 			}
 			
-		}			
+		}
 	}
 
 	//go back

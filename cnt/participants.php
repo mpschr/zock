@@ -119,7 +119,10 @@ if($nb2 != NULL && $nb != NULL){
 		echo '<table width=100%>';
 		foreach($evUsers as $u){
 			$details = $db->query("SELECT login, picture, name, famname, text FROM ".PFIX."_users WHERE id='".$u."';");
-			$imgsrc = 'data/user_img/'.$details[0]['picture'].'@thumb';
+			$idx = strrpos($details[0]['picture'],'.');
+			$fext = substr($details[0]['picture'],$idx);
+			$fn = substr($details[0]['picture'],0,$idx);
+			$imgsrc = './data/user_img/'.$fn.'@thumb'.$fext;
 			if($up%3 == 1) echo '<tr>';
 			echo '<td width="33%"><a href="'.$link.$link_query.'showuser='.$u.'"><img src="'.$imgsrc.'"/><br/>'.$userarray[$u].'</a><br /></td>';
 			if($up%3 == 0) echo '</tr>';

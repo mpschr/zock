@@ -111,7 +111,10 @@ if($nb >= 1){
 	$usersraw = $db->query("SELECT id, login, picture FROM ".PFIX."_users");
 	foreach ($usersraw as $u){
 		$userarray[$u['id']] = $u['login'];
-		$picture[$u['id']] = $u['picture'].'@thumb';
+		$idx = strrpos($u['picture'],'.');
+		$fext = substr($u['picture'],$idx);
+		$fn = substr($u['picture'],0,$idx);
+		$picture[$u['id']] = $fn.'@thumb'.$fext;
 	}
 	array_pop($evUsers);
 
@@ -305,7 +308,7 @@ echo '<div id="overview"><table>';
 								$rclass = 'ow_almost';
 							else $rclass = 'ow_wrong';	
 							echo '<td onMouseOver="Tip(\''.$userarray[$u].'<br />'
-								.'<img  src=&quot;../data/user_img/'.$picture[$u].'&quot; '
+								.'<img  src=&quot;./data/user_img/'.$picture[$u].'&quot; '
 								.'alt=&quot;'.$lang['general_nopic'].'&quot;/>\');" '
 								.'onMouseOut="UnTip();" class="'.$rclass.'">';
 							$toto = $el[$u.'_toto'];
