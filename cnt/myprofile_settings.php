@@ -124,7 +124,8 @@ if(isset($_REQUEST['ac']) && isset($_POST)){
 					      $matchnb[0]['nb']*$events['u']['e'.$id]['stake'].' '.$events['u']['e'.$id]['currency']);
 			   $subarray2 = array ($events['u']['e'.$id]['name'], $mysettings['login']);
 			   $subarray3 = array ($settings['email']);
-			   switch($e['stake_mode']){
+			   
+			   switch($evs[$id]['stake_mode']){
 				case 'none':
 				     $flcnt = substitute($lang['myprofile_settings_eventinfo'], $subarray1);
 				     break;
