@@ -204,7 +204,7 @@ function cmtDisplay($cmt, $user, $depth){
 	echo '</div>';
 
 	//threading
-	$query =  "SELECT * FROM `".PFIX."_comments` WHERE `parent_id` = ".$cmt['id']." ORDER BY time DESC;";
+	$query =  "SELECT * FROM `".PFIX."_comments` WHERE `parent_id` = ".$cmt['id']." ORDER BY time ASC;";
 	$parentcmt = $db->query($query);
 	foreach($parentcmt as $cmt){
 		cmtDisplay($cmt, $user, $depth);
