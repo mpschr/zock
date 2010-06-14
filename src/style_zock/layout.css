@@ -582,10 +582,10 @@ td.ow_team {
 	float: right;
 }
 
-.floating_layer_close>a:hover, .floating_layer>a:hover {
+#results>a:hover, .floating_layer>p>a:hover, .floating_layer_close>a:hover, .floating_layer>a:hover {
 	color: black;
 }
-.floating_layer_close>a, .floating_layer>a {
+#results>a, .floating_layer>p>a, .floating_layer_close>a, .floating_layer>a {
 	color: white;
 }
 
