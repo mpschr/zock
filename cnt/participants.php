@@ -80,12 +80,14 @@ if($nb2 != NULL && $nb != NULL){
 				$imgsize[1] = $imgsize[1]*$change;
 			}
 				
-				$correct = $almost = 0;
+				$correct = $almost = $diff = $wrong = 0;
 				$rawdata = $db->query("SELECT score_h, score_v, ".$_REQUEST['showuser']."_h, ".$_REQUEST['showuser']."_v, ".$_REQUEST['showuser']."_points, ".$_REQUEST['showuser']."_ranking, ".$_REQUEST['showuser']."_money FROM ".PFIX."_event_".$_REQUEST['ev']. " WHERE score_h IS NOT NULL ORDER BY time");
 				foreach ($rawdata as $row){
 					if ($row['score_h'] == $row[$_REQUEST['showuser'].'_h'] && $row['score_v'] == $row[$_REQUEST['showuser'].'_v'])
 						$correct++;
-					if ($row['score_h'] >  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] > $row[$_REQUEST['showuser'].'_v'] ||
+                    else if ($row['score_h'] - $row['score_v'] == $row[$_REQUEST['showuser'].'_h'] - $row[$_REQUEST['showuser'].'_v'])
+                        $diff++;
+					elseif ($row['score_h'] >  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] > $row[$_REQUEST['showuser'].'_v'] ||
 						$row['score_h'] < $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] < $row[$_REQUEST['showuser'].'_v'] ||
 						$row['score_h'] ==  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] == $row[$_REQUEST['showuser'].'_v'] && $row['score_h'] != NULL)
 						$almost++;
@@ -93,7 +95,7 @@ if($nb2 != NULL && $nb != NULL){
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
 				}
-				$wrong = sizeof($rawdata) - $almost - $correct;
+				$wrong = sizeof($rawdata) - $almost - $correct - $diff;
 				$gamestandings = $lang['ranking_rank'].': <b>'.$rank.'</b><br/> '
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '
 						.$lang['ranking_gain'].': <b>'.$money.' '.$events['p']['e'.$_REQUEST['ev']]['currency'].'</b><p/>'

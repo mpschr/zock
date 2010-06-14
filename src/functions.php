@@ -292,9 +292,13 @@ function errorMsg($id,$plain=0){
 	//return a nice error message
 	global $lang;
 	if($plain==0)
-		return '<div class="error"><font>'.$lang['error_attention'].' '.$lang['error_'.$id].'</font></div>';
+		return errorTxtMsg($lang['error_attention'].' '.$lang['error_'.$id]);
 	else
-		return '<div class="error"><font>'.$lang['error_attention'].' '.$lang[$id].'</font></div>';
+		return errorTxtMsg($lang['error_attention'].' '.$lang[$id]);
+}
+
+function errorTxtMsg($txt){
+		return '<div class="error"><font>'.$txt.'</font></div>';
 }
 
 function indication($txt){

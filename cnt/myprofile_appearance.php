@@ -18,6 +18,8 @@ zock! is a free software licensed under GPL (General public license) v3
 */
 
 global $db, $events;
+//maxsize of picture
+$maxsize = 512000; //in byte
 
 //load the user specific settings
 $mysettings = loadSettings($_SESSION['userid']);
@@ -35,16 +37,16 @@ if(isset($_REQUEST['ac'])){
 		$fotoupIn = $_FILES['fotoup'];
 		$file_upload = 'ok';
 
-		//Check Size
-
-		if ($fotoupIn['size'] > 200000){
-			echo errorMsg('myprofile_appearance_picsize');
+		//Check Size (max 500kb)
+		if ($fotoupIn['size'] > $maxsize){
+            $errmsg = substitute($lang['myprofile_appearance_picsize'],array($maxsize/1024));
+			echo errorTxtMsg($errmsg);
 			$file_upload="toobig";
 		}
 
 		//Check File-extension
 		if (!($fotoupIn['type'] == "image/jpeg" || $fotoupIn['type'] == "image/png" || $fotoupIn['type'] == "image/gif")){
-			echo errorMsg('myprofile_appearance_jpgonly').'huhu';
+			echo errorMsg('myprofile_appearance_jpgonly',1);
 			$file_upload="false";
 		}
 		$fileexts["image/jpeg"] = ".jpg";
@@ -107,7 +109,7 @@ if(isset($_REQUEST['ac'])){
 	echo '<div class="appearance">
 		<img title="'.$details[0]['login'].'" src="'.$imgsrc.'" alt="'.$lang['myprofile_appearance_nopicture'].'" width="'.$imgsize['0'].'px" height="'.$imgsize[1].'px">
 		<br/>
-		<font class="piccomment">"'.$mysettings['text'].'</font>
+		<font class="piccomment">'.$mysettings['text'].'</font>
 	</div>';
 		
 	
@@ -123,6 +125,8 @@ if(isset($_REQUEST['ac'])){
 		<table class="showform">
 			<tr>
 				<td class="title">'.$lang['myprofile_appearance_picture'].'</td>
+			</tr><tr>
+			    <td class="explanation">'.nl2br(wordwrap(substitute($lang['myprofile_appearance_picsize'],array($maxsize/1024)), 100)).'</td>
 			</tr><tr>
 				<td class="input"><input name="fotoup" size="40" type="file"></td>
 			</tr><tr>
