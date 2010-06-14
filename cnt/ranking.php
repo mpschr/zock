@@ -233,8 +233,14 @@ if ($rows == 0) {
 		</tr>';
 
 	//get usernames in array
-	$usersraw = $db->query("SELECT id, login FROM ".PFIX."_users");
-	foreach ($usersraw as $u) $userarray[$u['id']] = $u['login'];
+	$usersraw = $db->query("SELECT id, login, picture FROM ".PFIX."_users");
+	foreach ($usersraw as $u){
+		$userarray[$u['id']] = $u['login'];
+		$idx = strrpos($u['picture'],'.');
+		$fext = substr($u['picture'],$idx);
+		$fn = substr($u['picture'],0,$idx);
+		$picture[$u['id']] = $fn.'@thumb'.$fext;
+	}
 
 
 	switch ($_REQUEST['sort']){
@@ -302,7 +308,9 @@ if ($rows == 0) {
 		}else{
 			$tooltip = $lang['ranking_waitfortips'];
 		}
-
+	    $tooltip .= '<br />'
+			.'<img  src=&quot;./data/user_img/'.$picture[$u].'&quot; '
+			.'alt=&quot;'.$lang['general_nopic'].'&quot;/>';
 
 		//alternative rankings
 		if ($_REQUEST['sort'] != 'points' && 
