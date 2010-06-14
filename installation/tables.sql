@@ -1,61 +1,57 @@
 
 -- comments
 
-CREATE TABLE IF NOT EXISTS `#PFIX#_comments` (
+CREATE TABLE `#PFIX#_comments` (
   `id` int(11) NOT NULL auto_increment,
   `time` double NOT NULL default '0',
-  `title` tinytext collate utf8_unicode_ci NOT NULL,
-  `text` text collate utf8_unicode_ci NOT NULL,
+  `title` tinytext collate utf8_unicode_ci,
+  `text` text collate utf8_unicode_ci,
   `user` int(11) NOT NULL default '0',
   `event` int(11) NOT NULL default '0',
   `parent_id` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1;
 
 
 -- events
 
 
-CREATE TABLE IF NOT EXISTS `#PFIX#_events` (
+CREATE TABLE `#PFIX#_events` (
   `id` int(2) NOT NULL auto_increment,
   `name` text collate utf8_unicode_ci NOT NULL,
   `deadline` double NOT NULL default '0',
-  `currency` varchar(11) collate utf8_unicode_ci default NULL,
+  `currency` varchar(11) collate utf8_unicode_ci NOT NULL default 'chf',
   `stake_mode` enum('none','fix','permatch') collate utf8_unicode_ci NOT NULL default 'none',
-  `match_nb` int(11) default NULL,
+  `match_nb` varchar(11) collate utf8_unicode_ci default '0',
   `stake` float NOT NULL default '0',
-  `stake_back` enum('no','yes') collate utf8_unicode_ci NOT NULL default 'NO',
+  `stake_back` enum('no','yes') collate utf8_unicode_ci NOT NULL default 'yes',
   `round` float NOT NULL default '0',
   `bet_on` enum('results','toto') collate utf8_unicode_ci NOT NULL default 'results',
   `score_input_type` enum('results','toto') collate utf8_unicode_ci NOT NULL default 'results',
-  `bet_until` varchar(7) collate utf8_unicode_ci NOT NULL COMMENT '#:mins/hours/days:match/tournament',
+  `bet_until` varchar(7) collate utf8_unicode_ci NOT NULL default '0',
   `p_correct` int(11) default NULL,
   `p_diff` int(11) default NULL,
   `p_almost` int(11) default NULL,
   `p_wrong` int(11) default NULL,
   `jp_fraction_or_fix` enum('fraction','fix') collate utf8_unicode_ci NOT NULL default 'fix',
-  `jp_fraction` double default '0',
+  `jp_fraction` varchar(11) collate utf8_unicode_ci default '0',
   `jp_fix` int(11) default '0',
   `jp_distr_algorithm` enum('lin','exp','fix') collate utf8_unicode_ci NOT NULL default 'lin',
-  `jp_distr_exp_value` double NOT NULL default '0',
-  `jp_distr_fix_shares` varchar(7) collate utf8_unicode_ci NOT NULL default '0',
+  `jp_distr_exp_value` varchar(11) collate utf8_unicode_ci default '0',
+  `jp_distr_fix_shares` varchar(11) collate utf8_unicode_ci default '0',
   `users_approved` text collate utf8_unicode_ci,
   `users_waiting` text collate utf8_unicode_ci,
   `users_denied` text collate utf8_unicode_ci,
   `public` int(1) NOT NULL default '1',
   `active` int(1) NOT NULL default '-1',
-  `ko_matches` enum('no','yes','only') collate utf8_unicode_ci default 'yes',
+  `ko_matches` enum('no','yes','only') collate utf8_unicode_ci NOT NULL default 'yes',
   `enable_tie` enum('no','yes') collate utf8_unicode_ci NOT NULL default 'no',
   `ap_score` enum('addall','addone') collate utf8_unicode_ci NOT NULL default 'addall',
   PRIMARY KEY  (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table of events' AUTO_INCREMENT=1 ;
-
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='table of events' AUTO_INCREMENT=1 ;
 
 
 -- lang
-
-
 
 CREATE TABLE IF NOT EXISTS `#PFIX#_lang` (
   `label` tinytext collate utf8_unicode_ci NOT NULL
@@ -104,16 +100,15 @@ INSERT INTO `#PFIX#_settings` (`setting`, `value`) VALUES
 
 -- users
 
-
 CREATE TABLE IF NOT EXISTS `#PFIX#_users` (
   `id` int(11) NOT NULL auto_increment,
   `login` tinytext collate utf8_unicode_ci NOT NULL,
   `pw` tinytext collate utf8_unicode_ci NOT NULL,
   `email` tinytext collate utf8_unicode_ci NOT NULL,
-  `name` text collate utf8_unicode_ci default NULL,
-  `famname` text collate utf8_unicode_ci default NULL,
-  `lang` text collate utf8_unicode_ci default NULL,
-  `style` text collate utf8_unicode_ci default NULL,
+  `name` text collate utf8_unicode_ci,
+  `famname` text collate utf8_unicode_ci,
+  `lang` text collate utf8_unicode_ci NOT NULL,
+  `style` varchar(11) collate utf8_unicode_ci NOT NULL default 'zock',
   `text` text collate utf8_unicode_ci,
   `picture` text collate utf8_unicode_ci,
   `account_type` text collate utf8_unicode_ci,
@@ -122,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `#PFIX#_users` (
   `home_comments` int(11) NOT NULL default '4',
   PRIMARY KEY  (`id`),
   KEY `id` (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 
 
