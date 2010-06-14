@@ -176,7 +176,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 		//=> install language
 		echo '<div>'.$lang['admin_settings_installlang'].'<br/>
 				<a href="javascript: showLangList()">'.$lang['admin_settings_langlist'].'</a></div>';
-		echo '<div class="input notvisible" id="langlistdiv">';
+		echo '<div class="input" id="langlistdiv">';
 		$langdircnt = scandir('data/langs');
 		echo '<b>'.$lang['general_remove'].':</b><br/>';
 		for ($x = 0 ; $x < sizeof($langs['short']) ; $x++){
