@@ -60,7 +60,7 @@ echo $lang['footer_server_time'].': '.date('H:i:s', time());
 </div><!-- ..closed -->
 
 
-<div id="version_license"> <a href="http://zock.sf.net">zock!</a> <? echo VERSION . ' | &copy; 2006-2008' ?> | <a href="http://opensource.org/licenses/gpl-3.0.html">GPLv3</a></div>
+<div id="version_license"> <a href="http://zock.sf.net">zock!</a> <? echo VERSION . ' | &copy; 2006-2010' ?> | <a href="http://opensource.org/licenses/gpl-3.0.html">GPLv3</a></div>
 
 
 </div><!-- motherdiv closed -->
