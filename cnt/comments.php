@@ -69,9 +69,13 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 		}
 
 		//get user names to display them
-		$users_raw = $db->query("SELECT id, login FROM ".PFIX."_users;");
+		$users_raw = $db->query("SELECT id, login, picture  FROM ".PFIX."_users;");
 		foreach ($users_raw as $u){
 			$user[$u['id']] = $u['login'];
+            $idx = strrpos($u['picture'],'.');
+            $fext = substr($u['picture'],$idx);
+            $fn = substr($u['picture'],0,$idx);
+            $picture[$u['id']] = $fn.'@thumb'.$fext;
 		}
 
 		//choose all top-level comments (parent_id = 0)
@@ -122,7 +126,7 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 			$counter = 1;
 			foreach ($comments_raw as $cmt){
 				if ($counter >= $_REQUEST['cnb'] && $counter < $_REQUEST['cnb'] + 5)
-					cmtDisplay($cmt, $user, $depth);
+					cmtDisplay($cmt, $user, $depth,$picture);
 				$counter++;
 			}
 		}
@@ -176,7 +180,7 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 	}
 }
 
-function cmtDisplay($cmt, $user, $depth){
+function cmtDisplay($cmt, $user, $depth, $pics){
 	//this function's necessary to be able to thread comments.
 	
 	global $db, $lang;
@@ -191,7 +195,14 @@ function cmtDisplay($cmt, $user, $depth){
 	echo '<div class="cmttitlel">'.$cmt['title'].'</div>';
 	echo '</div>';
 	//comment	
-	echo '<div class="cmttext">'.nl2br($cmt['text']).'</div>';
+    $userpic = $pics[$cmt['user']];
+	echo '<div class="cmttext">';
+    echo nl2br($cmt['text']).'</div>';
+	//echo '<div class="cmttextbg">';
+	echo '<div class="cmttextbg" style="background-image: url(\'data/user_img/'.$userpic.'\')">';
+   // echo '<img src="data/user_img/'.$userpic.'" />';
+    echo '<br/> <br/>';
+    echo '</div>';
 	echo '<div class="cmtfooter">';
 
 	//is it still possible to answer this comment?
@@ -207,7 +218,7 @@ function cmtDisplay($cmt, $user, $depth){
 	$query =  "SELECT * FROM `".PFIX."_comments` WHERE `parent_id` = ".$cmt['id']." ORDER BY time ASC;";
 	$parentcmt = $db->query($query);
 	foreach($parentcmt as $cmt){
-		cmtDisplay($cmt, $user, $depth);
+		cmtDisplay($cmt, $user, $depth,$pics);
 	}
 	echo '</div>';
 }
