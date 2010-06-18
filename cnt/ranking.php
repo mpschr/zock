@@ -191,6 +191,14 @@ if ($rows == 0) {
 	}
 
 	//get info for tooltips
+        //recenttips
+	$query = "SELECT * FROM ".PFIX."_event_".$_REQUEST['ev']." WHERE ".$queryfield." IS NOT NULL ORDER BY time ASC;";
+    $rawdata=$db->query($query);
+    $showrecent = 5;
+    while ($showrecent-- != 0) {
+        $recenttips[] = array_pop($rawdata);
+    }
+        //nexttips
 	$query = "SELECT * FROM ".PFIX."_event_".$_REQUEST['ev']." WHERE ".$queryfield." IS NULL ORDER BY time ASC;";
 	$rawdata=$db->query($query);
 	foreach ($rawdata as $row){
@@ -299,18 +307,23 @@ if ($rows == 0) {
 
 
 		//making tooltip
-		if (sizeof($nexttips) != 0){
-			$tooltip = $lang['ranking_nexttips'];
-			foreach($nexttips as $nt)
-				$tooltip .= '<br/>'.$nt['home'].' - '.$nt['visitor'].': '.$nt[$u.'_h'].':'.$nt[$u.'_v'];
-		}elseif($over){
-			$tooltip = $lang['general_bettinggameover'];
-		}else{
-			$tooltip = $lang['ranking_waitfortips'];
-		}
+        $tooltip = "";
+		$tooltip .= '<u>'.$lang['ranking_recenttips'].'</u>';
+        $rts = array_reverse($recenttips);
+        foreach($rts as $rt)
+            $tooltip .= '<br/>'.$rt['home'].' - '.$rt['visitor'].': '.$rt[$u.'_h'].':'.$rt[$u.'_v'];
 	    $tooltip .= '<br />'
 			.'<img  src=&quot;./data/user_img/'.$picture[$u].'&quot; '
 			.'alt=&quot;'.$lang['general_nopic'].'&quot;/>';
+		if (sizeof($nexttips) != 0){
+			$tooltip .= '<br/><u>'.$lang['ranking_nexttips'].'</u>';
+			foreach($nexttips as $nt)
+				$tooltip .= '<br/>'.$nt['home'].' - '.$nt['visitor'].': '.$nt[$u.'_h'].':'.$nt[$u.'_v'];
+		}elseif($over){
+			$tooltip .= $lang['general_bettinggameover'];
+		}else{
+			$tooltip .= $lang['ranking_waitfortips'];
+		}
 
 		//alternative rankings
 		if ($_REQUEST['sort'] != 'points' && 

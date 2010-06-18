@@ -63,9 +63,9 @@ Function index:
 >messageRead
 >php2js
 >betUntil
->isCorrectRes
->isDiffRes
->isAlmostRes
+>isCorrect
+>isDiff
+>isAlmost
 >isCorrectToto
 >rankingCalculate
 >initMail
