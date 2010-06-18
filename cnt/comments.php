@@ -196,12 +196,12 @@ function cmtDisplay($cmt, $user, $depth, $pics){
 	echo '</div>';
 	//comment	
     $userpic = $pics[$cmt['user']];
-	echo '<div class="cmttext">';
-    echo nl2br($cmt['text']).'</div>';
 	//echo '<div class="cmttextbg">';
 	echo '<div class="cmttextbg" style="background-image: url(\'data/user_img/'.$userpic.'\')">';
+	echo '<div class="cmttext">';
+    echo nl2br($cmt['text']).'</div>';
    // echo '<img src="data/user_img/'.$userpic.'" />';
-    echo '<br/> <br/>';
+    //echo '<br/> <br/>';
     echo '</div>';
 	echo '<div class="cmtfooter">';
 
