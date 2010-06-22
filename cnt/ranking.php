@@ -311,7 +311,8 @@ if ($rows == 0) {
 		$tooltip .= '<u>'.$lang['ranking_recenttips'].'</u>';
         $rts = array_reverse($recenttips);
         foreach($rts as $rt)
-            $tooltip .= '<br/>'.$rt['home'].' - '.$rt['visitor'].': '.$rt[$u.'_h'].':'.$rt[$u.'_v'];
+            #$tooltip .= '<br/>'.$rt['home'].' - '.$rt['visitor'].': <font class="ow_'.getResultCSSClass($evinfo).'">'.$rt[$u.'_h'].':'.$rt[$u.'_v'].'</font>';
+            $tooltip .= '<br/>'.$rt['home'].' - '.$rt['visitor'].': <font class=\'ow_correct\'>'.$rt[$u.'_h'].':'.$rt[$u.'_v'].'</font>';
 	    $tooltip .= '<br />'
 			.'<img  src=&quot;./data/user_img/'.$picture[$u].'&quot; '
 			.'alt=&quot;'.$lang['general_nopic'].'&quot;/>';

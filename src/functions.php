@@ -1160,7 +1160,7 @@ function betUntil($bet, $event){
 	return $bet - $before;
 }
 
-function isCorrect($points,$a, $b, $c,$d){
+function isCorrect($points,$a,$b, $c,$d){
 	if ($points == '') return false;
 	if ($a == '') return false;
 	//RESULT
@@ -1214,12 +1214,31 @@ function isAlmost($points,$a,$b,$c,$d){
 function isWrong($points,$a,$b,$c,$d){
 	if ($points == '') return false;
 	if ($a == '') return true;
-	if(!isCorrect($a,$b,$c,$d) && !isAlmost($a,$b,$c,$d)){
+	if(!isCorrect($points,$a,$b,$c,$d) && !isAlmost($points,$a,$b,$c,$d)){
 		return true;
 	}else{
 		return false;
 	}
 }
+
+function getResultCSSClass($evinfo,$a,$b,$c,$d) {
+	if (isCorrect($evinfo['p_correct'],$a,$b,$c,$d)) {
+		return 'correct';	
+	}
+	elseif (isDiff($evinfo['p_diff'],$a,$b,$c,$d)) {
+		return 'diff';	
+	}
+	elseif (isAlmost($evinfo['p_almost'],$a,$b,$c,$d)) {
+		return 'almost';	
+	}
+	elseif (isWrong($evinfo['p_wrong'],$a,$b,$c,$d)) {
+		return 'wrong';
+	}
+	else {
+		return '';
+	}
+}
+
 
 function rankingCalculate ($ev, $until=""){
 global $db, $events;
