@@ -288,7 +288,7 @@ echo '<div id="overview"><table>';
 				foreach ($evUsers as $u){
 					$player_column++;
 					if( !isset($_REQUEST['col']) || isset($_REQUEST['col']) && $player_column == $_REQUEST['col']){
-						//if the day of the game has come, then show the tips
+						//if the time of the game has come, then show the tips
 						if ($showtips){
 							echo '<td class="'.$rclass.'">x';
 							if($evData['bet_on'] == 'results') echo ':';
@@ -300,11 +300,11 @@ echo '<div id="overview"><table>';
 							$bet_v = ($evData['bet_on']=='results') ? $el[$u.'_v'] : 'toto';
 
 							//the user tip can have different formats
-							if ($evData['p_correct']!='' && isCorrect($h, $v, $bet_h, $bet_v)) 
+							if (isCorrect($evData['p_correct'], $h, $v, $bet_h, $bet_v)) 
 								$rclass = 'ow_correct';
-							elseif ($evData['p_diff']!='' && isDiff($h, $v, $bet_h, $bet_v)) 
+							elseif (isDiff($evData['p_diff'], $h, $v, $bet_h, $bet_v)) 
 								$rclass = 'ow_diff';
-							elseif ($evData['p_almost']!='' && isAlmost($h, $v, $bet_h, $bet_v)) 
+							elseif (isAlmost($evData['p_almost'], $h, $v, $bet_h, $bet_v)) 
 								$rclass = 'ow_almost';
 							else $rclass = 'ow_wrong';	
 							echo '<td onMouseOver="Tip(\''.$userarray[$u].'<br />'

@@ -1160,7 +1160,8 @@ function betUntil($bet, $event){
 	return $bet - $before;
 }
 
-function isCorrect($a, $b, $c,$d){
+function isCorrect($points,$a, $b, $c,$d){
+	if ($points == '') return false;
 	if ($a == '') return false;
 	//RESULT
 	if($d != 'toto'){
@@ -1188,7 +1189,8 @@ function isCorrect($a, $b, $c,$d){
 		}
 	}
 }
-function isDiff($a, $b,$c,$d){
+function isDiff($points,$a,$b,$c,$d){
+	if ($points == '') return false;
 	if ($a == '') return false;
 	if($a-$b == $c-$d && $c != '' && $d !=''){
 		return true;
@@ -1196,7 +1198,8 @@ function isDiff($a, $b,$c,$d){
 		return false;
 	}
 }
-function isAlmost($a, $b,$c,$d){
+function isAlmost($points,$a,$b,$c,$d){
+	if ($points == '') return false;
 	if ($a == '') return false;
 	if ($d == 'toto') return false; //invoked from isWrong, toto
 	if (($a>$b && $c>$d  && $c!='' && $d!='')
@@ -1208,7 +1211,8 @@ function isAlmost($a, $b,$c,$d){
 		return false;
 	}
 }
-function isWrong($a, $b,$c,$d){
+function isWrong($points,$a,$b,$c,$d){
+	if ($points == '') return false;
 	if ($a == '') return true;
 	if(!isCorrect($a,$b,$c,$d) && !isAlmost($a,$b,$c,$d)){
 		return true;

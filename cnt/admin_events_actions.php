@@ -695,22 +695,22 @@ function calculatePointsAndMoney ($event, $match, $score_a, $score_b){
 			$d = 'toto';
 		}
 		//correct:
-		if(isCorrect($a, $b, $c,$d) && $correct != NULL){
+		if(isCorrect($correct, $a, $b, $c,$d)){
 			$nbCorrect++;
 			$success[$p] = 1;
 			$points[$p] = $correct;
 		//diff:
-		}elseif(isDiff($a, $b, $c,$d) && $diff != NULL){
+		}elseif(isDiff($diff,$a, $b, $c,$d){
 			$nbAlmost++;
 			$success[$p] = 0;
 			$points[$p] = $diff;
 		//alsmost:
-		}elseif(isAlmost($a, $b, $c,$d) && $almost != NULL){
+		}elseif(isAlmost($almost,$a, $b, $c,$d)){
 			$nbAlmost++;
 			$success[$p] = 0;
 			$points[$p] = $almost;
 		//wrong:
-		}elseif(isWrong($a, $b, $c,$d) && $wrong != NULL){
+		}elseif(isWrong($wrong,$a, $b, $c,$d)){
 			$nbWrong++;
 			$success[$p] = -1;
 			$points[$p] = $wrong;
