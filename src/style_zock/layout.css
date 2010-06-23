@@ -471,10 +471,10 @@ td.ow_diff, td.ow_almost, td.ow_wrong , td.ow_summary, td.summaryall {
 	white-space: nowrap;
 
 }
-td.ow, td.ow_wrong {
+.ow, .ow_wrong {
 	text-align: center;
 }
-td.ow_almost{
+.ow_almost{
 	text-decoration: underline;
 	text-align: center;
 }
@@ -482,7 +482,7 @@ td.ow_almost{
 	font-weight: bold;
 	text-align: center;
 }
-td.ow_diff{
+.ow_diff{
 	text-decoration: underline;
 	text-align: center;
 	font-style: italic;

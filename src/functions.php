@@ -1161,7 +1161,7 @@ function betUntil($bet, $event){
 }
 
 function isCorrect($points,$a,$b, $c,$d){
-	if ($points == '') return false;
+	if (($points == NULL) && $points == '') return false;
 	if ($a == '') return false;
 	//RESULT
 	if($d != 'toto'){
@@ -1190,7 +1190,7 @@ function isCorrect($points,$a,$b, $c,$d){
 	}
 }
 function isDiff($points,$a,$b,$c,$d){
-	if ($points == '') return false;
+	if (($points == NULL) || $points == '') return false;
 	if ($a == '') return false;
 	if($a-$b == $c-$d && $c != '' && $d !=''){
 		return true;
@@ -1199,7 +1199,7 @@ function isDiff($points,$a,$b,$c,$d){
 	}
 }
 function isAlmost($points,$a,$b,$c,$d){
-	if ($points == '') return false;
+	if (($points == NULL) || $points == '') return false;
 	if ($a == '') return false;
 	if ($d == 'toto') return false; //invoked from isWrong, toto
 	if (($a>$b && $c>$d  && $c!='' && $d!='')
@@ -1212,7 +1212,7 @@ function isAlmost($points,$a,$b,$c,$d){
 	}
 }
 function isWrong($points,$a,$b,$c,$d){
-	if ($points == '') return false;
+	if (($points == NULL) || $points == '') return false;
 	if ($a == '') return true;
 	if(!isCorrect($points,$a,$b,$c,$d) && !isAlmost($points,$a,$b,$c,$d)){
 		return true;
@@ -1238,7 +1238,6 @@ function getResultCSSClass($evinfo,$a,$b,$c,$d) {
 		return '';
 	}
 }
-
 
 function rankingCalculate ($ev, $until=""){
 global $db, $events;

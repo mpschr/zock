@@ -92,6 +92,7 @@ if($nb2 != NULL && $nb != NULL){
 						$row['score_h'] ==  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] == $row[$_REQUEST['showuser'].'_v'] && $row['score_h'] != NULL)
 						$almost++;
 					$points += $row[$_REQUEST['showuser'].'_points'];
+					$pointscurve .= $points.':';
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
 				}
@@ -110,6 +111,8 @@ if($nb2 != NULL && $nb != NULL){
 				echo '<br/><font class="piccomment">'.$details[0]['text'].'</font></td>';
 				echo '<td class="participantdetails">'.$gamestandings.'<p/><a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.$lang['mytips_tips'].'</a></td></tr>';
 				echo '<tr><td colspan="2"><p /><a href="'.$link.'ev='.$_REQUEST['ev'].'">'.$lang['general_goback'].'</a></td></tr></table>';
+				echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].'&curves='.$pointscurve.'&title=Points&description=Points" 
+					width="450" height="250" type="image/svg+xml" />';
 		}else{
 		//if the requested user doesn't participate in the given event
 			echo errorMsg('doesnotparticipate');

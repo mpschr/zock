@@ -663,7 +663,6 @@ function calculatePointsAndMoney ($event, $match, $score_a, $score_b){
 	$diff = $evData['p_diff'];
 	$almost = $evData['p_almost'];
 	$wrong = $evData['p_wrong'];
-	echo $correct.'ayay<--<br/>';
 	  
 	  //=>all data for this match
 	$data = $db->query("SELECT * FROM ".PFIX."_event_".$event." WHERE id='".$match."';");
@@ -701,8 +700,7 @@ function calculatePointsAndMoney ($event, $match, $score_a, $score_b){
 			$success[$p] = 1;
 			$points[$p] = $correct;
 		//diff:
-		}elseif(isDiff($diff,$a, $b, $c,$d){
-			echo $diff.'<----<br>';
+		}elseif(isDiff($diff,$a, $b, $c,$d)){
 			$nbAlmost++;
 			$success[$p] = 0;
 			$points[$p] = $diff;

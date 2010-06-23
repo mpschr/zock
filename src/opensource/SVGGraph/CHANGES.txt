@@ -1,0 +1,21 @@
+Version 1.2.1 (11/04/2010)
+-------------
+- Fixed error shown with E_STRICT
+
+Version 1.2 (01/05/2009)
+-----------
+- Added Bar3DGraph graph type
+- Added axis divisions
+
+Version 1.1 (27/03/2009)
+-----------
+- Added PieGraph graph type.
+- Added title and description options.
+- Added namespaced output option.
+- Reduced output file size using grouping, symbols.
+- Unused gradients are no longer output.
+
+Version 1.0 (16/03/2009)
+-----------
+- First released version.
+
