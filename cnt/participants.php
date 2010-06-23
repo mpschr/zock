@@ -73,9 +73,9 @@ if($nb2 != NULL && $nb != NULL){
 			$details = $db->query("SELECT login, picture, name, famname, text FROM ".PFIX."_users WHERE id='".$_REQUEST['showuser']."';");
 			$imgsrc = 'data/user_img/'.$details[0]['picture'];
 			@$imgsize = getimagesize($imgsrc);
-			if($imgsize[0] > 270){
+			if($imgsize[0] > 230){
 				$origwidth = $imgsize[0];
-				$imgsize[0] = 270;
+				$imgsize[0] = 230;
 				$change = $imgsize[0]/$origwidth;
 				$imgsize[1] = $imgsize[1]*$change;
 			}
@@ -95,8 +95,11 @@ if($nb2 != NULL && $nb != NULL){
 					$pointscurve .= $points.':';
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
+                    $rankscurve .= $rank.':';
 				}
                 $pointscurve .= ';'.$pointscurve.';';
+                $rankscurve .= ';'.$rankscurve.';';
+                $curves = ($_REQUEST['curves'] == 'points') ? $pointscurve : $rankscurve;
 				$wrong = sizeof($rawdata) - $almost - $correct - $diff;
 				$gamestandings = $lang['ranking_rank'].': <b>'.$rank.'</b><br/> '
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '
@@ -110,10 +113,17 @@ if($nb2 != NULL && $nb != NULL){
 				echo '<tr><td colspan="2"><b>'.$details[0]['login'].'</b> aka '.$details[0]['name'].' '.$details['0']['famname'].'<p /></td></tr>';
 				echo '<tr><td><img title="'.$details[0]['login'].'" src="'.$imgsrc.'" alt="'.$lang['myprofile_appearance_nopicture'].'" width="'.$imgsize['0'].'px" height="'.$imgsize[1].'px">';
 				echo '<br/><font class="piccomment">'.$details[0]['text'].'</font></td>';
-				echo '<td class="participantdetails">'.$gamestandings.'<p/><a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.$lang['mytips_tips'].'</a></td></tr>';
+				echo '<td class="participantdeitails">'.$gamestandings.'<p/><a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.$lang['mytips_tips'].'</a></td></tr>';
+                echo '<tr><td><br></td><td></td></tr>';
+                echo '<tr><td colspan=2>
+                    show: <a href="'.$link.$link_query.'curves=ranks"> ranks</a>
+                    <a href="'.$link.$link_query.'curves=points"> points</a>
+                    </td></tr>';
+                echo '<tr><td colspan=2>';
+                    echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].'&curves='.$curves.'&title=Points&description=Points" 
+                        width="450" height="250" type="image/svg+xml" />';
+                echo '</td></tr>';
 				echo '<tr><td colspan="2"><p /><a href="'.$link.'ev='.$_REQUEST['ev'].'">'.$lang['general_goback'].'</a></td></tr></table>';
-				echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].'&curves='.$pointscurve.'&title=Points&description=Points" 
-					width="450" height="250" type="image/svg+xml" />';
 		}else{
 		//if the requested user doesn't participate in the given event
 			echo errorMsg('doesnotparticipate');

@@ -35,15 +35,14 @@ foreach ($curves as $i => $c)
 include('../src/opensource/SVGGraph/SVGGraph.php');
 $settings = array('show_label_v' => true, 
 			'back_colour' => 'white', 
-			'title' => $data['title'], 
-			'description' => $data['description'],
 			'show_divisions' => false,
-			'show_label_h' => false,
-			'neg_correction' => abs($min));
+       		'show_label_h' => false,
+			'neg_correction' => abs($min),
+            'colours' => array('blue'),
+            'marker_colour' => 'blue');
 $graph = new SVGGraph(450, 250,$settings);
-$graph->colours = array('red','green','blue');
+#$graph->colours = array('blue');
 $graph->Values($curves[0]);
-$graph->Links('/Tom/', '/Dick/', '/Harry/');
 $graph->Render('LineGraph');
 
 ?>
