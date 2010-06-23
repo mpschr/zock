@@ -96,6 +96,7 @@ if($nb2 != NULL && $nb != NULL){
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
 				}
+                $pointscurve .= ';'.$pointscurve.';';
 				$wrong = sizeof($rawdata) - $almost - $correct - $diff;
 				$gamestandings = $lang['ranking_rank'].': <b>'.$rank.'</b><br/> '
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '

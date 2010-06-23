@@ -18,10 +18,19 @@ zock! is a free software licensed under GPL (General public license) v3
 */
 $data = $_REQUEST;
 
-
-$curves = split(':',$data['curves']);
-array_pop($curves);
-$min = min($curves);
+$curves = array();
+$curvesArray = split(';',$data['curves']);
+array_pop($curvesArray);
+foreach ($curvesArray as $c) {
+    $curve = split(':',$c);
+    array_pop($curve);
+    $curves[] = $curve;
+}
+#$curves = split(':',$curves[0]);
+$min = min(min($curves));
+foreach ($curves as $i => $c) 
+    foreach ($c as $j => $p) $curves[$i][$j] = $p+abs($min);
+#print_r($curves);
 
 include('../src/opensource/SVGGraph/SVGGraph.php');
 $settings = array('show_label_v' => true, 
@@ -32,10 +41,8 @@ $settings = array('show_label_v' => true,
 			'show_label_h' => false,
 			'neg_correction' => abs($min));
 $graph = new SVGGraph(450, 250,$settings);
-
 $graph->colours = array('red','green','blue');
-foreach ($curves as $i => $c) $curves[$i] = $c+abs($min);
-$graph->Values($curves);
+$graph->Values($curves[0]);
 $graph->Links('/Tom/', '/Dick/', '/Harry/');
 $graph->Render('LineGraph');
 

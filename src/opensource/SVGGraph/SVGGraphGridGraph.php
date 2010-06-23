@@ -74,6 +74,8 @@ class GridGraph extends Graph {
 		$this->axis_width = $v_count * $this->h_grid;
 		$this->axis_height = floor($this->g_height / $this->v_grid) * $this->v_grid;
 
+        $this->corrected_yaxis = $this->axis_height / $v_max * $this->neg_correction;
+
 		$this->axes_calc_done = true;
 	}
 
@@ -85,10 +87,11 @@ class GridGraph extends Graph {
 		if(!$this->show_axes)
 			return '';
 
+
 		$points = array();
 		$points['x1'] = $this->pad_left - $this->axis_overlap;
 		$points['x2'] = $this->width - $this->pad_right + $this->axis_overlap;
-		$points['y1'] = $points['y2'] = $this->height - $this->pad_bottom;
+		$points['y1'] = $points['y2'] = $this->height - $this->pad_bottom - $this->corrected_yaxis;
 		$x_axis = $this->Element('line', $points);
 
 		$points['x1'] = $points['x2'] = $this->pad_left;
