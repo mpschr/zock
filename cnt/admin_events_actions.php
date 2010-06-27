@@ -622,17 +622,17 @@ if($_REQUEST['evac'] == 'save'){
 				}
 				foreach ($winner as $id => $name){		
 					foreach($data as $row){
-						if ($row['home'] == '$W_'.$id){
-								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET home = '".$winner[$id]."' WHERE home = '\$W_".$id."'");
+						if ($row['home'] == '$W'.$id){
+								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET home = '".$winner[$id]."' WHERE home = '\$W".$id."'");
 						}
-						if ($row['visitor'] == '$W_'.$id){
-								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET visitor = '".$winner[$id]."' WHERE visitor = '\$W_".$id."'");
+						if ($row['visitor'] == '$W'.$id){
+								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET visitor = '".$winner[$id]."' WHERE visitor = '\$W".$id."'");
 						}
-						if ($row['home'] == '$L_'.$id){
-								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET home = '".$loser[$id]."' WHERE home = '\$L_".$id."'");
+						if ($row['home'] == '$L'.$id){
+								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET home = '".$loser[$id]."' WHERE home = '\$L".$id."'");
 						}
-						if ($row['visitor'] == '$L_'.$id){
-								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET visitor = '".$loser[$id]."' WHERE visitor = '\$L_".$id."'");
+						if ($row['visitor'] == '$L'.$id){
+								$db->query("UPDATE ".PFIX."_event_".$_POST['event']." SET visitor = '".$loser[$id]."' WHERE visitor = '\$L".$id."'");
 						}
 					}
 					

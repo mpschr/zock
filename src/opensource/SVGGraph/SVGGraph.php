@@ -115,6 +115,10 @@ class Graph {
 	var $doctype = FALSE;
 
 	var $neg_correction = 0;
+	var $invert_yscale = FALSE;
+	var $ymin = NULL;
+	var $ymax = NULL;
+
 
 	function Graph($w, $h, $settings = NULL)
 	{
@@ -182,6 +186,8 @@ class Graph {
 	 */
 	function GetMaxValue()
 	{
+		if($this->ymax != NULL)
+			return $this->ymax;
 		if(is_array($this->values[0]))
 			return max($this->values[0]);
 		return max($this->values);

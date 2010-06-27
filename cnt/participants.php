@@ -100,6 +100,7 @@ if($nb2 != NULL && $nb != NULL){
                 $pointscurve .= ';'.$pointscurve.';';
                 $rankscurve .= ';'.$rankscurve.';';
                 $curves = ($_REQUEST['curves'] == 'points') ? $pointscurve : $rankscurve;
+		$curveinfo = ($_REQUEST['curves'] == 'ranks') ? '&maxrank='.eventUserNumber($_REQUEST['ev']) : ''; 
 				$wrong = sizeof($rawdata) - $almost - $correct - $diff;
 				$gamestandings = $lang['ranking_rank'].': <b>'.$rank.'</b><br/> '
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '
@@ -113,14 +114,17 @@ if($nb2 != NULL && $nb != NULL){
 				echo '<tr><td colspan="2"><b>'.$details[0]['login'].'</b> aka '.$details[0]['name'].' '.$details['0']['famname'].'<p /></td></tr>';
 				echo '<tr><td><img title="'.$details[0]['login'].'" src="'.$imgsrc.'" alt="'.$lang['myprofile_appearance_nopicture'].'" width="'.$imgsize['0'].'px" height="'.$imgsize[1].'px">';
 				echo '<br/><font class="piccomment">'.$details[0]['text'].'</font></td>';
-				echo '<td class="participantdeitails">'.$gamestandings.'<p/><a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.$lang['mytips_tips'].'</a></td></tr>';
+				echo '<td class="participantdeitails">'.$gamestandings.'<p/>
+					<a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.
+					$lang['mytips_tips'].'</a></td></tr>';
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
                     show: <a href="'.$link.$link_query.'curves=ranks"> ranks</a>
                     <a href="'.$link.$link_query.'curves=points"> points</a>
                     </td></tr>';
                 echo '<tr><td colspan=2>';
-                    echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].'&curves='.$curves.'&title=Points&description=Points" 
+                    echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].
+				'&curves='.$curves.$curveinfo.'&title=Points&description=Points" 
                         width="450" height="250" type="image/svg+xml" />';
                 echo '</td></tr>';
 				echo '<tr><td colspan="2"><p /><a href="'.$link.'ev='.$_REQUEST['ev'].'">'.$lang['general_goback'].'</a></td></tr></table>';
