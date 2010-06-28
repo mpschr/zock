@@ -47,6 +47,7 @@ $settings = array('show_label_v' => true,
 if(isset($data['maxrank'])) {
 	$settings['ymin'] = 1;
 	$settings['ymax'] = $data['maxrank'];
+	$settings['invert_yscale'] = TRUE;
 }
 $graph = new SVGGraph(450, 250,$settings);
 #$graph->colours = array('blue');

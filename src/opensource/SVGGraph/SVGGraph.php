@@ -572,6 +572,15 @@ JAVASCRIPT;
 		return $content;
 	}
 
+
+	/**
+	 * Invert the coordinates within the graph
+	 */
+	function Invert($min,$max,$value)
+	{
+		return $max-$value+$min;
+	}
+
 	/**
 	 * Renders the SVG document
 	 */

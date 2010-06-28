@@ -116,8 +116,9 @@ class GridGraph extends Graph {
 
 				while($y <= $this->axis_height) {
 					$text['y'] = $this->height - $this->pad_bottom - $y + $text_centre;
-					$labels .= $this->Element('text', $text, NULL, ($y / $this->bar_unit_height) - $this->neg_correction);
-					#$labels .= $this->Element('text', $text, NULL, $y / $this->bar_unit_height);
+					$prov_label = $this->Element('text', $text, NULL, ($y / $this->bar_unit_height) - $this->neg_correction);
+					$labels .=  $this->Element('text', $text, NULL, ($y / $this->bar_unit_height) - $this->neg_correction);
+					#$labels .= ($this->invert_yscale) ? $this->Invert(1,24,$prov_label) : $prov_label; 
 					$d_path .= 'M' . $this->pad_left . ' ' . ($this->height - $this->pad_bottom - $y) .
 						'l-' . $this->division_size . ' 0';
 
