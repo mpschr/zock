@@ -92,7 +92,7 @@ if($nb2 != NULL && $nb != NULL){
 						$row['score_h'] ==  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] == $row[$_REQUEST['showuser'].'_v'] && $row['score_h'] != NULL)
 						$almost++;
 					$points += $row[$_REQUEST['showuser'].'_points'];
-					$pointscurve .= $points.':';
+					$pointscurve .= ($points/$rank).':';
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
                     $rankscurve .= $rank.':';
@@ -120,7 +120,7 @@ if($nb2 != NULL && $nb != NULL){
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
                     show: <a href="'.$link.$link_query.'curves=ranks"> ranks</a>
-                    <a href="'.$link.$link_query.'curves=points"> points</a>
+                    <a href="'.$link.$link_query.'curves=points"> points/rank</a>
                     </td></tr>';
                 echo '<tr><td colspan=2>';
                     echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].

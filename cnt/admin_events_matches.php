@@ -270,20 +270,20 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 				//the form
 				echo '<tr>
 					<td class="input"> '.$id.'</td>
-					<td class="input"><input class="'.$ro2.'" 
+					<td class="input"><input class="'.$ro2.' datepicker" 
 								name="time1_'.$m['id'].'" size="10" 
 								value="'.$time1.'" '.$ro.'>
 						'.$lang['general_time_at'].'
 							<input class="'.$ro2.'" 
 								name="time2_'.$m['id'].'" size="4" 
 								value="'.$time2.'" '.$ro.'"></td>
-					<td class="input"><input class="'.$ro2.'" 
-						name="matchday_'.$m['id'].'" size="8" 
+					<td class="input"><input class="'.$ro2.' automatchday" 
+						name="matchday_'.$m['id'].'" size="8"  
 						value="'.$matchday.'" '.$ro.'"></td>
-					<td class="input"><input class="'.$ro2.'" 
+					<td class="input"><input class="'.$ro2.' autoteam" 
 						name="home_'.$m['id'].'" size="15" 
 						value="'.$home.'" '.$ro.'"></td>
-					<td class="input"><input class="'.$ro2.'" 
+					<td class="input"><input class="'.$ro2.' autoteam" 
 						name="visitor_'.$m['id'].'" size="15" 
 						value="'.$visitor.'" '.$ro.'"></td>';
 				if($ko_matches=='yes'){
@@ -317,16 +317,16 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 				$index = (isset($wrongs['new'.$x])) ? '<font class=error>-></font>' : 'new'.$x;
 				echo '<tr>
 					<td class="input"> '.$index.'</td>
-					<td class="input"><input name="newtime1_'.$x.'" 
+					<td class="input"><input name="newtime1_'.$x.'" class="datepicker" 
 							size="10" value="'.$data['newtime1_'.$x].'">
 						'.$lang['general_time_at'].'
 							<input name="newtime2_'.$x.'" 
 							size="4" value="'.$data['newtime2_'.$x].'"></td>
-					<td class="input"><input name="newmatchday_'.$x.'" 
+					<td class="input"><input name="newmatchday_'.$x.'" class="automatchday" 
 							size="8" value="'.$data['newmatchday_'.$x].'"></td>
-					<td class="input"><input name="newhome_'.$x.'" 
+					<td class="input"><input name="newhome_'.$x.'" class="autoteam" 
 							size="15" value="'.$data['newhome_'.$x].'"></td>
-					<td class="input"><input name="newvisitor_'.$x.'" 
+					<td class="input"><input name="newvisitor_'.$x.'" class="autoteam" 
 						size="15" value="'.$data['newvisitor_'.$x].'"></td>';
 				if($ko_matches=='yes'){
 					$sel[$data['newkomatch_'.$x]] = 'checked="checked"';
@@ -349,16 +349,20 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 
 	//add some nonvisible new matches which can be displayed..limited to 20
+	$query = "SELECT MAX(time) AS maxtime
+                FROM ".PFIX."_event_".$_REQUEST['ev'].";";
+	$latestdate = $db->query($query);
+    print_r( $latestdate);
 	if(!isset($data)){
 		for($x=1;$x<21;$x++){
 			echo '<tr id="newtr_'.$x.'" class="notvisible">
 				<td class="input">new'.$x.'</td>
-				<td class="input"><input name="newtime1_'.$x.'" value="dd.mm.yyyy" size="10">
+				<td class="input"><input name="newtime1_'.$x.'" class="datepicker" value="'.date('d.m.Y', $latestdate[0]['maxtime']).'" size="10">
 					'.$lang['general_time_at'].'
 					<input name="newtime2_'.$x.'" value="hh:mm" size="4"></td>
-					<td class="input"><input name="newmatchday_'.$x.'" size="8"></td>
-					<td class="input"><input name="newhome_'.$x.'" size="15"></td>
-					<td class="input"><input name="newvisitor_'.$x.'" size="15"></td>';
+					<td class="input"><input name="newmatchday_'.$x.'" class="automatchday" size="8"></td>
+					<td class="input"><input name="newhome_'.$x.'" class="autoteam" size="15"></td>
+					<td class="input"><input name="newvisitor_'.$x.'" class="autoteam" size="15"></td>';
 				if($ko_matches=='yes'){
 					echo '<td class="input">';
 						echo '<input type="radio"  
@@ -374,6 +378,46 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			echo '</tr>';
 		}
 	}
+
+
+
+    //autocomplete team
+
+	$query = "SELECT DISTINCT(team) FROM (
+                SELECT home as team FROM ".PFIX."_event_".$_REQUEST['ev']."
+                UNION
+                SELECT visitor as team FROM ".PFIX."_event_".$_REQUEST['ev']."
+              ) as teams
+			  ORDER BY team ASC;";
+	$teams = $db->query($query);
+    foreach ($teams as $t) 
+        $autoteam .= '"'.$t['team'].'", ';
+    
+    //autocomplete matchday 
+	$query = "SELECT DISTINCT(matchday) 
+                FROM ".PFIX."_event_".$_REQUEST['ev']."
+			  ORDER BY matchday ASC;";
+	$matchday = $db->query($query);
+    foreach ($matchday as $m) 
+        $automatchday .= '"'.$m['matchday'].'", ';
+    
+    //autocomplete script
+
+    echo "
+    <script>
+        $(document).ready(function() {
+            $(\"input.autoteam\").autocomplete({
+                source: [".$autoteam."]
+            });
+            $(\"input.automatchday\").autocomplete({
+                source: [".$automatchday."]
+            });
+        });
+       $(\".datepicker\").datepicker({dateFormat: 'dd.mm.yy'}); 
+     </script>";
+
+
+
 
 	//this variable is error handling as well
 	$addsbefore =  (isset($data)) ? $data['adds'] : '0';
@@ -395,10 +439,10 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			$flcnt .= '<table><tr>';
 			$flcnt .= '<input name="eve" type="hidden" value="'.$_REQUEST['ev'].'">';
 			$flcnt .= '.<td>'.$lang['admin_events_competitortochange'].'</td>';
-			$flcnt .= '<td><input class="input_fl" name="tochange" size="15" /></td>';
+			$flcnt .= '<td><input class="input_fl autoteam" name="tochange" size="15" /></td>';
 			$flcnt .= '</tr><tr>';
 			$flcnt .= '<td>'.$lang['admin_events_competitorchangeto'].'</td>';
-			$flcnt .= '<td><input class="input_fl" name="changeto" size="15" /></td>';
+			$flcnt .= '<td><input class="input_fl autoteam" name="changeto" size="15" /></td>';
 			$flcnt .= '</td></tr></table><input type="submit" value="'.$lang['general_savechanges'].'"/></form>';
 			echo makeFloatingLayer($lang['admin_events_changecompetitor'], $flcnt);
 

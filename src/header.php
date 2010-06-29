@@ -37,5 +37,10 @@ if(defined(INSTALLING)) $installation_style = '<link rel="stylesheet" type="text
 	<? if(isset($installation_style)) echo $installation_style; ?>
 	<? if(isset($favicon)) echo $favicon; ?>
 	<script type="text/javascript" src="src/functions.js" ></script>
+    
+    <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/smoothness/jquery-ui-1.8.2.custom.css"/>
+    <script type="text/javascript" src="src/opensource/jquery/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="src/opensource/jquery/js/jquery-ui-1.8.2.custom.min.js"></script>
+          
 </head>
 
