@@ -92,15 +92,11 @@ if($nb2 != NULL && $nb != NULL){
 						$row['score_h'] ==  $row['score_v'] && $row[$_REQUEST['showuser'].'_h'] == $row[$_REQUEST['showuser'].'_v'] && $row['score_h'] != NULL)
 						$almost++;
 					$points += $row[$_REQUEST['showuser'].'_points'];
-					$pointscurve .= ($points/$rank).':';
+                    $pointsData[] = $points;
 					$money += $row[$_REQUEST['showuser'].'_money'];
 					$rank = ($row[$_REQUEST['showuser'].'_ranking'] != NULL) ? $row[$_REQUEST['showuser'].'_ranking'] : $rank;
-                    $rankscurve .= $rank.':';
+                    $ranksData[] = $rank;
 				}
-                $pointscurve .= ';'.$pointscurve.';';
-                $rankscurve .= ';'.$rankscurve.';';
-                $curves = ($_REQUEST['curves'] == 'points') ? $pointscurve : $rankscurve;
-		$curveinfo = ($_REQUEST['curves'] == 'ranks') ? '&maxrank='.eventUserNumber($_REQUEST['ev']) : ''; 
 				$wrong = sizeof($rawdata) - $almost - $correct - $diff;
 				$gamestandings = $lang['ranking_rank'].': <b>'.$rank.'</b><br/> '
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '
@@ -119,13 +115,16 @@ if($nb2 != NULL && $nb != NULL){
 					$lang['mytips_tips'].'</a></td></tr>';
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
-                    show: <a href="'.$link.$link_query.'curves=ranks"> ranks</a>
-                    <a href="'.$link.$link_query.'curves=points"> points/rank</a>
+                    show: <a href="javascript: doRanksGraph()"> ranks</a>
+                    <a href="javascript: doPointsGraph()"> points</a>
                     </td></tr>';
                 echo '<tr><td colspan=2>';
-                    echo '<object data="cnt/participantsSVG.php?u='.$details[0]['login'].
-				'&curves='.$curves.$curveinfo.'&title=Points&description=Points" 
-                        width="450" height="250" type="image/svg+xml" />';
+                    echo '<div id="chartdiv" height="300px" width="500px">';
+
+                    echo 'babab';
+                    
+                    echo '</div>';
+
                 echo '</td></tr>';
 				echo '<tr><td colspan="2"><p /><a href="'.$link.'ev='.$_REQUEST['ev'].'">'.$lang['general_goback'].'</a></td></tr></table>';
 		}else{
@@ -156,8 +155,96 @@ if($nb2 != NULL && $nb != NULL){
 		echo '</table>';
 	}
 	echo '</div>';
+
+
 	
-}else/*{
+}else{
 	echo $lang['participants_nousers'];
-}*/
+}
+
+#echo '<div id="chartdiv">asdfawfwef</div>';
+$r[] = $ranksData;
+$u = array($details[0]['login']);
+$p[] = $pointsData;
+
+if ($_SESSION['userid'] != $_REQUEST['showuser']) {
+    
+	$rawdata = $db->query("SELECT ".$_SESSION['userid']."_points, ".$_SESSION['userid']."_ranking, ".$_SESSION['userid']."_money FROM ".PFIX."_event_".$_REQUEST['ev']. " WHERE score_h IS NOT NULL ORDER BY time");
+				foreach ($rawdata as $row){
+                    $pYou = $pYou + $row[$_SESSION['userid']."_points"];
+                    $pointsYou[] = $pYou;
+                    $ranksYou[] = $row[$_SESSION['userid']."_ranking"];
+                }
+}
+$p[] = $pointsYou;
+$r[] = $ranksYou;
+$u[] = $lang['general_you'];
+writeGraphScript($p,$r,array_reverse($u),eventUserNumber($_REQUEST['ev']));
+
+function plotSeries($series) {
+    $str = '';
+    foreach ($series as $s) { 
+        $str.= '[';
+        $i = 1;
+        foreach ($s as $v) {
+            $str.= "[$i,$v],";
+            $i++;
+        }
+        $str.= '],';
+    }
+    return $str;
+}
+
+function writeGraphScript ($points, $ranks, $users, $rankmax) {
+
+    
+    global $lang;
+    $userscp = $users;
+    foreach ($users as $u)
+        $series .= "{label:'".array_pop($users)."'},";
+
+    // points
+    $pointsGraph = "
+    function doPointsGraph() {
+            document.getElementById('chartdiv').innerHTML = '';
+            $.jqplot('chartdiv',  [ ". plotSeries($points) ." ],
+                {  title:'". $lang['ranking_points']."',
+                   series:[".$series."],
+                   legend:{show:true,location:'nw'}
+                });
+    }
+    ";
+
+    echo $pointGraph;
+    //ranks
+
+    for ($i=$rankmax; $i>0; $i-- ) 
+           $rankticks.= "[$i,$i],"; 
+    $ranksGraph = "
+    function doRanksGraph() {
+            document.getElementById('chartdiv').innerHTML = '';
+            $.jqplot('chartdiv',  [ ". plotSeries($ranks) ." ],
+                {  title:'". $lang['ranking_rank']."',
+                   series:[".$series."],
+                   legend:{show:true,location:'nw'},
+                   axes:{yaxis:{ticks:[".$rankticks."]}}
+                });
+    }
+    ";
+
+
+    echo "
+        <script type=\"text/javascript\">
+        $pointsGraph
+
+        $ranksGraph
+
+        doPointsGraph();
+        </script>
+    
+    "; 
+}
+
+
+
 ?>
