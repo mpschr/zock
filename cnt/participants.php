@@ -163,11 +163,16 @@ if($nb2 != NULL && $nb != NULL){
 	echo $lang['participants_nousers'];
 }
 
+$evUsers = (explode(':', $events['u']['e'.$_REQUEST['ev']]['a']));
+array_pop($evUsers);
+
 foreach ($userarray as $i => $u) {
-	$autouser .= '"'.$u.'", ';
+	if (in_array($i, $evUsers))
+		$autouser .= '"'.$u.'", ';
 } 
 foreach ($userarray as $i => $u) {
-	$javascriptArray .= "userToId[\"$u\"]=$i; ";
+	if (in_array($i, $evUsers))
+		$javascriptArray .= "userToId[\"$u\"]=$i; ";
 } 
 $newurlbit = (isset($_REQUEST['add'])) ? '' : '&add=';
 
