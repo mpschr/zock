@@ -106,7 +106,7 @@ if($nb2 != NULL && $nb != NULL){
 						.$lang['participants_closetips'].': <b>'.$almost.'</b><br/>'
 						.$lang['participants_wrongtips'].': <b>'.$wrong.'</b><br/>';
 
-				echo '<table align="center">';
+				echo '<table align="center" width="100%">';
 				echo '<tr><td colspan="2"><b>'.$details[0]['login'].'</b> aka '.$details[0]['name'].' '.$details['0']['famname'].'<p /></td></tr>';
 				echo '<tr><td><img title="'.$details[0]['login'].'" src="'.$imgsrc.'" alt="'.$lang['myprofile_appearance_nopicture'].'" width="'.$imgsize['0'].'px" height="'.$imgsize[1].'px">';
 				echo '<br/><font class="piccomment">'.$details[0]['text'].'</font></td>';
@@ -116,7 +116,8 @@ if($nb2 != NULL && $nb != NULL){
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
                     show: <a href="javascript: doRanksGraph()"> ranks</a>
-                    <a href="javascript: doPointsGraph()"> points</a>
+                    <a href="javascript: doPointsGraph()"> points </a>   
+		    add: <input style="font-size:9px;" size="10" id="addUser" class="input autouser"></input>
                     </td></tr>';
                 echo '<tr><td colspan=2>';
                     echo '<div id="chartdiv" height="300px" width="500px">';
@@ -162,24 +163,67 @@ if($nb2 != NULL && $nb != NULL){
 	echo $lang['participants_nousers'];
 }
 
+foreach ($userarray as $i => $u) {
+	$autouser .= '"'.$u.'", ';
+} 
+foreach ($userarray as $i => $u) {
+	$javascriptArray .= "userToId[\"$u\"]=$i; ";
+} 
+$newurlbit = (isset($_REQUEST['add'])) ? '' : '&add=';
+
+
+    echo "
+    <script type=\"text/javascript\">
+        $(document).ready(function() {
+            $(\"input.autouser\").autocomplete({
+                source: [".$autouser."]
+            });
+	});
+	$( \"input.autouser\" ).autocomplete({
+	   select: function(event, ui) { addUserToGraph(); }
+	});
+
+
+      function addUserToGraph() {
+		var urlbit = '$newurlbit';
+		var ustr = document.getElementById('addUser').value;
+		var userToId = Array();
+		$javascriptArray	
+		document.location = document.location + urlbit + userToId[ustr] + ':';
+	}	
+    </script>";
+
+global $p,$r,$u;
+
 #echo '<div id="chartdiv">asdfawfwef</div>';
 $r[] = $ranksData;
 $u = array($details[0]['login']);
 $p[] = $pointsData;
 
 if ($_SESSION['userid'] != $_REQUEST['showuser']) {
-    
-	$rawdata = $db->query("SELECT ".$_SESSION['userid']."_points, ".$_SESSION['userid']."_ranking, ".$_SESSION['userid']."_money FROM ".PFIX."_event_".$_REQUEST['ev']. " WHERE score_h IS NOT NULL ORDER BY time");
-				foreach ($rawdata as $row){
-                    $pYou = $pYou + $row[$_SESSION['userid']."_points"];
-                    $pointsYou[] = $pYou;
-                    $ranksYou[] = $row[$_SESSION['userid']."_ranking"];
-                }
+	addToPlot($lang['general_you'],$_SESSION['userid']); 
 }
-$p[] = $pointsYou;
-$r[] = $ranksYou;
-$u[] = $lang['general_you'];
+if (isset($_REQUEST['add'])) {
+	$add = split(':',$_REQUEST['add']);
+	array_pop($add);
+	foreach ($add as $id)
+		addToPlot($userarray[$id],$id);
+}
 writeGraphScript($p,$r,array_reverse($u),eventUserNumber($_REQUEST['ev']));
+
+function addToPlot($user, $userid) {
+
+	global $p,$r,$u,$db;
+	$rawdata = $db->query("SELECT ".$userid."_points, ".$userid."_ranking, ".$userid."_money FROM ".PFIX."_event_".$_REQUEST['ev']. " WHERE score_h IS NOT NULL ORDER BY time");
+				foreach ($rawdata as $row){
+                    $pUser = $pUser + $row[$userid."_points"];
+                    $pointsUser[] = $pUser;
+                    $ranksUser[] = $row[$userid."_ranking"];
+                }
+	$p[] = $pointsUser;
+	$r[] = $ranksUser;
+	$u[] = $user;
+}
 
 function plotSeries($series) {
     $str = '';
@@ -232,6 +276,11 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
     }
     ";
 
+    if ($_REQUEST['curves'] == 'ranks') {
+	$displaygraph = 'doRanksGraph();';
+    } else {
+	$displaygraph = 'doPointsGraph();';
+    }
 
     echo "
         <script type=\"text/javascript\">
@@ -239,7 +288,7 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
 
         $ranksGraph
 
-        doPointsGraph();
+        $displaygraph; 
         </script>
     
     "; 
