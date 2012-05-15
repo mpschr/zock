@@ -185,16 +185,20 @@ $newurlbit = (isset($_REQUEST['add'])) ? '' : '&add=';
             });
 	});
 	$( \"input.autouser\" ).autocomplete({
-	   select: function(event, ui) { addUserToGraph(); }
+	   close: function(event, ui) {  
+            addUserToGraph(); }
 	});
 
 
       function addUserToGraph() {
-		var urlbit = '$newurlbit';
 		var ustr = document.getElementById('addUser').value;
+        if (ustr == '') { return; }
+		var urlbit = '$newurlbit';
 		var userToId = Array();
-		$javascriptArray	
-		document.location = document.location + urlbit + userToId[ustr] + ':';
+		$javascriptArray
+        var usid = userToId[ustr];
+        if (usid == undefined) { return; }
+		document.location = document.location + urlbit + usid + ':';
 	}	
     </script>";
 

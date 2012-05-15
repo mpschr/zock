@@ -49,8 +49,8 @@ if(isset($_REQUEST['installnow'])){
 	if($_POST['username']=="") $err['username']=1;
 
 
-	@chmod('src/vars.php', 777);
-	if(!is_writable('src/vars.php')) $err['varsnotwritable']=1;
+#	@chmod('src/vars.php', 777);
+#	if(!is_writable('src/vars.php')) $err['varsnotwritable']=1;
 
 	if(!is_writable('installation')) @chmod('installation', 777);
 	if(!is_writable('installation')) $err['installationnotwritable']=1;
