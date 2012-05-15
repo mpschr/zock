@@ -173,8 +173,8 @@ if(file_exists('installation/installationwassuccess.txt')){
 			echo errorMsg('instl_err_'.$name,1);
 	}else{
 
-		@chmod('src/vars.php', 777);
-		if(!is_writable('src/vars.php')) echo errorMsg('instl_err_varsnotwritable',1);
+#		@chmod('src/vars.php', 777);
+#		if(!is_writable('src/vars.php')) echo errorMsg('instl_err_varsnotwritable',1);
 
 		if(!is_writable('installation')) @chmod('installation', 777);
 		if(!is_writable('installation')) echo errorMsg('instl_err_installationnotwritable',1);
