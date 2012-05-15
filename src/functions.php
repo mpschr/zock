@@ -477,7 +477,7 @@ function createVerticalMenu($vmenu=NULL, $option=NULL){
 		echo '<div id="menu_v">';
 		foreach($menus[$vmenu] as $vm){
 			// the $link has already a ssmenu in it.. so we have to replace it for creating links
-			$sslink = ereg_replace('ssubmenu='.$ssm, 'ssubmenu='.$vm, $link.$link_query);
+			$sslink = preg_replace('/ssubmenu='.$ssm.'/', 'ssubmenu='.$vm, $link.$link_query);
 			echo '-<a class="vmenulink" href="'.$sslink.'">'.$lang['admin_'.$vmenu.'_'.$vm.'_title'].'</a>';
 			echo '<br>';
 		}
@@ -732,7 +732,7 @@ function makeStyleSelect(){
 function orderIt($what, $o, $lq){
 	//this function cleans the links for the links where you can order a table	
 		//=> before using this function, the array $orderby must've been created!
-	$str = eregi_replace('(orderby=)(.*)(ASC|DESC)[& ]', '', $lq);
+	$str = preg_replace('/(orderby=)(.*)(ASC|DESC)[& ]/i', '', $lq);
 	$str .= 'orderby=';
 	$str .= ($what.$o[1] == $o[0].'ASC') ? $what.':DESC' : $what.':ASC' ;
 	return $str;
@@ -923,7 +923,7 @@ function generateEventInfo($id){
 				</tr><tr>';
 			}
 
-			$bu = split(':', $e['bet_until']);
+			$bu = preg_split('/:/', $e['bet_until']);
 			if ($bu[0] > 1){
 				$plural = 's';
 			}
@@ -1141,7 +1141,7 @@ function messageRead($msg, $user){
 function betUntil($bet, $event){
 	global $db,$events;
 	$data=$db->query("SELECT bet_until FROM ".PFIX."_events WHERE id=".$event.";");
-	$bu = split(':',$data[0]['bet_until']);
+	$bu = preg_split('/:/',$data[0]['bet_until']);
 	$min = 60;
 	$hour = $min*60;
 	$day = $hour*24;
@@ -1484,7 +1484,7 @@ function infoBarEventCreation($p,$s=0){
 	if ($s==3){
 /*confirm activation because it's an important irreversible step
 		and prevent any apostrophs in the dialog which would turn down the javascript function*/
-		$dialog = ereg_replace('\'', '\\\'', $lang['admin_events_activatedialog']);
+		$dialog = preg_replace('/\'/', '\\\'', $lang['admin_events_activatedialog']);
 		echo '<br/><a href="javascript: activate(\''.$_REQUEST['ev'].'\', \''.$dialog.'\')">'
 			.$lang['admin_events_activate'].'</a>';
 

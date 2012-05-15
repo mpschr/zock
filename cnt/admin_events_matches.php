@@ -457,11 +457,12 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		}
 		if($inactive){
 			$flcnt = '<form name="installevent" action="?menu=admin&submenu=events&evac=installevent" method="POST" enctype="multipart/form-data">';
-			$flcnt .= '<table><tr>';
+			$flcnt .= '<table><tr><td>';
 			$flcnt .= $lang['admin_events_existantmatchesremoved'];
-			$flcnt .= '<input name="eve" type="hidden" value="'.$_REQUEST['ev'].'">';
-			$flcnt .= '<td><input name="eventup" size="40" type="file"></td>';
-			$flcnt .= '</tr></table><input type="submit" value="'.$lang['general_upload'].'"/></form>';
+			$flcnt .= '<input name="eve" type="hidden" value="'.$_REQUEST['ev'].'"></td></tr>';
+			$flcnt .= '<tr><td><input name="eventup" size="30" type="file"></td></tr>';
+			$flcnt .= '<tr><td>Delimiter:<br/> <input name="delimiter" size="10" type="text"></td></tr>';
+			$flcnt .= '</table><input type="submit" value="'.$lang['general_upload'].'"/></form>';
 			echo makeFloatingLayer($lang['admin_events_installevent'], $flcnt, 1, 3);
 		}
 

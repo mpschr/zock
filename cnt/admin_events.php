@@ -48,7 +48,7 @@ echo '<ul>'
 	.'<li>'.$lang['admin_events_edit']
 	.'<ul>';
 foreach($events_read as $e){
-	$cleanlink = ereg_replace('submenu=(.*)&', '', $link);
+	$cleanlink = preg_replace('/submenu=(.*)&/', '', $link);
 	echo '<li>'.$e['name'].' (<a href="'.$link.'ssubmenu=settings&ev='.$e['id'].'">'.$lang['admin_events_settings_title'].'</a> || '
 		.'<a href="'.$link.'ssubmenu=matches&ev='.$e['id'].'">'.$lang['admin_events_matches_title'].'</a> || '
 		.'<a href="'.$link.'ssubmenu=results&ev='.$e['id'].'">'.$lang['admin_events_results_title'].'</a>)';

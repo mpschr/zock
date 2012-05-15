@@ -346,8 +346,8 @@ if($_REQUEST['evac'] == 'save'){
 			splitting to get the different time elements & the id of the 
 			match to which the time-element in question belongs to.*/
 			
-		if (ereg('time1', $key) && ($item < $_POST['adds'] || $_POST['adds'] == 0)){
-			$w = (ereg('new', $key)) ? 'new' : ''; //is this just an edited or a new match? => $w
+		if (preg_match('/time1/', $key) && ($item < $_POST['adds'] || $_POST['adds'] == 0)){
+			$w = (preg_match('/new/', $key)) ? 'new' : ''; //is this just an edited or a new match? => $w
 			if ($w == 'new' && $_POST['adds'] == 0) continue; 	//there are no new matches, skip this iteration
 			if ($w == 'new') ++$item; 	//count the new matches
 			$x = explode('_', $key);	//to get the id of the match
@@ -360,7 +360,7 @@ if($_REQUEST['evac'] == 'save'){
 			3. the time is not in the past or let it pass if it was a readonly match (nothing edited)*/
 
 			if(	checkdate((int)$y[1], (int)$y[0], (int)$y[2])		//1.
-				&& ereg('([0-9][0-9]):([0-9][0-9])', $_POST[$w.'time2_'.$x[1]]) //2.
+				&& preg_match('/([0-9][0-9]):([0-9][0-9])/', $_POST[$w.'time2_'.$x[1]]) //2.
 				&& (	time() < $unixtime[$w.$x[1]] 			//3.
 					|| $_POST['ro_'.$x[1]] == 'readonly') ){	//3.
 
@@ -383,7 +383,7 @@ if($_REQUEST['evac'] == 'save'){
 		$_SESSION['err'] = $err;
 		$_SESSION['post'] = $_POST;
 		//clean the link
-		redirect( ereg_replace('(evac=savematches&which=[0-9]+)&', '',$rlink.$link_query.'ssubmenu=matches&'.$_POST['query']), 0);
+		redirect( ereg_replace('(evac=savematches&which=[0-9]+)&', '',$rlink.$link_query.'ssubmenu=matches&'.$_POST['query']), 2);
 	}else{
 		/*update the rest of the matches*/
 		//print_r($chosen);
@@ -442,7 +442,7 @@ if($_REQUEST['evac'] == 'save'){
 		}
 		
 	$echo['general_redirect'];
-	redirect($_SERVER["HTTP_REFERER"], 3, 1);
+	redirect($_SERVER["HTTP_REFERER"], 1, 1);
 }
 
 //========== save results
@@ -820,46 +820,59 @@ if ($query1 || $query2){
 //========== installevent
 }elseif($_REQUEST['evac'] == 'installevent'){
 	global $events;
+    require 'src/opensource/class.iCalReader.php';
 
 	$data = $_POST;
 	$srcfile = $_FILES['eventup']['tmp_name'];
-	$handle = @fopen($srcfile, 'r');
-	while (!feof($handle)){
-		$read = fgets($handle, 4096);
-		if (substr($read, 0,1) == '('){
-			$contents.=$read;
-			$lineNb++;
-		}
-	}
-	fclose($handle);
+    $delimiter = $data['delimiter'];
+    echo "delimiter: ".$delimiter;
+    $ical = new ical($srcfile);
+#    print_r($ical->events());	
 
+    $events = $ical->events();
 	$rawdata = $db->query("SELECT id FROM ".PFIX."_event_".$data['eve'].";");
 	$matches = sizeof($rawdata);
 
 	if ($events['i']['e'.$data['eve']]['stake_mode']=='permatch' &&
-		$events['i']['e'.$data['eve']]['match_nb'] == $lineNb ||
+		$events['i']['e'.$data['eve']]['match_nb'] == sizeof($events) ||
 		$events['i']['e'.$data['eve']]['stake_mode']!='permatch')
 	{
-		if ($matches>0){
-			//delete all entries
-			$db->query("DELETE FROM ".PFIX."_event_".$data['eve']." WHERE id>0 ;");
-			$db->query(" ALTER TABLE ".PFIX."_event_".$data['eve']." AUTO_INCREMENT =1;");
-		}
+		#if ($matches>0){
+		#	//delete all entries
+		#	$db->query("DELETE FROM ".PFIX."_event_".$data['eve']." WHERE id>0 ;");
+		#	$db->query(" ALTER TABLE ".PFIX."_event_".$data['eve']." AUTO_INCREMENT =1;");
+		#}
 
 	}else{
 		$err[1] = 'incorrectmatchnb';
 	}
-
-	$sql  = "INSERT INTO ".PFIX."_event_".$data['eve']." (`id`, `time`, `matchday`, `home`, `visitor`, `score_h`, `score_v`, `score_special`, `jackpot`) VALUES ".$contents; 
-
 	if(!isset($err)){
-		if($db->query($sql)){
+        $matchid=1;
+        foreach ($ical->events() as $event) {
+            $time = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
+            $matchday = 'NULL';
+            $competitors = preg_split('/'.$delimiter.'/',$event['SUMMARY']);
+            $home=trim($competitors[0]);
+            $visitor=trim($competitors[1]);
+            $sql = "UPDATE ".PFIX."_event_".$data['eve']." 
+                    SET `time`=$time, `home`='$home', `visitor`='$visitor' 
+                    WHERE `id`=$matchid;";
+
+            if (!$db->query($sql)) {
+                break;
+		        $err[1] = 'general_savednotok';
+            }
+            $matchid=1+$matchid;
+        }
+	    
+        $sql  = "INSERT INTO ".PFIX."_event_".$data['eve']." (`id`, `time`, `matchday`, `home`, `visitor`, `score_h`, `score_v`, `score_special`, `jackpot`) VALUES ".$contents; 
+
+		if(!isset($err)){
 			echo $lang['general_savedok'].'<br>';
 			echo $lang['general_redirect'];
-			redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 3);
-
+		    #redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
 		}else{
-			echo $lang['general_savednotok'];
+            echo $lang[$err[1]];
 		}
 	}else{
 		$_SESSION['err'] = $err;
