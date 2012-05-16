@@ -469,7 +469,7 @@ function createHorizontalMenu($submenu=NULL){
 			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';
 			echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
 				echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
-                                            $lang[$nm.'_title'];
+                                            $lang[$submenu.'_'.$nm.'_title'];
 					echo '</a>';
 		}
 	}
