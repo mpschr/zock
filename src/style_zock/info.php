@@ -34,8 +34,8 @@ $style['plainviewcompatible'] = false;
 // the name of the favicon file
 $style['favicon'] = 'zock_favicon.ico';
 
-// the ending for the button image files without dots!!, if there are any. (e.g. svg, png, jpg, gif)
-$style['btn_format'] = 'png';
+// the ending for the button image files without dots!  if there are none, empty string. (e.g. svg, png, jpg, gif)
+$style['btn_format'] = '';
 
 
 ?>

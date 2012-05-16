@@ -428,33 +428,38 @@ function createHorizontalMenu($submenu=NULL){
 	$logged = isLogged();
 	$admin = isAdmin();
 
+    $hasButtonImages = (strlen($style['btn_format'])>0);
 	//creat the main Horizontal menu
 	if($submenu==NULL){
 
 		//add the admin button for the admin
 		if ($admin){
 			$linktype = ($_REQUEST['menu'] == 'admin') ? 'menulinksel' : 'menulink';
-			echo '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">
-				<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>
-				</a>';
+			echo '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">';
+				echo $hasButtonImages ?  '<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>' :
+                                        $lang['admin_title'];
+				echo '</a>';
 		}
 		//normal menu (@ page entry)
 		if (!($logged)){
 			foreach($menus['normal'] as $nm){
 				$linktype = 'menulink';
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">
-					<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>
-					</a>';
+				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
+					echo $hasButtonImages ?' <img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
+                                            $lang[$nm.'_title'];
+
+					echo '</a>';
 			}
 		//the logged user menu
 		}else{
 			foreach($menus['logged'] as $nm){
 				$linktype = 'menulink';
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">
-					<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>
-					</a>';
+				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
+					echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
+                                            $lang[$nm.'_title'];
+					echo '</a>';
 			}
 		}
 	//make the submenu line
@@ -462,9 +467,10 @@ function createHorizontalMenu($submenu=NULL){
 		foreach($menus[$submenu] as $nm){
 			$linktype = 'menulink';
 			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';
-			echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">
-				<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>
-				</a>';
+			echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
+				echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
+                                            $lang[$nm.'_title'];
+					echo '</a>';
 		}
 	}
 }
