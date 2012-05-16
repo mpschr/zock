@@ -267,7 +267,7 @@ global $db, $lang, $settings;
 
 		
 		if($_COOKIE['rememberme']!='true'){
-			redirect('loginhome', 3);
+			redirect('loginhome', 0);
 		}elseif($_REQUEST['menu']==NULL){
 			redirect('loginhome', 0);
 		}
