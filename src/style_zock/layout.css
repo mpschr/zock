@@ -171,28 +171,39 @@ li {
 
 .menu_h_level_1 {
 	text-align: left;
+	margin-bottom: 5px;
 }
 .menu_h_level_2 {
 	text-align: right;
 }
 
-a.menulink:visited, a.menulink {
+a.menulink:visited > span, a.menulink > span {
 	border-style: solid none solid solid;
-	padding: 0px 5px 0px 10px;
-	border-width: 0.5px;
+	display: inline-block;
+    padding: 0px 5px 0px 10px;
+	border-width: 1px;
 	color: black;
 	text-decoration: none;
 	background: #337900;
-	line-height: 2;
+	line-height: 1.5;
 }
-a.menulink:hover, a.menulinksel {
+a.menulink:hover > span, a.menulinksel > span{
 	border-style: solid none solid solid;
+	display: inline-block;
 	padding: 0px 5px 0px 10px;
-	border-width: 0.5px;
+	border-width: 1px;
 	background: #33bb00;
 	text-decoration: none;
 	color: black;
 	border-color: black;
+	line-height: 1.5;
+}
+a.menulink, a.menulinksel { 
+    margin: 0;
+    padding: 0;    
+    background: white;
+    border-style: none;
+    border-width: 0px;
 }
 
 .menu_h_level_1>a.menulink, .menu_h_level_1>a.menulink:hover,

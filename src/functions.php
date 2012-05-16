@@ -437,7 +437,7 @@ function createHorizontalMenu($submenu=NULL){
 			$linktype = ($_REQUEST['menu'] == 'admin') ? 'menulinksel' : 'menulink';
 			echo '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">';
 				echo $hasButtonImages ?  '<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>' :
-                                        $lang['admin_title'];
+                                        '<span>'.$lang['admin_title'].'</span>';
 				echo '</a>';
 		}
 		//normal menu (@ page entry)
@@ -447,7 +447,7 @@ function createHorizontalMenu($submenu=NULL){
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
 				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
 					echo $hasButtonImages ?' <img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
-                                            $lang[$nm.'_title'];
+                                            '<span>'.$lang[$nm.'_title'].'</span>';
 
 					echo '</a>';
 			}
@@ -458,7 +458,7 @@ function createHorizontalMenu($submenu=NULL){
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
 				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
 					echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
-                                            $lang[$nm.'_title'];
+                                            '<span>'.$lang[$nm.'_title'].'</span>';
 					echo '</a>';
 			}
 		}
@@ -469,7 +469,7 @@ function createHorizontalMenu($submenu=NULL){
 			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';
 			echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
 				echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
-                                            $lang[$submenu.'_'.$nm.'_title'];
+                                            '<span>'.$lang[$submenu.'_'.$nm.'_title'].'</span>';
 					echo '</a>';
 		}
 	}
