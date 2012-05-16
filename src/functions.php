@@ -95,7 +95,7 @@ function init(){
 	global $settings;
 
 	if($_COOKIE['rememberme'] == 'true'){
-		$dtl = split(':', $_COOKIE['dtl']);
+		$dtl = preg_split('/:/', $_COOKIE['dtl']);
 		login($dtl[1],$dtl[0]);
 		$_SESSION['init'] = TRUE;
 	}else{
@@ -121,14 +121,14 @@ function loadSettings($user=0){
 		
 		//style
 		if($_SESSION['logged']){
-			$styles = split(':', $setting['style_forusers']);
+			$styles = preg_split('/:/', $setting['style_forusers']);
 			array_pop($styles);
 			$usets = loadSettings($_SESSION['userid']);
 			if ($usets['style']!="" && in_array($usets['style'],$styles))
 				$setting['style'] = $usets['style'];
 		}else{
 			if(isset($_COOKIE['syle'])){
-				$styles = split(':', $setting['style_forusers']);
+				$styles = preg_split('/:/', $setting['style_forusers']);
 				array_pop($styles);
 				if ($COOKIE['style']!="" && in_array($_COOKIE['style'],$styles))
 					$setting['style'] = $usets['style'];
@@ -1005,7 +1005,7 @@ function generateEventInfo($id){
 						$ei['pointsjp'] .= $lang['eventinfo_jackpot_linformula'];
 					}else{
 						$ei['pointsjp'] .= $lang['eventinfo_jackpot_fixformula'];
-						$percents = split(':',$e['jp_distr_fix_shares']);
+						$percents = preg_split('/:/',$e['jp_distr_fix_shares']);
 						array_pop($percents);
 						foreach ($percents as $p){ 
 							$rankcounter++;
@@ -1085,7 +1085,7 @@ function getNewMessage($userid){
 		$users[$u['id']] = $u['login'];
 	$message = "";
 	foreach ($data as $row){
-		$receivers = split(':', $row['receivers']);
+		$receivers = preg_split('/:/', $row['receivers']);
 		if(in_array($userid, $receivers)){
 			$message['id'] = $row['id'];
 			$message['title'] = $row['title'];
@@ -1105,7 +1105,7 @@ function getNewMessage($userid){
 function messageRead($msg, $user){
 	global $db;
 	$data = $db->query("SELECT `receivers`, `read` FROM ".PFIX."_messages WHERE id=".$msg.";");	
-	$receivers = split(':', $data[0]['receivers']);
+	$receivers = preg_split('/:/', $data[0]['receivers']);
 	array_pop($receivers);
 	$receivers_new = "";
 	foreach ($receivers as $r)
@@ -1248,7 +1248,7 @@ $queryfield = ($events['u']['e'.$ev]['score_input_type'] == 'results') ? 'score_
 //*simulation*/ /*
 $query = "SELECT * FROM ".PFIX."_event_".$ev." WHERE ".$queryfield." IS NOT NULL ORDER BY time ASC;";
 if($until!="") {
-	$u = split(':',$until);
+	$u = preg_split('/:/',$until);
 	if($u[0] == 'matchday_id') 
 		$query = "SELECT * FROM ".PFIX."_event_".$ev." 
 			WHERE matchday_id <= '".$u[1]."' 
@@ -1355,7 +1355,7 @@ if ($rows == 0) {
 			}
 			break; //end of case 'exp'
 		case 'fix': //fix shares
-			$fix_shares = split(':', $event_info[0]['jp_distr_fix_shares']);
+			$fix_shares = preg_split('/:/', $event_info[0]['jp_distr_fix_shares']);
 			for($j = $jackpotters; $j > 0; $j--){
 				$counter++;
 				$jackpots[$counter] = (round($reciprocal*(($fix_shares[$counter-1]/100)*$jackpot))/$reciprocal);

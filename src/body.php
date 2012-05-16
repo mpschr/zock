@@ -114,7 +114,7 @@ if(isset($ssm)) $smlink .= 'ssubmenu='.$ssm.'&';
 
 $rlink = $_REQUEST['menu'].'&'.$smlink;
 $link = '?menu='.$rlink;
-$link_query = ereg_replace('menu='.$rlink,'', $_SERVER['QUERY_STRING'].'&');
+$link_query = preg_replace('/menu='.$rlink.'/','', $_SERVER['QUERY_STRING'].'&');
 
 ?>
 </div> <!-- menu_h divs.. -->

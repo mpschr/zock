@@ -32,7 +32,9 @@ if($nb > 0){
 	echo '<p>'.$lang['home_events'].'<br>';
 	echo '<ul>';
 	foreach ($events['p'] as $key => $ev){
-		if(is_numeric($ev) && is_array($events['p']['e'.$ev])){
+        if (is_string($key))
+            continue;
+		if(is_array($events['p']['e'.$ev])){
 			echo '<li>'.$events['p']['e'.$ev]['name'];
 			echo ' <a href="?menu=overview&ev='.$ev.'">'.$lang['overview_title'].'</a>';
 			echo '</li>';
