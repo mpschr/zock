@@ -193,7 +193,6 @@ function cmtDisplay($cmt, $user, $depth, $pics){
 	echo '<div class="cmttitle"';
 	echo '<div class="cmttitler">'.$lang['general_by'].' '.$user[$cmt['user']].'</div>';
 	echo '<div class="cmttitlel">'.$cmt['title'].'</div>';
-	echo '</div>';
 	//comment	
     $userpic = $pics[$cmt['user']];
 	//echo '<div class="cmttextbg">';
