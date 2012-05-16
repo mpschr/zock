@@ -31,7 +31,7 @@ if(isset($_REQUEST['sendmessage'])){
 						'".$data['content']."')";
 		$db->query($query);
 	}else{
-		$receivers = split(':', $data['hf_receivers']);
+		$receivers = preg_split('/:/', $data['hf_receivers']);
 		array_pop($receivers);
 		foreach ($receivers as $r){
 			//send the user a mail to notify him of his approval

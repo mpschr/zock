@@ -383,7 +383,7 @@ if($_REQUEST['evac'] == 'save'){
 		$_SESSION['err'] = $err;
 		$_SESSION['post'] = $_POST;
 		//clean the link
-		redirect( ereg_replace('(evac=savematches&which=[0-9]+)&', '',$rlink.$link_query.'ssubmenu=matches&'.$_POST['query']), 2);
+		redirect( preg_replace('/(evac=savematches&which=[0-9]+)&/', '',$rlink.$link_query.'ssubmenu=matches&'.$_POST['query']), 2);
 	}else{
 		/*update the rest of the matches*/
 		//print_r($chosen);
@@ -486,7 +486,7 @@ if($_REQUEST['evac'] == 'save'){
 	//go back on error
 		$_SESSION['err'] = $err;
 		$_SESSION['post'] = $_POST;
-		redirect( ereg_replace('(evac=saveresults&which=[0-9]+)&', '',$rlink.$link_query.'ssubmenu=results&'.$_POST['query']), 0);
+		redirect( preg_replace('/(evac=saveresults&which=[0-9]+)&/', '',$rlink.$link_query.'ssubmenu=results&'.$_POST['query']), 0);
 	}else{
 		
 		//if a result is updated, that was before already other updated matches, the
@@ -642,7 +642,7 @@ if($_REQUEST['evac'] == 'save'){
 
 		}//end of else (no-err)
 		echo $lang['general_redirect'];
-//		redirect( ereg_replace('(evac=saveresults&which=[0-9]+)&', '',$rlink.$link_query.'ssubmenu=results&'.$_POST['query']), 3);
+		redirect( preg_replace('/(evac=saveresults&which=[0-9]+)&/', '',$rlink.$link_query.'ssubmenu=results&'.$_POST['query']), 3);
 	}
 }
 

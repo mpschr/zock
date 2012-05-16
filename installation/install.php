@@ -71,9 +71,9 @@ if(isset($_REQUEST['installnow'])){
 		}
 
 		foreach ($buffer as $line){
-			if(ereg('\$my_db\[\'[a-z]+\'\]', $line)){
-				$what = ereg_replace('(\$my_db\[\')([a-z]+)(\'\]\ =\ )\'\'.+', '\\2', $line);
-				$newline = ereg_replace('(\$my_db\[\')([a-z]+)(\'\]\ =\ ).+(;.+)', '\\1\\2\\3\''.$my_db[$what].'\'\\4', $line);
+			if(preg_match('/\$my_db\[\'[a-z]+\'\]/', $line)){
+				$what = preg_replace('/(\$my_db\[\')([a-z]+)(\'\]\ =\ )\'\'.+/', '\\2', $line);
+				$newline = preg_replace('/(\$my_db\[\')([a-z]+)(\'\]\ =\ ).+(;.+)/', '\\1\\2\\3\''.$my_db[$what].'\'\\4', $line);
 			}else{
 				$newline = $line;
 			}
@@ -97,7 +97,7 @@ if(isset($_REQUEST['installnow'])){
 		    while (!feof($handle)) {
 			$read = fgets($handle, 4096);
 			if ( preg_match("/^\\s*(insert|create) /i",$read) ) {
-				$read = ereg_replace('(.+)(#PFIX#)(.+)', '\\1'.$my_db['prefix'].'\\3', $read);
+				$read = preg_replace('/(.+)(#PFIX#)(.+)/', '\\1'.$my_db['prefix'].'\\3', $read);
 				$index++;
 			}
 			//filter out comments

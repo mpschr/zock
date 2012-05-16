@@ -67,7 +67,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 	//filtering
 	if (isset($_REQUEST['filter'])){
 		$filter = " WHERE ";
-		$f = split(':', $_REQUEST['filter']);
+		$f = preg_split('/:/', $_REQUEST['filter']);
 		switch ($f[0]){
 			case 'team':
 				$filter .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
@@ -190,7 +190,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 		//filterform
 		if(!isset($data)){
-			$filterurl = eregi_replace('(filter=)[a-zA-Z0-9:]+[&]', '', $link_query); 
+			$filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/i', '', $link_query); 
 			$filterurl = $link.$filterurl;
 			echo '<form action="javascript: filter(\''.$filterurl.'\')">
 				<a href="javascript: showFilter()" >'.$lang['general_filter'].'</a>
@@ -469,7 +469,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 	//skip pages
 	if (!(isset($err))){
-		$queryfilter = ereg_replace( '&mnb=([0-9]+)', '',$link_query);
+		$queryfilter = preg_replace( '/&mnb=([0-9]+)/', '',$link_query);
 		if($mnb > 1){
 			$gonb = $mnb-$settings['formlines'];
 			if ($gonb < 1) $gonb = 1;

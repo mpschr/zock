@@ -72,9 +72,9 @@ if($_REQUEST['setac'] == 'savesettings'){
 	    fclose($handle);
 	}
 	foreach ($buffer as $line){
-		if(ereg('\$my_smtp\[\'[a-z]+\'\]', $line)){
-			$what = ereg_replace('(\$my_smtp\[\')([a-z]+)(\'\]\ =\ ).+', '\\2', $line);
-			$newline = ereg_replace('(\$my_smtp\[\')([a-z]+)(\'\]\ =\ ).+(;.+)', '\\1\\2\\3\''.$_POST[$what].'\'\\4', $line);
+		if(preg_match('/\$my_smtp\[\'[a-z]+\'\]/', $line)){
+			$what = preg_replace('/(\$my_smtp\[\')([a-z]+)(\'\]\ =\ ).+/', '\\2', $line);
+			$newline = preg_replace('/(\$my_smtp\[\')([a-z]+)(\'\]\ =\ ).+(;.+)/', '\\1\\2\\3\''.$_POST[$what].'\'\\4', $line);
 		}else{
 			$newline = $line;
 		}

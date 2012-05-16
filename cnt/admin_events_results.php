@@ -230,7 +230,7 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 
 	//skip pages
 	if (!(isset($err))){
-		$filter = ereg_replace( 'mnb=([0-9]+)([& ])', '',$link_query);
+		$filter = preg_replace( '/mnb=([0-9]+)([& ])/', '',$link_query);
 		if($mnb > 1){
 			$gonb = $mnb-$settings['formlines'];
 			if ($gonb < 1) $gonb = 1;

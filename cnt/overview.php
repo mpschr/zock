@@ -49,7 +49,7 @@ if($nb < 1){
 	}else{
 		if (!(isset($_REQUEST['ev'])) && !(isset($_SESSION['currevent']))){
 			if($_SESSION['logged']){
-				$thisevent = ereg_replace('.*:([0-9]+):$', '\\1', $userevents['approved']);
+				$thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
 			}else{
 				$thisevent = $_SESSION['currevent'] = $events['p'][$events['p']['nb']-1];
 			}
@@ -79,7 +79,7 @@ if($nb >= 1){
 	//filtering
 	if (isset($_REQUEST['filter'])){
 		$filter = " WHERE ";
-		$f = split(':', $_REQUEST['filter']);
+		$f = preg_split('/:/', $_REQUEST['filter']);
 		switch ($f[0]){
 			case 'team':
 				$filter .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
@@ -136,7 +136,7 @@ if($nb >= 1){
 		echo $lang['overview_content'].'<p>';
 	
 		//filterform
-		$filterurl = eregi_replace('(filter=)[a-zA-Z0-9:]+[&]', '', $link_query); 
+		$filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/', '', $link_query); 
 		$filterurl = $link.$filterurl;
 		echo '<form action="javascript: filter(\''.$filterurl.'\')">
 			<a href="javascript: showFilter()" >'.$lang['general_filter'].'</a>

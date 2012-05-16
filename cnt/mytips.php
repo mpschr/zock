@@ -86,7 +86,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	//filtering
 	if (isset($_REQUEST['filter'])){
 		$filter = " WHERE ";
-		$f = split(':', $_REQUEST['filter']);
+		$f = preg_split('/:/', $_REQUEST['filter']);
 		switch ($f[0]){
 			case 'team':
 				$filter .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";

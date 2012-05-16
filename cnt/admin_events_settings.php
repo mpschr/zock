@@ -651,7 +651,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				break;	
 		}
 
-		$bu = split(':', $eve['bet_until']);
+		$bu = preg_split('/:/', $eve['bet_until']);
 		$val['betuntil_nb'] = $bu[0];
 		if($bu[1] == "m") $sel['betuntil_time_m'] = 'selected';
 		elseif($bu[1] == "h") $sel['betuntil_time_h'] = 'selected';
@@ -851,7 +851,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		</form>';
 	}else{
 		infoBarEventCreation(3,3);
-		$sslink = ereg_replace('ssubmenu=settings', 'ssubmenu=matches', $link.$link_query);
+		$sslink = preg_replace('/ssubmenu=settings/', 'ssubmenu=matches', $link.$link_query);
 		echo substitute($lang['admin_events_phase3text'], array($sslink, $lang['admin_events_deadline']));
 
 		$flcnt = generateEventInfo($_REQUEST['ev']);
