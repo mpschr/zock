@@ -225,7 +225,7 @@ if(isset($_REQUEST['ac']) && isset($_POST)){
 			<div class="input"><input name="home_comments" size="10" value="'.$mysettings['home_comments'].'"/></div>';
 
 			//Style
-			$styles = split(':', $settings['style_forusers']);
+			$styles = preg_split('/:/', $settings['style_forusers']);
 			array_pop($styles);
 			if(sizeof($styles)>1){
 				echo '<div class="title">'.$lang['admin_settings_style'].'</div>';

@@ -29,7 +29,7 @@ if($nb < 1){
 	
 }elseif($nb == 1){
 	//one event, one possibility..
-	$thisevent = ereg_replace('([0-9]+):$', '\\1', $userevents['approved']);
+	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
 	
 }elseif($nb > 1){
 	//multiple events
@@ -38,7 +38,7 @@ if($nb < 1){
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = ereg_replace('.*:([0-9]+):$', '\\1', $userevents['approved']);
+			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
 }
 //$_REQUEST['ev'] overrules the insight of the event handling :)
 if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent;
@@ -213,7 +213,7 @@ if ($_SESSION['userid'] != $_REQUEST['showuser']) {
 	addToPlot($lang['general_you'],$_SESSION['userid']); 
 }
 if (isset($_REQUEST['add'])) {
-	$add = split(':',$_REQUEST['add']);
+	$add = preg_split('/:/',$_REQUEST['add']);
 	array_pop($add);
 	foreach ($add as $id)
 		addToPlot($userarray[$id],$id);

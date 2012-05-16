@@ -34,7 +34,7 @@ if($nb < 1){
 	
 }elseif($nb == 1){
 	//one event
-	$thisevent = ereg_replace('([0-9]+):$', '\\1', $userevents['approved']);
+	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
 	
 }elseif($nb > 1){
 	//multible events
@@ -45,7 +45,7 @@ if($nb < 1){
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = ereg_replace('.*:([0-9]+):$', '\\1', $userevents['approved']);
+			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
 }
 
 
@@ -92,7 +92,7 @@ if ($rows == 0) {
 	<?
 
 
-	$cleanurl = eregi_replace('(showuntil=)[a-zA-Z0-9:_]+[&]', '', $link_query);
+	$cleanurl = preg_replace('/(showuntil=)[a-zA-Z0-9:_]+[&]/i', '', $link_query);
 	$cleanurl = $link.$cleanurl;
 	
 	echo $lang['ranking_showrankinguntil'];

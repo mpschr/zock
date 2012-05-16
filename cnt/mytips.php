@@ -35,7 +35,7 @@ if($nb < 1){
 	
 }elseif($nb == 1){
 	//one event
-	$thisevent = ereg_replace('([0-9]+):$', '\\1', $userevents['approved']);
+	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
 }elseif($nb > 1){
 	//multiple events
 	//a vmenu to navigate between events
@@ -45,7 +45,7 @@ if($nb < 1){
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = ereg_replace('.*:([0-9]+):$', '\\1', $userevents['approved']);
+			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
 }
 //$_REQUEST['ev'] overrules the insight of the event handling :)
 if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent;
@@ -136,7 +136,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 
 		//filterform
-		$filterurl = eregi_replace('(filter=)[a-zA-Z0-9:]+[&]', '', $link_query); 
+		$filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/i', '', $link_query); 
 		$filterurl = $link.$filterurl;
 		echo '<form action="javascript: filter(\''.$filterurl.'\')">
 			<a href="javascript: showFilter()" >'.$lang['general_filter'].'</a>
@@ -362,7 +362,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 		//skip pages
 		if (!(isset($err))){
-			$queryfilter = ereg_replace( 'mnb=([0-9]+)([& ])', '', $link_query);
+			$queryfilter = preg_replace( '/mnb=([0-9]+)([& ])/', '', $link_query);
 			if($mnb > 1){
 				$gonb = $mnb-$settings['formlines'];
 				if ($gonb < 1) $gonb = 1;
@@ -429,7 +429,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		$_SESSION['err'] = $err;
 		$_SESSION['post'] = $_POST;
 		//go back without updating but with a lot of information
-		redirect( ereg_replace('(&mtac=savetips)', '',$rlink.$link_query.$_POST['query']), 0);
+		redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 0);
 		
 	}else{
 		//update	
@@ -450,9 +450,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			}
 			if($db->query($query_changes)){
 				echo $lang['general_savedok'];
-				redirect( ereg_replace('(&mtac=savetips)', '',$rlink.$link_query.$_POST['query']), 3);
+				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 3);
 			}else{
-				redirect( ereg_replace('(&mtac=savetips)', '',$rlink.$link_query.$_POST['query']), 2);
+				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 2);
 			}
 		}
 		

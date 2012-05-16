@@ -33,7 +33,7 @@ if($nb < 1){
 	
 }elseif($nb == 1){
 	//display his only event
-	$thisevent = ereg_replace('([0-9]+):$', '\\1', $userevents['approved']);
+	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
 	
 }elseif($nb > 1){
 	//allow the user to navigate between his events
@@ -43,7 +43,7 @@ if($nb < 1){
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = ereg_replace('.*:([0-9]+):$', '\\1', $userevents['approved']);
+			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
 }
 
 
@@ -95,7 +95,7 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 			if ($cnb == 0) $cnb =1;
 			$cmts = sizeof($comments_raw);
 			if (!(isset($err))){
-				$filter = ereg_replace( 'cnb=([0-9]+)([& ])', '', $link_query);
+				$filter = preg_replace( '/cnb=([0-9]+)([& ])/', '', $link_query);
 				if($cnb > 1){
 					$gonb = $cnb-5;
 					if ($gonb < 1) $gonb = 1;

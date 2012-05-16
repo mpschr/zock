@@ -335,9 +335,9 @@ function addReceivers(rec, none){
 	userlist = document.getElementById("receivers");
 	users = rec.split(":");
 	users.pop();
-	for each (var u in users){
+	for (var u in users) {
 		isin = false;
-		for each (r in receivers){
+		for (r in receivers){
 			if (r == u) isin = true;
 		}	
 		if (!isin){
@@ -362,7 +362,7 @@ function removeReceiver(rec, none){
 	userlist = document.getElementById("receivers");
 	document.getElementById("hf_receivers").value = "";
 	userlist.innerHTML = "";
-	for each (r in receivers) {
+	for (r in receivers) {
 		if (r != rec){
 			hf_rec = hf_rec+r+":";
 			name = document.getElementById("user_"+r).value;
@@ -408,7 +408,7 @@ function checkMessage(warningsstring){
 	}
 	var counter = 0;
 	var counter2 = 0;
-	for each(var e in err){
+	for(var e in err){
 		counter++;
 		if(err[counter-1] != ""){
 			saveit = false;
