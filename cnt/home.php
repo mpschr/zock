@@ -36,6 +36,10 @@ if($nb > 0){
             continue;
 		if(is_array($events['p']['e'.$ev])){
 			echo '<li>'.$events['p']['e'.$ev]['name'];
+			$flcnt = generateEventInfo($ev);
+			foreach($flcnt as $sid => $cnt)
+	            echo makeFloatingLayer($events['p']['e'.$ev]['name'], $cnt, 1, $ev.'_'.$sid);
+            echo '<a href="javascript: showFloatingLayer(\''.$ev.'_stake\')" title="'.$lang['general_show_info'].'"> Info </a>||';
 			echo ' <a href="?menu=overview&ev='.$ev.'">'.$lang['overview_title'].'</a>';
 			echo '</li>';
 		}
