@@ -182,7 +182,19 @@ function redirect($where, $wait=0, $properURL=0){
 function languageSelector($standard=NULL){
 $langObj = new bDb;
 if ($standard == NULL) $standard='en';
-$lang_raw = $langObj->query("SELECT * FROM ".PFIX."_lang");
+$langid=$standard;
+
+    $lang= array();
+    $filename="data/langs/lang_$langid.xml";
+    $xml = simplexml_load_file($filename);
+    foreach($xml->zock_lang as $entry) {
+        $lab = (string) $entry->label;
+        #$lang[$lab] = utf8_decode((string) $entry->$langid);
+        $lang[$lab] = (string) $entry->$langid;
+    }
+
+
+/*$lang_raw = $langObj->query("SELECT * FROM ".PFIX."_lang");
 foreach($lang_raw as $entry){
 	$lang[$entry['label']] = $entry[$standard];
 	//If this entry is not available in the standard language
@@ -193,7 +205,7 @@ foreach($lang_raw as $entry){
 			$lang[$entry['label']] = 'EMPTY: '.$entry['label'];
 		}
 	}
-}
+}*/
 return $lang;	
 }
 

@@ -66,7 +66,7 @@ if($style['plainviewcompatible']){
 	<div id="top_right">
 	<div id="top">
 		<h1><? echo $settings['name'].' :: '.$settings['description']; ?></h1>
-	</div>
+	</div> 
 	</div>
 	</div>
 	</div>
@@ -127,7 +127,7 @@ $link_query = preg_replace('/menu='.$rlink.'/','', $_SERVER['QUERY_STRING'].'&')
 ?>
 
 
-<div id="cnt_top"><!-- div menu_h -->
+<div id="cnt_top"><!-- cnt_divs -->
 <div id="cnt_bottom">
 <div id="cnt_left">
 <div id="cnt_right">

@@ -442,7 +442,7 @@ if($_REQUEST['evac'] == 'save'){
 		}
 		
 	$echo['general_redirect'];
-	redirect($_SERVER["HTTP_REFERER"], 1, 1);
+	redirect($_SERVER["HTTP_REFERER"], 0, 1);
 }
 
 //========== save results
@@ -809,12 +809,12 @@ $query2 = $db->query($sql2);
 if ($query1 || $query2){
 		echo $lang['general_savedok'].'<br />';
 		echo $lang['general_redirect'];
-		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 3);
+		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 0);
 }else{
 
 		echo $lang['general_savednotok'].'<br />';
 		echo $lang['general_redirect'];
-		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 3);
+		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 1);
 }
 
 //========== installevent
@@ -848,6 +848,7 @@ if ($query1 || $query2){
 	}
 	if(!isset($err)){
         $matchid=1;
+        date_default_timezone_set('UTC');        
         foreach ($ical->events() as $event) {
             $time = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
             $matchday = 'NULL';
@@ -870,7 +871,7 @@ if ($query1 || $query2){
 		if(!isset($err)){
 			echo $lang['general_savedok'].'<br>';
 			echo $lang['general_redirect'];
-		    #redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
+		    redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
 		}else{
             echo $lang[$err[1]];
 		}

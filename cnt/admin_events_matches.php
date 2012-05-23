@@ -136,7 +136,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 				echo '<a href="javascript: showFloatingLayer(\'1\')">'.$lang['admin_events_changecompetitor'].'</a>';
 				echo ' || ';
 			}
-			if($inactive){
+			if(!$nomatches){
 				echo '<a href="javascript: showFloatingLayer(\'3\')">'.$lang['admin_events_installevent'].'</a>';
 				echo ' || ';
 			}
@@ -352,7 +352,6 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 	$query = "SELECT MAX(time) AS maxtime
                 FROM ".PFIX."_event_".$_REQUEST['ev'].";";
 	$latestdate = $db->query($query);
-    print_r( $latestdate);
 	if(!isset($data)){
 		for($x=1;$x<21;$x++){
 			echo '<tr id="newtr_'.$x.'" class="notvisible">
@@ -455,7 +454,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			echo makeFloatingLayer($lang['admin_events_addemptymatches'], $flcnt, 1, 2);
 
 		}
-		if($inactive){
+		if(!$nomatches){
 			$flcnt = '<form name="installevent" action="?menu=admin&submenu=events&evac=installevent" method="POST" enctype="multipart/form-data">';
 			$flcnt .= '<table><tr><td>';
 			$flcnt .= $lang['admin_events_existantmatchesremoved'];

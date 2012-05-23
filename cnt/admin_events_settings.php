@@ -193,7 +193,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			$flcnt = generateEventInfo($_REQUEST['ev']);
 			foreach($flcnt as $sid => $cnt)
 				echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
-			echo '<p/><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a>';
+			echo '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
 		}
 
 
@@ -721,7 +721,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		.'<input type="hidden" name="id" value="'.$eve['id'].'">'
 		.'<div class="showform">
 				<div class="title">'.$lang['admin_events_name'].'</div>
-				<div class="input"><input id="namefield" name="name" size=20 value="'.$eve['name'].'"</div>
+				<div class="input"><input id="namefield" name="name" size=20 value="'.$eve['name'].'"></div>
 			
 				<div class="title">'.$lang['admin_events_deadline'].'</div>
 				<div class="input"><input id="deadlinefield" name="deadline" size=10 value="'.$eve['deadline'].'"></div>
@@ -735,40 +735,40 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				</div>
 
 				<div id="matchnbexp" class="explanation '.$nt['matchnb'].'">'.$lang['admin_events_settings_matchnb'].'</div>
-				<div id="matchnbdiv" class="input '.$nt['matchnb'].'"><input id="matchnbfield" name="match_nb" size=10 value="'.$eve['match_nb'].'"</div>			
+				<div id="matchnbdiv" class="input '.$nt['matchnb'].'"><input id="matchnbfield" name="match_nb" size=10 value="'.$eve['match_nb'].'"></div>			
 				<div  id="fix" class="explanation '.$nt['fix'].'">'.$lang['admin_events_settings_stake_fix'].'</div>
 				<div  id="permatch" class="explanation '.$nt['permatch'].'">'.$lang['admin_events_settings_stake_permatch'].'</div>
-				<div  id="stakediv" class="input '.$nt['stakediv'].'"><input id="stakefield" name="stake" size=10 value="'.$eve['stake'].'"</div>
+				<div  id="stakediv" class="input '.$nt['stakediv'].'"><input id="stakefield" name="stake" size=10 value="'.$eve['stake'].'"></div>
 
 				<div id="currencyexp" class="explanation '.$nt['currency'].'">'.$lang['admin_events_currency'].'</div>
-				<div id="currencydiv" class="input '.$nt['currency'].'"><input id="currencyfield" name="currency" size=10 value="'.$eve['currency'].'"</div>			
+				<div id="currencydiv" class="input '.$nt['currency'].'"><input id="currencyfield" name="currency" size=10 value="'.$eve['currency'].'"></div>			
 				<div id="roundexp" class="explanation '.$nt['round'].'">'.$lang['admin_events_round'].'</div>	
-				<div id="rounddiv" class="input '.$nt['round'].'"><input id="roundfield" name="round" size=10 value="'.$eve['round'].'"</div>
+				<div id="rounddiv" class="input '.$nt['round'].'"><input id="roundfield" name="round" size=10 value="'.$eve['round'].'"></div>
 
 				<div id="stakebackexp" class="explanation '.$nt['stakeback'].'">'.$lang['admin_events_stakeback'].'</div>
 				<div id="stakebackdiv" class="input '.$nt['stakeback'].'">
 					<select id="stakebackfield" onClick="verifyStakeBack()" name="stake_back" size=2>
-						<option value="no" '.$sel['stakebackno'].'>'.$lang['general_no'].'</optino>
+						<option value="no" '.$sel['stakebackno'].'>'.$lang['general_no'].'</option>
 						<option value="yes" '.$sel['stakebackyes'].'>'.$lang['general_yes'].'</option>
 					</select>
 				</div>
 
 				<div id="jackpotsection" class="'.$nt['jackpotsection'].'">
 				<div class="title">'.$lang['overview_jackpot'].'</div>
-				<div class="explanation"'.$lang['admin_events_jackpotexp'].'</div>
+				<div class="explanation">'.$lang['admin_events_jackpotexp'].'</div>
 				<div class="input"><select id="jackpotmodefield" name="jp_fraction_or_fix" size=2>
 						<option value="fraction" onClick="setJackpot(\'fraction\')" '.$sel['fraction'].'>'.$lang['admin_events_settings_jackpotmode_fraction'].'</option>
 						<option value="fix" onClick="setJackpot(\'fix\')" '.$sel['jackpotfix'].'>'.$lang['admin_events_settings_stakemode_fix'].'</option>
 					</select></div>
 
-				<div id="fractionexp" class="explanation '.$nt['fraction'].'">'.$lang['admin_events_jackpot_fraction'].'</div>
-				<div id="fractiondiv" class="input '.$nt['fraction'].'"><input id="fractionfield" name="jp_fraction" size=3 value="'.$eve['jp_fraction'].'" />%</div>
+				<div id="fractionexp" class="explanation" '.$nt['fraction'].'>'.$lang['admin_events_jackpot_fraction'].'</div>
+				<div id="fractiondiv" class="input" '.$nt['fraction'].'><input id="fractionfield" name="jp_fraction" size=3 value="'.$eve['jp_fraction'].'" />%</div>
 				
 				<div id="jackpotfixexp" class="explanation '.$nt['jackpotfix'].'">'.$lang['admin_events_jackpot_fix'].'</div>
 				<div id="jackpotfixdiv" class="input '.$nt['jackpotfix'].'"><input id="jackpotfixfield" name="jp_fix" size=3 value="'.$eve['jp_fix'].'" /></div>
 
 				<div class="title">'.$lang['admin_events_distr'].'</div>
-				<div class="explanation"'.substitute($lang['admin_events_distralgorithm'], $jackpotdistributions).'</div>
+				<div class="explanation">'.substitute($lang['admin_events_distralgorithm'], $jackpotdistributions).'</div>
 				<div class="input"><select id="jpdistrmodefield" name="jp_distr_algorithm" size=3>
 						<option value="fix" onClick="setDistr(\'fix\', \''.$lang['admin_events_firstjackpotfixfield'].'\')" '.$sel['fixshares'].'>'.$lang['admin_events_settings_stakemode_fix'].'</option>
 						<option value="lin" onClick="setDistr(\'lin\')" '.$sel['linshares'].'>'.$lang['admin_events_settings_distr_lin'].'</option>
@@ -817,17 +817,17 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				<div class="title">'.$lang['admin_events_pointdistr'].'</div>
 				<div id="correctresult" class="explanation">'.$lang['admin_events_pointdistr_correct'].'</div>
 				<div id="correcttoto" class="explanation notvisible">'.$lang['admin_events_pointdistr_toto'].'</div>
-				<div class="input"><input id="correct" name="p_correct" size="4" '.$dis['correct'].' value='.$eve['p_correct'].'></div>
+				<div class="input"><input id="correct" name="p_correct" size="4" '.$dis['correct'].' value="'.$eve['p_correct'].'"></div>
 				<div class="explanation">'.$lang['admin_events_pointdistr_diff'].'</div>
 				<div class="input"><input id="diffbox" name="diffbox" type="checkbox" onChange="switchInput(\'diff\')" '.$check['diff'].' '.$dis['diffbox'].'>
-					<input id="diff" name="p_diff" size="4" '.$dis['diff'].' value='.$eve['p_diff'].'></div>
+					<input id="diff" name="p_diff" size="4" '.$dis['diff'].' value="'.$eve['p_diff'].'"></div>
 				<div class="explanation">'.$lang['admin_events_pointdistr_almost'].'</div>
 				<div class="input"><input id="almostbox" name="almostbox" type="checkbox" onChange="switchInput(\'almost\')" '.$check['almost'].' '.$dis['almostbox'].'>
-					<input id="almost" name="p_almost" size="4" '.$dis['almost'].' value='.$eve['p_almost'].'></div>
-				<div class="explanation">'.$lang['admin_events_pointdistr_wrong'].'</div>
-				<div class="input"><input id="wrong" name="p_wrong" size="4" '.$dis['wrong'].' value='.$eve['p_wrong'].'></div>
+					<input id="almost" name="p_almost" size="4" '.$dis['almost'].' value="'.$eve['p_almost'].'"></div>
+				<div class="explanation" >'.$lang['admin_events_pointdistr_wrong'].'</div>
+				<div class="input"><input id="wrong" name="p_wrong" size="4" '.$dis['wrong'].' value="'.$eve['p_wrong'].'"></div>
 			
-				<div class="explanation">'.$lang['admin_events_komatchesexp'].'</div>
+				<div class="explanation" >'.$lang['admin_events_komatchesexp'].'</div>
 				<div class="input"><select name="ko_matches" size=3>
 						<option value="no" onClick="koMatches(\'no\')" '.$sel['ko_no'].'>'.$lang['general_no'].'</option>
 						<option value="yes" onClick="koMatches(\'yes\')" '.$sel['ko_yes'].'>'.$lang['general_yes'].'</option>
@@ -857,15 +857,15 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		$flcnt = generateEventInfo($_REQUEST['ev']);
 		foreach($flcnt as $sid => $cnt)
 			echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
-		echo '<p/><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a>';
+		echo '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
 
 	//Preparation for the form	
 		//=> process public setting
 		if($eve['public']){
-			$p['y'] = 'selected';
+			$p['y'] = 'selected="selected"';
 			$p['n'] = '';
 		}else{
-			$p['n'] = 'selected';
+			$p['n'] = 'selected="selected"';
 			$p['y'] = '';
 		}
 
