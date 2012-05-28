@@ -192,20 +192,7 @@ $langid=$standard;
         #$lang[$lab] = utf8_decode((string) $entry->$langid);
         $lang[$lab] = (string) $entry->$langid;
     }
-
-
-/*$lang_raw = $langObj->query("SELECT * FROM ".PFIX."_lang");
-foreach($lang_raw as $entry){
-	$lang[$entry['label']] = $entry[$standard];
-	//If this entry is not available in the standard language
-	if ($entry[$standard] == NULL){
-		if($entry['en'] != NULL){
-			$lang[$entry['label']] = $entry['en'];
-		}else{
-			$lang[$entry['label']] = 'EMPTY: '.$entry['label'];
-		}
-	}
-}*/
+    
 return $lang;	
 }
 
@@ -214,26 +201,14 @@ function languagesReader(){
 
 	$langObj = new bDb;	
 	
-	//the long ones with short ones as label
-	$languages = $langObj->query("SELECT * FROM ".PFIX."_lang WHERE label = 'general_thislanguage'");
-	
-	$shorts = array_keys($languages[0]);
-	$i = 0;
-	foreach ($languages[0] as $el){
-		if ($i > 0){
-			$prelangs['long'][] = $el;
-			$prelangs['short'][] = $shorts[$i];
-		}
-		$i++;
+	$languages = $langObj->query("SELECT * FROM ".PFIX."_langs ORDER BY `long`");
+	$langs = Array();
+
+	for ($x = 0; $x < sizeof($languages) ; $x++) {
+		$langs['short'][$x] = $languages[$x]['short'];
+		$langs['long'][$x] = $languages[$x]['long'];
 	}
-	
-	$flip = $copy = $prelangs['long'];
-	sort($copy);
-	$flip = array_flip($flip);
-	foreach($copy as $c){
-		$langs['short'][] = $prelangs['short'][$flip[$c]];
-		$langs['long'][] = $c;
-	}
+
 	return $langs;
 }
 
@@ -1517,51 +1492,26 @@ function getStyleInfo($name){
 	return $style;
 }
 
-function installLang($sh){
+function installLang($langid){
 	global $db, $my_db;
-	$db->query("ALTER TABLE ".$my_db['prefix']."_lang ADD COLUMN `".$sh."` longtext collate utf8_unicode_ci");
-	$handle = fopen("data/langs/lang_".$sh.".xml", "r");
-	if ($handle) {
-		while (!feof($handle)) {
-			$xmlCNT .= fgets($handle, 4096);
-		}
-		fclose($handle);
-	}
-	$p = xml_parser_create();
-	xml_parse_into_struct($p, $xmlCNT, $vals, $index);
-	$langcode = strtoupper($sh);
-	foreach($vals as $v){
-		if($v['tag']=='LABEL') $l = $v['value'];
-		if($v['tag']==$langcode) {
-			$i = $v['value'];
-			$db->query("UPDATE ".$my_db['prefix']."_lang 
-					SET `".$sh."`= '".mysql_real_escape_string($i)."' 
-					WHERE label LIKE '".$l."';");
-		}
-	}
+	
+	$langName = lookupLangName($langid);
+	$sql = "INSERT INTO ".PFIX."_langs (`short`,`long`) 
+				VALUES ('".$langid."','".$langName."');";
+	$db->query($sql);
+
 
 }
 
 function lookupLangName($sh){
-	$handle = fopen("data/langs/lang_".$sh.".xml", "r");
-	if ($handle) {
-		while (!feof($handle)) {
-			$xmlCNT .= fgets($handle, 4096);
-		}
-		fclose($handle);
-	}
-	$p = xml_parser_create();
-	xml_parse_into_struct($p, $xmlCNT, $vals);
-	xml_parser_free($p);
-	$next = false;
-	$langcode = strtoupper($sh);
-	foreach($vals as $v){
-		if($v['value']=='general_thislanguage') $next = true;
-		if($next && $v['tag']==$langcode) {
-			return $v['value'];
+	$filename="data/langs/lang_$sh.xml";
+    $xml = simplexml_load_file($filename);
+    foreach($xml->zock_lang as $entry) {
+        $lab = (string) $entry->label;
+		if ($lab == 'general_thislanguage') {
+			return (string) $entry->$sh;
 		}
 	}
-
 }
 
 ?>

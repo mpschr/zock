@@ -324,7 +324,7 @@ function switchToActivatedBG(rowid, stylename){
 }
 
 function addReceivers(rec, none){
-	hf_rec = document.getElementById("hf_receivers").value;
+	var hf_rec = document.getElementById("hf_receivers").value;
 	var receivers = new Array();
 	if(hf_rec == "") {
 		receivers[0] = "" 
@@ -332,12 +332,14 @@ function addReceivers(rec, none){
 		receivers = hf_rec.split(":")
 		receivers.pop();
 	}
-	userlist = document.getElementById("receivers");
-	users = rec.split(":");
+	var userlist = document.getElementById("receivers");
+	var users = rec.split(":");
 	users.pop();
-	for (var u in users) {
+	for (var i = 0; i < users.length; i++) {
+        var u = users[i];
 		isin = false;
-		for (r in receivers){
+        for (var j = 0; j < receivers.length; j++) {
+            var r = receivers[j];
 			if (r == u) isin = true;
 		}	
 		if (!isin){
@@ -362,7 +364,8 @@ function removeReceiver(rec, none){
 	userlist = document.getElementById("receivers");
 	document.getElementById("hf_receivers").value = "";
 	userlist.innerHTML = "";
-	for (r in receivers) {
+	for (var i = 0; i < receivers.length; i++) {
+        var r = receivers[i];
 		if (r != rec){
 			hf_rec = hf_rec+r+":";
 			name = document.getElementById("user_"+r).value;
@@ -375,12 +378,13 @@ function removeReceiver(rec, none){
 }
 
 function searchUsers(userNb, none){
-	searchstring = document.getElementById("searchstr").value;
-	res = document.getElementById("results");
+	var searchstring = document.getElementById("searchstr").value;
+	var res = document.getElementById("results");
 	res.innerHTML = "";
-	if (searchstring != ""){ 
+	if (searchstring != ""){
+        var caseinsensitive = "/"+searchstring+"/i"; 
 		for(i=1; i<=userNb; i++){
-			user = document.getElementById("user_"+i).value;
+			var user = document.getElementById("user_"+i).value;
 			if (user.search(searchstring) > -1){
 				res.innerHTML = res.innerHTML  + "<b>" + user  + "</b><a href=\"javascript: addReceivers('"+i+":', '"+none+"')\"> (+)</a>" + "<br/>";
 			}

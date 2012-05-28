@@ -52,7 +52,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 			if(substr($l,4,1) == 'i')
 				installLang(str_replace('langi_', '', $l));
 			elseif(substr($l,4,1) == 'r')
-				$db->query("ALTER TABLE ".PFIX."_lang DROP COLUMN ".str_replace('langr_', '', $l).";");
+				$db->query("DELETE FROM ".PFIX."_langs WHERE `short` = '".str_replace('langr_', '', $l)."' LIMIT 1;");
 		}
 	}
 
@@ -92,7 +92,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 	$subject = $lang['admin_settings_testemail_subject'];
 	$txt = $lang['admin_settings_testemail_txt'];
 
-	include("src/phpmailer/class.phpmailer.php");
+	include("src/opensource/phpmailer/class.phpmailer.php");
 	$mail = new PHPMailer();
 	$mail->IsSMTP();
 	$mail->SMTPAuth = true;
@@ -109,6 +109,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 	$mail->IsHTML(true);
 	$mail->MsgHTML($txt);
 	$mail->AddAddress($settings['email'], $lang['general_bettingOffice']." ".$settings['name']);
+    $mail->SMTPDebug  = 1;
 	if(!$mail->Send()){
 		$db->query("UPDATE ".PFIX."_settings SET value = 'false' WHERE setting = 'functionalSMTP';");
 		echo '<font class="error">'.$lang['admin_settings_mailnotsent'].'</font>';
