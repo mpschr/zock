@@ -57,7 +57,7 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_message</label>
-        <en>Hello $1 You have been admitted to the betting game $2! Now you can place the bets. http://donmiguel.sagex.ch</en>
+        <en>Hello $1 You have been admitted to the betting game $2! Now you can place the bets.</en>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_subject</label>
@@ -1761,5 +1761,9 @@ Before the start of the betting game means, that ALL the bets have to be placed 
     <zock_lang>
         <label>general_remove</label>
         <en>remove</en>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_goparticipate</label>
+        <en>Go participate at $1</en>
     </zock_lang>
 </zock>

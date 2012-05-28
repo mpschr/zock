@@ -117,7 +117,10 @@ $site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : 'home';
 
 //the following function goes to error page, if a menu's not tought for the one demanding
 if (!(menuAllowance($site, $_REUQUEST['submenu']))){
+    $site = 'error';
+	siteConstructor('header', $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
 	errorPage('menu');
+	siteConstructor('footer');
 }else{
 	//build the acutal site with this weird siteConstructor (is in fact just a forwarder)
 	siteConstructor('header', $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);

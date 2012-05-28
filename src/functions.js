@@ -625,29 +625,7 @@ function filterUnset(){
 	filterChange();
 }
 
-/* //yet not used
-function SVGloader(){
-	alert("svgfunciton_loaded");
-  var images = document.getElementsByTagName('img');
-  for(var i=0; i<images .length; i++) {
-	if(images[i].getAttribute('src').match(/\.svg$/)) {
-	alert("svg!");
-	  var object = document.createElement('object');
-	  with(object) {
-		setAttribute('type', 'image/svg+xml');
-		for(var j=0; j<images[i].attributes.length; j++) {
-		  if(images[i].attributes[j].nodeName != 'src') {
-			setAttribute(images[i].attributes[j].nodeName, images[i].attributes[j].nodeValue);
-		  } else {
-			setAttribute('data', images[i].attributes[j].nodeValue);
-		  }
-		}
-	  }
-	  images[i].parentNode.replaceChild(object, images[i]);
-	}
-  }
-};
-/*
-window.onload = function(event) {
-  SVGloader();
-};*/
+
+function debugAlert(string) {
+    alert(string);
+}

@@ -105,5 +105,27 @@ if($nb > 0){
 
 	//tell the user that he's not registered to any event
 	echo $lang['loginhome_noevent'];
+
+    $nb = ActiveEventNumber();
+    if($nb > 0){
+        #echo '<p>'.$lang['home_events'].'<br>';
+        echo '<ul>';
+        foreach ($events['p'] as $key => $ev){
+            if (is_string($key))
+                continue;
+            if(is_array($events['p']['e'.$ev])){
+                echo '<li>'.$events['p']['e'.$ev]['name'];
+                $flcnt = generateEventInfo($ev);
+                foreach($flcnt as $sid => $cnt)
+                    echo makeFloatingLayer($events['p']['e'.$ev]['name'], $cnt, 1, $ev.'_'.$sid);
+                echo '<a href="javascript: showFloatingLayer(\''.$ev.'_stake\')" title="'.$lang['general_show_info'].'"> Info </a>||';
+                echo ' <a href="?menu=overview&ev='.$ev.'">'.$lang['overview_title'].'</a> || ';
+                echo substitute($lang['loginhome_goparticipate'],array("<a href='?menu=myprofile'>".$lang['myprofile_title']."</a>"));
+                echo '</li>';
+            }
+        }
+        echo '</ul>';
+    }
+
 }
 ?>

@@ -26,7 +26,7 @@ echo '<h2>'.$lang['home_title'].'</h2>';
 //welcome the user a little bit
 echo $lang['general_hi'].'<p>'.$lang['home_welcome'].' '.$lang['home_content'].'<p />';
 
-//diplay the public, active events
+//display the public, active events
 $nb = ActiveEventNumber();
 if($nb > 0){
 	echo '<p>'.$lang['home_events'].'<br>';

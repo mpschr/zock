@@ -44,4 +44,3 @@ if(defined(INSTALLING)) $installation_style = '<link rel="stylesheet" type="text
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />      
 </head>
-
