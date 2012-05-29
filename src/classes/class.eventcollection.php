@@ -142,6 +142,19 @@ class EventCollection extends Collection {
         return $this->userEvents;
     }
 
+    /**
+     * @param int $id
+     * @return \Event|null
+     */
+    public function getEventById($id) {
+        foreach($this->items as $event) {
+            /* @var $event Event */
+            if ($event->getId()==$id)
+                return $event;
+        }
+        return null;
+    }
+
 
     /////////////////////////////////////////////////
     // METHODS

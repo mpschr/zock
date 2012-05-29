@@ -80,7 +80,7 @@ if ($_REQUEST['evac'] == 'addnew'){
 
 
 	infoBarEventCreation(1);
-	// the form for the creatino of  new event
+	// the form for the creation of a new event
 	echo '<form name="addnew" action="'.$link.'evac=save" method="POST">'
 		.'<input type="hidden" name="form" value="ssubmenu=settings&ev=">'
 		.'<input type="hidden" name="formname" value="phase1">'
@@ -90,13 +90,13 @@ if ($_REQUEST['evac'] == 'addnew'){
 				<td></td>
 			</tr><tr>
 				<td class="input"><input name="name" size=10 value="'.$post['name'].'"</td>
-				<td>'.$lang[general_eg].': Euro08</td>
+				<td>'.$lang['general_eg'].': Euro08</td>
 			</tr><tr>
 				<td class="'.$err['deadline'].'">'.$lang['admin_events_deadline'].'</td>
 				<td></td>
 			</tr><tr>
 				<td class="input"><input name="deadline" size=10 value="'.$post['deadline'].'"></td>
-				<td>'.$lang[general_eg].': 18.05.2009</td>
+				<td>'.$lang['general_eg'].': 18.05.2009</td>
 			</tr><tr>
 				<td class="submit"><input type="submit" value="'.$lang['general_save'].'"></td>
 				<td></td>

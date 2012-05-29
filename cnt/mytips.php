@@ -23,7 +23,7 @@ echo '<h2>'.$lang['mytips_title'].'</h2>';
 
 
 //========== show matches & results
-global $db, $settings, $events;
+global $db, $settings, $events, $events_test;
 
 
 //event handling ;) => estimate if user is registerd to events
@@ -79,45 +79,29 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		}
 	}
 
-	//get the info by what it content should be ordered
-	$orderby = (isset($_REQUEST['orderby'])) ? explode(':', $_REQUEST['orderby']) : explode(':', 'time:ASC');
-
-
 	//filtering
 	if (isset($_REQUEST['filter'])){
-		$filter = " WHERE ";
 		$f = preg_split('/:/', $_REQUEST['filter']);
 		switch ($f[0]){
 			case 'team':
-				$filter .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
 				$f_team = 'selected';
 				break;
 			case 'home';
-				$filter .= "`home` LIKE '%".$f[1]."%'";
 				$f_home = 'selected';
 				break;
 			case 'visitor';
-				$filter .= "`visitor` LIKE '%".$f[1]."%'";
 				$f_visitor = 'selected';
 				break;
 			case 'matchday';
-				$filter .= "`matchday` LIKE '".$f[1]."'";
 				$f_matchday = 'selected';
 				break;
 		}
 	}
 
-
-	//get the info by applying the insight of $orderby
-	if ($orderby[0] == 'matchday_id') $orderplus = ", time ASC";
-	$query = "SELECT *
-				FROM ".PFIX."_event_".$_REQUEST['ev']
-				.$filter.
-				" ORDER BY ".$orderby[0]." ".$orderby[1].$orderplus.";";
-
-	
-	$bdp_matches =  $db->query($query);
-	$bdp_rows =  $db->row_count($query);
+    $event = $events_test->getEventById($_REQUEST['ev']);
+    $results = $event->getResults();
+    $bdp_matches = $results->getBetsAndResults($_REQUEST['filter'],$_REQUEST['orderby']);
+	$bdp_rows =  sizeof($bdp_matches);
 	
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
 	$mnb = (isset($_REQUEST['mnb'])) ? $_REQUEST['mnb'] : 1;

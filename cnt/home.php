@@ -41,7 +41,7 @@ if($nb > 0){
         $evid = $event->getId();
         echo '<li>'.$event->getName();
 
-        $flcnt = generateEventInfo($evid);
+        $flcnt = $event->generateEventInfo();
         foreach($flcnt as $sid => $cnt)
             echo makeFloatingLayer($event->getName(), $cnt, 1, $evid.'_'.$sid);
 

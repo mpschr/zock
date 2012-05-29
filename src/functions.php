@@ -817,6 +817,9 @@ function styleComment(){
 		echo '<div id="style_comment">'.$style['comment'].'</div>';
 }
 
+/**
+ * @depricated
+ */
 function generateEventInfo($id){
 	global $db, $lang, $settings;
 	$dbinfo =  $db->query("SELECT * FROM ".PFIX."_events WHERE id=".$id.";");
@@ -1073,7 +1076,7 @@ function closestGame($ev, $time, $offset=0){
 function getNewMessage($userid){
 	if ($userid == NULL) return "";
 	global $db, $lang;
-	$data = $db->query("SELECT * FROM ".PFIX."_messages");
+	$data = $db->query("SELECT * FROM ".PFIX."_messages WHERE `receivers` not like \"\" ORDER BY `time` ASC");
 	$usersraw = $db->query("SELECT id,login FROM ".PFIX."_users");
 	foreach ($usersraw as $u)
 		$users[$u['id']] = $u['login'];
@@ -1092,8 +1095,8 @@ function getNewMessage($userid){
 						<input type="submit" value="'.$lang['general_readparticipe'].'"/>
 						</form>';
 		}
+	    return $message;
 	}
-	return $message;
 }
 
 function messageRead($msg, $user){

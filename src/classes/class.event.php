@@ -28,7 +28,7 @@ class Event {
     * Id for the language
     * @var int 
     */
-    public $id          = NULL;
+    public $id          = null;
 
 
     /**
@@ -36,6 +36,11 @@ class Event {
     * @var int 
     */
     public $name          = "";
+
+    /**
+     * @var Result $result
+     */
+    public $results = null;
 
 
     /**
@@ -197,9 +202,10 @@ class Event {
         if (sizeof($raw)==0)
             throw new Exception("No event with id $id in database!");
 
-        $eventDetails =     $raw[0];
-        $this->id =         $eventDetails['id'];
-        $this->name =       $eventDetails['name'];
+        $eventDetails       = $raw[0];
+        $this->id           = $eventDetails['id'];
+        $this->name         = $eventDetails['name'];
+        $this->results      = new Result($this->id);
         unset($eventDetails['id']);
         unset($eventDetails['name']);
 
@@ -215,222 +221,220 @@ class Event {
         global $cont, $settings;
 
         $id = $this->id;
-        $dbinfo = array();
-        $e = $dbinfo[0];
-        $matchnb = $e['match_nb'];
+        $matchnb = $this->match_nb;
         $point=1;
         $alphabet = array('0', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k');
         $subpoint=1;
 
 
-        $header = $lang['eventinfo_rules'].
-            '<br/><br/><a href="javascript: changeFloatingLayer(\''.$id.'_stake\')">'.$lang['eventinfo_stake'].'</a> |
-		<a href="javascript: changeFloatingLayer(\''.$id.'_tips\')">'.$lang['mytips_tips'].'</a> | ';
-        if($e['stake_mode']=='permatch') $header .= '<a href="javascript: changeFloatingLayer(\''.$id.'_gain\')">'.$lang['ranking_gain'].'</a> | ';
-        if($e['stake_mode']!='none') $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_pointsjp\')">'.$lang['ranking_points'].' & '.$lang['overview_jackpot'].'</a> | ';
-        if($e['stake_mode']=='none') $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_pointsjp\')">'.$lang['ranking_points'].'</a> | ';
-        $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_end\')">'.$lang['eventinfo_finalaccount'].'</a>';
+        $header = $cont->get('eventinfo_rules').
+            '<br/><br/><a href="javascript: changeFloatingLayer(\''.$id.'_stake\')">'.$cont->get('eventinfo_stake').'</a> |
+		<a href="javascript: changeFloatingLayer(\''.$id.'_tips\')">'.$cont->get('mytips_tips').'</a> | ';
+        if($this->stake_mode=='permatch') $header .= '<a href="javascript: changeFloatingLayer(\''.$id.'_gain\')">'.$cont->get('ranking_gain').'</a> | ';
+        if($this->stake_mode!='none') $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_pointsjp\')">'.$cont->get('ranking_points').' & '.$cont->get('overview_jackpot').'</a> | ';
+        if($this->stake_mode=='none') $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_pointsjp\')">'.$cont->get('ranking_points').'</a> | ';
+        $header.='<a href="javascript: changeFloatingLayer(\''.$id.'_end\')">'.$cont->get('eventinfo_finalaccount').'</a>';
 
 
         //STAKE
-        $to_sub1 = array($e['stake'].' '.$e['currency']);
-        $to_sub2 = array($matchnb, $e['stake']*$matchnb.' '.$e['currency']);
+        $to_sub1 = array($this->stake.' '.$this->currency);
+        $to_sub2 = array($matchnb, $this->stake*$matchnb.' '.$this->currency);
 
-        $ei['stake'] = $header.'<table class="eventinfo"><tr>
+        $layers['stake'] = $header.'<table class="eventinfo"><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>';
 
-        switch($e['stake_mode']){
+        switch($this->stake_mode){
             case 'none':
-                $ei['stake'] .= '<td>'.$lang['eventinfo_nostake'].'</td>';
+                $layers['stake'] .= '<td>'.$cont->get('eventinfo_nostake').'</td>';
                 break;
             case 'fix':
-                $ei['stake'] .= '<td>'.substitute($lang['eventinfo_fixstake'], $to_sub1).'</td>';
+                $layers['stake'] .= '<td>'.substitute($cont->get('eventinfo_fixstake'), $to_sub1).'</td>';
                 break;
             case 'permatch':
-                $ei['stake'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_stakepermatch'], $to_sub1).'</td>
+                $layers['stake'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_stakepermatch'), $to_sub1).'</td>
 				</tr><tr>
 					<td/>
-					<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_staketotal'], $to_sub2).'</td>';
+					<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_staketotal'), $to_sub2).'</td>';
         }
-        $ei['stake'] .= '</tr></table>';
+        $layers['stake'] .= '</tr></table>';
 
         //TIPS
         //prep
-        $to_sub_toto = array ($lang['eventinfo_beton_toto_1'].', ', $lang['eventinfo_beton_toto_2'], ' & '.$lang['eventinfo_beton_toto_x']);
-        if($e['bet_on'] != 'toto') array_pop($to_sub_toto);
-        $to_sub_matchtypes = array ($lang['eventinfo_tournamentmatches'], $lang['eventinfo_komatches']);
+        $to_sub_toto = array ($cont->get('eventinfo_beton_toto_1').', ', $cont->get('eventinfo_beton_toto_2'), ' & '.$cont->get('eventinfo_beton_toto_x'));
+        if($this->bet_on != 'toto') array_pop($to_sub_toto);
+        $to_sub_matchtypes = array ($cont->get('eventinfo_tournamentmatches'), $cont->get('eventinfo_komatches'));
 
         $subpoint = 1;
-        $ei['tips'] = $header.'<table class="eventinfo"><tr>
+        $layers['tips'] = $header.'<table class="eventinfo"><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>';
-        if($e['bet_on']=='results') $ei['tips'] .= '<td>'.$lang['eventinfo_precise_tip'].'</td>';
-        if($e['bet_on']=='toto') $ei['tips'] .= '<td>'.substitute($lang['eventinfo_beton_toto'], $to_sub_toto).'</td>';
-        $ei['tips'] .= '</tr><tr>
+        if($this->bet_on=='results') $layers['tips'] .= '<td>'.$cont->get('eventinfo_precise_tip').'</td>';
+        if($this->bet_on=='toto') $layers['tips'] .= '<td>'.substitute($cont->get('eventinfo_beton_toto'), $to_sub_toto).'</td>';
+        $layers['tips'] .= '</tr><tr>
 			<td/>';
-        if($e['ko_matches']=='no'){
-            $ei['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_inallmatches'].' '.substitute($lang['eventinfo_allpossible'],
-                Array($lang['general_victory'], $lang['general_defeat'], $lang['general_tie'])).'</td>
+        if($this->ko_matches=='no'){
+            $layers['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_inallmatches').' '.substitute($cont->get('eventinfo_allpossible'),
+                Array($cont->get('general_victory'), $cont->get('general_defeat'), $cont->get('general_tie'))).'</td>
 				</tr><tr>';
-        }elseif($e['ko_matches']=='only' && $e['enable_tie']=='no'){
-            $ei['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_inallmatches'].' '.substitute($lang['eventinfo_tieno'],
-                array($lang['general_victory'], $lang['general_defeat']));
-            $ei['tips'] .= ' '.$lang['eventinfo_afterpenalties'].' ';
-            $ei['tips'] .= ($e['ap_score'] == 'addone') ?
-                $lang['eventinfo_afterpenalties_one'] :
-                $lang['eventinfo_afterpenalties_all'];
-            $ei['tips'] .= '</td>
+        }elseif($this->ko_matches=='only' && $this->enable_tie=='no'){
+            $layers['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_inallmatches').' '.substitute($cont->get('eventinfo_tieno'),
+                array($cont->get('general_victory'), $cont->get('general_defeat')));
+            $layers['tips'] .= ' '.$cont->get('eventinfo_afterpenalties').' ';
+            $layers['tips'] .= ($this->ap_score == 'addone') ?
+                $cont->get('eventinfo_afterpenalties_one') :
+                $cont->get('eventinfo_afterpenalties_all');
+            $layers['tips'] .= '</td>
 				</tr><tr>';
-        }elseif($e['ko_matches']=='only' && $e['enable_tie']=='yes'){
-            $ei['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_inallmatches'].' '.substitute($lang['eventinfo_allpossible'],
-                array($lang['general_victory'], $lang['general_defeat'], $lang['general_tie'])).' '.substitute($lang['eventinfo_tietough'], array()).'</td>
+        }elseif($this->ko_matches=='only' && $this->enable_tie=='yes'){
+            $layers['tips'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_inallmatches').' '.substitute($cont->get('eventinfo_allpossible'),
+                array($cont->get('general_victory'), $cont->get('general_defeat'), $cont->get('general_tie'))).' '.substitute($cont->get('eventinfo_tietough'), array()).'</td>
 				</tr><tr>';
-        }elseif($e['ko_matches']=='yes' && $e['enable_tie']=='yes'){
-            $ei['tips'] .= '<td>'.substitute($lang['eventinfo_matches_both_types'], $to_sub_matchtypes).'</td></tr><tr>
-					<td/><td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_in_matches'].' '.$lang['eventinfo_tournamentmatches']
-                .' '.substitute($lang['eventinfo_allpossible'],	array($lang['general_victory'], $lang['general_defeat'],
-                $lang['general_tie'])).'</td>
+        }elseif($this->ko_matches=='yes' && $this->enable_tie=='yes'){
+            $layers['tips'] .= '<td>'.substitute($cont->get('eventinfo_matches_both_types'), $to_sub_matchtypes).'</td></tr><tr>
+					<td/><td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_in_matches').' '.$cont->get('eventinfo_tournamentmatches')
+                .' '.substitute($cont->get('eventinfo_allpossible'),	array($cont->get('general_victory'), $cont->get('general_defeat'),
+                $cont->get('general_tie'))).'</td>
 				</tr><tr>
 					<td/>
-					<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_in_matches'].' '.$lang['eventinfo_komatches']
-                .' '.substitute($lang['eventinfo_allpossible'],	array($lang['general_victory'], $lang['general_defeat'],
-                $lang['general_tie'])).' '.substitute($lang['eventinfo_tietough'], ' '.$lang['eventinfo_in_matches'].' '.$lang['eventinfo_komatches']).'</td>
+					<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_in_matches').' '.$cont->get('eventinfo_komatches')
+                .' '.substitute($cont->get('eventinfo_allpossible'),	array($cont->get('general_victory'), $cont->get('general_defeat'),
+                $cont->get('general_tie'))).' '.substitute($cont->get('eventinfo_tietough'), ' '.$cont->get('eventinfo_in_matches').' '.$cont->get('eventinfo_komatches')).'</td>
 				</tr><tr>';
 
-        }elseif($e['ko_matches']=='yes' && $e['enable_tie']=='no'){
-            $ei['tips'] .= '<td>'.substitute($lang['eventinfo_matches_both_types'], $to_sub_matchtypes).'</td></tr><tr>
-					<td/><td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_in_matches'].' '.$lang['eventinfo_tournamentmatches']
-                .' '.substitute($lang['eventinfo_allpossible'],	array($lang['general_victory'], $lang['general_defeat'],
-                $lang['general_tie'])).'</td>
+        }elseif($this->ko_matches=='yes' && $this->enable_tie=='no'){
+            $layers['tips'] .= '<td>'.substitute($cont->get('eventinfo_matches_both_types'), $to_sub_matchtypes).'</td></tr><tr>
+					<td/><td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_in_matches').' '.$cont->get('eventinfo_tournamentmatches')
+                .' '.substitute($cont->get('eventinfo_allpossible'),	array($cont->get('general_victory'), $cont->get('general_defeat'),
+                $cont->get('general_tie'))).'</td>
 				</tr><tr>
 					<td/>
-					<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_in_matches'].' '.$lang['eventinfo_komatches']
-                .' '.substitute($lang['eventinfo_tieno'], array($lang['general_victory'], $lang['general_defeat']));
-            $ei['tips'] .= ' '.$lang['eventinfo_afterpenalties'].' ';
-            $ei['tips'] .= ($e['ap_score'] == 'addone') ?
-                $lang['eventinfo_afterpenalties_one'] :
-                $lang['eventinfo_afterpenalties_all'];
-            $ei['tips'] .='</td>
+					<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_in_matches').' '.$cont->get('eventinfo_komatches')
+                .' '.substitute($cont->get('eventinfo_tieno'), array($cont->get('general_victory'), $cont->get('general_defeat')));
+            $layers['tips'] .= ' '.$cont->get('eventinfo_afterpenalties').' ';
+            $layers['tips'] .= ($this->ap_score == 'addone') ?
+                $cont->get('eventinfo_afterpenalties_one') :
+                $cont->get('eventinfo_afterpenalties_all');
+            $layers['tips'] .='</td>
 				</tr><tr>';
         }
 
-        $bu = preg_split('/:/', $e['bet_until']);
+        $bu = preg_split('/:/', $this->bet_until);
         if ($bu[0] > 1){
             $plural = 's';
         }
-        if ($bu[1] == 'm') $bu[1] = $lang['general_minute'.$plural];
-        if ($bu[1] == 'h') $bu[1] = $lang['general_hour'.$plural];
-        if ($bu[1] == 'd') $bu[1] = $lang['general_day'.$plural];
-        $before = ($bu[2] == 'm') ? $lang['eventinfo_match'] : $lang['eventinfo_thefirstmatch'];
+        if ($bu[1] == 'm') $bu[1] = $cont->get('general_minute'.$plural);
+        if ($bu[1] == 'h') $bu[1] = $cont->get('general_hour'.$plural);
+        if ($bu[1] == 'd') $bu[1] = $cont->get('general_day'.$plural);
+        $before = ($bu[2] == 'm') ? $cont->get('eventinfo_match') : $cont->get('eventinfo_thefirstmatch');
         $to_sub_betuntil = Array($bu[0].' '.$bu[1], $before);
-        $ei['tips'] .= '<td class="topalign"><b>'.$point++.'.</b></td>
-			<td>'.substitute($lang['eventinfo_bet_until'], $to_sub_betuntil).' '.$lang['eventinfo_deadline_toolate'].'</td>
+        $layers['tips'] .= '<td class="topalign"><b>'.$point++.'.</b></td>
+			<td>'.substitute($cont->get('eventinfo_bet_until'), $to_sub_betuntil).' '.$cont->get('eventinfo_deadline_toolate').'</td>
 		</tr><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>
-			<td>'.$lang['eventinfo_overview'].'<td>
+			<td>'.$cont->get('eventinfo_overview').'<td>
 		</tr></table>';
 
         //GAIN
-        if ($e['stake_mode'] == 'permatch'){
+        if ($this->stake_mode == 'permatch'){
             $subpoint = 1;
-            $to_sub3 = array($lang['general_victory'], $lang['general_tie'], $lang['general_defeat'], $e['stake'].' '.$e['currency']);
-            $ei['gain'] = $header.'<table class="eventinfo"><tr>
+            $to_sub3 = array($cont->get('general_victory'), $cont->get('general_tie'), $cont->get('general_defeat'), $this->stake.' '.$this->currency);
+            $layers['gain'] = $header.'<table class="eventinfo"><tr>
 				<td class="topalign"><b>'.$point++.'.</b></td>
-				<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_gain_correcttip'], $to_sub1).'</td>
+				<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_gain_correcttip'), $to_sub1).'</td>
 			</tr><tr>
 				<td/>
-				<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_gain_correcttips'].'</td>
+				<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_gain_correcttips').'</td>
 			</tr><tr>';
-            if ($e['stake_back'] == 'yes'){
-                $ei['gain'] .= '<td class="topalign"><b>'.$point++.'.<b/></td>
-				<td>'.$lang['eventinfo_gain_nobodycorrect'].' '.substitute($lang['eventinfo_gain_stakeback'], $to_sub3).'</td>
+            if ($this->stake_back == 'yes'){
+                $layers['gain'] .= '<td class="topalign"><b>'.$point++.'.<b/></td>
+				<td>'.$cont->get('eventinfo_gain_nobodycorrect').' '.substitute($cont->get('eventinfo_gain_stakeback'), $to_sub3).'</td>
 			</tr></table>';
             }else{
-                $ei['gain'] .= '<td class="topalign"><b>'.$point++.'.<b/></td>
-				<td>'.$lang['eventinfo_gain_nobodycorrect'].' '.$lang['eventinfo_gain_tojackpot'].'</td>
+                $layers['gain'] .= '<td class="topalign"><b>'.$point++.'.<b/></td>
+				<td>'.$cont->get('eventinfo_gain_nobodycorrect').' '.$cont->get('eventinfo_gain_tojackpot').'</td>
 			</tr></table>';
             }
         }
 
         //POINTS & JACKPOT
         $subpoint = 1;
-        $to_sub5 = ($e['jp_fraction_or_fix'] == 'fix') ? $e['jp_fix'] : ($e['jp_fraction']*100).'% ('.$lang['eventinfo_jackpot_floored'].')';
-        $to_sub_exp = array($e['jp_distr_exp_value'], ($e['jp_distr_exp_value']*100).'%');
-        $ei['pointsjp'] = $header.'<table class="eventinfo"><tr>
+        $to_sub5 = ($this->jp_fraction_or_fix == 'fix') ? $this->jp_fix : ($this->jp_fraction*100).'% ('.$cont->get('eventinfo_jackpot_floored').')';
+        $to_sub_exp = array($this->jp_distr_exp_value, ($this->jp_distr_exp_value*100).'%');
+        $layers['pointsjp'] = $header.'<table class="eventinfo"><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>
-			<td>'.$lang['eventinfo_points'].'</td>
+			<td>'.$cont->get('eventinfo_points').'</td>
 		</tr><tr>';
-        if($e['p_correct'] != NULL){
-            $ei['pointsjp'] .= '<td/>
-			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_points_correct'], $e['p_correct']).'</td>
-		</tr><tr>';
-        }
-        if($e['p_diff'] != NULL){
-            $ei['pointsjp'] .= '<td/>
-			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_points_diff'], array($lang['general_eg'], $e['p_diff'])).'</td>
+        if($this->p_correct != NULL){
+            $layers['pointsjp'] .= '<td/>
+			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_points_correct'), $this->p_correct).'</td>
 		</tr><tr>';
         }
-        if($e['p_almost'] != NULL){
-            $ei['pointsjp'] .= '<td/>
-			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_points_almost'], array($lang['general_eg'], $e['p_almost'])).'</td>
+        if($this->p_diff != NULL){
+            $layers['pointsjp'] .= '<td/>
+			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_points_diff'), array($cont->get('general_eg'), $this->p_diff)).'</td>
 		</tr><tr>';
         }
-        if($e['p_wrong'] != NULL){
-            $ei['pointsjp'] .= '<td/>
-			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_points_wrong'], $e['p_wrong']).'</td>
+        if($this->p_almost != NULL){
+            $layers['pointsjp'] .= '<td/>
+			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_points_almost'), array($cont->get('general_eg'), $this->p_almost)).'</td>
+		</tr><tr>';
+        }
+        if($this->p_wrong != NULL){
+            $layers['pointsjp'] .= '<td/>
+			<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_points_wrong'), $this->p_wrong).'</td>
 		</tr>';
         }
-        if($e['stake_mode']!='none'){
+        if($this->stake_mode!='none'){
             $subpoint = 1;
-            $ei['pointsjp'].='<tr><td class="topalign"><b>'.$point++.'.<b/></td>
-				<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_jackpot'].'</td>
+            $layers['pointsjp'].='<tr><td class="topalign"><b>'.$point++.'.<b/></td>
+				<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_jackpot').'</td>
 			</tr><tr>
 				<td/>
-				<td><b>'.$alphabet[$subpoint++].')</b> '.$lang['eventinfo_jackpot_samerank'].'</td>
+				<td><b>'.$alphabet[$subpoint++].')</b> '.$cont->get('eventinfo_jackpot_samerank').'</td>
 			</tr><tr>
 				<td/>
-				<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($lang['eventinfo_jackpot_distributeon'], $to_sub5);
-            if($e['jp_distr_algorithm']=='exp'){
-                $ei['pointsjp'] .= substitute($lang['eventinfo_jackpot_expformula'], $to_sub_exp);
-            }elseif($e['jp_distr_algorithm']=='lin'){
-                $ei['pointsjp'] .= $lang['eventinfo_jackpot_linformula'];
+				<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_jackpot_distributeon'), $to_sub5);
+            if($this->jp_distr_algorithm=='exp'){
+                $layers['pointsjp'] .= substitute($cont->get('eventinfo_jackpot_expformula'), $to_sub_exp);
+            }elseif($this->jp_distr_algorithm=='lin'){
+                $layers['pointsjp'] .= $cont->get('eventinfo_jackpot_linformula');
             }else{
-                $ei['pointsjp'] .= $lang['eventinfo_jackpot_fixformula'];
-                $percents = preg_split('/:/',$e['jp_distr_fix_shares']);
+                $layers['pointsjp'] .= $cont->get('eventinfo_jackpot_fixformula');
+                $percents = preg_split('/:/',$this->jp_distr_fix_shares);
                 array_pop($percents);
                 $rankcounter=1;
                 foreach ($percents as $p){
                     $rankcounter++;
-                    $ei['pointsjp'] .= '<br/>'.$rankcounter.'. '.$lang['ranking_rank']
+                    $layers['pointsjp'] .= '<br/>'.$rankcounter.'. '.$cont->get('ranking_rank')
                         .': '.$p.'%';
                 }
             }
-            $ei['pintsjp'].= '</td>
+            $layers['pintsjp'].= '</td>
 			</tr></table>';
         }else{
-            $ei['pointsjp'] .= '</table>';
+            $layers['pointsjp'] .= '</table>';
         }
 
-        $to_sub7 = array($lang['general_bettingOffice'].' '.$settings['name']);
-        $ei['end'] = $header.'<table class="eventinfo"><tr>
+        $to_sub7 = array($cont->get('general_bettingOffice').' '.$settings['name']);
+        $layers['end'] = $header.'<table class="eventinfo"><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>
 			<td>';
-        if($e['stake_mode'] == 'permatch'){
-            $ei['end'] .= $lang['eventinfo_finalaccount_gainplusjp'];
-        }elseif($e['stake_mode'] == 'fix'){
-            $ei['end'] .= $lang['eventinfo_finalaccount_jp'];
+        if($this->stake_mode == 'permatch'){
+            $layers['end'] .= $cont->get('eventinfo_finalaccount_gainplusjp');
+        }elseif($this->stake_mode == 'fix'){
+            $layers['end'] .= $cont->get('eventinfo_finalaccount_jp');
         }else{
-            $ei['end'] .= $lang['eventinfo_finalaccount_points'];
+            $layers['end'] .= $cont->get('eventinfo_finalaccount_points');
         }
-        $ei['end'] .= '</td>
+        $layers['end'] .= '</td>
 		</tr>';
-        if(file_exists('data/bo_img/seal@thumb')){ $ei['end'] .=  '</tr>
+        if(file_exists('data/bo_img/seal@thumb')){ $layers['end'] .=  '</tr>
 			<td/>
-			<td>'.substitute($lang['eventinfo_sealofapproval'], $to_sub7).'<br/><img padding="10px;"  src="data/bo_img/seal@thumb"/></td>
+			<td>'.substitute($cont->get('eventinfo_sealofapproval'), $to_sub7).'<br/><img padding="10px;"  src="data/bo_img/seal@thumb"/></td>
 		</tr>';
         }
-        $ei['end'] .= '</table>';
+        $layers['end'] .= '</table>';
 
-        return $ei;
+        return $layers;
 
     }
 
@@ -985,6 +989,14 @@ class Event {
     public function getFinished()
     {
         return $this->finished;
+    }
+
+    /**
+     * @return \Result
+     */
+    public function getResults()
+    {
+        return $this->results;
     }
 
 
