@@ -354,7 +354,7 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>error_register_save</label>
-        <es>No funciona el guardar. Trata de inscribirte otra vez.</es>
+        <es>No funciona el guardar. Trata de regsitrarte otra vez.</es>
     </zock_lang>
     <zock_lang>
         <label>error_site</label>
@@ -630,7 +630,7 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>home_content</label>
-        <es>En esta página web puedes apostar a eventos deportivos. &lt;br /&gt; Para partizipar tienes que inscribirte: &lt;a href=&quot;?menu=register&quot;&gt;hacer una cuenta de usuario&lt;/a&gt;. &lt;p&gt; Si ya tienes una cuenta de usuario puedes &lt;a href=&quot;?menu=login&quot;&gt;entrar aquí&lt;/a&gt;</es>
+        <es>En esta página web puedes apostar a eventos deportivos. &lt;br /&gt; Para partizipar tienes que registrarte: &lt;a href=&quot;?menu=register&quot;&gt;hacer una cuenta de usuario&lt;/a&gt;. &lt;p&gt; Si ya tienes una cuenta de usuario puedes &lt;a href=&quot;?menu=login&quot;&gt;entrar aquí&lt;/a&gt;</es>
     </zock_lang>
     <zock_lang>
         <label>home_events</label>
@@ -908,7 +908,7 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>register_title</label>
-        <es>Inscribirse</es>
+        <es>Registrarse</es>
     </zock_lang>
     <zock_lang>
         <label>register_username</label>
