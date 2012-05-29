@@ -96,7 +96,9 @@ if(!(isset($_SESSION['init']))) init();
 
 //load the language elements ($lang) & the available languages ($langs)
 	//pay attention to the subtle s which makes de difference :)
+include_once('src/classes/class.lang.php');
 $lang = languageSelector($_SESSION['dlang']);
+$cont = new Lang($_SESSION['dlang']);
 $langs = languagesReader();
 
 if (isset($_POST['hf_read'])){
@@ -106,6 +108,10 @@ if (isset($_POST['hf_read'])){
 //load events (public, unpublic+public, inactive)
 //for array design, make a print_r or take a look at
 //the function
+include_once('src/classes/class.event.php');
+include_once('src/classes/class.eventcollection.php');
+$events_test = new EventCollection($_SESSION['userid']);
+
 $events['p'] = loadEvents(0);
 $events['u'] = loadEvents(1);
 $events['i'] = loadEvents(-1);

@@ -18,36 +18,41 @@ zock! is a free software licensed under GPL (General public license) v3
 */
 ?>
 <?
+global $events_test;
 global $events;
+global $cont;
 
-//$lang=languageSelector();
-echo '<h2>'.$lang['home_title'].'</h2>';
+echo '<h2>'.$cont->get('home_title').'</h2>';
+
+$active_events = $events_test->getActiveEvents();
+
 
 //welcome the user a little bit
-echo $lang['general_hi'].'<p>'.$lang['home_welcome'].' '.$lang['home_content'].'<p />';
+echo   $cont->get('home_welcome').' '.$cont->get('home_content').'<p />';
 
 //display the public, active events
 $nb = ActiveEventNumber();
 if($nb > 0){
-	echo '<p>'.$lang['home_events'].'<br>';
+	echo '<p>'.$cont->get('home_events').'<br>';
 	echo '<ul>';
-	foreach ($events['p'] as $key => $ev){
-        if (is_string($key))
-            continue;
-		if(is_array($events['p']['e'.$ev])){
-			echo '<li>'.$events['p']['e'.$ev]['name'];
-			$flcnt = generateEventInfo($ev);
-			foreach($flcnt as $sid => $cnt)
-	            echo makeFloatingLayer($events['p']['e'.$ev]['name'], $cnt, 1, $ev.'_'.$sid);
-            echo '<a href="javascript: showFloatingLayer(\''.$ev.'_stake\')" title="'.$lang['general_show_info'].'"> Info </a>||';
-			echo ' <a href="?menu=overview&ev='.$ev.'">'.$lang['overview_title'].'</a>';
-			echo '</li>';
-		}
+	foreach ($active_events as $event){
+
+        /* @var $event Event */
+        $evid = $event->getId();
+        echo '<li>'.$event->getName();
+
+        $flcnt = generateEventInfo($evid);
+        foreach($flcnt as $sid => $cnt)
+            echo makeFloatingLayer($event->getName(), $cnt, 1, $evid.'_'.$sid);
+
+        echo '<a href="javascript: showFloatingLayer(\''.$evid.'_stake\')" title="'.$cont->get('general_show_info').'"> Info </a>||';
+        echo ' <a href="?menu=overview&ev='.$evid.'">'.$cont->get('overview_title').'</a>';
+        echo '</li>';
 	}
 	echo '</ul>';
 }else{
 	//if there aren't any public events active, say it.
-	echo $lang['home_noevents'].'<p />';
+	echo $cont->get('home_noevents').'<p />';
 }
-echo $lang['home_fun'];
+echo $cont->get('home_fun');
 ?>

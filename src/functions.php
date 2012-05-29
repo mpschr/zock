@@ -619,6 +619,7 @@ function loadUserEvents(){
 	//returns array with event-situation of user
 		//=> array ('approved, waiting, denied')
 	global $events;
+    global $cont;
 	foreach ($events['u'] as $ar){
 		if(!is_array($ar)) $a = $ar;
 		if(is_array($ar)){
