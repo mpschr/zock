@@ -75,6 +75,7 @@ Function index:
 >getStyleInfo
 >installLang
 >lookupLangName
+>osort
  */
 
 
@@ -1516,6 +1517,13 @@ function lookupLangName($sh){
 			return (string) $entry->$sh;
 		}
 	}
+}
+
+function osort(&$array, $prop)
+{
+    usort($array, function($a, $b) use ($prop) {
+        return $a->$prop > $b->$prop ? 1 : -1;
+    });
 }
 
 ?>

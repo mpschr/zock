@@ -38,9 +38,9 @@ class Event {
     public $name          = "";
 
     /**
-     * @var Result $result
+     * @var Bets $result
      */
-    public $results = null;
+    public $bets = null;
 
 
     /**
@@ -205,7 +205,7 @@ class Event {
         $eventDetails       = $raw[0];
         $this->id           = $eventDetails['id'];
         $this->name         = $eventDetails['name'];
-        $this->results      = new Result($this->id);
+        $this->bets      = new Bets($this->id);
         unset($eventDetails['id']);
         unset($eventDetails['name']);
 
@@ -483,28 +483,6 @@ class Event {
         else
             return false;
 
-    }
-
-    /**
-     * @return array
-     * @throws Exception
-     */
-    public function getBetsAndResults() {
-
-        $results = array();
-        throw new Exception("Not yet implemented");
-        return $results;
-    }
-
-    /**
-     * @return array
-     * @throws Exception
-     */
-    public function getQuestions() {
-
-        $results = array();
-        throw new Exception("Not yet implemented");
-        return $results;
     }
 
     /////////////////////////////////////////////////
@@ -992,11 +970,11 @@ class Event {
     }
 
     /**
-     * @return \Result
+     * @return \Bets
      */
-    public function getResults()
+    public function getBets()
     {
-        return $this->results;
+        return $this->bets;
     }
 
 

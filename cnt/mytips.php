@@ -99,7 +99,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	}
 
     $event = $events_test->getEventById($_REQUEST['ev']);
-    $results = $event->getResults();
+    $results = $event->getBets();
     $bdp_matches = $results->getBetsAndResults($_REQUEST['filter'],$_REQUEST['orderby']);
 	$bdp_rows =  sizeof($bdp_matches);
 	

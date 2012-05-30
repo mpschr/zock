@@ -18,7 +18,7 @@ zock! is a free software licensed under GPL (General public license) v3
 */
 
 
-class Result {
+class Bets {
 
     
     /////////////////////////////////////////////////
@@ -87,8 +87,13 @@ class Result {
 
         $db = new bDb();
         $output = $db->query($query);
+        $matches = array();
+        foreach ($output as $match); {
+            /* @var $match Match */
+            array_push($matches,new Match($match));
+        }
 
-        return null;
+        return $matches;
     }
 
     /**
@@ -96,8 +101,14 @@ class Result {
      * @throws Exception
      */
     private function getQuestions() {
-        throw new Exception("Not yet implemented");
-        return null;
+        $db = new bDb();
+        $output = $db->query("");
+        $questions = array();
+        foreach ($output as $question); {
+            /* @var $question Match */
+            array_push($questions,new Match($question));
+        }
+        return $questions;
     }
 
     /**
@@ -109,6 +120,7 @@ class Result {
         $this->bets = array();
         array_push($this->bets,$this->getQuestions());
         array_push($this->bets,$this->getBetsAndResults($filter,$orderby));
+        osort($this->bets,getDueDate());
         return $this->bets;
     }
 
