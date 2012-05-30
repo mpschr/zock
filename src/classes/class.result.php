@@ -31,7 +31,7 @@ class Result {
     */
     private $id          = null;
 
-    private $contents   = array();
+    private $bets   = array();
 
 
     /////////////////////////////////////////////////
@@ -53,7 +53,7 @@ class Result {
      * @param string $orderby
      * @return array
      */
-    public function getBetsAndResults($filter='',$orderby='') {
+    private function getBetsAndResults($filter='',$orderby='') {
         $orderby = (orderby!='') ? explode(':', $orderby) : explode(':', 'time:ASC');
 
         $filterQuery = " WHERE ";
@@ -88,6 +88,28 @@ class Result {
         $db = new bDb();
         $output = $db->query($query);
 
-        return $this->contents;
+        return null;
     }
+
+    /**
+     * @return null
+     * @throws Exception
+     */
+    private function getQuestions() {
+        throw new Exception("Not yet implemented");
+        return null;
+    }
+
+    /**
+     * @param string $filter
+     * @param string $orderby
+     * @return array
+     */
+    public function getBets($filter='',$orderby='') {
+        $this->bets = array();
+        array_push($this->bets,$this->getQuestions());
+        array_push($this->bets,$this->getBetsAndResults($filter,$orderby));
+        return $this->bets;
+    }
+
 }
