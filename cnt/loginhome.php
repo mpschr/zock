@@ -67,7 +67,8 @@ if($nb > 0){
 			echo ' <a href="?menu=overview&ev='.$ev.'">'.$lang['overview_title'].'</a> 
 					(<a href="?menu=overview&ev='.$ev.'&u='.$_SESSION['userid'].'">'.$lang['overview_onlyme'].'</a>)  || ';
 			echo ' <a href="?menu=comments&ev='.$ev.'">'.$lang['comments_title'].'</a>';
-			if ($_SESSION['admin']) echo ' || <a href="?menu=admin&submenu=events&ssubmenu=results&ev='.$ev.'#now">'.$lang['admin_events_results_title'].'</a>';
+			if (isAdmin()) echo ' || <a href="?menu=admin&submenu=events&ssubmenu=settings&ev='.$ev.'">'.$lang['admin_events_settings_title'].'</a>';
+			if (isAdmin()) echo ' || <a href="?menu=admin&submenu=events&ssubmenu=results&ev='.$ev.'#now">'.$lang['admin_events_results_title'].'</a>';
 
 		echo '</li>';
 	}
