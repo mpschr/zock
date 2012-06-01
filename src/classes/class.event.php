@@ -28,19 +28,19 @@ class Event {
     * Id for the language
     * @var int 
     */
-    public $id          = null;
+    public $id = null;
 
 
     /**
     * Id for the language
     * @var int 
     */
-    public $name          = "";
+    public $name = "";
 
     /**
-     * @var Bets $result
+     * @var BetsContainer $result
      */
-    public $bets = null;
+    public $betsContainer = null;
 
 
     /**
@@ -154,6 +154,16 @@ class Event {
      */
     protected $users_denied;
 
+    /**
+     * @var string
+     */
+    protected $users_paid;
+
+    /**
+     * @var string
+     */
+    protected $users_reimbursed;
+
 
     /**
      * @var int
@@ -186,6 +196,8 @@ class Event {
     protected $finished;
 
 
+
+
     /////////////////////////////////////////////////
     // CONSTRUCTOR
     /////////////////////////////////////////////////
@@ -205,7 +217,7 @@ class Event {
         $eventDetails       = $raw[0];
         $this->id           = $eventDetails['id'];
         $this->name         = $eventDetails['name'];
-        $this->bets      = new Bets($this->id);
+        $this->betsContainer      = new BetsContainer($this->id);
         unset($eventDetails['id']);
         unset($eventDetails['name']);
 
@@ -446,7 +458,7 @@ class Event {
      * @param int $userID
      * @return bool
      */
-    public function eventHasApprovedUser($userID) {
+    public function userIsApproved($userID) {
 
         $users = preg_split('/:/',$this->users_approved);
         if (in_array($userID,$users))
@@ -460,7 +472,7 @@ class Event {
      * @param int $userID
      * @return bool
      */
-    public function eventHasWaitingUser($userID) {
+    public function userIsWaiting($userID) {
 
         $users = preg_split('/:/',$this->users_waiting);
         if (in_array($userID,$users))
@@ -475,14 +487,39 @@ class Event {
      * @param int $userID
      * @return bool
      */
-    public function eventHasDeniedUser($userID) {
+    public function userIsDenied($userID) {
 
         $users = preg_split('/:/',$this->users_denied);
         if (in_array($userID,$users))
             return true;
         else
             return false;
+    }
 
+    /**
+     * @param int $userID
+     * @return bool
+     */
+    public function userHasPaid($userID) {
+
+        $users = preg_split('/:/',$this->users_paid);
+        if (in_array($userID,$users))
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * @param int $userID
+     * @return bool
+     */
+    public function userHasBeenReimbursed($userID) {
+
+        $users = preg_split('/:/',$this->users_reimbursed);
+        if (in_array($userID,$users))
+            return true;
+        else
+            return false;
     }
 
     /////////////////////////////////////////////////
@@ -970,11 +1007,11 @@ class Event {
     }
 
     /**
-     * @return \Bets
+     * @return \BetsContainer
      */
-    public function getBets()
+    public function getBetsContainer()
     {
-        return $this->bets;
+        return $this->betsContainer;
     }
 
 

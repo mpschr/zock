@@ -134,7 +134,7 @@ class EventCollection extends Collection {
             $this->userEvents = array();
             foreach($this->items as $event) {
                 /* @var $event Event */
-                if ($event->eventHasApprovedUser($this->userId)) {
+                if ($event->userIsApproved($this->userId)) {
                     array_push($this->userEvents,$event);
                 }
             }

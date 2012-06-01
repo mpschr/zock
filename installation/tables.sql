@@ -42,6 +42,8 @@ CREATE TABLE `#PFIX#_events` (
   `users_approved` text collate utf8_unicode_ci,
   `users_waiting` text collate utf8_unicode_ci,
   `users_denied` text collate utf8_unicode_ci,
+  `users_paid` text collate utf8_unicode_ci,
+  `users_reimbursed` text collate utf8_unicode_ci,
   `public` int(1) NOT NULL default '1',
   `active` int(1) NOT NULL default '-1',
   `ko_matches` enum('no','yes','only') collate utf8_unicode_ci NOT NULL default 'yes',

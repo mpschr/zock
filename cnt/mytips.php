@@ -99,8 +99,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	}
 
     $event = $events_test->getEventById($_REQUEST['ev']);
-    $results = $event->getBets();
-    $bdp_matches = $results->getBetsAndResults($_REQUEST['filter'],$_REQUEST['orderby']);
+    $results = $event->getBetsContainer();
+    $bdp_matches = $results->getBets($_REQUEST['filter'],$_REQUEST['orderby']);
 	$bdp_rows =  sizeof($bdp_matches);
 	
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
@@ -184,7 +184,11 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		//if filter is set, watch out that mnb is not too high
 		if($bdp_rows < $mnb) $mnb = 1; 	
 
-		foreach($bdp_matches as $nb => $m){
+		//foreach($bdp_matches as $nb => $m){
+        $nb = -1;
+        foreach ($bdp_matches as $bet) {
+            /* @var $bet Bet */
+            $nb++;
 			
 			$start = $mnb;
 			$limit = $mnb + $settings['formlines'];
@@ -192,13 +196,13 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			if ($nb+1 >= $start && $nb+1 < $limit){
 			
 				$lines++;
-				$ids .= $m['id'].':';	
-				$id = $m['id'];
+				$ids .= $bet->getId().':';
+				$id = $bet->getId();
 	
 				//further error handling
 				//=>decide if the data in the forms should come from db or error the $_post array
 				if (isset($wrongs)){
-					if(isset($wrongs[$m['id']])) $id =  '<font class=error>-></font>';
+					if(isset($wrongs[$bet->getId()])) $id =  '<font class=error>-></font>';
 					$score_h = $data['score_h_'.$m['id']];
 					if ($score_h == 'NULL') $score_h = '';
 					$score_v = $data['score_v_'.$m['id']];
@@ -211,8 +215,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				}
 
 				//still editable or not??
-				$betuntil = betUntil($m['time'],$_REQUEST['ev']);
+				$betuntil = $bet->getDueDate();
 				$now = time();
+                $dis = "";
 				if ($betuntil<$now){
 					//no, not editable
 					$robool = "true";
@@ -225,25 +230,28 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				}
 				
 				// same tips?
-				$sametip = 0;
+                $sameBet = $bet->getSameBets();
+				/*$sameBet = 0;
 				$playasofevent = explode(':', $events['u']['e'.$_REQUEST['ev']]['a']);
 				array_pop($playasofevent);
 				if($evdat['bet_on']=='results'){
 					foreach ($playasofevent as $p){
 						if ($m[$p.'_h'] == $score_h && $m[$p.'_v'] == $score_v)
-							$sametip++;
+							$sameBet++;
 					}
 				}else{
 					foreach ($playasofevent as $p){
 						if ($m[$p.'_toto'] == $toto)
-							$sametip++;
+							$sameBet++;
 					}
 				}
-				$sametip -= 1;
+				$sameBet -= 1;  */
+
 
 				// tendency
+                $tendency = $bet->getTendancy();
 
-				$toto0 = 0;
+                /*$toto0 = 0;
 				$toto1 = 0;
 				$toto2 = 0;
 				$totoX = 0;
@@ -270,8 +278,14 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 				if($toto1>0){$toto_trend1=round($toto1/$toto_all*100);}else{$toto_trend1=0;}
 				if($totoX>0){ $toto_trendX=round($totoX/$toto_all*100);}else{$toto_trendX=0;}
-      				if($toto2>0){ $toto_trend2=round($toto2/$toto_all*100);}else{$toto_trend2=0;}
+      				if($toto2>0){ $toto_trend2=round($toto2/$toto_all*100);}else{$toto_trend2=0;}*/
 
+
+                $match = $bet->getTime();
+                $matchday = $bet->getMatchday();
+                $home = $bet->getHome();
+                $visitor = $bet->getVisitor();
+                $result = $bet->getResult();
 
 				$time1 = date('d.m.Y', $m['time']);
 				$time2 = date('H:i', $m['time']);
@@ -321,8 +335,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 							echo '</td>';
 						}
 					}
-					echo '<td class="input">'.$sametip.'</td>
-					<td class="input">'.$toto_trend1.' : '.$toto_trendX.' : '.$toto_trend2.'</td>
+					echo '<td class="input">'.$sameBet.'</td>
+					<td class="input">'.$tendency.'</td>
 					</tr>';
 				echo '<input id="ro_'.$m['id'].'" name="ro_'.$m['id'].'" type="hidden" value="'.$robool.'">';
 				echo '<input id="komatch_'.$m['id'].'" name="komatch_'.$m['id'].'" type="hidden" value="'.$m['komatch'].'">';

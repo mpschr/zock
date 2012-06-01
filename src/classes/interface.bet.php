@@ -38,4 +38,22 @@ interface Bet {
      * @return mixed
      */
     public function setTime($unixtime);
+
+    /**
+     * @abstract
+     * @return int
+     */
+    public function getId();
+
+    /**
+     * @abstract
+     * @return int
+     */
+    public function getSameBets();
+
+    /**
+     * @abstract
+     * @return string
+     */
+    public function getTendancy();
 }
