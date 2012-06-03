@@ -152,6 +152,17 @@ if($_REQUEST['evac'] == 'save'){
 				//(to prevent activation in case of a site call from the history data)
 				if(stristr($_SERVER['HTTP_REFERER'], 'ssubmenu=settings&ev='.$data['id'])){
 
+                    $queryQuestion = "CREATE TABLE ".PFIX."_qa_questions ("
+                        ."id INT NOT NULL AUTO_INCREMENT,"
+                        ."time DOUBLE NOT NULL,"
+                        ."matchday_id INT NOT NULL DEFAULT '999999',"
+                        ."question TEXT,"
+                        ."posibilities TEXT,"
+                        ."points TEXT,"
+                        ."answer INT DEFAULT NULL,"
+                        ."PRIMARY KEY (id)"
+                        .")";
+
 					if($data['score_input_type'] == 'results'){
 					//prepare queries for updating the events tabel & creating a new table for the activated event
 						$query2 = "CREATE TABLE ".PFIX."_event_".$data['id']." ("
@@ -177,7 +188,8 @@ if($_REQUEST['evac'] == 'save'){
 							."komatch INT(1) NOT NULL DEFAULT 0,"
 							."home TINYTEXT,"
 							."visitor TINYTEXT,"
-							."score INT DEFAULT NULL,"
+							."score_h INT DEFAULT NULL,"
+							."score_v INT DEFAULT NULL,"
 							."score_special TINYTEXT DEFAULT NULL,"
 							."jackpot FLOAT DEFAULT NULL,"
 							."PRIMARY KEY (id)"

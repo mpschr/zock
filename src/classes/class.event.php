@@ -18,6 +18,7 @@ zock! is a free software licensed under GPL (General public license) v3
 */
 
 
+include_once('src/classes/class.betsContainer.php');
 class Event {
 
     /////////////////////////////////////////////////
@@ -217,7 +218,7 @@ class Event {
         $eventDetails       = $raw[0];
         $this->id           = $eventDetails['id'];
         $this->name         = $eventDetails['name'];
-        $this->betsContainer      = new BetsContainer($this->id);
+        $this->betsContainer      = new BetsContainer($this);
         unset($eventDetails['id']);
         unset($eventDetails['name']);
 

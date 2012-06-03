@@ -17,7 +17,8 @@ zock! is a free software licensed under GPL (General public license) v3
 ===================================
 */
 
-
+include_once('src/classes/class.match.php');
+include_once('src/classes/class.question.php');
 class BetsContainer {
 
     
@@ -31,6 +32,11 @@ class BetsContainer {
     */
     private $id          = null;
 
+    /**
+     * @var Event
+     */
+    private $event       = null;
+
     private $bets   = array();
 
 
@@ -38,10 +44,14 @@ class BetsContainer {
     // CONSTRUCTOR
     /////////////////////////////////////////////////
 
-    public function __construct($eventid) {
-        if ($eventid != NULL)
-            $this->id      = $eventid;
-
+    /**
+     * @param Event $event
+     */
+    public function __construct($event) {
+        if ($event != NULL) {
+            $this->id      = $event->getId();
+            $this->event   = $event;
+        }
     }
 
     /////////////////////////////////////////////////
@@ -49,10 +59,10 @@ class BetsContainer {
     /////////////////////////////////////////////////
 
 
-    function objSort(&$objArray,$indexFunction,$sort_flags=0) {
+    function betSort(&$objArray,$sort_flags=0) {
         $indeces = array();
         foreach($objArray as $obj) {
-            $indeces[] = $indexFunction($obj);
+            $indeces[] = $obj->getDueDate();
         }
         return array_multisort($indeces,$objArray,$sort_flags);
     }
@@ -63,10 +73,11 @@ class BetsContainer {
      */
     private function getMatches($filter='') {
 
-        $filterQuery = " WHERE ";
         //filtering
+        $filterQuery ='';
         if ($filter!=''){
-            $f = preg_split('/:/', $_REQUEST['filter']);
+            $filterQuery = " WHERE ";
+            $f = preg_split('/:/', $filter);
             switch ($f[0]){
                 case 'team':
                     $filterQuery .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
@@ -84,32 +95,46 @@ class BetsContainer {
         }
 
         $orderplus = "";
+        $matches = null;
         $query = "SELECT *
 				FROM ".PFIX."_event_".$_REQUEST['ev']
             .$filterQuery;
 
         $db = new bDb();
         $output = $db->query($query);
-        $matches = array();
-        foreach ($output as $match); {
-            /* @var $match Match */
-            array_push($matches,new Match($match));
+        //$matches = array();
+        $counter = 0;
+        foreach ($output as $match) {
+            $m = new Match($match,$this->event);
+            $matches[] = $m;
         }
 
         return $matches;
     }
 
     /**
-     * @return null
+     * @return array
      * @throws Exception
      */
     private function getQuestions() {
         $db = new bDb();
-        $output = $db->query("");
-        $questions = array();
-        foreach ($output as $question); {
-            /* @var $question Match */
-            array_push($questions,new Match($question));
+        $query = " SELECT *
+            FROM ".PFIX."_qa_questions
+            WHERE `event_id`  = ".$_REQUEST['ev'];
+        $output = $db->query($query);
+        $questions = null;
+        foreach ($output as $question) {
+            /* @var $question array */
+            $q = new Question($question,$this->event);
+
+            $betsQuery = " SELECT *
+            FROM ".PFIX."_qa_bets
+            WHERE `question_id`  = ".$q->getId();
+            $betsOutput = $db->query($betsQuery);
+            foreach ($betsOutput as $bo) {
+                $q->setBet($bo['user_id'],$bo['answer']);
+            }
+            $questions[] = $q;
         }
         return $questions;
     }
@@ -117,13 +142,17 @@ class BetsContainer {
     /**
      * @param string $filter
      * @param string $orderby
-     * @return array
+     * @return array(Bet)
      */
     public function getBets($filter='',$orderby='') {
         $this->bets = array();
-        //array_push($this->bets,$this->getQuestions());
-        array_push($this->bets,$this->getMatches($filter,$orderby));
-        objSort($this->bets,'getDueDate');
+        $this->bets = array_merge($this->bets, $this->getMatches($filter));
+        $questions = $this->getQuestions();
+        if (sizeof($questions) > 0)
+            $this->bets = array_merge($this->bets, $questions);
+
+        $this->betSort($this->bets);
+
         return $this->bets;
     }
 }

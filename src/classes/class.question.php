@@ -17,6 +17,7 @@ zock! is a free software licensed under GPL (General public license) v3
 ===================================
 */
 
+include_once('src/classes/interface.bet.php');
 
 class Question implements Bet{
 
@@ -30,6 +31,41 @@ class Question implements Bet{
      */
     protected $id;
 
+    /**
+     * @var int
+     */
+    protected $event_id;
+
+    /**
+     * @var array
+     */
+    protected $bets = array();
+
+    /**
+     * @var int
+     */
+    protected $matchday_id;
+
+    /**
+     * @var string
+     */
+    protected $question;
+
+    /**
+     * @var string
+     */
+    protected $possibilities;
+
+    /**
+     * @var string
+     */
+    protected $points;
+
+    /**
+     * @var string
+     */
+    protected $answer;
+
     /////////////////////////////////////////////////
     // CONSTRUCTOR
     /////////////////////////////////////////////////
@@ -37,9 +73,10 @@ class Question implements Bet{
 
     /**
      * @param array $dict
+     * @param Event $event
      * @throws Exception
      */
-    public function __construct($dict) {
+    public function __construct($dict,$event) {
         if (sizeof($dict)==0)
             throw new Exception("empty question");
 
@@ -49,6 +86,61 @@ class Question implements Bet{
         }
     }
 
+    /////////////////////////////////////////////////
+    // METHODS
+    /////////////////////////////////////////////////
+
+
+    /**
+     * @param string $somebet
+     * @return int
+     */
+    public function getSameBets($somebet)
+    {
+        // TODO: Implement getSameBets() method.
+        return 0;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTendancy()
+    {
+        // TODO: Implement getTendancy() method.
+        return "";
+    }
+
+    /**
+     * @param int $user
+     * @param string $bet
+     * @return string
+     */
+    public function setBet($user,$bet)
+    {
+        $this->bets[$user] = $bet;
+    }
+
+    /**
+     * @param int $user
+     * @return string
+     */
+    public function getBet($user)
+    {
+       return $this->bets[$user];
+    }
+
+    /**
+     * @return string
+     */
+    public function getResult()
+    {
+        return $this->answer;
+    }
+
+
+    /////////////////////////////////////////////////
+    // GETTERS & SETTERS
+    /////////////////////////////////////////////////
 
     /**
      * @return unixtime
@@ -73,6 +165,110 @@ class Question implements Bet{
     function getDueDate()
     {
         return $this->time;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $answer
+     */
+    public function setAnswer($answer)
+    {
+        $this->answer = $answer;
+    }
+
+    /**
+     * @return string
+     */
+    public function getAnswer()
+    {
+        return $this->answer;
+    }
+
+    /**
+     * @param int $matchday_id
+     */
+    public function setMatchdayId($matchday_id)
+    {
+        $this->matchday_id = $matchday_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMatchdayId()
+    {
+        return $this->matchday_id;
+    }
+
+    /**
+     * @param int $event_id
+     */
+    public function setEventId($event_id)
+    {
+        $this->event_id = $event_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEventId()
+    {
+        return $this->event_id;
+    }
+
+    /**
+     * @param string $points
+     */
+    public function setPoints($points)
+    {
+        $this->points = $points;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPoints()
+    {
+        return $this->points;
+    }
+
+    /**
+     * @param string $possibilities
+     */
+    public function setPossibilities($possibilities)
+    {
+        $this->possibilities = $possibilities;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPossibilities()
+    {
+        return $this->possibilities;
+    }
+
+    /**
+     * @param string $question
+     */
+    public function setQuestion($question)
+    {
+        $this->question = $question;
+    }
+
+    /**
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
     }
 }
 

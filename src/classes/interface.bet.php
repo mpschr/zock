@@ -47,13 +47,34 @@ interface Bet {
 
     /**
      * @abstract
+     * @param string $somebet
      * @return int
      */
-    public function getSameBets();
+    public function getSameBets($somebet);
 
     /**
      * @abstract
      * @return string
      */
     public function getTendancy();
+
+    /**
+     * @abstract
+     * @param int $user
+     * @return string
+     */
+    public function getBet($user);
+
+    /**
+     * @abstract
+     * @return string
+
+    public function getBetType();
+     * **/
+
+    /**
+     * @abstract
+     * @return string
+     */
+    public function getResult();
 }

@@ -59,6 +59,26 @@ CREATE TABLE IF NOT EXISTS `#PFIX#_lang` (
   `label` tinytext collate utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+-- questions and asnwers
+
+CREATE TABLE IF NOT EXISTS `#PFIX#_qa_questions` (
+  `id` int(11) NOT NULL auto_increment,
+  `time` double NOT NULL,
+  `event_id` int(11) NOT NULL,
+  `matchday_id` int(11) default NULL,
+  `question` text NOT NULL,
+  `possibilities` text NOT NULL,
+  `points` text NOT NULL,
+  `answer` text default NULL,
+  PRIMARY KEY (id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `#PFIX#_qa_bets` (
+  `question_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `answer` text default NULL,
+  PRIMARY KEY (q_id,u_id)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- messages
 

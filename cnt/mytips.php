@@ -99,10 +99,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	}
 
     $event = $events_test->getEventById($_REQUEST['ev']);
-    $results = $event->getBetsContainer();
-    $bdp_matches = $results->getBets($_REQUEST['filter'],$_REQUEST['orderby']);
-	$bdp_rows =  sizeof($bdp_matches);
-	
+    $bdp_matches = $event->getBetsContainer()->getBets($_REQUEST['filter'],$_REQUEST['orderby']);
+    $bdp_rows =  sizeof($bdp_matches);
+
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
 	$mnb = (isset($_REQUEST['mnb'])) ? $_REQUEST['mnb'] : 1;
 
@@ -174,8 +173,10 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 
 		if (!isset($_REQUEST['orderby']) && !isset($_REQUEST['mnb'])){
-			$closestGame = closestGame($_REQUEST['ev'], time()+abs(betUntil(0, $_REQUEST['ev'])));
-			$page = ($closestGame%$settings['formlines'] == 0)  ? 
+			$closestGame = closestGame($_REQUEST['ev'], time());
+            //$closestGame = closestGame($_REQUEST['ev'], time()+abs(betUntil(0, $_REQUEST['ev'])));
+
+            $page = ($closestGame%$settings['formlines'] == 0)  ?
 				$closestGame/$settings['formlines'] - 1  : 
 				floor($closestGame/$settings['formlines']);
 			$mnb = $page * $settings['formlines'] + 1;
@@ -189,27 +190,37 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
         foreach ($bdp_matches as $bet) {
             /* @var $bet Bet */
             $nb++;
-			
 			$start = $mnb;
 			$limit = $mnb + $settings['formlines'];
 			
 			if ($nb+1 >= $start && $nb+1 < $limit){
 			
 				$lines++;
+                $bet->getDueDate();
 				$ids .= $bet->getId().':';
 				$id = $bet->getId();
 	
 				//further error handling
 				//=>decide if the data in the forms should come from db or error the $_post array
+
+                if ($bet instanceof Question) {
+                    echo $bet->getQuestion();
+                    continue;
+                }
+
+                $userbet = '';
 				if (isset($wrongs)){
 					if(isset($wrongs[$bet->getId()])) $id =  '<font class=error>-></font>';
-					$score_h = $data['score_h_'.$m['id']];
+					$score_h = $data['score_h_'.$bet->getId()];
 					if ($score_h == 'NULL') $score_h = '';
-					$score_v = $data['score_v_'.$m['id']];
+					$score_v = $data['score_v_'.$bet->getId()];
+                    $userbet = $score_h.' : '.$score_v;
 					if ($score_v == 'NULL') $score_v = '';
 				}else{
-					$score_h = $m[$_SESSION['userid'].'_h'];
-					$score_v = $m[$_SESSION['userid'].'_v'];
+                    $userbet = $bet->getBet($_SESSION['userid']);
+                    $dummy = preg_split('/ : /',$userbet);
+                    $score_h = $dummy[0];
+                    $score_v = $dummy[1];
 					$checked[$m[$_SESSION['userid'].'_toto']] = 'checked="checked"';
 					$toto = $m[$_SESSION['userid'].'_toto'];
 				}
@@ -217,7 +228,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				//still editable or not??
 				$betuntil = $bet->getDueDate();
 				$now = time();
-                $dis = "";
+                $disabled = "";
 				if ($betuntil<$now){
 					//no, not editable
 					$robool = "true";
@@ -226,82 +237,27 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					//yes, it is
 					$robool = "false";
 					$ro = 'class=""';
-					$dis = 'class=""';
+					$disabled = 'class=""';
 				}
 				
 				// same tips?
-                $sameBet = $bet->getSameBets();
-				/*$sameBet = 0;
-				$playasofevent = explode(':', $events['u']['e'.$_REQUEST['ev']]['a']);
-				array_pop($playasofevent);
-				if($evdat['bet_on']=='results'){
-					foreach ($playasofevent as $p){
-						if ($m[$p.'_h'] == $score_h && $m[$p.'_v'] == $score_v)
-							$sameBet++;
-					}
-				}else{
-					foreach ($playasofevent as $p){
-						if ($m[$p.'_toto'] == $toto)
-							$sameBet++;
-					}
-				}
-				$sameBet -= 1;  */
+                $sameBet = $bet->getSameBets($userbet);
 
-
-				// tendency
                 $tendency = $bet->getTendancy();
 
-                /*$toto0 = 0;
-				$toto1 = 0;
-				$toto2 = 0;
-				$totoX = 0;
-
-				foreach ($playasofevent as $p){
-					if($evdat['bet_on']=='results'){
-						if($m[$p.'_h'] == '' || $m[$p.'_v'] == ''){
-							++$toto0;
-						}else if($m[$p.'_h'] > $m[$p.'_v']){
-							   ++$toto1;		}
-						else if($m[$p.'_h'] < $m[$p.'_v']){
-						   ++$toto2;
-						}else{
-						   ++$totoX;
-						}
-					}elseif($evdat['bet_on']=='toto'){
-						if ($toto == 0) ++$toto0;
-						elseif ($toto == 1) ++$toto1;
-						elseif ($toto == 2) ++$toto2;
-						elseif ($toto == 3) ++$totoX;
-					}
-				}
-				$toto_all= count($playasofevent) - $toto0;
-
-				if($toto1>0){$toto_trend1=round($toto1/$toto_all*100);}else{$toto_trend1=0;}
-				if($totoX>0){ $toto_trendX=round($totoX/$toto_all*100);}else{$toto_trendX=0;}
-      				if($toto2>0){ $toto_trend2=round($toto2/$toto_all*100);}else{$toto_trend2=0;}*/
-
-
-                $match = $bet->getTime();
+                $matchtime = $bet->getTime();
                 $matchday = $bet->getMatchday();
                 $home = $bet->getHome();
                 $visitor = $bet->getVisitor();
-                $result = $bet->getResult();
 
-				$time1 = date('d.m.Y', $m['time']);
-				$time2 = date('H:i', $m['time']);
-				$matchday = $m['matchday'];
-				$home = $m['home'];
-				$visitor = $m['visitor'];	
-				if($evdat['score_input_type'] == 'results'){
-					$result = $m['score_h'].' : '.$m['score_v'];
-				}else{
-					$result = $m['score'];
-					if($result == 3) $result = 'X';
-				}
+				$time1 = date('d.m.Y', $matchtime);
+				$time2 = date('H:i', $matchtime);
+				$result = $bet->getResult();
+
 	
 				//the form can continue here
 				echo '<tr>
-					<td class="input">'.weekday($m['time'],1).', '.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
+					<td class="input">'.weekday($matchtime,1).', '.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
 					<td class="input">'.$matchday.'</td>
 					<td class="input">'.$home.'</td>
 					<td class="input">'.$visitor.'</td>
@@ -309,37 +265,37 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					if($evdat['bet_on']=='results'){
 						echo '<td class="input"><nobr><input id="h_'.$m['id'].'" 
 									'.$ro.'
-									name="score_h_'.$m['id'].'" 
+									name="score_h_'.$bet->getId().'"
 									size="2" value="'.$score_h.'"> : '
-								.'<input id="v_'.$m['id'].'" 
+								.'<input id="v_'.$bet->getId().'"
 									'.$ro.'
-									name="score_v_'.$m['id'].'" 
+									name="score_v_'.$bet->getId().'"
 									size="2" value="'.$score_v.'"></nobr></td>';
 					}elseif($evdat['bet_on']=='toto'){
 						if($robool=='true'){
 							echo '<td class="input" colspan="'.$colspan.'">'.$toto.'</td>';
 						}else{
 							echo '<td class="input">';
-								echo '<input class="'.$dis.'" type="radio" value="1" '.$checked['1'].' name="toto_'.$m['id'].'">';
+								echo '<input class="'.$disabled.'" type="radio" value="1" '.$checked['1'].' name="toto_'.$bet->getId().'">';
 							echo '</td>';
 							if(!($evdat['ko_matches']=='only' && $evdat['enable_tie']=='no')){
 								echo '<td class="input">';
 									if($m['komatch'] && $evdat['enable_tie']!='yes')
 										echo '--';
 									else
-										echo '<input class="'.$dis.'" type="radio" value="3" '.$checked['3'].' name="toto_'.$m['id'].'">';
+										echo '<input class="'.$disabled.'" type="radio" value="3" '.$checked['3'].' name="toto_'.$bet->getId().'">';
 								echo '</td>';
 							}
 							echo '<td class="input">';
-								echo '<input class="'.$dis.'" type="radio" value="2" '.$checked['2'].' name="toto_'.$m['id'].'">';
+								echo '<input class="'.$disabled.'" type="radio" value="2" '.$checked['2'].' name="toto_'.$bet->getId().'">';
 							echo '</td>';
 						}
 					}
 					echo '<td class="input">'.$sameBet.'</td>
 					<td class="input">'.$tendency.'</td>
 					</tr>';
-				echo '<input id="ro_'.$m['id'].'" name="ro_'.$m['id'].'" type="hidden" value="'.$robool.'">';
-				echo '<input id="komatch_'.$m['id'].'" name="komatch_'.$m['id'].'" type="hidden" value="'.$m['komatch'].'">';
+				echo '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
+				echo '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
 				unset($checked);
 			}
 		}
@@ -408,7 +364,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				if ($_POST['score_v_'.$id] == "") $_POST['score_v_'.$id] = "NULL";
 
 
-				//check if the etnries were corect
+				//check if the entries were correct
 				if ( ( $_POST['score_h_'.$id] == "NULL" && $_POST['score_v_'.$id] == "NULL" )
 						|| ( is_numeric($_POST['score_h_'.$id]) && is_numeric($_POST['score_v_'.$id]) ) ){
 					$ok[] = $id;
@@ -448,9 +404,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			}
 			if($db->query($query_changes)){
 				echo $lang['general_savedok'];
-				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 3);
+				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 0);
 			}else{
-				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 2);
+				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 1);
 			}
 		}
 		

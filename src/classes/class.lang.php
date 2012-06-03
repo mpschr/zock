@@ -46,7 +46,7 @@ class Lang {
     /////////////////////////////////////////////////
 
     function __construct($langid) {
-        if ($id != NULL)
+        if ($langid != NULL)
             $this->id      = $langid;
 
         $filename="data/langs/lang_$langid.xml";

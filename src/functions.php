@@ -1138,6 +1138,7 @@ function messageRead($msg, $user){
 
 function betUntil($bet, $event){
 	global $db,$events;
+    print_r("deprecated");
 	$data=$db->query("SELECT bet_until FROM ".PFIX."_events WHERE id=".$event.";");
 	$bu = preg_split('/:/',$data[0]['bet_until']);
 	$min = 60;
