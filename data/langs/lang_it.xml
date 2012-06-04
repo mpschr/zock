@@ -19,6 +19,18 @@ zock! is a free software licensed under GPL (General public license) v3
 -->
 <zock>
     <zock_lang>
+        <label>general_info</label>
+        <it>info</it>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_paid</label>
+        <it>ha pagato</it>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notpaid</label>
+        <it>non ha pagato</it>
+    </zock_lang>
+    <zock_lang>
         <label>admin_content</label>
         <it>Da qui puoi occuparti del tuo ufficio scommesse: rivedere i tuoi parametri, amministrare i giocatori e le scommesse. Basta uno sguardo sul menu per capire meglio.</it>
     </zock_lang>

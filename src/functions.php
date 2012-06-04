@@ -533,10 +533,12 @@ function phpManageUser($user, $what, $event){
 	//if the admin aproves/refuses users, the different strings in the db have to be changed
 		//=> a string is of the form 1:2:3: (for user 1, 2 & 3)
 	global $db;
-	$data = $db->query("SELECT users_approved, users_waiting, users_denied FROM ".PFIX."_events WHERE id='$event'");
+	$data = $db->query("SELECT users_approved, users_waiting, users_denied, users_paid, users_reimbursed FROM ".PFIX."_events WHERE id='$event'");
 	$approved = $data[0]['users_approved'];
 	$waiting = $data[0]['users_waiting'];
 	$denied = $data[0]['users_denied'];
+    $paid = $data[0]['users_paid'];
+    $reimbursed = $data[0]['users_reimbursed'];
 	if($what=='a'){
 		$waiting = str_replace($user.':', '', $waiting);
 		$approved .= $user.':';
@@ -547,8 +549,16 @@ function phpManageUser($user, $what, $event){
 		$waiting .= $user.':';
 	}elseif($what=='r'){
 		$waiting = str_replace($user.':', '', $waiting);
-	}
-	return "UPDATE ".PFIX."_events SET users_approved = '$approved', users_waiting = '$waiting', users_denied = '$denied' WHERE id = '$event';";
+	}elseif($what=='p'){
+        $paid .= $user.':';
+    }elseif($what=='np'){
+        $paid = str_replace($user.':', '', $user);
+    }elseif($what=='re') {
+        $reimbursed .= $user.':';
+    }elseif($what == 'nre') {
+        $reimbursed = str_replace($user.':', '', $reimbursed);
+    }
+	return "UPDATE ".PFIX."_events SET users_approved = '$approved', users_waiting = '$waiting', users_denied = '$denied', users_paid = '$paid',  WHERE id = '$event';";
 }
 
 

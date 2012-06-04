@@ -19,6 +19,18 @@ zock! is a free software licensed under GPL (General public license) v3
 -->
 <zock>
     <zock_lang>
+        <label>general_info</label>
+        <fr>info</fr>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_paid</label>
+        <fr>a payé</fr>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notpaid</label>
+        <fr>n'a pas payé</fr>
+    </zock_lang>
+    <zock_lang>
         <label>admin_content</label>
         <fr>D'ici tu peux maintenir ton bureau de paris: manipuler les paramètres, gérer les jeux de pronotics &amp; les participants etc. Simplement jète un coup d'oeil sur le menu.</fr>
     </zock_lang>

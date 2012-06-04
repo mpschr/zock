@@ -228,6 +228,71 @@ class Event {
     }
 
     /**
+     * @param $users array
+     * @param $whats array
+     * @return string
+     */
+    public function manageUsers($users, $whats) {
+        global $db;
+        //if the admin aproves/refuses users, the different strings in the db have to be changed
+        //=> a string is of the form 1:2:3: (for user 1, 2 & 3)
+        $event = $this->id;
+        for ($i=0; $i<sizeof($users); $i++) {
+            $what = $whats[$i];
+            $user = $users[$i];
+            if($what=='approve'){
+                $this->users_waiting = str_replace($user.':', '', $this->users_waiting);
+                $this->users_approved .= $user.':';
+                if(!$this->addUserToEventDb($user)) {
+                    echo 'User not added to database';
+                }
+            }elseif($what=='deny'){
+                $this->users_waiting = str_replace($user.':', '', $this->users_waiting);
+                $this->users_denied .= $user.':';
+            }elseif($what=='waiting'){
+                $this->users_waiting .= $user.':';
+            }elseif($what=='retire'){
+                $this->users_waiting = str_replace($user.':', '', $this->users_waiting);
+            }elseif($what=='paid'){
+                $this->users_paid .= $user.':';
+            }elseif($what=='notpaid'){
+                $this->users_paid = str_replace($user.':', '', $this->users_paid);
+            }elseif($what=='reimbursed') {
+                $this->users_reimbursed .= $user.':';
+            }elseif($what == 'notreimbursed') {
+                $this->users_reimbursed = str_replace($user.':', '', $this->users_reimbursed);
+            }
+        }
+        return $db->query("UPDATE ".PFIX."_events SET users_approved = '$this->users_approved',
+                                                            users_waiting = '$this->users_waiting',
+                                                            users_denied = '$this->users_denied',
+                                                            users_paid = '$this->users_paid',
+                                                            users_reimbursed = '$this->users_reimbursed'
+                                                            WHERE id = '$this->id';");
+    }
+
+    private function addUserToEventDb($user) {
+        global $db;
+        if($this->bet_on=='results'){
+            $eventquery = "ALTER TABLE ".PFIX."_event_".$this->id."
+							ADD ".$user."_h INT DEFAULT NULL,
+							ADD ".$user."_v INT DEFAULT NULL,
+							ADD ".$user."_points INT DEFAULT NULL,
+							ADD ".$user."_money FLOAT DEFAULT NULL,
+							ADD ".$user."_ranking INT DEFAULT NULL;";
+        }else{
+            $eventquery = "ALTER TABLE ".PFIX."_event_".$this->id."
+							ADD ".$user."_toto INT(1) DEFAULT NULL,
+							ADD ".$user."_points INT DEFAULT NULL,
+							ADD ".$user."_money FLOAT DEFAULT NULL,
+							ADD ".$user."_ranking INT DEFAULT NULL;";
+
+        }
+        return $db->query($eventquery);
+
+    }
+
+    /**
      * @return array|string
      */
     public function generateEventInfo(){

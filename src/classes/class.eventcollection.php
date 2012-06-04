@@ -77,8 +77,17 @@ class EventCollection extends Collection {
     /**
      * @return array
      */
+    public function getAllEvents()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @return array
+     */
     public function getActiveEvents()
     {
+
         if ($this->activeEvents == null) {
             $this->activeEvents = array();
             foreach($this->items as $event) {
@@ -123,6 +132,36 @@ class EventCollection extends Collection {
             }
         }
         return $this->finishedEvents;
+    }
+
+    /**
+     * @param $events array(Event)
+     * @return array
+     */
+    public function onlyPublicEvents($events) {
+        $publicEvents = array();
+        foreach ($events as $e) {
+            /* @var $e Event */
+            if($e->getPublic() == 1) {
+                $publicEvents[] = $e;
+            }
+        }
+        return $publicEvents;
+    }
+
+    /**
+     * @param $events array(Event)
+     * @return array
+     */
+    public function onlyPrivateEvents($events) {
+        $privateEvents = array();
+        foreach ($events as $e) {
+            /* @var $e Event */
+            if($e->getPublic() != 1) {
+                $privateEvents[] = $e;
+            }
+        }
+        return $privateEvents;
     }
 
     /**

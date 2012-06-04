@@ -152,17 +152,6 @@ if($_REQUEST['evac'] == 'save'){
 				//(to prevent activation in case of a site call from the history data)
 				if(stristr($_SERVER['HTTP_REFERER'], 'ssubmenu=settings&ev='.$data['id'])){
 
-                    $queryQuestion = "CREATE TABLE ".PFIX."_qa_questions ("
-                        ."id INT NOT NULL AUTO_INCREMENT,"
-                        ."time DOUBLE NOT NULL,"
-                        ."matchday_id INT NOT NULL DEFAULT '999999',"
-                        ."question TEXT,"
-                        ."posibilities TEXT,"
-                        ."points TEXT,"
-                        ."answer INT DEFAULT NULL,"
-                        ."PRIMARY KEY (id)"
-                        .")";
-
 					if($data['score_input_type'] == 'results'){
 					//prepare queries for updating the events tabel & creating a new table for the activated event
 						$query2 = "CREATE TABLE ".PFIX."_event_".$data['id']." ("
@@ -188,8 +177,7 @@ if($_REQUEST['evac'] == 'save'){
 							."komatch INT(1) NOT NULL DEFAULT 0,"
 							."home TINYTEXT,"
 							."visitor TINYTEXT,"
-							."score_h INT DEFAULT NULL,"
-							."score_v INT DEFAULT NULL,"
+							."score INT DEFAULT NULL,"
 							."score_special TINYTEXT DEFAULT NULL,"
 							."jackpot FLOAT DEFAULT NULL,"
 							."PRIMARY KEY (id)"
@@ -272,66 +260,58 @@ if($_REQUEST['evac'] == 'save'){
 
 //========== save edited, active event
 }elseif($_REQUEST['evac'] == 'saveactive'){
-	global $events;
+	global $events, $events_test;
 	$lang['general_updating'];
 	$data = $_POST;
 
 	//check if there were chagnes in the "personnel" of an event
 	$nbusers = $db->row_count("SELECT id FROM ".PFIX."_users");
+    $users = array();
+    $whats = array();
+    $e = $events_test->getEventById($data['id']);
 	for ($x = 1; $x<=$nbusers; $x++){
 		if ($data['hiddenfield_'.$x] != 0 || isset($data['u_'.$x])){
 			//something happened with the user $x
 			if($data['hiddenfield_'.$x] == 1 || isset($data['u_'.$x])){
 				//approve
-				if($events['u']['e'.$data['id']]['bet_on']=='results'){
-					$eventquery = "ALTER TABLE ".PFIX."_event_".$data['id']."
-							ADD ".$x."_h INT DEFAULT NULL,
-							ADD ".$x."_v INT DEFAULT NULL,
-							ADD ".$x."_points INT DEFAULT NULL,
-							ADD ".$x."_money FLOAT DEFAULT NULL,
-							ADD ".$x."_ranking INT DEFAULT NULL;";
-				}else{
-					$eventquery = "ALTER TABLE ".PFIX."_event_".$data['id']."
-							ADD ".$x."_toto INT(1) DEFAULT NULL,
-							ADD ".$x."_points INT DEFAULT NULL,
-							ADD ".$x."_money FLOAT DEFAULT NULL,
-							ADD ".$x."_ranking INT DEFAULT NULL;";
+                $users[] = $x;
+                $whats[] = 'approve';
 
-				}
-				if( $db->query($eventquery)
-					&& $db->query(phpManageUser($x, 'a', $data['id']))){
-					echo $lang['general_saveok'].'<br />';
-					echo $lang['general_redirect'];
-					//send the user a mail to notify him of his approval
-					if ($settings['functionalSMTP'] == 'true'){
-						$uinfo = loadSettings($x);
-						$ulang = languageSelector($uinfo['lang']);
-						$from = $settings['email'];
-						$to = $uinfo['email'];
-						$subarray1 = array($events['u']['e'.$data['id']]['name']);
-						$subarray2 = array($uinfo['name'], $events['u']['e'.$data['id']]['name']);
-						$subject = substitute($ulang['admin_events_approved_subject'], $subarray1);
-						$text = substitute($ulang['admin_events_approved_message'], $subarray2);
-						$mail = initMail();
-						$mail->AddReplyTo($ainfo['email'], $ainfo['name']." ".$ainfo['famname']);
-						$mail->From = $my_smtp['from']; 
-						$mail->FromName =  $ulang['general_bettingOffice']." ".$settings['name'];
-						$mail->Subject = $subject;
-						$mail->Body = $text;
-						$mail->AddAddress($to, $uinfo['name']." ".$uinfo['famname']);
-						$mail->Send();	
-					}
-		
-				}else{
-					echo $lang['general_savednotok'].'<br />';
-					echo $eventquery;
-				}
+                //send the user a mail to notify him of his approval
+                if ($settings['functionalSMTP'] == 'true'){
+                    $uinfo = loadSettings($x);
+                    $ulang = languageSelector($uinfo['lang']);
+                    $from = $settings['email'];
+                    $to = $uinfo['email'];
+                    $subarray1 = array($events['u']['e'.$data['id']]['name']);
+                    $subarray2 = array($uinfo['name'], $events['u']['e'.$data['id']]['name']);
+                    $subject = substitute($ulang['admin_events_approved_subject'], $subarray1);
+                    $text = substitute($ulang['admin_events_approved_message'], $subarray2);
+                    $mail = initMail();
+                    $mail->AddReplyTo($ainfo['email'], $ainfo['name']." ".$ainfo['famname']);
+                    $mail->From = $my_smtp['from'];
+                    $mail->FromName =  $ulang['general_bettingOffice']." ".$settings['name'];
+                    $mail->Subject = $subject;
+                    $mail->Body = $text;
+                    $mail->AddAddress($to, $uinfo['name']." ".$uinfo['famname']);
+                    $mail->Send();
+                }
 			}else{
 				//deny
-				$db->query(phpManageUser($x, 'd', $data['id']));
+                $users[] = $x;
+                $whats[] = 'deny';
 			}
 		}
+        if ($data[$x.'_paidhf']!="") {
+            $users[] = $x;
+            $whats[] = $data[$x.'_paidhf'];
+        }
 	}
+
+    if (!($e->manageUsers($users,$whats))) {
+        echo $lang['general_savednotok'].'<br />';
+    }
+
 	//the rest of the settings don't need checks and are updated here (only condition: settings-formular!"
 	if(!isset($data['adduserform'])){	
 		if($db->query("UPDATE ".PFIX."_events SET name = '".$data['name']."', public = '".$data['public']."' WHERE id ='".$data['id']."'")){
@@ -341,7 +321,7 @@ if($_REQUEST['evac'] == 'save'){
 		}
 	}
 	echo $lang['general_redirect']; 
-	redirect($rlink.'ssubmenu=settings&ev='.$data['id'], 3);
+	redirect($rlink.'ssubmenu=settings&ev='.$data['id'], 2);
 
 //========== save matches
 }elseif($_REQUEST['evac'] == 'savematches'){

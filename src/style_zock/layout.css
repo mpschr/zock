@@ -634,3 +634,18 @@ td.ow_team {
 .topalign {
 	vertical-align: top;
 }
+
+
+p.negative {
+    margin: 0px;
+    padding: 0px;
+    color: red;
+    font-weight: bold;
+}
+
+p.positive {
+    margin: 0px;
+    padding: 0px;
+    color: green;
+    font-weight: bold;
+}

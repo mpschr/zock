@@ -17,7 +17,7 @@ zock! is a free software licensed under GPL (General public license) v3
 =================================== 
 */
 
-global $events;
+global $events, $events_test, $cont;
 
 if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 	echo '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_settings_title'].'</h3>';
@@ -26,11 +26,20 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 }
 //========== edit an event
 if($_REQUEST['ssubmenu'] == 'settings'){
-	foreach($events_read as $e){
-		if($e['id'] == $_REQUEST['ev']){
-			$eve = $e;
+    foreach($events_read as $e){
+        if($e['id'] == $_REQUEST['ev']){
+            $eve = $e;
+        }
+    }
+
+	foreach($events_test->getAllEvents() as $e){
+        /* @var $e Event */
+		if($e->getId() == $_REQUEST['ev']){
+            /** @var $selectedEvent Event */
+            $selectedEvent = $e;
 		}
 	}
+
 
 	$err['name'] = $err['deadline'] = $err['currency'] = $err['stake'] = $err['round'] = 'title';
 	
@@ -54,7 +63,7 @@ $flcnt = generateEventInfo($_REQUEST['ev']);
 echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfkasfisldf</a><p/>';
 */
 	//is event active or not?
-	if($eve['active']==1){
+	if($selectedEvent->getActive() == 1){
 		echo $lang['admin_events_active'].'<p>';
 		$users['db'] = $db->query("SELECT id, login, account_type, account_holder, account_details FROM ".PFIX."_users");
 		foreach ($users['db'] as $row){
@@ -68,7 +77,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		
 	//Preparation for the form	
 		//=> process public setting
-		if($eve['public']){
+		if($selectedEvent->getPublic()==1){
 			$p['y'] = 'selected';
 			$p['n'] = '';
 		}else{
@@ -77,21 +86,37 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		}
 		
 		//=> process users (approved, waiting, denied)
-		$users['approved'] = explode(':', $eve['users_approved']);
+		$users['approved'] = preg_split('/:/', $selectedEvent->getUsersApproved());
 		array_pop($users['approved']);
-		foreach($users['approved'] as $id){
-			$u['a']	.= $users['all'][$id]['name'];	
+        $u['a'] = "<table align='center'>";
+        foreach($users['approved'] as $id){
+			$u['a']	.= "<tr><td>".$users['all'][$id]['name']."</td>";
 			if ($users['all'][$id]['account_type'] == NULL){
-				$u['a'].='<br/>';
+				$u['a'].="<td></td>";
 			}else{
-				$u['a'].=' <a href="javascript: showFloatingLayer(\''.$id.'_account\')">('.$lang['general_bank_account'].')</a><br/>';
+				$u['a'].=' <td> <a href="javascript: showFloatingLayer(\''.$id.'_account\')">('.$lang['general_bank_account'].')</a></td>';
 				$flcnt = '<b>'.$users['all'][$id]['account_type'].'</b><p/<p/>'
 					.'<pre>'.$users['all'][$id]['account_holder'].'</pre><br/>'
 					.$users['all'][$id]['account_details'].'<br/>';
 				echo makeFloatingLayer($users['all'][$id]['name'], $flcnt,1,$id.'_account');
 			}
+            $flcnt .= '<input type="hidden" name="id" value="'.$selectedEvent->getId().'"/>';
+
+            $u['a'] .= '<input type="hidden" name="'.$id.'_paidhf" id="'.$id.'_paidhf" value="">';
+            $paidstring = ($selectedEvent->userHasPaid($id)) ?
+                $cont->get('admin_settings_paid'):
+                $cont->get('admin_settings_notpaid');
+            $paidclass = ($selectedEvent->userHasPaid($id)) ?
+                'positive' : 'negative';
+            $u['a'] .= '<td><a href="javascript: userPaid(\''.$cont->get('admin_settings_paid').'\', \''.$cont->get('admin_settings_notpaid').'\', \''.$id.'\')">
+                            <p class="'.$paidclass.'" id="'.$id.'_paid">'.$paidstring.'</p>
+                        </a></td>';
+            if ($selectedEvent->getFinished()==1)
+                $u['a'] .= "<td>gwinn übercho</td>";
+            $u['a'] .= "</tr>";
 		}
-		$users['waiting'] = explode(':', $eve['users_waiting']);
+        $u['a'] .= "</table>";
+		$users['waiting'] = explode(':', $selectedEvent->getUsersWaiting());
 		array_pop($users['waiting']);
 		foreach($users['waiting'] as $id){
 			$userinfo = loadSettings($id);
@@ -107,15 +132,15 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					<a href="javascript: manageUser(\'a\', \''.$id.'\')">'.$lang['admin_events_approve'].'</a> /
 					<a href="javascript: manageUser(\'d\', \''.$id.'\')">'.$lang['admin_events_deny'].'</a> / 
 					<a href="javascript: manageUser(\'w\', \''.$id.'\')">'.$lang['admin_events_wait'].'</a> / 
-					<a href="javascript: showFloatingLayer(\'u'.$id.'\')" title="'.$lang['general_show_info'].'"> i </a> <br/>';
+					<a href="javascript: showFloatingLayer(\'u'.$id.'\')" title="'.$lang['general_show_info'].'"> '.$cont->get('general_info').' </a> <br/>';
 		}
-		$users['denied'] = explode(':', $eve['users_denied']);	
+		$users['denied'] = explode(':', $selectedEvent->getUsersDenied());
 		array_pop($users['denied']);
 		foreach($users['denied'] as $id)
 			$u['d']	.= $users['all'][$id]['name'].'<br>';
 
 		//=>If deadline's over, propose the addition of users, nevertheless...
-		if ($eve['deadline'] < time()){
+		if ($selectedEvent->getDeadline() < time()){
 			$afterdeadline = '<br>'.$lang['admin_events_deadlineover'];
 			$afterdeadline .= ' <a href="javascript: showFloatingLayer(\'1\')">+</a>';
 		}
@@ -123,13 +148,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		//prepare a Floating layer:	
 		$flcnt = '<form name="adduser" action="?menu=admin&submenu=events&evac=saveactive" method="POST">';
 			//=> the values in the hidden fields don't change, but the info is needed by the update-procedure following this form
-		$flcnt .= '<input type="hidden" name="id" value="'.$eve['id'].'"/>';
+		$flcnt .= '<input type="hidden" name="id" value="'.$selectedEvent->getId().'"/>';
 		$flcnt .= '<input type="hidden" name="adduserform" value="1"/>';
 		$flcnt .= '<table><tr>';
 		$counter = 0;
 		$users['db'];
 		foreach($users['db'] as $user){
-			if ( !(userParticipates($eve['id'], $user['id'])) && !(userWaits($eve['id'], $user['id']))){	
+			if ( !(userParticipates($selectedEvent->getId(), $user['id'])) && !(userWaits($selectedEvent->getId(), $user['id']))){
 				$counter++;
 				$flcnt .= '<td><input class="input_fl" type="checkbox" name="u_'.$user['id'].'" value="1"/> '.$user['login'].'</td>';
 				if (($counter % 3) == 0) $flcnt .= '<tr/><tr>';
@@ -144,12 +169,12 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 		//the form
 		echo '<form name="edit" action="?menu=admin&submenu=events&evac=saveactive" method="POST">'
-		.'<input type="hidden" name="id" value="'.$eve['id'].'">'.$u['h']
+		.'<input type="hidden" name="id" value="'.$selectedEvent->getId().'">'.$u['h']
 		.'<table class="showform">
 			<tr>
 				<td class="title">'.$lang['admin_events_name'].'</td>
 			</tr><tr>
-				<td class="input"><input name="name" size=20 value="'.$eve['name'].'"</td>
+				<td class="input"><input name="name" size=20 value="'.$selectedEvent->getName().'"</td>
 			</tr><tr>
 				<td class="title">'.$lang['admin_events_public'].'</td>
 			</tr><tr>
@@ -157,19 +182,19 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					<option value="1" '.$p['y'].'>'.$lang['general_yes'].'</option>
 					<option value="0" '.$p['n'].'>'.$lang['general_no'].'</option></td>
 			</tr><tr>
-				<td class="title">'.$lang['admin_events_userswaiting'].'</td>
+				<td class="title">'.$lang['admin_events_userswaiting'].' ('.sizeof($users['waiting']).')</td>
 			</tr><tr>
 				<td class="input">'.$u['w'].'</td>
 			</tr><tr>			
 				<td class="title">'.$lang['admin_events_deadline'].'</td>
 			</tr><tr>
-				<td class="input">'.date('d.m.Y', $eve['deadline']).$afterdeadline.'</td>
+				<td class="input">'.date('d.m.Y', $selectedEvent->getDeadline()).$afterdeadline.'</td>
 			</tr><tr>
-				<td class="title">'.$lang['admin_events_usersapproved'].'</td>
+				<td class="title">'.$lang['admin_events_usersapproved'].' ('.sizeof($users['approved']).')</td>
 			</tr><tr>
 				<td class="input">'.$u['a'].'</td>
 			</tr><tr>
-				<td class="title">'.$lang['admin_events_usersdenied'].'</td>
+				<td class="title">'.$lang['admin_events_usersdenied'].' ('.sizeof($users['denied']).')</td>
 			</tr><tr>
 				<td class="input">'.$u['d'].'</td>
 			</tr><tr>
@@ -184,7 +209,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 
 	//not active && phase = 2
-	}elseif($eve['active']<0){
+	}elseif($selectedEvent<0){
 		if(!($err['deadline'] == 'error')) $eve['deadline'] = date('d.m.Y', $eve['deadline']);
 
 		if($eve['p_correct'] != NULL) $nextstep = 2;
@@ -197,9 +222,9 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		}
 
 
-	
+
 	//	echo '<p>'.$lang['admin_events_inactive'];
-		?>		
+		?>
 		<script type="text/javascript">
 			function switchInput(spec){
 				input = document.getElementById(spec);
@@ -224,7 +249,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				var stakebackfield = document.getElementById("stakebackfield");
 				var betonfield = document.getElementById("betonfield");
 				var jackpotsection = document.getElementById("jackpotsection");
-				switch(mode){	
+				switch(mode){
 					case 'none':
 						matchnbexp.setAttribute("class", "explanation notvisible");
 						matchnbdiv.setAttribute("class", "input notvisible");
@@ -270,25 +295,25 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						stakebackexp.setAttribute("class", "explanation");
 						stakebackdiv.setAttribute("class", "input");
 						if(betonfield.value=="toto" && stakebackfield.value=="yes"){
-							alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");	
+							alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
 							stakebackfield.value="no";
 							stakebackfield.selectedindex=0;
 						}
 						jackpotsection.setAttribute("class", "");
 						break;
 				}
-			}	
-	
+			}
+
 		function verifyStakeBack(){
 			var stakebackfield = document.getElementById("stakebackfield");
 			var betonfield = document.getElementById("betonfield");
 			if(betonfield.value=="toto" && stakebackfield.value=="yes"){
-				alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");	
+				alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
 				stakebackfield.value="no";
 				stakebackfield.selectedindex=0;
 			}
 		}
-	
+
 		function setJackpot(sharers){
 			fractionexp = document.getElementById("fractionexp");
 			fractiondiv = document.getElementById("fractiondiv");
@@ -333,13 +358,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						fixsharesdiv.setAttribute("class", "input");
 						expsharesexp.setAttribute("class", "explanation notvisible");
 						expsharesdiv.setAttribute("class", "input notvisible");
-						showFloatingLayer('fixshares');	
+						showFloatingLayer('fixshares');
 						var nb = jackpotfixfield.value;
 						if (fixsharesfield.value != ""){
 							shares = fixsharesfield.value.split(":");
 						}else{
 							var shares = new Array();
-							for (var i = nb; i>0; i--) shares[i-1] = 0; 
+							for (var i = nb; i>0; i--) shares[i-1] = 0;
 						}
 						for (var i = nb; i>0; i--){
 							if(i==nb){
@@ -348,7 +373,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 								layer.innerHTML = layer.innerHTML + (nb-i+1) +'. <input id="rank'+(nb-i+1)+'" size="3" value="'+shares[nb-i]+'" onchange="sumShares('+nb+')>%<br/>';
 							}
 						}
-						layer.innerHTML = layer.innerHTML + '----------------------<br/>';	
+						layer.innerHTML = layer.innerHTML + '----------------------<br/>';
 						layer.innerHTML = layer.innerHTML + '<div id="putSharesDiv">0%</div>';
 						sumShares(nb);
 					}
@@ -369,7 +394,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		}
 
 		function sumShares(nb){
-			var percent = 0; 
+			var percent = 0;
 			putSharesDiv = document.getElementById("putSharesDiv");
 			for(var i = nb; i>0; i--){
 				percent = parseInt(document.getElementById("rank"+i).value) + parseInt(percent);
@@ -387,7 +412,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			document.getElementById("fixsharesfield").value = percentstr;
 			hideFloatingLayer("fixshares");
 		}
-		
+
 		function setPoints(beton){
 			correctresult = document.getElementById("correctresult");
 			correcttoto = document.getElementById("correcttoto");
@@ -421,11 +446,11 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					inputtypeexp.setAttribute("class", "explanation");
 					inputtypefield.setAttribute("class", "input");
 					if(stakebackfield.value=="yes"){
-						alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");	
+						alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
 						stakebackfield.value="no";
 						stakebackfield.selectedindex=0;
 					}
-					
+
 					break;
 			}
 		}
@@ -467,7 +492,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					break;
 			}
 		}
-		
+
 		function verify(nextstep){
 			if(nextstep==1) document.getElementById("nextstep").value = 1;
 
@@ -477,7 +502,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				return;
 			}
 
-			
+
 			deadlinefield = document.getElementById("deadlinefield");
 			dl = deadlinefield.value;
 			dlsp = dl.split(".");
@@ -493,16 +518,16 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 			stakemodefield = document.getElementById("stakemodefield");
 			if(stakemodefield.value != "none"){
-		
-				if(stakemodefield.value=="permatch"){	
+
+				if(stakemodefield.value=="permatch"){
 					matchnbfield = document.getElementById("matchnbfield");
 					if(matchnbfield.value == "" || matchnbfield.value=="0" || !(numerical.test(matchnbfield.value))){
 						alert("<? echo $lang['admin_events_err_invalid_matchnb']; ?>");
 						return;
 					}
 				}
-	
-				
+
+
 				stakefield = document.getElementById("stakefield");
 				if(stakefield.value == "" || stakefield.value=="0" || !(numericaldot.test(stakefield.value))){
 					alert("<? echo $lang['admin_events_err_invalid_stake']; ?>");
@@ -514,7 +539,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					alert("<? echo $lang['admin_events_err_invalid_currency']; ?>");
 					return;
 				}
-	
+
 				roundfield = document.getElementById("roundfield");
 				if(roundfield.value == "" || roundfield.value=="0" || !(numericaldot.test(roundfield.value))){
 					alert("<? echo $lang['admin_events_err_invalid_round']; ?>");
@@ -522,7 +547,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				}
 
 				jackpotmodefield = document.getElementById("jackpotmodefield");
-				if(jackpotmodefield.value=="fraction"){	
+				if(jackpotmodefield.value=="fraction"){
 					fractionfield = document.getElementById("fractionfield");
 					if(!(numerical.test(fractionfield.value)) || parseInt(fractionfield.value) > 100 || parseInt(fractionfield.value) < 1){
 						alert("<? echo $lang['admin_events_err_invalid_fraction']; ?>");
@@ -535,13 +560,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						return;
 					}
 				}
-			
-				
+
+
 				jpdistrmodefield = document.getElementById("jpdistrmodefield");
-				if(jpdistrmodefield.value=="fix"){	
+				if(jpdistrmodefield.value=="fix"){
 					fixsharesfield = document.getElementById("fixsharesfield");
 					fixshsp = fixsharesfield.value.split(":");
-					fixshsp.pop();	
+					fixshsp.pop();
 					if(fixshsp.length != parseInt(jackpotfixfield.value)){
 						alert("<? echo $lang['admin_events_err_invalid_jackpotfixshares']; ?>");
 						return;
@@ -553,10 +578,10 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						return;
 					}
 				}
-	
+
 			}
 
-			
+
 			betuntilfield = document.getElementById("betuntilfield");
 			if(betuntilfield.value=="" || !(numericaldot.test(betuntilfield.value))){
 				alert("<? echo $lang['admin_events_err_invalid_betuntil']; ?>");
@@ -574,14 +599,14 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					alert("<? echo $lang['admin_events_err_invalid_pdiff']; ?>");
 					return;
 				}
-			}	
+			}
 			if(document.getElementById("almostbox").checked==true){
 				almost = document.getElementById("almost");
 				if(almost.value == "" || !(numerical.test(almost.value))){
 					alert("<? echo $lang['admin_events_err_invalid_palmost']; ?>");
 					return;
 				}
-			}	
+			}
 			wrong = document.getElementById("wrong");
 			if(wrong.value == "" || !(numericalnegative.test(wrong.value))){
 				alert("<? echo $lang['admin_events_err_invalid_pwrong']; ?>");
@@ -592,13 +617,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		}
 
 		</script>
-		<?		
+		<?
 
 
 			//preparations
 		$jackpotdistributions = Array($lang['admin_events_settings_stakemode_fix'],
 						$lang['admin_events_settings_distr_lin'],
-						$lang['admin_events_settings_distr_exp']); 
+						$lang['admin_events_settings_distr_exp']);
 
 		echo makeFloatingLayer('','', 0, 'fixshares');
 
@@ -620,10 +645,10 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				$nt['fix'] = 'notvisible';
 				break;
 		}
-		
-		if($eve['stake_back'] == "yes") 
+
+		if($eve['stake_back'] == "yes")
 			$sel['stakebackyes'] = 'selected';
-		else 
+		else
 			$sel['stakebackno'] = 'selected';
 
 		if($eve['jp_fraction_or_fix'] == 'fraction'){
@@ -640,15 +665,15 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				$sel['fixshares'] = 'selected';
 				$nt['expshares'] =  'notvisible';
 				break;
-			case 'exp': 
+			case 'exp':
 				$sel['expshares'] = 'selected';
 				$nt['fixshares'] = 'notvisible';
 				break;
-			case 'lin': 
+			case 'lin':
 				$sel['linshares'] = 'selected';
 				$nt['fixshares'] = 'notvisible';
 				$nt['expshares'] =  'notvisible';
-				break;	
+				break;
 		}
 
 		$bu = preg_split('/:/', $eve['bet_until']);
@@ -664,23 +689,23 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 		if($eve['p_almost'] != NULL) $check['almost'] = 'checked';
 		else $dis['almost'] = 'disabled';
-	
+
 		switch($eve['bet_on']){
 			case 'results':
 				$sel['betonresults']  = 'selected';
 				$nt['inputtype'] = 'notvisible';
-				break;	
+				break;
 			case 'toto':
-				$sel['betontoto'] = 'selected';	
+				$sel['betontoto'] = 'selected';
 				$dis['diffbox'] = $dis['almostbox'] = 'disabled';
 				$nt['inputtype'] = '';
 				break;
 		}
-	
+
 		switch($eve['score_input_type']){
 			case 'results':
 				$sel['inputtyperes']  = 'selected';
-				break;	
+				break;
 			case 'toto':
 				$sel['inputtypetoto']  = 'selected';
 				break;
@@ -697,7 +722,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			case 'only':
 				$sel['ko_only'] = 'selected';
 		}
-		
+
 		if ($eve['enable_tie'] == 'yes'){
 			$sel['tie_yes'] = 'selected';
 			$nt['afterpenalty'] = 'notvisible';
@@ -713,19 +738,19 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 			//form
 		echo '<h3>'.$lang['admin_events_eventsettings'].'</h3>';
-		
+
 		echo '<form name="edit" action="index.php?menu=admin&submenu=events&evac=save" method="POST">'
 		.'<input type="hidden" name="form" value="ssubmenu=settings&'.$link_query.'">'
 		.'<input type="hidden" name="formname" value="phase2">'
 		.'<input type="hidden" id="nextstep" name="nextstep" value="">'
-		.'<input type="hidden" name="id" value="'.$eve['id'].'">'
+		.'<input type="hidden" name="id" value="'.$selectedEvent->getId().'">'
 		.'<div class="showform">
 				<div class="title">'.$lang['admin_events_name'].'</div>
 				<div class="input"><input id="namefield" name="name" size=20 value="'.$eve['name'].'"></div>
-			
+
 				<div class="title">'.$lang['admin_events_deadline'].'</div>
 				<div class="input"><input id="deadlinefield" name="deadline" size=10 value="'.$eve['deadline'].'"></div>
-			
+
 				<div class="title">'.$lang['admin_events_stake'].'</div>
 				<div class="input"><select id="stakemodefield" name="stake_mode" size=3>
 						<option value="none" onClick="setStake(\'none\')" '.$sel['stake_none'].'>'.$lang['admin_events_settings_stakemode_none'].'</option>
@@ -735,14 +760,14 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				</div>
 
 				<div id="matchnbexp" class="explanation '.$nt['matchnb'].'">'.$lang['admin_events_settings_matchnb'].'</div>
-				<div id="matchnbdiv" class="input '.$nt['matchnb'].'"><input id="matchnbfield" name="match_nb" size=10 value="'.$eve['match_nb'].'"></div>			
+				<div id="matchnbdiv" class="input '.$nt['matchnb'].'"><input id="matchnbfield" name="match_nb" size=10 value="'.$eve['match_nb'].'"></div>
 				<div  id="fix" class="explanation '.$nt['fix'].'">'.$lang['admin_events_settings_stake_fix'].'</div>
 				<div  id="permatch" class="explanation '.$nt['permatch'].'">'.$lang['admin_events_settings_stake_permatch'].'</div>
 				<div  id="stakediv" class="input '.$nt['stakediv'].'"><input id="stakefield" name="stake" size=10 value="'.$eve['stake'].'"></div>
 
 				<div id="currencyexp" class="explanation '.$nt['currency'].'">'.$lang['admin_events_currency'].'</div>
-				<div id="currencydiv" class="input '.$nt['currency'].'"><input id="currencyfield" name="currency" size=10 value="'.$eve['currency'].'"></div>			
-				<div id="roundexp" class="explanation '.$nt['round'].'">'.$lang['admin_events_round'].'</div>	
+				<div id="currencydiv" class="input '.$nt['currency'].'"><input id="currencyfield" name="currency" size=10 value="'.$eve['currency'].'"></div>
+				<div id="roundexp" class="explanation '.$nt['round'].'">'.$lang['admin_events_round'].'</div>
 				<div id="rounddiv" class="input '.$nt['round'].'"><input id="roundfield" name="round" size=10 value="'.$eve['round'].'"></div>
 
 				<div id="stakebackexp" class="explanation '.$nt['stakeback'].'">'.$lang['admin_events_stakeback'].'</div>
@@ -763,7 +788,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 				<div id="fractionexp" class="explanation" '.$nt['fraction'].'>'.$lang['admin_events_jackpot_fraction'].'</div>
 				<div id="fractiondiv" class="input" '.$nt['fraction'].'><input id="fractionfield" name="jp_fraction" size=3 value="'.$eve['jp_fraction'].'" />%</div>
-				
+
 				<div id="jackpotfixexp" class="explanation '.$nt['jackpotfix'].'">'.$lang['admin_events_jackpot_fix'].'</div>
 				<div id="jackpotfixdiv" class="input '.$nt['jackpotfix'].'"><input id="jackpotfixfield" name="jp_fix" size=3 value="'.$eve['jp_fix'].'" /></div>
 
@@ -774,7 +799,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						<option value="lin" onClick="setDistr(\'lin\')" '.$sel['linshares'].'>'.$lang['admin_events_settings_distr_lin'].'</option>
 						<option value="exp" onClick="setDistr(\'exp\')" '.$sel['expshares'].'>'.$lang['admin_events_settings_distr_exp'].'</option>
 					</select></div>
-				
+
 				<div id="fixsharesexp" class="explanation '.$nt['fixshares'].'">'.substitute($lang['admin_events_fixshares'], $lang['admin_events_settings_stakemode_fix']).'</div>
 				<div id="fixsharesdiv" class="input '.$nt['fixshares'].'"><input id="fixsharesfield" name="jp_distr_fix_shares" size="17" onclick="setDistr(\'fix\')" value="'.$eve['jp_distr_fix_shares'].'"></div>
 
@@ -826,7 +851,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					<input id="almost" name="p_almost" size="4" '.$dis['almost'].' value="'.$eve['p_almost'].'"></div>
 				<div class="explanation" >'.$lang['admin_events_pointdistr_wrong'].'</div>
 				<div class="input"><input id="wrong" name="p_wrong" size="4" '.$dis['wrong'].' value="'.$eve['p_wrong'].'"></div>
-			
+
 				<div class="explanation" >'.$lang['admin_events_komatchesexp'].'</div>
 				<div class="input"><select name="ko_matches" size=3>
 						<option value="no" onClick="koMatches(\'no\')" '.$sel['ko_no'].'>'.$lang['general_no'].'</option>
@@ -859,7 +884,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
 		echo '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
 
-	//Preparation for the form	
+	//Preparation for the form
 		//=> process public setting
 		if($eve['public']){
 			$p['y'] = 'selected="selected"';
@@ -872,7 +897,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 		//the form
 		echo '<form name="phase3" action="?menu=admin&submenu=events&evac=save" method="POST">'
-		.'<input type="hidden" name="id" value="'.$eve['id'].'">'.$u['h']
+		.'<input type="hidden" name="id" value="'.$selectedEvent->getId().'">'.$u['h']
 		.'<input type="hidden" name="form" value="ssubmenu=settings&'.$link_query.'">'
 		.'<input type="hidden" name="formname" value="phase3">'
 		.'<div class="showform">

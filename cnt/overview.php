@@ -19,13 +19,14 @@ zock! is a free software licensed under GPL (General public license) v3
 
 echo '<h2>'.$lang['overview_title'].'</h2>';
 
-global $db, $settings, $events;
+global $db, $settings, $events, $events_test;
 
 //event handling ;) => estimate if user is registerd to events & load the events
-$nb =  ActiveEventNumber('p');
+$viewableEvents = $events_test->onlyPublicEvents($events_test->getActiveEvents());
+$nb =  sizeof($viewableEvents);
 if($_SESSION['logged']){
-	$userevents = loadUserEvents();
-	$nb =  UserEventNumber();
+	$viewableEvents = $events_test->getUserEvents();
+	$nb =  sizeof($viewableEvents);
 }
 
 if($nb < 1){
@@ -34,8 +35,8 @@ if($nb < 1){
 	
 }elseif($nb == 1){
 	//one event
-	$thisevent = $events['p'][0];
-	
+	$thisevent = $viewableEvents[0]->getId();
+
 }elseif($nb > 1){
 	//multible events
 	//=> 2buttons (one hidden) and a vmenu
@@ -49,9 +50,10 @@ if($nb < 1){
 	}else{
 		if (!(isset($_REQUEST['ev'])) && !(isset($_SESSION['currevent']))){
 			if($_SESSION['logged']){
-				$thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
+				#$thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
+                $thisevent = $viewableEvents[0]->getId();
 			}else{
-				$thisevent = $_SESSION['currevent'] = $events['p'][$events['p']['nb']-1];
+				$thisevent = $viewableEvents[0]->getId();
 			}
 		}else{			
 			$thisevent = $_SESSION['currevent'];

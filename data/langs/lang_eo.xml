@@ -19,6 +19,18 @@ zock! is a free software licensed under GPL (General public license) v3
 -->
 <zock>
     <zock_lang>
+        <label>general_info</label>
+        <eo>info</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_paid</label>
+        <eo>pagis</eo>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notpaid</label>
+        <eo>ne pagis</eo>
+    </zock_lang>
+    <zock_lang>
         <label>admin_content</label>
         <eo>De ĉi tie eblas al vi organizi vian vetoficejon: prilabori agordaĵojn, administri ludantistojn &amp; vetludojn kaj tiel plu. Pro simpleco rigardu menueron.</eo>
     </zock_lang>

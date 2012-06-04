@@ -22,6 +22,7 @@ Function index:
 >languageChange
 >activate
 >manageUser
+>userPaid
 >manageEvent
 >addNewMatch
 >editResult
@@ -76,7 +77,7 @@ function manageUser(what, id){
 			hfvalue = "-1"
 			break;
 		case "w":
-			fcolor = "white"
+			fcolor = "black"
 			fweight = "normal"
 			hfvalue = "0"
 			break;
@@ -84,6 +85,25 @@ function manageUser(what, id){
 	document.getElementById(user).style.color = fcolor 
 	document.getElementById(user).style.fontWeight = fweight
 	document.getElementById(hiddenfield).value = hfvalue
+}
+
+
+function userPaid(pos,neg,id) {
+    var hiddenfield = document.getElementById(id + "_paidhf");
+    var elementToSwap = document.getElementById(id+"_paid");
+    var toClass = '';
+    var toString = '';
+
+    if (elementToSwap.innerHTML==pos) {
+        elementToSwap.innerHTML = neg;
+        elementToSwap.className = 'negative';
+        hiddenfield.value = "notpaid";
+    } else {
+        elementToSwap.innerHTML = pos;
+        elementToSwap.className = 'positive';
+        hiddenfield.value = "paid";
+    }
+
 }
 
 function manageEvent(what, id, text){

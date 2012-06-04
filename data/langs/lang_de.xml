@@ -20,6 +20,18 @@ zock! is a free software licensed under GPL (General public license) v3
 
 <zock>
     <zock_lang>
+        <label>general_info</label>
+        <de>info</de>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_paid</label>
+        <de>hat bezahlt</de>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notpaid</label>
+        <de>hat nicht bezahlt</de>
+    </zock_lang>
+    <zock_lang>
         <label>admin_content</label>
         <de>Von hier aus kannst du dein Wettbüro organisieren: Einstellungen bearbeiten, Spieler &amp; Tippspiele verwalten etc. Schau dir einfach das Menu an.</de>
     </zock_lang>

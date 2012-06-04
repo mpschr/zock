@@ -1,4 +1,16 @@
 <zock>
+    <zock_lang>
+        <label>general_info</label>
+        <cat>info</cat>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_paid</label>
+        <cat>ha pagat</cat>
+    </zock_lang>
+    <zock_lang>
+        <label>admin_settings_notpaid</label>
+        <cat>no ha pagat</cat>
+    </zock_lang>
 	<zock_lang>
 		<label>admin_content</label>
 		<cat>Des d’aquí pots organitzar la teva oficina d’apostes, es a dir ajustar membres, administrar les apostes, etc… Fixa’t en el menú.</cat>
