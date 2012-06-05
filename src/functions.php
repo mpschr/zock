@@ -191,7 +191,7 @@ $langid=$standard;
     foreach($xml->zock_lang as $entry) {
         $lab = (string) $entry->label;
         #$lang[$lab] = utf8_decode((string) $entry->$langid);
-        $lang[$lab] = (string) $entry->$langid;
+        $lang[$lab] = (string) $entry->cnt;
     }
     
 return $lang;	
