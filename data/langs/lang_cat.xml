@@ -1,418 +1,418 @@
 <zock>
     <zock_lang>
         <label>general_info</label>
-        <cat>info</cat>
+        <cnt>info</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_paid</label>
-        <cat>ha pagat</cat>
+        <cnt>ha pagat</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notpaid</label>
-        <cat>no ha pagat</cat>
+        <cnt>no ha pagat</cnt>
     </zock_lang>
 	<zock_lang>
 		<label>admin_content</label>
-		<cat>Des d’aquí pots organitzar la teva oficina d’apostes, es a dir ajustar membres, administrar les apostes, etc… Fixa’t en el menú.</cat>
+		<cnt>Des d’aquí pots organitzar la teva oficina d’apostes, es a dir ajustar membres, administrar les apostes, etc… Fixa’t en el menú.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_activate</label>
-		<cat>Activar</cat>
+		<cnt>Activar</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_activatedialog</label>
-		<cat>No podràs tornar enrere. Vols activar el joc d’apostes?</cat>
+		<cnt>No podràs tornar enrere. Vols activar el joc d’apostes?</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_activatefirst</label>
-		<cat>Aquesta secció no està disponible fins que no s’hagi activat el joc d’apostes.</cat>
+		<cnt>Aquesta secció no està disponible fins que no s’hagi activat el joc d’apostes.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_active</label>
-		<cat>El joc d’apostes ha estat activat. Els membres ja s’hi poden inscriure.</cat>
+		<cnt>El joc d’apostes ha estat activat. Els membres ja s’hi poden inscriure.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_addemptymatches</label>
-		<cat>Afegeix partides buides</cat>
+		<cnt>Afegeix partides buides</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_addnew</label>
-		<cat>Nou joc d’apostes</cat>
+		<cnt>Nou joc d’apostes</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_adduser</label>
-		<cat>afegir un membre</cat>
+		<cnt>afegir un membre</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_approve</label>
-		<cat>permetre</cat>
+		<cnt>permetre</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_approved_message</label>
-		<cat>Hola $1 Has estat admès al joc $2. Pots començar a fer els teus pronòstics. http://donmiguel.sagex.ch</cat>
+		<cnt>Hola $1 Has estat admès al joc $2. Pots començar a fer els teus pronòstics. http://donmiguel.sagex.ch</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_approved_subject</label>
-		<cat>Participes en el $1</cat>
+		<cnt>Participes en el $1</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_changecompetitor</label>
-		<cat>Canviar el competidor</cat>
+		<cnt>Canviar el competidor</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_competitorchangeto</label>
-		<cat>Canviar el nom en:</cat>
+		<cnt>Canviar el nom en:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_competitortochange</label>
-		<cat>El nom que vols canviar:</cat>
+		<cnt>El nom que vols canviar:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_currency</label>
-		<cat>Moneda</cat>
+		<cnt>Moneda</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_deadline</label>
-		<cat>Tancament d’inscripció</cat>
+		<cnt>Tancament d’inscripció</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_deadlineover</label>
-		<cat>La inscripció està tancada. Però encara pots inscriure un altre jugador:</cat>
+		<cnt>La inscripció està tancada. Però encara pots inscriure un altre jugador:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_deny</label>
-		<cat>rebutjar</cat>
+		<cnt>rebutjar</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_edit</label>
-		<cat>Controla un joc d’apostes</cat>
+		<cnt>Controla un joc d’apostes</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_enoughadds</label>
-		<cat>No pots entrar més partits alhora. Has de guardar.</cat>
+		<cnt>No pots entrar més partits alhora. Has de guardar.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_home</label>
-		<cat>Local</cat>
+		<cnt>Local</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_howmanyemptymatches</label>
-		<cat>¿Quantes partides vols afegir?</cat>
+		<cnt>¿Quantes partides vols afegir?</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_inactive</label>
-		<cat>Aquest joc encara no està actiu i per això no és visible per als usuaris. No podeu editar els botons de “tancament d’inscripció”, “moneda”, “Aposta per partit”, “precisió d’arrodoniment” fins que el joc no estigui actiu.</cat>
+		<cnt>Aquest joc encara no està actiu i per això no és visible per als usuaris. No podeu editar els botons de “tancament d’inscripció”, “moneda”, “Aposta per partit”, “precisió d’arrodoniment” fins que el joc no estigui actiu.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_installevent</label>
-		<cat>Instal lar el rol de jocs</cat>
+		<cnt>Instal lar el rol de jocs</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_matchday</label>
-		<cat>Data</cat>
+		<cnt>Data</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_matches_content</label>
-		<cat>Afegeix o modifica partits. Si vols canviar el nom d’un equip al llarg de tot l’esdeveniment prem <b>Canviar competidor</b>.</cat>
+		<cnt>Afegeix o modifica partits. Si vols canviar el nom d’un equip al llarg de tot l’esdeveniment prem <b>Canviar competidor</b>.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_matches_title</label>
-		<cat>Partits</cat>
+		<cnt>Partits</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_name</label>
-		<cat>Nom de l’esdeveniment</cat>
+		<cnt>Nom de l’esdeveniment</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_nomatches</label>
-		<cat>Encara no existeixen partits per aquest esdeveniment. Prem <b>+ partit</b> par afegir partits. Ves amb compte! Has d’escriure l’hora en el format correcte.</cat>
+		<cnt>Encara no existeixen partits per aquest esdeveniment. Prem <b>+ partit</b> par afegir partits. Ves amb compte! Has d’escriure l’hora en el format correcte.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_public</label>
-		<cat>Públic</cat>
+		<cnt>Públic</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_results_title</label>
-		<cat>Resultats</cat>
+		<cnt>Resultats</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_round</label>
-		<cat>Precisió d’arrodoniment</cat>
+		<cnt>Precisió d’arrodoniment</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_score</label>
-		<cat>Resultat</cat>
+		<cnt>Resultat</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_settings_title</label>
-		<cat>Reglatge de l’esdeveniment</cat>
+		<cnt>Reglatge de l’esdeveniment</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_special</label>
-		<cat>Afegir</cat>
+		<cnt>Afegir</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_settings_stake_permatch</label>
-		<cat>Aposta per partit:</cat>
+		<cnt>Aposta per partit:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_time</label>
-		<cat>inici de partit</cat>
+		<cnt>inici de partit</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_title</label>
-		<cat>Joc d’apostes</cat>
+		<cnt>Joc d’apostes</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_usersapproved</label>
-		<cat>Membres acceptats</cat>
+		<cnt>Membres acceptats</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_usersdenied</label>
-		<cat>Membres rebutjats</cat>
+		<cnt>Membres rebutjats</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_userswaiting</label>
-		<cat>Membres en llista d’espera</cat>
+		<cnt>Membres en llista d’espera</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_visitor</label>
-		<cat>Visitants</cat>
+		<cnt>Visitants</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_events_wait</label>
-		<cat>deixar a la llista d’espera</cat>
+		<cnt>deixar a la llista d’espera</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_addnew</label>
-		<cat>afegir un element nou</cat>
+		<cnt>afegir un element nou</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_editbelow</label>
-		<cat>Edita un element de la llista següent</cat>
+		<cnt>Edita un element de la llista següent</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_listall</label>
-		<cat>tota la llista</cat>
+		<cnt>tota la llista</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_listalluncompleted</label>
-		<cat>llista de tots els elements incomplerts</cat>
+		<cnt>llista de tots els elements incomplerts</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_listlanguncompleted</label>
-		<cat>llista de tots els elements incomplerts en la llengua emprada</cat>
+		<cnt>llista de tots els elements incomplerts en la llengua emprada</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_nextempty</label>
-		<cat>proper element buit</cat>
+		<cnt>proper element buit</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_previousempty</label>
-		<cat>element buit anterior</cat>
+		<cnt>element buit anterior</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_lang_title</label>
-		<cat>Idiomes</cat>
+		<cnt>Idiomes</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_bank_account_text</label>
-		<cat>En els tres camps següents has d’indicar el lloc on els participants han de transferir els diners.</cat>
+		<cnt>En els tres camps següents has d’indicar el lloc on els participants han de transferir els diners.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_bank_account_text2</label>
-		<cat>..el segon és pel <b>número del compte</b> (número del compte corrent, postal o IBAN)..</cat>
+		<cnt>..el segon és pel <b>número del compte</b> (número del compte corrent, postal o IBAN)..</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_bank_account_text1</label>
-		<cat>El primer camp és pel <b>tipus de compte</b> (per exemple compte bancari o compte corrent postal)..</cat>
+		<cnt>El primer camp és pel <b>tipus de compte</b> (per exemple compte bancari o compte corrent postal)..</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_description</label>
-		<cat>Descripció</cat>
+		<cnt>Descripció</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_descriptiontext</label>
-		<cat>Una petita descripció o títol que apareixerà com a encapçalament de la pàgina web.</cat>
+		<cnt>Una petita descripció o títol que apareixerà com a encapçalament de la pàgina web.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_formlines</label>
-		<cat># de línies de formulari</cat>
+		<cnt># de línies de formulari</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_formlinestext</label>
-		<cat>Defineix el nombre de línies que apareixeran en formularis llargs, per exemple on apostes.</cat>
+		<cnt>Defineix el nombre de línies que apareixeran en formularis llargs, per exemple on apostes.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_lang</label>
-		<cat>Tria un idioma per la pàgina web.</cat>
+		<cnt>Tria un idioma per la pàgina web.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_name</label>
-		<cat>Nom</cat>
+		<cnt>Nom</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_nametext</label>
-		<cat>Quin nom vols que tingui la teva oficina d’apostes?</cat>
+		<cnt>Quin nom vols que tingui la teva oficina d’apostes?</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_style</label>
-		<cat>Estil:</cat>
+		<cnt>Estil:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_styletext</label>
-		<cat>Escull un estil per la teva pàgina web.</cat>
+		<cnt>Escull un estil per la teva pàgina web.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_settings_title</label>
-		<cat>Reglatge</cat>
+		<cnt>Reglatge</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>admin_title</label>
-		<cat>Administració</cat>
+		<cnt>Administració</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_answer</label>
-		<cat>Resposta a</cat>
+		<cnt>Resposta a</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_comment</label>
-		<cat>Comentari:</cat>
+		<cnt>Comentari:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_commenttitle</label>
-		<cat>Títol:</cat>
+		<cnt>Títol:</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_participatefirst</label>
-		<cat>Per fer un comentari has de participar en algun joc d’apostes.</cat>
+		<cnt>Per fer un comentari has de participar en algun joc d’apostes.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_reply</label>
-		<cat>Respon</cat>
+		<cnt>Respon</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>comments_title</label>
-		<cat>Comentaris</cat>
+		<cnt>Comentaris</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_attention</label>
-		<cat>Al loro! loro!</cat>
+		<cnt>Al loro! loro!</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_commentsave</label>
-		<cat>No s’ha pogut desar el comentari.</cat>
+		<cnt>No s’ha pogut desar el comentari.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_content</label>
-		<cat>Vull anar a <a href="?menu=loginhome" title="Si, fot el camp">a casa</a></cat>
+		<cnt>Vull anar a <a href="?menu=loginhome" title="Si, fot el camp">a casa</a></cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_doesnotparticipate</label>
-		<cat>Aquest usuari no és membre d’aquest joc d’apostes</cat>
+		<cnt>Aquest usuari no és membre d’aquest joc d’apostes</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_filledform</label>
-		<cat>El formulari encara conté errades (marcades en vermell).</cat>
+		<cnt>El formulari encara conté errades (marcades en vermell).</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_login</label>
-		<cat>El nom d’usuari o la contrasenya són incorrectes.</cat>
+		<cnt>El nom d’usuari o la contrasenya són incorrectes.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_menu</label>
-		<cat>Aquest menú no està disponible.</cat>
+		<cnt>Aquest menú no està disponible.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_myprofile_password</label>
-		<cat>Hi ha un problema. Prova-ho un altre vegada.</cat>
+		<cnt>Hi ha un problema. Prova-ho un altre vegada.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_names</label>
-		<cat>Has d’entrar el teu nom.</cat>
+		<cnt>Has d’entrar el teu nom.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_notinevent</label>
-		<cat>No tens permís per presentar informacions per aquest joc.</cat>
+		<cnt>No tens permís per presentar informacions per aquest joc.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_register</label>
-		<cat>No t’has pogut registrar perquè les teves entrades han produït un conflicte.</cat>
+		<cnt>No t’has pogut registrar perquè les teves entrades han produït un conflicte.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_register_exists</label>
-		<cat>Aquest nom d’usuari ja està registrat.</cat>
+		<cnt>Aquest nom d’usuari ja està registrat.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_register_save</label>
-		<cat>No s’ha pogut desar. Prova-ho la inscripció una altra vegada.</cat>
+		<cnt>No s’ha pogut desar. Prova-ho la inscripció una altra vegada.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_site</label>
-		<cat>No tens permís per accedir a aquesta pàgina.</cat>
+		<cnt>No tens permís per accedir a aquesta pàgina.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>error_title</label>
-		<cat>Error</cat>
+		<cnt>Error</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_cup_phase</label>
-		<cat>Possibles resultats a la segona fase (fase d’eliminatòries): <b>només</b></cat>
+		<cnt>Possibles resultats a la segona fase (fase d’eliminatòries): <b>només</b></cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_deadline_day_before</label>
-		<cat>S’ha de fer l’aposta el dia anterior al partit abans de les <b>23H59</b>. A las 00H00 del dia del partit ja no podràs apostar.</cat>
+		<cnt>S’ha de fer l’aposta el dia anterior al partit abans de les <b>23H59</b>. A las 00H00 del dia del partit ja no podràs apostar.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_deadline_toolate</label>
-		<cat>Si arribes tard l’has cagat. Ja no pots modificar res.</cat>
+		<cnt>Si arribes tard l’has cagat. Ja no pots modificar res.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_finalaccount</label>
-		<cat>Compte final</cat>
+		<cnt>Compte final</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_finalaccount_gainplusjp</label>
-		<cat>La suma del que guanyes en total és el que guanyes durant el joc d’apostes més la teva part del pot. NOTRANS</cat>
+		<cnt>La suma del que guanyes en total és el que guanyes durant el joc d’apostes més la teva part del pot. NOTRANS</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_gain_nobodycorrect</label>
-		<cat>Si ningú ha encertat el resultat,</cat>
+		<cnt>Si ningú ha encertat el resultat,</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_points_correct</label>
-		<cat>amb el pronòstic guanyes <b>$1 punt(s) </b></cat>
+		<cnt>amb el pronòstic guanyes <b>$1 punt(s) </b></cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_points_almost</label>
-		<cat>amb el guanyador correcte guanyes ($1 3-2 en comptes de 4-1) <b>$2 punt(s) </b></cat>
+		<cnt>amb el guanyador correcte guanyes ($1 3-2 en comptes de 4-1) <b>$2 punt(s) </b></cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_gain_correcttip</label>
-		<cat>Si algú va apostar el resultat correcte guanya tot l’import de les apostes d’aquest partit (es a dir: # participants * $1)</cat>
+		<cnt>Si algú va apostar el resultat correcte guanya tot l’import de les apostes d’aquest partit (es a dir: # participants * $1)</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_gain_correcttips</label>
-		<cat>Si hi ha més d’un jugador que aposta el resultat correcte, l’import de les apostes d’aquest partit serà repartit entre ells. Si queda algun residu es sumarà al pot.</cat>
+		<cnt>Si hi ha més d’un jugador que aposta el resultat correcte, l’import de les apostes d’aquest partit serà repartit entre ells. Si queda algun residu es sumarà al pot.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_group_phase</label>
-		<cat>Conclusions de partits possibles en la primera fase (fase de grups):</cat>
+		<cnt>Conclusions de partits possibles en la primera fase (fase de grups):</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_jackpot</label>
-		<cat>El repartiment del pot depèn dels punts guanyats. Com més punts tinguis, més part del pot t’emportes.</cat>
+		<cnt>El repartiment del pot depèn dels punts guanyats. Com més punts tinguis, més part del pot t’emportes.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_jackpot_distributeon</label>
-		<cat>Es repartirà el pot entre els primers $1 de la classificació.</cat>
+		<cnt>Es repartirà el pot entre els primers $1 de la classificació.</cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_jackpot_linformula</label>
-		<cat></cat>
+		<cnt></cnt>
 	</zock_lang>
 	<zock_lang>
 		<label>eventinfo_jackpot_expformula</label>
-		<cat>El pot serà repartit de forma exponencial. La fórmula que fem servir és:  <b> <i>"part(posició) = (1-k)^(posició-1) * k * pot" </i> </b>. Naturalment encara queda alguna cosa al pot. Per a la resta seguirem aplicant la mateixa fórmula fins que no quedi res.  <b>k </b> per aquest joc d’apostes $1. Això significa que el primer de la classificació guanya una mica més de $2 del pot.</cat>
+		<cnt>El pot serà repartit de forma exponencial. La fórmula que fem servir és:  <b> <i>"part(posició) = (1-k)^(posició-1) * k * pot" </i> </b>. Naturalment encara queda alguna cosa al pot. Per a la resta seguirem aplicant la mateixa fórmula fins que no quedi res.  <b>k </b> per aquest joc d’apostes $1. Això significa que el primer de la classificació guanya una mica més de $2 del pot.</cnt>
 	</zock_lang>
 </zock>

@@ -21,1760 +21,1760 @@ zock! is a free software licensed under GPL (General public license) v3
 <zock>
     <zock_lang>
         <label>general_info</label>
-        <de>info</de>
+        <cnt>info</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_paid</label>
-        <de>hat bezahlt</de>
+        <cnt>hat bezahlt</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notpaid</label>
-        <de>hat nicht bezahlt</de>
+        <cnt>hat nicht bezahlt</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_content</label>
-        <de>Von hier aus kannst du dein Wettbüro organisieren: Einstellungen bearbeiten, Spieler &amp; Tippspiele verwalten etc. Schau dir einfach das Menu an.</de>
+        <cnt>Von hier aus kannst du dein Wettbüro organisieren: Einstellungen bearbeiten, Spieler &amp; Tippspiele verwalten etc. Schau dir einfach das Menu an.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activate</label>
-        <de>Aktivieren</de>
+        <cnt>Aktivieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activatedialog</label>
-        <de>Dieser Schritt kann man nicht rückgängig machen. Willst du dieses Tippspiel wirklich aktivieren?</de>
+        <cnt>Dieser Schritt kann man nicht rückgängig machen. Willst du dieses Tippspiel wirklich aktivieren?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activatefirst</label>
-        <de>Dieser Teil ist erst verfügbar, wenn das Tippspiel aktiviert ist.</de>
+        <cnt>Dieser Teil ist erst verfügbar, wenn das Tippspiel aktiviert ist.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_active</label>
-        <de>Dieses Tippspiel ist aktiv. Die Benutzer können sich bei ihm anmelden.</de>
+        <cnt>Dieses Tippspiel ist aktiv. Die Benutzer können sich bei ihm anmelden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_addemptymatches</label>
-        <de>Füge leere Spiele hinzu</de>
+        <cnt>Füge leere Spiele hinzu</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_addnew</label>
-        <de>Erstelle neues Tippspiel</de>
+        <cnt>Erstelle neues Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_adduser</label>
-        <de>Benutzer hinzufügen</de>
+        <cnt>Benutzer hinzufügen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approve</label>
-        <de>zulassen</de>
+        <cnt>zulassen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_message</label>
-        <de>Hallo $1 Du wurdest beim Tippspiel $2 angenommen! Jetzt kannst du Tipps abgeben. http://donmiguel.sagex.ch</de>
+        <cnt>Hallo $1 Du wurdest beim Tippspiel $2 angenommen! Jetzt kannst du Tipps abgeben. http://donmiguel.sagex.ch</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_subject</label>
-        <de>Du bist bei $1 dabei!</de>
+        <cnt>Du bist bei $1 dabei!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_changecompetitor</label>
-        <de>Wettkämper ändern</de>
+        <cnt>Wettkämper ändern</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_competitorchangeto</label>
-        <de>Namen ändern in:</de>
+        <cnt>Namen ändern in:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_competitortochange</label>
-        <de>Den zu ändernden Namen:</de>
+        <cnt>Den zu ändernden Namen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_currency</label>
-        <de>Währung:</de>
+        <cnt>Währung:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deadline</label>
-        <de>Anmeldeschluss</de>
+        <cnt>Anmeldeschluss</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deadlineover</label>
-        <de>Der Anmeldeschluss ist vorbei! Du kannst trotzdem noch einen weiteren Benutzer diesem Tippspiel hinzufügen:</de>
+        <cnt>Der Anmeldeschluss ist vorbei! Du kannst trotzdem noch einen weiteren Benutzer diesem Tippspiel hinzufügen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deny</label>
-        <de>abweisen</de>
+        <cnt>abweisen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_edit</label>
-        <de>Kontrolliere eine Tippspiel</de>
+        <cnt>Kontrolliere eine Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_enoughadds</label>
-        <de>Mehr Spiele kannst du nicht auf ein Mal hinzufügen. Speichere erst einmal ab.</de>
+        <cnt>Mehr Spiele kannst du nicht auf ein Mal hinzufügen. Speichere erst einmal ab.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_home</label>
-        <de>Gastgeber</de>
+        <cnt>Gastgeber</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_howmanyemptymatches</label>
-        <de>Wieviele leere Spiele möchtest du hinzufügen?</de>
+        <cnt>Wieviele leere Spiele möchtest du hinzufügen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_inactive</label>
-        <de>Dieses Tippspiel ist nicht aktiv und somit nicht sichtbar für die Benutzer. Bei der Aktivierung werden die Felder &quot;Anmeldeschluss&quot;, &quot;Währung&quot; &quot;Einsatz pro Spiel&quot; und &quot;Rundungsgenauigkeit&quot; für die Bearbeitung gesperrt.</de>
+        <cnt>Dieses Tippspiel ist nicht aktiv und somit nicht sichtbar für die Benutzer. Bei der Aktivierung werden die Felder &quot;Anmeldeschluss&quot;, &quot;Währung&quot; &quot;Einsatz pro Spiel&quot; und &quot;Rundungsgenauigkeit&quot; für die Bearbeitung gesperrt.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_installevent</label>
-        <de>Spielplan installieren</de>
+        <cnt>Spielplan installieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matchday</label>
-        <de>Spieltag</de>
+        <cnt>Spieltag</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matches_content</label>
-        <de>Füge Spiele hinzu oder bearbeite die bestehenden. Um den Namen einer Mannschaft über den ganzen Anlass hinweg zu ändern, klicke auf &lt;b&gt;Wettkämpfer ändern&lt;/b&gt;.</de>
+        <cnt>Füge Spiele hinzu oder bearbeite die bestehenden. Um den Namen einer Mannschaft über den ganzen Anlass hinweg zu ändern, klicke auf &lt;b&gt;Wettkämpfer ändern&lt;/b&gt;.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matches_title</label>
-        <de>Spiele</de>
+        <cnt>Spiele</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_name</label>
-        <de>Ereignisname:</de>
+        <cnt>Ereignisname:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nomatches</label>
-        <de>Es gibt keine Spiele für dieses Ereignis! Klicke auf &lt;b&gt;+ Spiele&lt;/b&gt; um einige hinzuzufügen. Pass bitte auf, dass du die Anstosszeit im korrekten Format eingibts.</de>
+        <cnt>Es gibt keine Spiele für dieses Ereignis! Klicke auf &lt;b&gt;+ Spiele&lt;/b&gt; um einige hinzuzufügen. Pass bitte auf, dass du die Anstosszeit im korrekten Format eingibts.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_public</label>
-        <de>Öffentlich:</de>
+        <cnt>Öffentlich:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_results_title</label>
-        <de>Resultate</de>
+        <cnt>Resultate</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_round</label>
-        <de>Rundungsgenauigkeit:</de>
+        <cnt>Rundungsgenauigkeit:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_score</label>
-        <de>Ergebnis</de>
+        <cnt>Ergebnis</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_title</label>
-        <de>Eventeinstellungen</de>
+        <cnt>Eventeinstellungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_special</label>
-        <de>Zusatz</de>
+        <cnt>Zusatz</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stake_permatch</label>
-        <de>Einsatz pro Spiel:</de>
+        <cnt>Einsatz pro Spiel:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_time</label>
-        <de>Anstoss</de>
+        <cnt>Anstoss</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_title</label>
-        <de>Tippspiele</de>
+        <cnt>Tippspiele</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_usersapproved</label>
-        <de>Zugelassene Benutzer:</de>
+        <cnt>Zugelassene Benutzer:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_usersdenied</label>
-        <de>Abgewiesene Benutzer:</de>
+        <cnt>Abgewiesene Benutzer:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_userswaiting</label>
-        <de>Wartende Benutzer:</de>
+        <cnt>Wartende Benutzer:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_visitor</label>
-        <de>Besucher</de>
+        <cnt>Besucher</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_wait</label>
-        <de>warten lassen</de>
+        <cnt>warten lassen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_addnew</label>
-        <de>Füge ein neues Element hinzu.</de>
+        <cnt>Füge ein neues Element hinzu.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_editbelow</label>
-        <de>Editiere ein Element aus der Liste unterhalb.</de>
+        <cnt>Editiere ein Element aus der Liste unterhalb.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listall</label>
-        <de>ganze Liste</de>
+        <cnt>ganze Liste</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listalluncompleted</label>
-        <de>Liste aller unkompletten Elemente</de>
+        <cnt>Liste aller unkompletten Elemente</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listlanguncompleted</label>
-        <de>Liste der unkompletten Elemente deiner Sprache</de>
+        <cnt>Liste der unkompletten Elemente deiner Sprache</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_nextempty</label>
-        <de>nächstes leeres Element</de>
+        <cnt>nächstes leeres Element</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_previousempty</label>
-        <de>vorderes leeres Element</de>
+        <cnt>vorderes leeres Element</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_title</label>
-        <de>Sprachen</de>
+        <cnt>Sprachen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text</label>
-        <de>In den foldenden drei Feldern solltest du angeben, wohin Mitspieler ihr Einsatz überweisen sollten. </de>
+        <cnt>In den foldenden drei Feldern solltest du angeben, wohin Mitspieler ihr Einsatz überweisen sollten. </cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text2</label>
-        <de>..das zweite Feld für die &lt;b&gt;Kontonummer&lt;/b&gt; (Postkontonummer oder IBAN).. </de>
+        <cnt>..das zweite Feld für die &lt;b&gt;Kontonummer&lt;/b&gt; (Postkontonummer oder IBAN).. </cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text1</label>
-        <de>Das erste Feld ist für den &lt;b&gt;Kontotyp&lt;/b&gt; (z.b. Bank- oder Postkonto) vorgesehen.. </de>
+        <cnt>Das erste Feld ist für den &lt;b&gt;Kontotyp&lt;/b&gt; (z.b. Bank- oder Postkonto) vorgesehen.. </cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_description</label>
-        <de>Beschrieb</de>
+        <cnt>Beschrieb</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_descriptiontext</label>
-        <de>Ein(e) kurze(r) Beschreibung/Slogan, der im Kopf der Seite angezeigt wird</de>
+        <cnt>Ein(e) kurze(r) Beschreibung/Slogan, der im Kopf der Seite angezeigt wird</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_formlines</label>
-        <de># Formularzeilen:</de>
+        <cnt># Formularzeilen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_formlinestext</label>
-        <de>Definiert wieviele Linien bei langen Formularen angezeigt werden. Z. B. bei den Tipps.</de>
+        <cnt>Definiert wieviele Linien bei langen Formularen angezeigt werden. Z. B. bei den Tipps.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_lang</label>
-        <de>Wähle eine Sprache für die Webseite aus.</de>
+        <cnt>Wähle eine Sprache für die Webseite aus.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_name</label>
-        <de>Name</de>
+        <cnt>Name</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_nametext</label>
-        <de>Wie soll dein Wettbüro heissen?</de>
+        <cnt>Wie soll dein Wettbüro heissen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_style</label>
-        <de>Stil:</de>
+        <cnt>Stil:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_styletext</label>
-        <de>Wähle einen Stil für die Webseite aus.</de>
+        <cnt>Wähle einen Stil für die Webseite aus.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_title</label>
-        <de>Einstellungen</de>
+        <cnt>Einstellungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_title</label>
-        <de>Admin</de>
+        <cnt>Admin</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_answer</label>
-        <de>Antwort auf</de>
+        <cnt>Antwort auf</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_comment</label>
-        <de>Kommentar:</de>
+        <cnt>Kommentar:</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_commenttitle</label>
-        <de>Titel:</de>
+        <cnt>Titel:</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_participatefirst</label>
-        <de>Bevor du irgendwelche Kommentare abgeben kannst, solltest du bei einem Tippspiel mitmachen.</de>
+        <cnt>Bevor du irgendwelche Kommentare abgeben kannst, solltest du bei einem Tippspiel mitmachen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_reply</label>
-        <de>Antworten</de>
+        <cnt>Antworten</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_title</label>
-        <de>Kommentare</de>
+        <cnt>Kommentare</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_attention</label>
-        <de>Achtung:</de>
+        <cnt>Achtung:</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_commentsave</label>
-        <de>Es konnte kein Kommentar gespeichert werden!</de>
+        <cnt>Es konnte kein Kommentar gespeichert werden!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_content</label>
-        <de>Ich will nach &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Ja, gehe&quot;&gt;Hause&lt;/a&gt;!</de>
+        <cnt>Ich will nach &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Ja, gehe&quot;&gt;Hause&lt;/a&gt;!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_doesnotparticipate</label>
-        <de>Dieser Benutzer macht bei diesem Tippspiel nicht mit!</de>
+        <cnt>Dieser Benutzer macht bei diesem Tippspiel nicht mit!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_filledform</label>
-        <de>Das ausgefüllte Formular enthält noch Fehler (die rot markierten Einträge).</de>
+        <cnt>Das ausgefüllte Formular enthält noch Fehler (die rot markierten Einträge).</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_login</label>
-        <de>Der Loginname oder das Passwort war falsch!</de>
+        <cnt>Der Loginname oder das Passwort war falsch!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_menu</label>
-        <de>Dieses Menu steht dir nicht zur Verfügung!</de>
+        <cnt>Dieses Menu steht dir nicht zur Verfügung!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_myprofile_password</label>
-        <de>Es ist ein Fehler aufgetreten! Versuche es noch einmal.</de>
+        <cnt>Es ist ein Fehler aufgetreten! Versuche es noch einmal.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_names</label>
-        <de>Du musst deine Namen angeben.</de>
+        <cnt>Du musst deine Namen angeben.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_notinevent</label>
-        <de>Für das aufgerufene Tippspiel hast du keine Erlaubnis, Informationen anzeigen zu lassen.</de>
+        <cnt>Für das aufgerufene Tippspiel hast du keine Erlaubnis, Informationen anzeigen zu lassen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register</label>
-        <de>Du konntest nicht registriert werden, da es einen Konflikt mit deinen Eingaben gab.</de>
+        <cnt>Du konntest nicht registriert werden, da es einen Konflikt mit deinen Eingaben gab.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_exists</label>
-        <de>Dieser Benutzername ist schon vergeben.</de>
+        <cnt>Dieser Benutzername ist schon vergeben.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_save</label>
-        <de>Fehler beim Speichern! Versuche nochmal dich zu registrieren.</de>
+        <cnt>Fehler beim Speichern! Versuche nochmal dich zu registrieren.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_site</label>
-        <de>Diese Seite steht dir nicht zur Verfügung!</de>
+        <cnt>Diese Seite steht dir nicht zur Verfügung!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_title</label>
-        <de>Fehler</de>
+        <cnt>Fehler</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_cup_phase</label>
-        <de>Mögliche Spielausgänge in der Cupphase: &lt;b&gt;nur&lt;/b&gt;</de>
+        <cnt>Mögliche Spielausgänge in der Cupphase: &lt;b&gt;nur&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_deadline_day_before</label>
-        <de>Der Tipp ist immer mindestens am Vortag des Spiels, bis &lt;b&gt;1 vor Mitternacht&lt;/b&gt; online einzutragen. Sobald der Tag, an welchem das betreffend Spiel stattfindet, angebrochen ist (00:00) kann man nicht mehr Tippen.</de>
+        <cnt>Der Tipp ist immer mindestens am Vortag des Spiels, bis &lt;b&gt;1 vor Mitternacht&lt;/b&gt; online einzutragen. Sobald der Tag, an welchem das betreffend Spiel stattfindet, angebrochen ist (00:00) kann man nicht mehr Tippen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_deadline_toolate</label>
-        <de>Wer zu spät ist hat Pech gehabt, da gibts nichts mehr daran zu ändern.</de>
+        <cnt>Wer zu spät ist hat Pech gehabt, da gibts nichts mehr daran zu ändern.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount</label>
-        <de>Endabrechnung</de>
+        <cnt>Endabrechnung</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_gainplusjp</label>
-        <de>Der gewonnene Endbetrag setzt sich aus dem während des Tippspiels erspielten Geld und aus dem Anteil am Jackpot zusammen. Der Sieger ist derjenige, der am Meisten Geld gewonnen hat.</de>
+        <cnt>Der gewonnene Endbetrag setzt sich aus dem während des Tippspiels erspielten Geld und aus dem Anteil am Jackpot zusammen. Der Sieger ist derjenige, der am Meisten Geld gewonnen hat.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_nobodycorrect</label>
-        <de>Wenn nicht auf das richtige Resultat getippt wurde,</de>
+        <cnt>Wenn nicht auf das richtige Resultat getippt wurde,</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_correct</label>
-        <de>ein korrekter Tipp gibt &lt;b&gt;$1 Punkt(e)&lt;/b&gt;</de>
+        <cnt>ein korrekter Tipp gibt &lt;b&gt;$1 Punkt(e)&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_almost</label>
-        <de>ein richtig getippter Spielausgang ($1 3-2 anstatt 4-1) gibt &lt;b&gt;$2 Punkt(e)&lt;/b&gt;</de>
+        <cnt>ein richtig getippter Spielausgang ($1 3-2 anstatt 4-1) gibt &lt;b&gt;$2 Punkt(e)&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_correcttip</label>
-        <de>Wenn das korrekte Resultat getippt wird, erhält der betreffende Spieler den gesamten Wetteinsatz für dieses Spiel (das heisst: # Mitspieler * $1)</de>
+        <cnt>Wenn das korrekte Resultat getippt wird, erhält der betreffende Spieler den gesamten Wetteinsatz für dieses Spiel (das heisst: # Mitspieler * $1)</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_correcttips</label>
-        <de>Wenn mehrere Spieler das korrekte Resultat getippt haben, wird der gesamte Wetteinsatz für dieses Spiel so gut wie möglich zwischen ihnen aufgeteilt. Ein allfälliger Rest fliesst in den Jackpot.</de>
+        <cnt>Wenn mehrere Spieler das korrekte Resultat getippt haben, wird der gesamte Wetteinsatz für dieses Spiel so gut wie möglich zwischen ihnen aufgeteilt. Ein allfälliger Rest fliesst in den Jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_group_phase</label>
-        <de>Mögliche Spielausgänge in Gruppenphase:</de>
+        <cnt>Mögliche Spielausgänge in Gruppenphase:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot</label>
-        <de>Für die Verteilung des Jackpots sind die Punkte ausschlaggebend. Je mehr Punkte man hat, desto grösser der Anteil am Jackpot.</de>
+        <cnt>Für die Verteilung des Jackpots sind die Punkte ausschlaggebend. Je mehr Punkte man hat, desto grösser der Anteil am Jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_distributeon</label>
-        <de>Die Verteilung erfolgt auf die ersten $1 der Rangliste.</de>
+        <cnt>Die Verteilung erfolgt auf die ersten $1 der Rangliste.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_linformula</label>
-        <de>Verteilt wird linear. Die zum Zug kommende Formel ist: &lt;b&gt;&lt;i&gt;&quot;Anteil(Rang) = (Jackpot / &amp;#931;(Teilhaberränge)) * (Teilhaber - (Rang – 1))&quot;&lt;/i&gt;&lt;/b&gt;.</de>
+        <cnt>Verteilt wird linear. Die zum Zug kommende Formel ist: &lt;b&gt;&lt;i&gt;&quot;Anteil(Rang) = (Jackpot / &amp;#931;(Teilhaberränge)) * (Teilhaber - (Rang – 1))&quot;&lt;/i&gt;&lt;/b&gt;.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_expformula</label>
-        <de>Verteilt wird exponentiell. Die zum Zug kommende Formel ist: &lt;b&gt;&lt;i&gt;&quot;Anteil(Rang) = (1-k)^(Rank-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Es bleibt (logischerweise) etwas vom Jackpot übrig. Um den Rest zu verteilen wendet man die Formel wieder an bis, nichts mehr übrig bleibt. &lt;b&gt;k&lt;/b&gt; ist für dieses Tippspiel $1. Dies hat zur Folge, dass der Erstplatzierte etwas mehr als $2 vom Jackpot erhält.</de>
+        <cnt>Verteilt wird exponentiell. Die zum Zug kommende Formel ist: &lt;b&gt;&lt;i&gt;&quot;Anteil(Rang) = (1-k)^(Rank-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Es bleibt (logischerweise) etwas vom Jackpot übrig. Um den Rest zu verteilen wendet man die Formel wieder an bis, nichts mehr übrig bleibt. &lt;b&gt;k&lt;/b&gt; ist für dieses Tippspiel $1. Dies hat zur Folge, dass der Erstplatzierte etwas mehr als $2 vom Jackpot erhält.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_samerank</label>
-        <de>Wenn mehrere Spieler gleichviel Punkte erzielt haben, werden die Jackpotanteile von den von ihnen belegten Rängen zusammengezählt und danach wird das Geld gleichmässig auf die betroffenen Spieler verteilt.</de>
+        <cnt>Wenn mehrere Spieler gleichviel Punkte erzielt haben, werden die Jackpotanteile von den von ihnen belegten Rängen zusammengezählt und danach wird das Geld gleichmässig auf die betroffenen Spieler verteilt.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_overview</label>
-        <de>Um die Gewissheit zu währen, dass niemand betrügen kann, sind die Tipps aller Mitspieler jederzeit einsehbar und die Konten passwortgeschützt.</de>
+        <cnt>Um die Gewissheit zu währen, dass niemand betrügen kann, sind die Tipps aller Mitspieler jederzeit einsehbar und die Konten passwortgeschützt.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_penalty_decision</label>
-        <de>Wenn ein Spiel durch Elfmeterschiessen entschieden wird, so rechnet man der Siegermannschaft einen Treffer hinzu.</de>
+        <cnt>Wenn ein Spiel durch Elfmeterschiessen entschieden wird, so rechnet man der Siegermannschaft einen Treffer hinzu.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points</label>
-        <de>Während des Tippspiels werden Punkte an die Wettenden verteilt:</de>
+        <cnt>Während des Tippspiels werden Punkte an die Wettenden verteilt:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_precise_tip</label>
-        <de>Es wird für jedes Spiel auf ein genaues Ergebnis getippt:</de>
+        <cnt>Es wird für jedes Spiel auf ein genaues Ergebnis getippt:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_rules</label>
-        <de>Wie das Tippspiel funktioniert, ist in den folgenden Punkten festgehalten:</de>
+        <cnt>Wie das Tippspiel funktioniert, ist in den folgenden Punkten festgehalten:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_sealofapproval</label>
-        <de>nicht zu vergessen: $1 durchdesigntes Gütesiegel:</de>
+        <cnt>nicht zu vergessen: $1 durchdesigntes Gütesiegel:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stake</label>
-        <de>Einsatz</de>
+        <cnt>Einsatz</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <de>Der Einsatz für jedes Spiel (jede einzelne Wette) beträgt $1.</de>
+        <cnt>Der Einsatz für jedes Spiel (jede einzelne Wette) beträgt $1.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <de>Es finden $1 Spiele statt. Das heisst, dass der gesamte Wettbetrag beträgt $2! Dieses Geld ist zu überweisen bevor der erste Tipp abgegeben werden kann.</de>
+        <cnt>Es finden $1 Spiele statt. Das heisst, dass der gesamte Wettbetrag beträgt $2! Dieses Geld ist zu überweisen bevor der erste Tipp abgegeben werden kann.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>
-        <de>Kontakt</de>
+        <cnt>Kontakt</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_server_time</label>
-        <de>Aktuelle Serverzeit</de>
+        <cnt>Aktuelle Serverzeit</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_and</label>
-        <de>und</de>
+        <cnt>und</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bank_account</label>
-        <de>Konto</de>
+        <cnt>Konto</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bettingOffice</label>
-        <de>Wettbüro</de>
+        <cnt>Wettbüro</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_by</label>
-        <de>von</de>
+        <cnt>von</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_cancel</label>
-        <de>abbrechen</de>
+        <cnt>abbrechen</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_defeat</label>
-        <de>Niederlage</de>
+        <cnt>Niederlage</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_edit</label>
-        <de>bearbeiten</de>
+        <cnt>bearbeiten</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_eg</label>
-        <de>z.B.</de>
+        <cnt>z.B.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_famname</label>
-        <de>Nachname</de>
+        <cnt>Nachname</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_furtherevents</label>
-        <de>Weitere Tippspiele:</de>
+        <cnt>Weitere Tippspiele:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_goback</label>
-        <de>zurück</de>
+        <cnt>zurück</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_goforward</label>
-        <de>weiter</de>
+        <cnt>weiter</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hello</label>
-        <de>Hallo</de>
+        <cnt>Hallo</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_id</label>
-        <de>id</de>
+        <cnt>id</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_langchange</label>
-        <de>Willst du die Sprache wechseln?</de>
+        <cnt>Willst du die Sprache wechseln?</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_language</label>
-        <de>Sprache:</de>
+        <cnt>Sprache:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_maximize</label>
-        <de>maximieren</de>
+        <cnt>maximieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minimize</label>
-        <de>minimieren</de>
+        <cnt>minimieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_name</label>
-        <de>Vorname</de>
+        <cnt>Vorname</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_no</label>
-        <de>Nein</de>
+        <cnt>Nein</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_nomatches</label>
-        <de>Von diesem Tippspiel wurden noch keine Spiele ausgetragen.</de>
+        <cnt>Von diesem Tippspiel wurden noch keine Spiele ausgetragen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_page</label>
-        <de>Seite:</de>
+        <cnt>Seite:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_publicevents</label>
-        <de>Öffentliche Tippspiele:</de>
+        <cnt>Öffentliche Tippspiele:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_read</label>
-        <de>lesen</de>
+        <cnt>lesen</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_redirect</label>
-        <de>Du wirst sofort weitergeleitet.</de>
+        <cnt>Du wirst sofort weitergeleitet.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_save</label>
-        <de>speichern</de>
+        <cnt>speichern</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savechanges</label>
-        <de>Änderungen speichern</de>
+        <cnt>Änderungen speichern</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savednotok</label>
-        <de>Fehler beim Speichern!</de>
+        <cnt>Fehler beim Speichern!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savedok</label>
-        <de>Speichern erfolgreich!</de>
+        <cnt>Speichern erfolgreich!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_show_info</label>
-        <de>Zeige Informationen dazu!</de>
+        <cnt>Zeige Informationen dazu!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thislanguage</label>
-        <de>Deutsch</de>
+        <cnt>Deutsch</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tie</label>
-        <de>Unentschieden</de>
+        <cnt>Unentschieden</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_time_at</label>
-        <de>um</de>
+        <cnt>um</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_updating</label>
-        <de>Aktualisiere...</de>
+        <cnt>Aktualisiere...</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_upload</label>
-        <de>hochladen</de>
+        <cnt>hochladen</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_victory</label>
-        <de>Sieg</de>
+        <cnt>Sieg</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_who</label>
-        <de>Wer</de>
+        <cnt>Wer</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_yes</label>
-        <de>Ja</de>
+        <cnt>Ja</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_yourevents</label>
-        <de>Deine Tippspiele:</de>
+        <cnt>Deine Tippspiele:</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_content</label>
-        <de>Diese Seite gibt dir die Möglichkeit auf Sportereignis zu wetten. &lt;br /&gt; Damit du mitmachen kannst, musst du dich registrieren: &lt;a href=&quot;?menu=register&quot;&gt;Konto erstellen&lt;/a&gt;. &lt;p&gt; Wenn du schon ein Konto hast, kannst du dich &lt;a href=&quot;?menu=login&quot;&gt;anmelden&lt;/a&gt;</de>
+        <cnt>Diese Seite gibt dir die Möglichkeit auf Sportereignis zu wetten. &lt;br /&gt; Damit du mitmachen kannst, musst du dich registrieren: &lt;a href=&quot;?menu=register&quot;&gt;Konto erstellen&lt;/a&gt;. &lt;p&gt; Wenn du schon ein Konto hast, kannst du dich &lt;a href=&quot;?menu=login&quot;&gt;anmelden&lt;/a&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_events</label>
-        <de>Im Moment sind folgende Tippspiu am laufen:</de>
+        <cnt>Im Moment sind folgende Tippspiu am laufen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_fun</label>
-        <de>Viel Spass!</de>
+        <cnt>Viel Spass!</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_noevents</label>
-        <de>Im Moment sind noch keine öffentliche Tippspiele aktiv.</de>
+        <cnt>Im Moment sind noch keine öffentliche Tippspiele aktiv.</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_title</label>
-        <de>Home</de>
+        <cnt>Home</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_welcome</label>
-        <de>Willkommen im Wettbüro!</de>
+        <cnt>Willkommen im Wettbüro!</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_content</label>
-        <de>Gib die benötigten Angaben ein um dich einzuloggen:</de>
+        <cnt>Gib die benötigten Angaben ein um dich einzuloggen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_title</label>
-        <de>Einloggen</de>
+        <cnt>Einloggen</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_yourlogin</label>
-        <de>Dein Name:</de>
+        <cnt>Dein Name:</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_yourpw</label>
-        <de>Dein Passwort:</de>
+        <cnt>Dein Passwort:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_content</label>
-        <de>Du hast dich erfolgreich eingeloggt!</de>
+        <cnt>Du hast dich erfolgreich eingeloggt!</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_newcomments</label>
-        <de>Dies sind die letzten Kommentare:</de>
+        <cnt>Dies sind die letzten Kommentare:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_noevent</label>
-        <de>Du machst noch bei keinem Tippspiel mit. In &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;deinem Profil&lt;/a&gt; kannst du dich bei Events anmelden &amp; andere Einstellungen vornehmen. Ansonsten steht dir noch nicht viel zur Verfügung.</de>
+        <cnt>Du machst noch bei keinem Tippspiel mit. In &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;deinem Profil&lt;/a&gt; kannst du dich bei Events anmelden &amp; andere Einstellungen vornehmen. Ansonsten steht dir noch nicht viel zur Verfügung.</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_title</label>
-        <de>Home</de>
+        <cnt>Home</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_yourevent</label>
-        <de>Bei folgendem Tippspiel machst du mit:</de>
+        <cnt>Bei folgendem Tippspiel machst du mit:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_yourevents</label>
-        <de>Bei folgenden Tippspielen machst du mit:</de>
+        <cnt>Bei folgenden Tippspielen machst du mit:</cnt>
     </zock_lang>
     <zock_lang>
         <label>logout_content</label>
-        <de>Du bist nun ausgeloggt und wirst sofort weitergeleitet.</de>
+        <cnt>Du bist nun ausgeloggt und wirst sofort weitergeleitet.</cnt>
     </zock_lang>
     <zock_lang>
         <label>logout_title</label>
-        <de>Logout</de>
+        <cnt>Logout</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_nopicture</label>
-        <de>Kein Bild vorhanden.</de>
+        <cnt>Kein Bild vorhanden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_picture</label>
-        <de>Bild:</de>
+        <cnt>Bild:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_text</label>
-        <de>Text:</de>
+        <cnt>Text:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_title</label>
-        <de>Erscheinung</de>
+        <cnt>Erscheinung</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_content</label>
-        <de>In diesem Bereich kannst du dein Erscheinungsbild für die anderen und das Erscheinungsbild des Wettbüros für dich bestimmen, sowie dein Passwort ändern. &lt;p/&gt; Um zu allen beliebigen Einstellungen für dein Profil zu gelangen kannst du die Untermenüs benutzen.</de>
+        <cnt>In diesem Bereich kannst du dein Erscheinungsbild für die anderen und das Erscheinungsbild des Wettbüros für dich bestimmen, sowie dein Passwort ändern. &lt;p/&gt; Um zu allen beliebigen Einstellungen für dein Profil zu gelangen kannst du die Untermenüs benutzen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_content</label>
-        <de>Gib einmal das alte und zweimal das gewünschte Passwort ein um dein Passwort zu ändern.</de>
+        <cnt>Gib einmal das alte und zweimal das gewünschte Passwort ein um dein Passwort zu ändern.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_new</label>
-        <de>zwei mal neu:</de>
+        <cnt>zwei mal neu:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_old</label>
-        <de>alt:</de>
+        <cnt>alt:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_title</label>
-        <de>Passwort</de>
+        <cnt>Passwort</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_approved</label>
-        <de>angenommen:</de>
+        <cnt>angenommen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_changeemail</label>
-        <de>Um die eMail zu ändern, musst du sie zwei Mal eingeben.</de>
+        <cnt>Um die eMail zu ändern, musst du sie zwei Mal eingeben.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_content</label>
-        <de>Hier kannst du dich unter anderem bei Tippspielen anmelden.&lt;br/&gt; Bei &quot;offenen&quot; Tippspielen, kannst du dich noch anmelden, bei &quot;wartenden&quot; musst du darauf warten, dass ein Administrator dich mitspielen lässt, bei &quot;angenommenen&quot; &amp; &quot;abgelehnten&quot; bist du defitiv mit dabei bzw. definitiv nicht dabei.
+        <cnt>Hier kannst du dich unter anderem bei Tippspielen anmelden.&lt;br/&gt; Bei &quot;offenen&quot; Tippspielen, kannst du dich noch anmelden, bei &quot;wartenden&quot; musst du darauf warten, dass ein Administrator dich mitspielen lässt, bei &quot;angenommenen&quot; &amp; &quot;abgelehnten&quot; bist du defitiv mit dabei bzw. definitiv nicht dabei.
 &lt;p/&gt;
-&lt;font class=&quot;error&quot;&gt; Nachdem du irgendwas geändert hast (z.b. auf Mitmachen klicken) musst du unten auf &quot;Änderungen speichern&quot; klicken&lt;/font&gt;</de>
+&lt;font class=&quot;error&quot;&gt; Nachdem du irgendwas geändert hast (z.b. auf Mitmachen klicken) musst du unten auf &quot;Änderungen speichern&quot; klicken&lt;/font&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_denied</label>
-        <de>abgewiesen:</de>
+        <cnt>abgewiesen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_email_notify</label>
-        <de>Wenn du dies getan hast, kannst du zur Info eine eMail an $1 schreiben.</de>
+        <cnt>Wenn du dies getan hast, kannst du zur Info eine eMail an $1 schreiben.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_eventinfo</label>
-        <de>Dieses Ereignis hat $1 Spiele, wobei jeweils $2 pro Spiel gewettet wird. Dadurch muss man $3 wetten um an diesem Tippspiel teilzunehmen. Um beim Tippspiel angenommen zu werden sollte man den genannten Betrag eingezahlt werden.</de>
+        <cnt>Dieses Ereignis hat $1 Spiele, wobei jeweils $2 pro Spiel gewettet wird. Dadurch muss man $3 wetten um an diesem Tippspiel teilzunehmen. Um beim Tippspiel angenommen zu werden sollte man den genannten Betrag eingezahlt werden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_open</label>
-        <de>offen:</de>
+        <cnt>offen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_participate</label>
-        <de>mitmachen</de>
+        <cnt>mitmachen</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_retire</label>
-        <de>zurückziehen</de>
+        <cnt>zurückziehen</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_staketopay</label>
-        <de>Einsatz zahlen</de>
+        <cnt>Einsatz zahlen</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_title</label>
-        <de>Einstellungen</de>
+        <cnt>Einstellungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_waiting</label>
-        <de>wartend:</de>
+        <cnt>wartend:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_wiringcomment</label>
-        <de>Als &lt;b&gt;Buchungstext&lt;/b&gt; solltest du schreiben:&lt;br/&gt; &lt;i&gt;$1: $2 ist dabei!&lt;/i&gt;</de>
+        <cnt>Als &lt;b&gt;Buchungstext&lt;/b&gt; solltest du schreiben:&lt;br/&gt; &lt;i&gt;$1: $2 ist dabei!&lt;/i&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_title</label>
-        <de>Mein Profil</de>
+        <cnt>Mein Profil</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_participatefirst</label>
-        <de>Du solltest bei einem Tippspiel dabei sein, bevor du tippen kannst. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Melde dich an&lt;/a&gt; oder &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;warte&lt;/a&gt; bis du vom Administator angenommen wirst, falls du das schon gemacht hast.</de>
+        <cnt>Du solltest bei einem Tippspiel dabei sein, bevor du tippen kannst. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Melde dich an&lt;/a&gt; oder &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;warte&lt;/a&gt; bis du vom Administator angenommen wirst, falls du das schon gemacht hast.</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_sametip</label>
-        <de>Gleiche&lt;br/&gt;Tipps</de>
+        <cnt>Gleiche&lt;br/&gt;Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tendency</label>
-        <de>Tendenz (%)</de>
+        <cnt>Tendenz (%)</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tip</label>
-        <de>Tipp</de>
+        <cnt>Tipp</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tips</label>
-        <de>Tipps</de>
+        <cnt>Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_title</label>
-        <de>Meine Tipps</de>
+        <cnt>Meine Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_content</label>
-        <de>Die Übersicht dient dazu, alles wichtige zu einem Tippspiel zu überblicken. Was tippen die anderen? Wer ist besonders gut? &lt;br /&gt;Die Zusammenfassungen zeigen gesammelte(s) Geld &amp; Punkte des jeweiligen Benutzers an. &lt;br /&gt;Das Menu rechts kannst du minimieren, damit mehr Information in der Seite platz hat.</de>
+        <cnt>Die Übersicht dient dazu, alles wichtige zu einem Tippspiel zu überblicken. Was tippen die anderen? Wer ist besonders gut? &lt;br /&gt;Die Zusammenfassungen zeigen gesammelte(s) Geld &amp; Punkte des jeweiligen Benutzers an. &lt;br /&gt;Das Menu rechts kannst du minimieren, damit mehr Information in der Seite platz hat.</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_jackpot</label>
-        <de>Jackpot</de>
+        <cnt>Jackpot</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_noevents</label>
-        <de>Es gibt leider noch keine Tippspiele zu überblicken!</de>
+        <cnt>Es gibt leider noch keine Tippspiele zu überblicken!</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_onlyme</label>
-        <de>nur ich</de>
+        <cnt>nur ich</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_summary</label>
-        <de>Zusammenfassung:</de>
+        <cnt>Zusammenfassung:</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_correcttips</label>
-        <de>Korrekt</de>
+        <cnt>Korrekt</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_summaryall</label>
-        <de>Endzusammenfassung:</de>
+        <cnt>Endzusammenfassung:</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_title</label>
-        <de>Übersicht</de>
+        <cnt>Übersicht</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_content</label>
-        <de>Finde heraus wer deine Mitspieler sind.</de>
+        <cnt>Finde heraus wer deine Mitspieler sind.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_noevents</label>
-        <de>Es gibt noch keine Events, bei welchen schon Spieler mitmachen könnten.</de>
+        <cnt>Es gibt noch keine Events, bei welchen schon Spieler mitmachen könnten.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_nousers</label>
-        <de>Dieses Tippspiel hat noch keine Mitspieler</de>
+        <cnt>Dieses Tippspiel hat noch keine Mitspieler</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_title</label>
-        <de>Mitspieler</de>
+        <cnt>Mitspieler</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_gain</label>
-        <de>Gewinn</de>
+        <cnt>Gewinn</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_jackpotshare</label>
-        <de>Jackpotanteil</de>
+        <cnt>Jackpotanteil</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_points</label>
-        <de>Punkte</de>
+        <cnt>Punkte</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_provisorygain</label>
-        <de>prov. Gewinn</de>
+        <cnt>prov. Gewinn</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_rank</label>
-        <de>Rang</de>
+        <cnt>Rang</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_title</label>
-        <de>Rangliste</de>
+        <cnt>Rangliste</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_content</label>
-        <de>Um dich bei einem Tippspiel anzumelden, musst du zuerst ein Benutzerprofil erstellen, mit dem du dich einloggen kannst. Erst dann kannst du dich bei einem Event mitmachen.</de>
+        <cnt>Um dich bei einem Tippspiel anzumelden, musst du zuerst ein Benutzerprofil erstellen, mit dem du dich einloggen kannst. Erst dann kannst du dich bei einem Event mitmachen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_email</label>
-        <de>Email</de>
+        <cnt>Email</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_emailsubject</label>
-        <de>Registrierung beim Wettbüro</de>
+        <cnt>Registrierung beim Wettbüro</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_ok</label>
-        <de>Du wurdest erfolgreich registriert. Eine eMail mit einem Passwort wurde dir zugesandt. Vielfach bleibt dieses im Spamfilter hangen, deshalb hier das eMail:</de>
+        <cnt>Du wurdest erfolgreich registriert. Eine eMail mit einem Passwort wurde dir zugesandt. Vielfach bleibt dieses im Spamfilter hangen, deshalb hier das eMail:</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_title</label>
-        <de>Registrieren</de>
+        <cnt>Registrieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_username</label>
-        <de>Benutzername:</de>
+        <cnt>Benutzername:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_normalview</label>
-        <de>Normalansicht</de>
+        <cnt>Normalansicht</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_largeview</label>
-        <de>Breitansicht</de>
+        <cnt>Breitansicht</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_monday</label>
-        <de>Montag</de>
+        <cnt>Montag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tuesday</label>
-        <de>Dienstag</de>
+        <cnt>Dienstag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_wednesday</label>
-        <de>Mittwoch</de>
+        <cnt>Mittwoch</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_friday</label>
-        <de>Freitag</de>
+        <cnt>Freitag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thursday</label>
-        <de>Donnerstag</de>
+        <cnt>Donnerstag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_saturday</label>
-        <de>Samstag</de>
+        <cnt>Samstag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_sunday</label>
-        <de>Sonntag</de>
+        <cnt>Sonntag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_write</label>
-        <de>schreiben</de>
+        <cnt>schreiben</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_nexttips</label>
-        <de>Die nächsten Tipps:</de>
+        <cnt>Die nächsten Tipps:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bettinggameover</label>
-        <de>Dieses Tippspiel ist fertig.</de>
+        <cnt>Dieses Tippspiel ist fertig.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_correcttips</label>
-        <de>Korrekte Tipps</de>
+        <cnt>Korrekte Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_closetips</label>
-        <de>Fast korrekte Tipps</de>
+        <cnt>Fast korrekte Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_wrongtips</label>
-        <de>Falsche Tipps</de>
+        <cnt>Falsche Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_rememberme</label>
-        <de>An mich erinnern auf diesem Rechner</de>
+        <cnt>An mich erinnern auf diesem Rechner</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_tojackpot</label>
-        <de>wandert der gesamte Wetteinsatz für dieses Spiel in den Jackpot.</de>
+        <cnt>wandert der gesamte Wetteinsatz für dieses Spiel in den Jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_almosttips</label>
-        <de>Fast</de>
+        <cnt>Fast</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_wrongtips</label>
-        <de>Falsch</de>
+        <cnt>Falsch</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_waitfortips</label>
-        <de>Die nächsten Tipps sind noch nicht freigegeben.</de>
+        <cnt>Die nächsten Tipps sind noch nicht freigegeben.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr</label>
-        <de>Punkteverteilung</de>
+        <cnt>Punkteverteilung</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_correct</label>
-        <de>Korrekt getipptes Resultat</de>
+        <cnt>Korrekt getipptes Resultat</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_diff</label>
-        <de>Richtig getiptte Tordifferenz für die richtige Mannschaft (z.B. 3-2 anstatt 2-1)</de>
+        <cnt>Richtig getiptte Tordifferenz für die richtige Mannschaft (z.B. 3-2 anstatt 2-1)</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_almost</label>
-        <de>Richitg getippter Spielausgang (wie toto) für die korrekte Mannschaft (z.B. 1-0 anstatt 4-1)</de>
+        <cnt>Richitg getippter Spielausgang (wie toto) für die korrekte Mannschaft (z.B. 1-0 anstatt 4-1)</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_wrong</label>
-        <de>Falsche Tipps</de>
+        <cnt>Falsche Tipps</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stake_fix</label>
-        <de>Einsatz für Tippspiel</de>
+        <cnt>Einsatz für Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_none</label>
-        <de>nichts</de>
+        <cnt>nichts</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_fix</label>
-        <de>fix</de>
+        <cnt>fix</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_permatch</label>
-        <de>pro Spiel</de>
+        <cnt>pro Spiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_bank_account_intro</label>
-        <de>Gib an wohin der Gewinn überwiesen werden soll nach dem Tippspiel:</de>
+        <cnt>Gib an wohin der Gewinn überwiesen werden soll nach dem Tippspiel:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_participatereally</label>
-        <de>Willst du wirklich an diesem Tippspiel mitmachen?</de>
+        <cnt>Willst du wirklich an diesem Tippspiel mitmachen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_profilesettings</label>
-        <de>Profileinstellungen</de>
+        <cnt>Profileinstellungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_persdetails</label>
-        <de>Personale Angaben</de>
+        <cnt>Personale Angaben</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_withdrawreally</label>
-        <de>Willst du wirklich nicht mitmachen?</de>
+        <cnt>Willst du wirklich nicht mitmachen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_title</label>
-        <de>Mitteilungen</de>
+        <cnt>Mitteilungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_send</label>
-        <de>versenden</de>
+        <cnt>versenden</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_internal</label>
-        <de>Intern</de>
+        <cnt>Intern</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_receivers</label>
-        <de>Empfänger</de>
+        <cnt>Empfänger</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_none</label>
-        <de>keine</de>
+        <cnt>keine</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_add</label>
-        <de>hinzufügen</de>
+        <cnt>hinzufügen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_singleusers</label>
-        <de>Einzelne Benutzer</de>
+        <cnt>Einzelne Benutzer</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_newmessage</label>
-        <de>Dies ist eine neue Nachricht von $1, gesendet $2 $3:</de>
+        <cnt>Dies ist eine neue Nachricht von $1, gesendet $2 $3:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_readparticipe</label>
-        <de>gelesen!</de>
+        <cnt>gelesen!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_content</label>
-        <de>Inhalt</de>
+        <cnt>Inhalt</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_system</label>
-        <de>Versandsystem</de>
+        <cnt>Versandsystem</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_notitle</label>
-        <de>kein Titel</de>
+        <cnt>kein Titel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_nocontent</label>
-        <de>kein Inhalt</de>
+        <cnt>kein Inhalt</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_noreceivers</label>
-        <de>keine Empfänger</de>
+        <cnt>keine Empfänger</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_preferredlanguage</label>
-        <de>Wähle deine bevorzugte Sprache für die Webseite aus</de>
+        <cnt>Wähle deine bevorzugte Sprache für die Webseite aus</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_commentnumber</label>
-        <de>welche im &lt;i&gt;$1&lt;/i&gt; angezeigt werden</de>
+        <cnt>welche im &lt;i&gt;$1&lt;/i&gt; angezeigt werden</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text3</label>
-        <de>..und das dritte für den &lt;b&gt;Kontoinhanber&lt;/b&gt; (Adresse).</de>
+        <cnt>..und das dritte für den &lt;b&gt;Kontoinhanber&lt;/b&gt; (Adresse).</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stake</label>
-        <de>Einsatz</de>
+        <cnt>Einsatz</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_matchnb</label>
-        <de># Spiele für dieses Tippspiel</de>
+        <cnt># Spiele für dieses Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_jackpotmode_fraction</label>
-        <de>bruchteil</de>
+        <cnt>bruchteil</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpotexp</label>
-        <de>Verteile den Jackpot auf einen &lt;b&gt;Bruchteil&lt;/b&gt; der Teilnehmer (in %) oder auf eine &lt;b&gt;fixe&lt;/b&gt; Anzahl.</de>
+        <cnt>Verteile den Jackpot auf einen &lt;b&gt;Bruchteil&lt;/b&gt; der Teilnehmer (in %) oder auf eine &lt;b&gt;fixe&lt;/b&gt; Anzahl.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpot_fraction</label>
-        <de>Gib den Bruchteil in Prozent ein (z.B. 33% für den ersten Drittel)</de>
+        <cnt>Gib den Bruchteil in Prozent ein (z.B. 33% für den ersten Drittel)</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpot_fix</label>
-        <de>Gib an bis zu welchem Rang der Jackpot verteilt wird.</de>
+        <cnt>Gib an bis zu welchem Rang der Jackpot verteilt wird.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_distr</label>
-        <de>Jackpottverteilung</de>
+        <cnt>Jackpottverteilung</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_distralgorithm</label>
-        <de>Es gibt drei Verteilungsalgorithmen:&lt;br/&gt;
+        <cnt>Es gibt drei Verteilungsalgorithmen:&lt;br/&gt;
 &lt;b&gt;$1&lt;/b&gt;: Du gibst an welche Ränge wiviel Prozent aus dem Jackpott erhalten.&lt;br/&gt;
 &lt;b&gt;$2&lt;/b&gt;: Der Jackpot wird linear auf die Beteiligten verteilt. Diese Variante ist sehr ausgeglichen.&lt;br/&gt; Di Formel ist: &lt;i&gt;Anteil(Rang) = (Jackpot / &amp;#931;(Teilhaberränge)) * (Teilhaber - (Rang – 1)).&lt;/i&gt;&lt;br/&gt;
-&lt;b&gt;$3&lt;/b&gt;: Der Jackpot wird exponentiell auf die Beteiligten verteilt. Abhängig vom Koeffizienten k (welchen du angibst), kann diese Variante sehr unausgeglichen (dafür interessanter für die ersten) sein. Die Formel ist:&lt;i&gt;Anteil(Rang) = (1-k)^(Rang-1) * k * Jackpot&lt;/i&gt;.</de>
+&lt;b&gt;$3&lt;/b&gt;: Der Jackpot wird exponentiell auf die Beteiligten verteilt. Abhängig vom Koeffizienten k (welchen du angibst), kann diese Variante sehr unausgeglichen (dafür interessanter für die ersten) sein. Die Formel ist:&lt;i&gt;Anteil(Rang) = (1-k)^(Rang-1) * k * Jackpot&lt;/i&gt;.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_distr_lin</label>
-        <de>linear</de>
+        <cnt>linear</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_distr_exp</label>
-        <de>exponentiell</de>
+        <cnt>exponentiell</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_firstjackpotfixfield</label>
-        <de>Du musst erst die Anzahl beteiligte Ränge festlegen!</de>
+        <cnt>Du musst erst die Anzahl beteiligte Ränge festlegen!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_fixshares</label>
-        <de>Dieses Feld gibt die fixe Aufteilung des Jackpots an (klicke auf $1 oder ins Feld um änderungen vorzunehmen).</de>
+        <cnt>Dieses Feld gibt die fixe Aufteilung des Jackpots an (klicke auf $1 oder ins Feld um änderungen vorzunehmen).</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_expshares</label>
-        <de>Gib ein Koeffizient ein (kleiner als 1) für die exponentielle Verteilung. Der Erste wird ungefähr diesen Teil aus dem Jackpot erhalten (Koeffizient * Jackpot).</de>
+        <cnt>Gib ein Koeffizient ein (kleiner als 1) für die exponentielle Verteilung. Der Erste wird ungefähr diesen Teil aus dem Jackpot erhalten (Koeffizient * Jackpot).</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_beton</label>
-        <de>Was tippen?</de>
+        <cnt>Was tippen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betonexp</label>
-        <de>Entweder tippt man auf&lt;br/&gt;
+        <cnt>Entweder tippt man auf&lt;br/&gt;
 - &lt;b&gt;Resultat&lt;/b&gt; der Partie: 3-2, 1-3, 0-0&lt;br/&gt;
-- &lt;b&gt;Toto&lt;/b&gt; der Partie: 1 = Heimmmannschaft siegt, 2 = Auswärtsmannschaft siegt, x = Unentschieden</de>
+- &lt;b&gt;Toto&lt;/b&gt; der Partie: 1 = Heimmmannschaft siegt, 2 = Auswärtsmannschaft siegt, x = Unentschieden</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_toto</label>
-        <de>Toto</de>
+        <cnt>Toto</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_toto</label>
-        <de>Richtig getipptes Toto</de>
+        <cnt>Richtig getipptes Toto</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_komatchesexp</label>
-        <de>Gibts es in diesem Tippspiel Cup-Spiele? D.h. dass es einen Sieger geben muss, der Verlierer ausscheidet und somit ein Unentschieden nicht möglich ist.</de>
+        <cnt>Gibts es in diesem Tippspiel Cup-Spiele? D.h. dass es einen Sieger geben muss, der Verlierer ausscheidet und somit ein Unentschieden nicht möglich ist.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_only</label>
-        <de>nur</de>
+        <cnt>nur</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_tietough</label>
-        <de>Trotzdem Unentschieden ermöglichen?</de>
+        <cnt>Trotzdem Unentschieden ermöglichen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty</label>
-        <de>Wie wird das Resultat sein nach einem möglichen Elfmeterschiessen?&lt;br/&gt;
+        <cnt>Wie wird das Resultat sein nach einem möglichen Elfmeterschiessen?&lt;br/&gt;
 - addiere alle Elfmeter zum Resultat&lt;br/&gt;
-- addiere einen Treffer für die Siegermannschaft</de>
+- addiere einen Treffer für die Siegermannschaft</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty_addall</label>
-        <de>addiere alle</de>
+        <cnt>addiere alle</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty_addone</label>
-        <de>addiere ein</de>
+        <cnt>addiere ein</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_stakeback</label>
-        <de>erhalten diejenigen, die auf die trotzdem auf den korrekten Spielausgang ($1/$2/$3) getippt haben, ihren Wetteinsatz ($4) für diese Runde zurück. Die restlichen Spieleinsätze wandern in den Jackpot.</de>
+        <cnt>erhalten diejenigen, die auf die trotzdem auf den korrekten Spielausgang ($1/$2/$3) getippt haben, ihren Wetteinsatz ($4) für diese Runde zurück. Die restlichen Spieleinsätze wandern in den Jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_team</label>
-        <de>Mannschaft</de>
+        <cnt>Mannschaft</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_nostake</label>
-        <de>Für dieses Tippspiel gibt es keinen Einsatz. D.h. du musst nichts zahlen um mitzumachen.</de>
+        <cnt>Für dieses Tippspiel gibt es keinen Einsatz. D.h. du musst nichts zahlen um mitzumachen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_fixstake</label>
-        <de>Der Einsatz für dieses Tippspiel ist ein Fixbetrag von $1.</de>
+        <cnt>Der Einsatz für dieses Tippspiel ist ein Fixbetrag von $1.</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_totalgain</label>
-        <de>Totalgewinn</de>
+        <cnt>Totalgewinn</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto</label>
-        <de>In diesem Tippsiel wird auf Toto (mögliche Spielausgänge) getippt. Das bedeutet, man hat theoretishc die drei Möglichkeiten: $1$2$3.</de>
+        <cnt>In diesem Tippsiel wird auf Toto (mögliche Spielausgänge) getippt. Das bedeutet, man hat theoretishc die drei Möglichkeiten: $1$2$3.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_1</label>
-        <de>1 = Heimmannschaft siegt</de>
+        <cnt>1 = Heimmannschaft siegt</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_2</label>
-        <de>2 = Auswärtsmannschaft siegt</de>
+        <cnt>2 = Auswärtsmannschaft siegt</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_x</label>
-        <de>x = Unentschieden</de>
+        <cnt>x = Unentschieden</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_matches_both_types</label>
-        <de>Es gibt $1 sowie $2 in diesem Tippspiel.</de>
+        <cnt>Es gibt $1 sowie $2 in diesem Tippspiel.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_inallmatches</label>
-        <de>Bei allen Spielen</de>
+        <cnt>Bei allen Spielen</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_in_matches</label>
-        <de>Bei den</de>
+        <cnt>Bei den</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tournamentmatches</label>
-        <de>Turnierspiel</de>
+        <cnt>Turnierspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_komatches</label>
-        <de>K.O.-Spiele</de>
+        <cnt>K.O.-Spiele</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_allpossible</label>
-        <de>sind $1/$2 &amp; $3 möglich.</de>
+        <cnt>sind $1/$2 &amp; $3 möglich.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tieno</label>
-        <de>sind &lt;b&gt;nur&lt;/b&gt; $1/$2 möglich.</de>
+        <cnt>sind &lt;b&gt;nur&lt;/b&gt; $1/$2 möglich.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tietough</label>
-        <de>Es wird$1 einfach das Resultat am Ende des Spiels (ohne Elfmeterschiessen) berückichtigt.</de>
+        <cnt>Es wird$1 einfach das Resultat am Ende des Spiels (ohne Elfmeterschiessen) berückichtigt.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties</label>
-        <de>Falls ein Spiel durch Elfmeterschiessen entschiden wird,</de>
+        <cnt>Falls ein Spiel durch Elfmeterschiessen entschiden wird,</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties_one</label>
-        <de>wird ein Treffer zum Resultat der Siegermannschaft addiert.</de>
+        <cnt>wird ein Treffer zum Resultat der Siegermannschaft addiert.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties_all</label>
-        <de>werden alle Penalty-Treffer zum Resultat addiert.</de>
+        <cnt>werden alle Penalty-Treffer zum Resultat addiert.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minute</label>
-        <de>Minute</de>
+        <cnt>Minute</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minutes</label>
-        <de>Minuten</de>
+        <cnt>Minuten</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minute_s</label>
-        <de>Minute(n)</de>
+        <cnt>Minute(n)</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hour</label>
-        <de>Stunde</de>
+        <cnt>Stunde</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hours</label>
-        <de>Stunden</de>
+        <cnt>Stunden</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hour_s</label>
-        <de>Stunde(n)</de>
+        <cnt>Stunde(n)</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_day</label>
-        <de>Tag</de>
+        <cnt>Tag</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_days</label>
-        <de>Tage</de>
+        <cnt>Tage</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_day_s</label>
-        <de>Tag(e)</de>
+        <cnt>Tag(e)</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_bet_until</label>
-        <de>Die Tipps müssen bis spätestens &lt;b&gt;$1 vor $2&lt;/b&gt; eingegeben werden.</de>
+        <cnt>Die Tipps müssen bis spätestens &lt;b&gt;$1 vor $2&lt;/b&gt; eingegeben werden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_thefirstmatch</label>
-        <de>dem &lt;i&gt;ersten&lt;/i&gt; Spiel</de>
+        <cnt>dem &lt;i&gt;ersten&lt;/i&gt; Spiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_match</label>
-        <de>dem Spiel</de>
+        <cnt>dem Spiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_diff</label>
-        <de>für eine richtig getippte Tordifferenz ($1 0-3 anstatt 1-4) gibt es &lt;b&gt;$2 Punkt(e)&lt;/b&gt;</de>
+        <cnt>für eine richtig getippte Tordifferenz ($1 0-3 anstatt 1-4) gibt es &lt;b&gt;$2 Punkt(e)&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_wrong</label>
-        <de>für einen absolut falschen Tipp gibt es &lt;b&gt;$3 Punkt(e)&lt;/b&gt;</de>
+        <cnt>für einen absolut falschen Tipp gibt es &lt;b&gt;$3 Punkt(e)&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_forgotpassword</label>
-        <de>Benutzerdaten vergessen?</de>
+        <cnt>Benutzerdaten vergessen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_senddata</label>
-        <de>Benutzerdaten senden</de>
+        <cnt>Benutzerdaten senden</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_userdatasubject</label>
-        <de>Deine Benutzerdaten (neues Passwort)</de>
+        <cnt>Deine Benutzerdaten (neues Passwort)</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_userdatamail</label>
-        <de>Du hast deine Benutzerdaten angefordert beim $1. Es ist automatisch ein neues Passwort erstelltworden, welches du ohne Probleme ändern kannst.&lt;br/&gt;$2&lt;br/&gt;$3&lt;br/&gt;-----------------------------&lt;br/&gt;&lt;a href=&quot;$4&quot;&gt;$4&lt;/a&gt;</de>
+        <cnt>Du hast deine Benutzerdaten angefordert beim $1. Es ist automatisch ein neues Passwort erstelltworden, welches du ohne Probleme ändern kannst.&lt;br/&gt;$2&lt;br/&gt;$3&lt;br/&gt;-----------------------------&lt;br/&gt;&lt;a href=&quot;$4&quot;&gt;$4&lt;/a&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_userdatasent</label>
-        <de>Deine Benutzerdaten wurden dir auf $1 gesendet.</de>
+        <cnt>Deine Benutzerdaten wurden dir auf $1 gesendet.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_nouserwiththisemail</label>
-        <de>Es gibt kein Benutzerkonto mit dieser eMail-Adresse</de>
+        <cnt>Es gibt kein Benutzerkonto mit dieser eMail-Adresse</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_nofunctionalsmtp</label>
-        <de>Es ist leider nicht möglich eMails von diesem Server zu versenden.</de>
+        <cnt>Es ist leider nicht möglich eMails von diesem Server zu versenden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_writetoadmin</label>
-        <de>Bitte schreib dem Administrator ein eMail wegen deinem Problem. Die Adresse findest du im Fuss der Seite.</de>
+        <cnt>Bitte schreib dem Administrator ein eMail wegen deinem Problem. Die Adresse findest du im Fuss der Seite.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_alreadyaccount</label>
-        <de>Es gibt schon ein Benutzerkonto mit dieser eMail!</de>
+        <cnt>Es gibt schon ein Benutzerkonto mit dieser eMail!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_logintoolong</label>
-        <de>Der Benutzername darf maximal nur 15 Zeichen enthalten</de>
+        <cnt>Der Benutzername darf maximal nur 15 Zeichen enthalten</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_askfordata</label>
-        <de>Hier kannst du deine Benutzerdaten anhand von deiner eMail-Adresse anfordern.</de>
+        <cnt>Hier kannst du deine Benutzerdaten anhand von deiner eMail-Adresse anfordern.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_siteurl</label>
-        <de>Seiten-URL</de>
+        <cnt>Seiten-URL</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_siteurltext</label>
-        <de>Gib die ULR an, um auf diese Seite zu gelangen.</de>
+        <cnt>Gib die ULR an, um auf diese Seite zu gelangen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notifications</label>
-        <de>Benachrichtigungen</de>
+        <cnt>Benachrichtigungen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notificationstext</label>
-        <de>Wähle aus, in welchen Fällen und wie du benachrichtigt werden willst.</de>
+        <cnt>Wähle aus, in welchen Fällen und wie du benachrichtigt werden willst.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notify_participate</label>
-        <de>Bei einer Anmeldung an einem Tippspiel</de>
+        <cnt>Bei einer Anmeldung an einem Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notify_newaccount</label>
-        <de>Beim erstellen eines neuen Benutzerkontos</de>
+        <cnt>Beim erstellen eines neuen Benutzerkontos</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notify_withdraw</label>
-        <de>Bei einem Rückzug von einem Tippspiel</de>
+        <cnt>Bei einem Rückzug von einem Tippspiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_emailhere</label>
-        <de>Deswegen wird das eMail hier angezeigt:</de>
+        <cnt>Deswegen wird das eMail hier angezeigt:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_notification</label>
-        <de>Benachrichtigung</de>
+        <cnt>Benachrichtigung</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_newaccount</label>
-        <de>Neues Benutzerkonto</de>
+        <cnt>Neues Benutzerkonto</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_newaccounttext</label>
-        <de>Es ist ein neuer Benutzeraccount erstellt worden.</de>
+        <cnt>Es ist ein neuer Benutzeraccount erstellt worden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_notifywithdraw</label>
-        <de>Rückzug</de>
+        <cnt>Rückzug</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_notifywithdrawtxt</label>
-        <de>&lt;b&gt;$1&lt;/b&gt; hat sich vom Tippspiel &lt;b&gt;$2&lt;/b&gt; zurückgezogen.</de>
+        <cnt>&lt;b&gt;$1&lt;/b&gt; hat sich vom Tippspiel &lt;b&gt;$2&lt;/b&gt; zurückgezogen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_notifyparticipate</label>
-        <de>Anmeldung</de>
+        <cnt>Anmeldung</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_notifyparticipatetxt</label>
-        <de>&lt;b&gt;$1&lt;/b&gt; möchte beim Tippspiel &lt;b&gt;$2&lt;/b&gt; mitmachen.</de>
+        <cnt>&lt;b&gt;$1&lt;/b&gt; möchte beim Tippspiel &lt;b&gt;$2&lt;/b&gt; mitmachen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpactivated</label>
-        <de>Der Versand von Emails per SMTP ist aktiviert!</de>
+        <cnt>Der Versand von Emails per SMTP ist aktiviert!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_modifysmtp</label>
-        <de>SMTP-Zugang bearbeiten</de>
+        <cnt>SMTP-Zugang bearbeiten</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpexp</label>
-        <de>Um Emails zu versenden, die auch sicher ankommen werden, benötigst du einen SMTP-Zugang. Entweder steht dir einer auf diesem Server zur Verfügung oder du benutzt einen von einem anderen Server (z.B. von deiner privaten Email-Adresse).</de>
+        <cnt>Um Emails zu versenden, die auch sicher ankommen werden, benötigst du einen SMTP-Zugang. Entweder steht dir einer auf diesem Server zur Verfügung oder du benutzt einen von einem anderen Server (z.B. von deiner privaten Email-Adresse).</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpserver</label>
-        <de>SMTP-Server</de>
+        <cnt>SMTP-Server</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtplogin</label>
-        <de>SMTP-Benutzername</de>
+        <cnt>SMTP-Benutzername</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_fromaddress</label>
-        <de>Absenderadresse</de>
+        <cnt>Absenderadresse</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_fromaddressexp</label>
-        <de>Die Absenderadresse muss nicht unbedingt mit der Adresse des SMTP-Zugangs übereinstimmen. Manche Server aktzeptieren jedoch nur &quot;fremde&quot; Absenderadressen wenn sie durch Bestätigung überprüft wurden.</de>
+        <cnt>Die Absenderadresse muss nicht unbedingt mit der Adresse des SMTP-Zugangs übereinstimmen. Manche Server aktzeptieren jedoch nur &quot;fremde&quot; Absenderadressen wenn sie durch Bestätigung überprüft wurden.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpport</label>
-        <de>SMTP-Port</de>
+        <cnt>SMTP-Port</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpportexp</label>
-        <de>Ist nur in seltenen Fällen nicht 465</de>
+        <cnt>Ist nur in seltenen Fällen nicht 465</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_smtpdisactivated</label>
-        <de>Der Versand von Emails per SMTP ist &lt;b&gt;desaktiviert!&lt;/b&gt; Es können keine Emails von der Seite aus versendet werden!</de>
+        <cnt>Der Versand von Emails per SMTP ist &lt;b&gt;desaktiviert!&lt;/b&gt; Es können keine Emails von der Seite aus versendet werden!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_mailnotsent</label>
-        <de>Das Testemail konnte mit diesen Einstellungen nicht versandt werden! Der Mailversand ist jetzt deaktviert!</de>
+        <cnt>Das Testemail konnte mit diesen Einstellungen nicht versandt werden! Der Mailversand ist jetzt deaktviert!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_mailsent</label>
-        <de>Es ist erfolgreich ein Testemail an $1 versendet worden! Der Mailversand ist jetzt aktiviert.</de>
+        <cnt>Es ist erfolgreich ein Testemail an $1 versendet worden! Der Mailversand ist jetzt aktiviert.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_testemail_subject</label>
-        <de>Erfolgreich eMail-Versand per SMTP aktiviert!</de>
+        <cnt>Erfolgreich eMail-Versand per SMTP aktiviert!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_testemail_txt</label>
-        <de>Ab jetzt kannst du dich per Email von der Webseite aus benachrichtigen lassen oder Benutzern eine Benachrichtigung schicken. Zudem ist das Registrieren jetzt besser, da einem neuen Benutzer ein Email mit dem Passwort zugesandt wird.
+        <cnt>Ab jetzt kannst du dich per Email von der Webseite aus benachrichtigen lassen oder Benutzern eine Benachrichtigung schicken. Zudem ist das Registrieren jetzt besser, da einem neuen Benutzer ein Email mit dem Passwort zugesandt wird.
 &lt;p/&gt;
 Mehr Informationen zu SMTP: &lt;br/&gt;
 &lt;ul&gt;&lt;li&gt;&lt;a href=&quot;http://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol&quot;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;http://mail.google.com/support/bin/answer.py?hlrm=en&amp;answer=13287&quot;&gt;Google support&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</de>
+</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_contains</label>
-        <de>enthält</de>
+        <cnt>enthält</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_filter</label>
-        <de>Filter:</de>
+        <cnt>Filter:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_filterverb</label>
-        <de>filtern</de>
+        <cnt>filtern</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_filter_emptyresults</label>
-        <de>Diesem Filter entsprechen keine Einträge.</de>
+        <cnt>Diesem Filter entsprechen keine Einträge.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_is</label>
-        <de>ist</de>
+        <cnt>ist</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_difftips</label>
-        <de>Differenz</de>
+        <cnt>Differenz</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_monday_short</label>
-        <de>Mo</de>
+        <cnt>Mo</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tuesday_short</label>
-        <de>Di</de>
+        <cnt>Di</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_wednesday_short</label>
-        <de>Mi</de>
+        <cnt>Mi</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thursday_short</label>
-        <de>Do</de>
+        <cnt>Do</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_friday_short</label>
-        <de>Fr</de>
+        <cnt>Fr</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_saturday_short</label>
-        <de>Sa</de>
+        <cnt>Sa</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_sunday_short</label>
-        <de>So</de>
+        <cnt>So</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_arrangematchdays</label>
-        <de>Ordne die Spieltage</de>
+        <cnt>Ordne die Spieltage</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_showingxoutofx</label>
-        <de>Rangliste nach $1 von $2 Spielen:</de>
+        <cnt>Rangliste nach $1 von $2 Spielen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_showrankinguntil</label>
-        <de>Zeige die Rangliste bis und mit</de>
+        <cnt>Zeige die Rangliste bis und mit</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_match</label>
-        <de>Spiel</de>
+        <cnt>Spiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_date</label>
-        <de>Datum</de>
+        <cnt>Datum</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stakeback</label>
-        <de>Im Falle, das niemand das richtige Resultat getippt hat, soll der Rundeneinsatz an diejenigen zurückgegeben werden, die zumindest den korrekten Spielausgang getippt haben? Wenn nein, wandert der ganze Rundeneinsatz in den Jackpot.</de>
+        <cnt>Im Falle, das niemand das richtige Resultat getippt hat, soll der Rundeneinsatz an diejenigen zurückgegeben werden, die zumindest den korrekten Spielausgang getippt haben? Wenn nein, wandert der ganze Rundeneinsatz in den Jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stakebacknotpossible</label>
-        <de>Es ist nur möglich den Rundeneinsatz zurückzugeben, wenn man auf Resultate tippt!</de>
+        <cnt>Es ist nur möglich den Rundeneinsatz zurückzugeben, wenn man auf Resultate tippt!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betuntil</label>
-        <de>Bis wann tippen?</de>
+        <cnt>Bis wann tippen?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betuntilexp</label>
-        <de>Bis wann sollten die Tipps abgegeben werden?&lt;br/&gt;
+        <cnt>Bis wann sollten die Tipps abgegeben werden?&lt;br/&gt;
 Entweder eine bestimmet Anzahl Minuten oder Tage vor dem jeweiligen Spiel oder dem Tippspielbeginn.&lt;br/&gt;
 Bei Minuten wird exakt die Zeit abgemessen, bei Tagen jedoch ist NUR das Datum ausschlaggebend. 1 Tag zuvor = Am Tag zuvor&lt;br/&gt;
-Vor dem Tippspielbeginn bedeutet, dass ALLE Tipps vor dem Beginn eingegen werden müssen.</de>
+Vor dem Tippspielbeginn bedeutet, dass ALLE Tipps vor dem Beginn eingegen werden müssen.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_before</label>
-        <de>vor</de>
+        <cnt>vor</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_bettinggameinitiation</label>
-        <de>Tippspielbeginn</de>
+        <cnt>Tippspielbeginn</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nextstep</label>
-        <de>zum nächsten Schritt</de>
+        <cnt>zum nächsten Schritt</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nextstepdialog</label>
-        <de>NUR wenn du dir ganz sicher bist, dass alles so eingestellt ist wie du willst, so</de>
+        <cnt>NUR wenn du dir ganz sicher bist, dass alles so eingestellt ist wie du willst, so</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_displayinfo</label>
-        <de>Info für diese Einstellungen anzeigen</de>
+        <cnt>Info für diese Einstellungen anzeigen</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_jp</label>
-        <de>Der Gewonnene Endbetrag ist der Anteil am Jackpot. Der Spieler mit den meisten Punkten erhält der grösste Anteil und ist somit Sieger.</de>
+        <cnt>Der Gewonnene Endbetrag ist der Anteil am Jackpot. Der Spieler mit den meisten Punkten erhält der grösste Anteil und ist somit Sieger.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_floored</label>
-        <de>abgrundet</de>
+        <cnt>abgrundet</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_fixformula</label>
-        <de>Folgendermassen wird die fixe Verteilung ablaufen:</de>
+        <cnt>Folgendermassen wird die fixe Verteilung ablaufen:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_name</label>
-        <de>Ungültiger Name!</de>
+        <cnt>Ungültiger Name!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_date</label>
-        <de>Ungültiges Datum!</de>
+        <cnt>Ungültiges Datum!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_matchnb</label>
-        <de>Ungültige Spielanzahl!</de>
+        <cnt>Ungültige Spielanzahl!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_stake</label>
-        <de>Ungültiger Einsatz!</de>
+        <cnt>Ungültiger Einsatz!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_currency</label>
-        <de>Ungültige Währung!</de>
+        <cnt>Ungültige Währung!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_round</label>
-        <de>Ungülite Rundungsgenauigkeit!</de>
+        <cnt>Ungülite Rundungsgenauigkeit!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_fraction</label>
-        <de>Ungültiger Bruchteil!</de>
+        <cnt>Ungültiger Bruchteil!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_jackpotfix</label>
-        <de>Ungültiger Rang bei fixer Jackpotverteilung!</de>
+        <cnt>Ungültiger Rang bei fixer Jackpotverteilung!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_jackpotfixshares</label>
-        <de>Die Anzahl Ränge stimmt nicht mit der fixen Aufteilung des Jackpots überein!</de>
+        <cnt>Die Anzahl Ränge stimmt nicht mit der fixen Aufteilung des Jackpots überein!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_expshare</label>
-        <de>Ungültiger Koffizient für die exponentielle Verteilung!</de>
+        <cnt>Ungültiger Koffizient für die exponentielle Verteilung!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_betuntil</label>
-        <de>Ungültige Eingabe für den Wettzeitpunkt!</de>
+        <cnt>Ungültige Eingabe für den Wettzeitpunkt!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pcorrect</label>
-        <de>Ungültige Punktzahl für korrekte Tipps!</de>
+        <cnt>Ungültige Punktzahl für korrekte Tipps!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pdiff</label>
-        <de>Ungültige Punktzahl für Tordifferenztipps!</de>
+        <cnt>Ungültige Punktzahl für Tordifferenztipps!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_palmost</label>
-        <de>Ungültige Punktzahl für Spielausgangtipps!</de>
+        <cnt>Ungültige Punktzahl für Spielausgangtipps!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pwrong</label>
-        <de>Ungültige Punktzahl für falsche Tipps!</de>
+        <cnt>Ungültige Punktzahl für falsche Tipps!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_createevent</label>
-        <de>Tippspiel Erstellen</de>
+        <cnt>Tippspiel Erstellen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_createtemplate</label>
-        <de>Vorlage erstellen</de>
+        <cnt>Vorlage erstellen</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_modeselection</label>
-        <de>Modusauswahl</de>
+        <cnt>Modusauswahl</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_scheduleactivation</label>
-        <de>Zeitplan &amp; Aktivierung</de>
+        <cnt>Zeitplan &amp; Aktivierung</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_fromphase3</label>
-        <de>Dieser Teil ist erst ab der Phase 3 verfügbar</de>
+        <cnt>Dieser Teil ist erst ab der Phase 3 verfügbar</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_phase3text</label>
-        <de>Jetzt hast du die Möglichkeit den &lt;a href=&quot;$1&quot;&gt;Spielplan einzurichten&lt;/a&gt;, solange dass das Tippspiel noch nicht sichtbar ist. &lt;b&gt;Alles ausser &quot;$2&quot;&lt;/b&gt; was du jetzt Einstellen kannst, ist auch noch machbar nach der Aktivation, &lt;b&gt;aber&lt;/b&gt; aktiviere nur wenn du willst, dass es für die Benutzer sichtbar sein soll!</de>
+        <cnt>Jetzt hast du die Möglichkeit den &lt;a href=&quot;$1&quot;&gt;Spielplan einzurichten&lt;/a&gt;, solange dass das Tippspiel noch nicht sichtbar ist. &lt;b&gt;Alles ausser &quot;$2&quot;&lt;/b&gt; was du jetzt Einstellen kannst, ist auch noch machbar nach der Aktivation, &lt;b&gt;aber&lt;/b&gt; aktiviere nur wenn du willst, dass es für die Benutzer sichtbar sein soll!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_komatch</label>
-        <de>K.O.-Spiel</de>
+        <cnt>K.O.-Spiel</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_showeventlist</label>
-        <de>Zeige die Tippspielliste</de>
+        <cnt>Zeige die Tippspielliste</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_inputtypeexp</label>
-        <de>Wie soll das Resultat eingegeben werden?</de>
+        <cnt>Wie soll das Resultat eingegeben werden?</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_incorrectmatchnb</label>
-        <de>Die Anzahl Spiele im Spielplan stimmt nicht mit der Anzahl Spiele der Tippspieleinstellungen überein.</de>
+        <cnt>Die Anzahl Spiele im Spielplan stimmt nicht mit der Anzahl Spiele der Tippspieleinstellungen überein.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_existantmatchesremoved</label>
-        <de>Die Spiele, die schon eingetragen wurden, werden gelöscht werden!</de>
+        <cnt>Die Spiele, die schon eingetragen wurden, werden gelöscht werden!</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_points</label>
-        <de>Der Sieger ist der mit den meisten Punkten.</de>
+        <cnt>Der Sieger ist der mit den meisten Punkten.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_langlist</label>
-        <de>Sprachenliste</de>
+        <cnt>Sprachenliste</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_installlang</label>
-        <de>Sprache installieren/entfernen</de>
+        <cnt>Sprache installieren/entfernen</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_install</label>
-        <de>installieren</de>
+        <cnt>installieren</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_remove</label>
-        <de>entfernen</de>
+        <cnt>entfernen</cnt>
     </zock_lang>
 </zock>

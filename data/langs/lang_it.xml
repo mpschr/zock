@@ -20,1338 +20,1338 @@ zock! is a free software licensed under GPL (General public license) v3
 <zock>
     <zock_lang>
         <label>general_info</label>
-        <it>info</it>
+        <cnt>info</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_paid</label>
-        <it>ha pagato</it>
+        <cnt>ha pagato</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_notpaid</label>
-        <it>non ha pagato</it>
+        <cnt>non ha pagato</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_content</label>
-        <it>Da qui puoi occuparti del tuo ufficio scommesse: rivedere i tuoi parametri, amministrare i giocatori e le scommesse. Basta uno sguardo sul menu per capire meglio.</it>
+        <cnt>Da qui puoi occuparti del tuo ufficio scommesse: rivedere i tuoi parametri, amministrare i giocatori e le scommesse. Basta uno sguardo sul menu per capire meglio.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activate</label>
-        <it>Attivare</it>
+        <cnt>Attivare</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activatedialog</label>
-        <it>Questo passo è irriversibile. Sei sicuro di volere veramente attivare il gioco scommesse?</it>
+        <cnt>Questo passo è irriversibile. Sei sicuro di volere veramente attivare il gioco scommesse?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_activatefirst</label>
-        <it>Questo elemento è disponibile solamente quando il gioco scommesse sarà attivato.</it>
+        <cnt>Questo elemento è disponibile solamente quando il gioco scommesse sarà attivato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_active</label>
-        <it>Questo gioco scommesse è attivato. Gli utenti si possono registrare.</it>
+        <cnt>Questo gioco scommesse è attivato. Gli utenti si possono registrare.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_addemptymatches</label>
-        <it>Aggiungi partite vacante</it>
+        <cnt>Aggiungi partite vacante</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_addnew</label>
-        <it>Crea un nuovo gioco scommesse.</it>
+        <cnt>Crea un nuovo gioco scommesse.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_adduser</label>
-        <it>aggiungere utente</it>
+        <cnt>aggiungere utente</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approve</label>
-        <it>Ammetere</it>
+        <cnt>Ammetere</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_message</label>
-        <it>Ciao $1 Sei stato ammesso al gioco scommesse $2! Adesso puoi fare i tuoi pronostici. http://donmiguel.sagex.ch</it>
+        <cnt>Ciao $1 Sei stato ammesso al gioco scommesse $2! Adesso puoi fare i tuoi pronostici. http://donmiguel.sagex.ch</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_approved_subject</label>
-        <it>$1 e ci sei pure tu!</it>
+        <cnt>$1 e ci sei pure tu!</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_changecompetitor</label>
-        <it>Cambiare partecipante</it>
+        <cnt>Cambiare partecipante</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_competitorchangeto</label>
-        <it>Cambiare il nome in:</it>
+        <cnt>Cambiare il nome in:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_competitortochange</label>
-        <it>Il nome da cambiare:</it>
+        <cnt>Il nome da cambiare:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_currency</label>
-        <it>Valuta:</it>
+        <cnt>Valuta:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deadline</label>
-        <it>Iscrizzione fino all</it>
+        <cnt>Iscrizzione fino all</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deadlineover</label>
-        <it>L'iscrizzione è finita! Puoi comunque aggiungere ancora un altro utente:</it>
+        <cnt>L'iscrizzione è finita! Puoi comunque aggiungere ancora un altro utente:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_deny</label>
-        <it>rifiutare</it>
+        <cnt>rifiutare</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_edit</label>
-        <it>Controlla un gioco scommesse</it>
+        <cnt>Controlla un gioco scommesse</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_enoughadds</label>
-        <it>Non è possibile aggiungere piu di una partita a la volta. Per aggiungerne delle altre ti tocca salvare.</it>
+        <cnt>Non è possibile aggiungere piu di una partita a la volta. Per aggiungerne delle altre ti tocca salvare.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_home</label>
-        <it>Ospite</it>
+        <cnt>Ospite</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_howmanyemptymatches</label>
-        <it>Quante partite vacante vorresti aggiungere?</it>
+        <cnt>Quante partite vacante vorresti aggiungere?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_inactive</label>
-        <it>Questo gioco scommesse non è attivato e percio non è visibile per gli utenti. Le opzioni &quot;iscrizzione fino all&quot;, &quot;valuta&quot;, &quot;Puntata per partita&quot; non potranno piu essere cambiate una volta che l'attivazione sara eseguita</it>
+        <cnt>Questo gioco scommesse non è attivato e percio non è visibile per gli utenti. Le opzioni &quot;iscrizzione fino all&quot;, &quot;valuta&quot;, &quot;Puntata per partita&quot; non potranno piu essere cambiate una volta che l'attivazione sara eseguita</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_installevent</label>
-        <it>Caricare il programma</it>
+        <cnt>Caricare il programma</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matchday</label>
-        <it>Giorno</it>
+        <cnt>Giorno</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matches_content</label>
-        <it>Aggiungi delle partite o cambia le esistenti. Per cambiare il nome di una squadra durante tutta la durata dell'evento clicca su &lt;b&gt;cambiare partecipante&lt;/b&gt;.</it>
+        <cnt>Aggiungi delle partite o cambia le esistenti. Per cambiare il nome di una squadra durante tutta la durata dell'evento clicca su &lt;b&gt;cambiare partecipante&lt;/b&gt;.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_matches_title</label>
-        <it>Partite</it>
+        <cnt>Partite</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_name</label>
-        <it>Nome dell'evento</it>
+        <cnt>Nome dell'evento</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nomatches</label>
-        <it>Non esistono partite per questo evento! Clicca su &lt;b&gt;+ Partite&lt;/b&gt; per aggiungerne. Fai attenzione di mettere l'orario del calcio d'inizio nel formato giusto.</it>
+        <cnt>Non esistono partite per questo evento! Clicca su &lt;b&gt;+ Partite&lt;/b&gt; per aggiungerne. Fai attenzione di mettere l'orario del calcio d'inizio nel formato giusto.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_public</label>
-        <it>Pubblico:</it>
+        <cnt>Pubblico:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_results_title</label>
-        <it>Risultati</it>
+        <cnt>Risultati</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_round</label>
-        <it>Precisione di arrotondatura :</it>
+        <cnt>Precisione di arrotondatura :</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_score</label>
-        <it>Classifica</it>
+        <cnt>Classifica</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_title</label>
-        <it>Parametri</it>
+        <cnt>Parametri</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_special</label>
-        <it>Appendice</it>
+        <cnt>Appendice</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stake_permatch</label>
-        <it>Puntata per partita:</it>
+        <cnt>Puntata per partita:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_time</label>
-        <it>Calcio d'inizio</it>
+        <cnt>Calcio d'inizio</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_title</label>
-        <it>Gioco scommesse</it>
+        <cnt>Gioco scommesse</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_usersapproved</label>
-        <it>Utenti autorizzati:</it>
+        <cnt>Utenti autorizzati:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_usersdenied</label>
-        <it>Utenti rifiutati:</it>
+        <cnt>Utenti rifiutati:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_userswaiting</label>
-        <it>Utenti in attesa:</it>
+        <cnt>Utenti in attesa:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_visitor</label>
-        <it>Visitatore</it>
+        <cnt>Visitatore</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_wait</label>
-        <it>in attesa</it>
+        <cnt>in attesa</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_addnew</label>
-        <it>Aggiungere un nuovo elemento.</it>
+        <cnt>Aggiungere un nuovo elemento.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_editbelow</label>
-        <it>Modificare un elemento della lista in basso.</it>
+        <cnt>Modificare un elemento della lista in basso.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listall</label>
-        <it>la lista completa</it>
+        <cnt>la lista completa</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listalluncompleted</label>
-        <it>Lista di tutti gli elementi incompleti</it>
+        <cnt>Lista di tutti gli elementi incompleti</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_listlanguncompleted</label>
-        <it>Lista degli elementi incompleti della tua lingua</it>
+        <cnt>Lista degli elementi incompleti della tua lingua</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_nextempty</label>
-        <it>Prossimo elemento vuoto</it>
+        <cnt>Prossimo elemento vuoto</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_previousempty</label>
-        <it>elemento precedente vuoto</it>
+        <cnt>elemento precedente vuoto</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_lang_title</label>
-        <it>Lingue</it>
+        <cnt>Lingue</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text</label>
-        <it>Nei prossimi tre spazi devi dichiarare dove i partecipanti devono versare la loro puntata.</it>
+        <cnt>Nei prossimi tre spazi devi dichiarare dove i partecipanti devono versare la loro puntata.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text2</label>
-        <it>..il secondo spazio è previsto per il &lt;br&gt;&quot;numero del conto&quot;&lt;/br&gt; (numero PC o IBAN).. </it>
+        <cnt>..il secondo spazio è previsto per il &lt;br&gt;&quot;numero del conto&quot;&lt;/br&gt; (numero PC o IBAN).. </cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text1</label>
-        <it>Il primo spazio è per il &lt;b&gt;&quot;Tipo di conto&quot;&lt;/b&gt; (per esempio conto bancario o posta).. </it>
+        <cnt>Il primo spazio è per il &lt;b&gt;&quot;Tipo di conto&quot;&lt;/b&gt; (per esempio conto bancario o posta).. </cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_description</label>
-        <it>Descrizione</it>
+        <cnt>Descrizione</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_descriptiontext</label>
-        <it>Una piccola descrizione o uno slogan che sara inserito nel head della pagina</it>
+        <cnt>Una piccola descrizione o uno slogan che sara inserito nel head della pagina</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_formlines</label>
-        <it># linie del formulario:</it>
+        <cnt># linie del formulario:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_formlinestext</label>
-        <it>Definisci quante linie saranno visibili in un formulario grande. Per esempio nel formulario delle scommesse.</it>
+        <cnt>Definisci quante linie saranno visibili in un formulario grande. Per esempio nel formulario delle scommesse.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_lang</label>
-        <it>Scegli una lingua preferita per il sito.</it>
+        <cnt>Scegli una lingua preferita per il sito.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_name</label>
-        <it>Nome</it>
+        <cnt>Nome</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_nametext</label>
-        <it>Come vuoi che si chiami il tuo ufficio scommesse?</it>
+        <cnt>Come vuoi che si chiami il tuo ufficio scommesse?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_style</label>
-        <it>Stile:</it>
+        <cnt>Stile:</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_styletext</label>
-        <it>Scegli uno stile per il sito.</it>
+        <cnt>Scegli uno stile per il sito.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_title</label>
-        <it>Preferenze</it>
+        <cnt>Preferenze</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_title</label>
-        <it>Admin</it>
+        <cnt>Admin</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_answer</label>
-        <it>Risposta a:</it>
+        <cnt>Risposta a:</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_comment</label>
-        <it>Commento:</it>
+        <cnt>Commento:</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_commenttitle</label>
-        <it>Titolo:</it>
+        <cnt>Titolo:</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_participatefirst</label>
-        <it>Prima di fare dei commenti, forse devi partecipare a qualche gioco scommessa.</it>
+        <cnt>Prima di fare dei commenti, forse devi partecipare a qualche gioco scommessa.</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_reply</label>
-        <it>Rispondi</it>
+        <cnt>Rispondi</cnt>
     </zock_lang>
     <zock_lang>
         <label>comments_title</label>
-        <it>Commenti</it>
+        <cnt>Commenti</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_attention</label>
-        <it>Attenzione</it>
+        <cnt>Attenzione</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_commentsave</label>
-        <it>Nessun commento è stato salvato.</it>
+        <cnt>Nessun commento è stato salvato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_content</label>
-        <it>Voglio andare a &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Si, vai&quot;&gt;casa&lt;/a&gt;!</it>
+        <cnt>Voglio andare a &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Si, vai&quot;&gt;casa&lt;/a&gt;!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_doesnotparticipate</label>
-        <it>Questo utente non partecipa a questo gioco!</it>
+        <cnt>Questo utente non partecipa a questo gioco!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_filledform</label>
-        <it>Ci stanno ancora degli errori nel formulario (in rosso) </it>
+        <cnt>Ci stanno ancora degli errori nel formulario (in rosso) </cnt>
     </zock_lang>
     <zock_lang>
         <label>error_login</label>
-        <it>Nome o codice sbagliato!</it>
+        <cnt>Nome o codice sbagliato!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_menu</label>
-        <it>Questo menu non è disponibile!</it>
+        <cnt>Questo menu non è disponibile!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_myprofile_password</label>
-        <it>Si è verificato un errore! Riprova!</it>
+        <cnt>Si è verificato un errore! Riprova!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_names</label>
-        <it>Devi riempire i tuoi nomi.</it>
+        <cnt>Devi riempire i tuoi nomi.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_notinevent</label>
-        <it>Per il gioco scommesse richiesto, non hai il permesso di vedere le informazioni</it>
+        <cnt>Per il gioco scommesse richiesto, non hai il permesso di vedere le informazioni</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register</label>
-        <it>Errore nei tuoi parametri. La registrazione non ha potuto essere effetuata.</it>
+        <cnt>Errore nei tuoi parametri. La registrazione non ha potuto essere effetuata.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_exists</label>
-        <it>Questo nome viene già utilizato.</it>
+        <cnt>Questo nome viene già utilizato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_register_save</label>
-        <it>Errore durante la registrazione! Prova a registrarti un altra volta!</it>
+        <cnt>Errore durante la registrazione! Prova a registrarti un altra volta!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_site</label>
-        <it>Questo sito non è disponibile per te!</it>
+        <cnt>Questo sito non è disponibile per te!</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_title</label>
-        <it>Errore</it>
+        <cnt>Errore</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_cup_phase</label>
-        <it>Conclusioni possibili delle partite durante la fase a coppa: &lt;b&gt;solamente&lt;/b&gt;</it>
+        <cnt>Conclusioni possibili delle partite durante la fase a coppa: &lt;b&gt;solamente&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_deadline_day_before</label>
-        <it>Il pronostico deve essere sempre dato (online) il giorno prima della partita fino ad &lt;b&gt;1 minuto prima di mezzanotte&lt;/b&gt;. Quando il giorno della partita è iniziato (00:00) non è piu possibile dare un pronostico.</it>
+        <cnt>Il pronostico deve essere sempre dato (online) il giorno prima della partita fino ad &lt;b&gt;1 minuto prima di mezzanotte&lt;/b&gt;. Quando il giorno della partita è iniziato (00:00) non è piu possibile dare un pronostico.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_deadline_toolate</label>
-        <it>Chi fa ritardo: cazzi sua! Non si puo fare piu niente!</it>
+        <cnt>Chi fa ritardo: cazzi sua! Non si puo fare piu niente!</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount</label>
-        <it>Conto finale</it>
+        <cnt>Conto finale</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_gainplusjp</label>
-        <it>La somma finale consiste dei soldi guadagnati durante la durata del gioco e della tua quota jackpot. NOTRANS</it>
+        <cnt>La somma finale consiste dei soldi guadagnati durante la durata del gioco e della tua quota jackpot. NOTRANS</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_nobodycorrect</label>
-        <it>Se il risultato esatto non è stato pronosticato da nessuno,</it>
+        <cnt>Se il risultato esatto non è stato pronosticato da nessuno,</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_correct</label>
-        <it>un pronostico giusto vale &lt;b&gt; $1 punto/i&lt;/b&gt;</it>
+        <cnt>un pronostico giusto vale &lt;b&gt; $1 punto/i&lt;/b&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_almost</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_correcttip</label>
-        <it>Se il risultato esatto è stato pronosticato, questo partecipante riceve tutte le puntate per questa partita. (= # partecipanti * $1)</it>
+        <cnt>Se il risultato esatto è stato pronosticato, questo partecipante riceve tutte le puntate per questa partita. (= # partecipanti * $1)</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_correcttips</label>
-        <it>Se piu partecipanti hanno pronosticato il risultato esatto, la somma delle puntate per questa partita saranno divise al meglio entro egli. Un eventuale resto andra a benificio del jackpot.</it>
+        <cnt>Se piu partecipanti hanno pronosticato il risultato esatto, la somma delle puntate per questa partita saranno divise al meglio entro egli. Un eventuale resto andra a benificio del jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_group_phase</label>
-        <it>Conclusioni possibili delle partite durante la fase a gruppi:</it>
+        <cnt>Conclusioni possibili delle partite durante la fase a gruppi:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot</label>
-        <it>Per la distribuzione del jackpot sono relevanti i punti. Piu punti uno fa piu grande è la sua quota jackpot.</it>
+        <cnt>Per la distribuzione del jackpot sono relevanti i punti. Piu punti uno fa piu grande è la sua quota jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_distributeon</label>
-        <it>La distribuzione del jackpot viene effetuata entro ai primi $1 della classifica.</it>
+        <cnt>La distribuzione del jackpot viene effetuata entro ai primi $1 della classifica.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_linformula</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_expformula</label>
-        <it>La distribuzione viene effetuata esponenzialmente. La formula è: &lt;b&gt;&lt;i&gt;&quot;Lot(Rang) = (1-k)^(Rang-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Ovviamente cosi rimane un piccolo resto. Per la distribuzione di quest'ultimo la formula viene applicata fino a quando non rimane piu nessun resto. &lt;b&gt;k&lt;/b&gt; è $1 per questo gioco. Di conseguenza il primo classificato ricevera un po di piu della somma del jackpot del secondo classificato.</it>
+        <cnt>La distribuzione viene effetuata esponenzialmente. La formula è: &lt;b&gt;&lt;i&gt;&quot;Lot(Rang) = (1-k)^(Rang-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Ovviamente cosi rimane un piccolo resto. Per la distribuzione di quest'ultimo la formula viene applicata fino a quando non rimane piu nessun resto. &lt;b&gt;k&lt;/b&gt; è $1 per questo gioco. Di conseguenza il primo classificato ricevera un po di piu della somma del jackpot del secondo classificato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_samerank</label>
-        <it>Se alla fine ci stanno partecipanti a pari punti, viene tirata la somma della loro partecipazione al jackpot e quindi divisa a parti uguali entro loro.</it>
+        <cnt>Se alla fine ci stanno partecipanti a pari punti, viene tirata la somma della loro partecipazione al jackpot e quindi divisa a parti uguali entro loro.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_overview</label>
-        <it>Per garantire la regolarita del gioco, tutti i pronostici sono visibili a tutti e i conti sono protetti da password.</it>
+        <cnt>Per garantire la regolarita del gioco, tutti i pronostici sono visibili a tutti e i conti sono protetti da password.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_penalty_decision</label>
-        <it>Per le partite che terminano ai rigori: la vittoria ai rigori conta come un gol fatto durante i tempi suplementari.</it>
+        <cnt>Per le partite che terminano ai rigori: la vittoria ai rigori conta come un gol fatto durante i tempi suplementari.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points</label>
-        <it>Durante il gioco scommesse ai partecipanti vengono distribuiti dei punti:</it>
+        <cnt>Durante il gioco scommesse ai partecipanti vengono distribuiti dei punti:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_precise_tip</label>
-        <it>Per ogni partita si deve scommetere su un risultato:</it>
+        <cnt>Per ogni partita si deve scommetere su un risultato:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_rules</label>
-        <it>Il modo come funziona il gioco scommesse, viene spiegato nei punti seguenti:</it>
+        <cnt>Il modo come funziona il gioco scommesse, viene spiegato nei punti seguenti:</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_sealofapproval</label>
-        <it>senza dimeticare: il sigillo di qualita piu bello al mondo</it>
+        <cnt>senza dimeticare: il sigillo di qualita piu bello al mondo</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stake</label>
-        <it>Puntata</it>
+        <cnt>Puntata</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <it>La puntata per ogni partita è di $1</it>
+        <cnt>La puntata per ogni partita è di $1</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <it>Si giocano $1 partite. Dunque la puntata totale è di $2! Questa somma è da versare sul conto finché si puo fare qualsiasi pronostici.</it>
+        <cnt>Si giocano $1 partite. Dunque la puntata totale è di $2! Questa somma è da versare sul conto finché si puo fare qualsiasi pronostici.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>
-        <it>contatto</it>
+        <cnt>contatto</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_server_time</label>
-        <it>Orario esatto del server</it>
+        <cnt>Orario esatto del server</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_and</label>
-        <it>e</it>
+        <cnt>e</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bank_account</label>
-        <it>Conto</it>
+        <cnt>Conto</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bettingOffice</label>
-        <it>Ufficio scommesse</it>
+        <cnt>Ufficio scommesse</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_by</label>
-        <it>di</it>
+        <cnt>di</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_cancel</label>
-        <it>annulare</it>
+        <cnt>annulare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_defeat</label>
-        <it>Sconfitta</it>
+        <cnt>Sconfitta</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_edit</label>
-        <it>modificare</it>
+        <cnt>modificare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_eg</label>
-        <it>per esempio</it>
+        <cnt>per esempio</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_famname</label>
-        <it>Cognome</it>
+        <cnt>Cognome</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_furtherevents</label>
-        <it>Ulteriori Giochi Scommesse</it>
+        <cnt>Ulteriori Giochi Scommesse</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_goback</label>
-        <it>indietro</it>
+        <cnt>indietro</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_goforward</label>
-        <it>avanti</it>
+        <cnt>avanti</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hello</label>
-        <it>Ciao</it>
+        <cnt>Ciao</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_id</label>
-        <it>id</it>
+        <cnt>id</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_langchange</label>
-        <it>Vuoi cambiare la lingua?</it>
+        <cnt>Vuoi cambiare la lingua?</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_language</label>
-        <it>Lingua:</it>
+        <cnt>Lingua:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_maximize</label>
-        <it>massimare</it>
+        <cnt>massimare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minimize</label>
-        <it>minimare</it>
+        <cnt>minimare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_name</label>
-        <it>Nome</it>
+        <cnt>Nome</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_no</label>
-        <it>No</it>
+        <cnt>No</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_nomatches</label>
-        <it>Non esistono ancora partite giocate per questo gioco scommesse.</it>
+        <cnt>Non esistono ancora partite giocate per questo gioco scommesse.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_page</label>
-        <it>Pagina:</it>
+        <cnt>Pagina:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_publicevents</label>
-        <it>Giochi Scommesse publici:</it>
+        <cnt>Giochi Scommesse publici:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_read</label>
-        <it>leggere</it>
+        <cnt>leggere</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_redirect</label>
-        <it>Sarai relegato immediatamente.</it>
+        <cnt>Sarai relegato immediatamente.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_save</label>
-        <it>salvare</it>
+        <cnt>salvare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savechanges</label>
-        <it>Salvare cambiamenti</it>
+        <cnt>Salvare cambiamenti</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savednotok</label>
-        <it>Errore durante il processo del salvataggio!</it>
+        <cnt>Errore durante il processo del salvataggio!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_savedok</label>
-        <it>Salvato con successo!</it>
+        <cnt>Salvato con successo!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_show_info</label>
-        <it>Vedi informazioni!</it>
+        <cnt>Vedi informazioni!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thislanguage</label>
-        <it>Italiano</it>
+        <cnt>Italiano</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tie</label>
-        <it>pareggio</it>
+        <cnt>pareggio</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_time_at</label>
-        <it>alle</it>
+        <cnt>alle</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_updating</label>
-        <it>Attualizza...</it>
+        <cnt>Attualizza...</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_upload</label>
-        <it>uploadare</it>
+        <cnt>uploadare</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_victory</label>
-        <it>Vittoria</it>
+        <cnt>Vittoria</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_who</label>
-        <it>Chi</it>
+        <cnt>Chi</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_yes</label>
-        <it>Si</it>
+        <cnt>Si</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_yourevents</label>
-        <it>I tuoi gioci scommessa</it>
+        <cnt>I tuoi gioci scommessa</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_content</label>
-        <it>Questo sito ti da la possibilita di scommettere su degli eventi sport. &lt;br /&gt; Per partecipare è necessario reggistrarsi: &lt;a href=&quot;?menu=register&quot;&gt;creare un conto&lt;/a&gt;. &lt;p&gt; Se gia sei registrato ti puoi &lt;a href=&quot;?menu=login&quot;&gt;iscrivere&lt;/a&gt;</it>
+        <cnt>Questo sito ti da la possibilita di scommettere su degli eventi sport. &lt;br /&gt; Per partecipare è necessario reggistrarsi: &lt;a href=&quot;?menu=register&quot;&gt;creare un conto&lt;/a&gt;. &lt;p&gt; Se gia sei registrato ti puoi &lt;a href=&quot;?menu=login&quot;&gt;iscrivere&lt;/a&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_events</label>
-        <it>Al momento sono attivi i giochi seguenti: </it>
+        <cnt>Al momento sono attivi i giochi seguenti: </cnt>
     </zock_lang>
     <zock_lang>
         <label>home_fun</label>
-        <it>Buon divertimento!</it>
+        <cnt>Buon divertimento!</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_noevents</label>
-        <it>Non sono attivi gioci sommessa publici al momento.</it>
+        <cnt>Non sono attivi gioci sommessa publici al momento.</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_title</label>
-        <it>Home</it>
+        <cnt>Home</cnt>
     </zock_lang>
     <zock_lang>
         <label>home_welcome</label>
-        <it>Benvenuto al ufficio scommesse!</it>
+        <cnt>Benvenuto al ufficio scommesse!</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_content</label>
-        <it>Metti le informazioni necessarie per annunciarti:</it>
+        <cnt>Metti le informazioni necessarie per annunciarti:</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_title</label>
-        <it>Annunciarsi</it>
+        <cnt>Annunciarsi</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_yourlogin</label>
-        <it>Il tuo Nome:</it>
+        <cnt>Il tuo Nome:</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_yourpw</label>
-        <it>Il tuo password:</it>
+        <cnt>Il tuo password:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_content</label>
-        <it>Ti sei annunciato con successo!</it>
+        <cnt>Ti sei annunciato con successo!</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_newcomments</label>
-        <it>Questi sono gli ultimi commenti:</it>
+        <cnt>Questi sono gli ultimi commenti:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_noevent</label>
-        <it>Non partecipi ancora ad alcun gioco scommesse. Nel &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;tuo profilo&lt;/a&gt; ti puoi annunciare per gli eventi e puoi modificare tutte le impostazioni. Altrimenti non ci stanno ancora tanti altri servizi a tua disposizione.</it>
+        <cnt>Non partecipi ancora ad alcun gioco scommesse. Nel &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;tuo profilo&lt;/a&gt; ti puoi annunciare per gli eventi e puoi modificare tutte le impostazioni. Altrimenti non ci stanno ancora tanti altri servizi a tua disposizione.</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_title</label>
-        <it>Home</it>
+        <cnt>Home</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_yourevent</label>
-        <it>Partecipi al gioco scommesse seguente:</it>
+        <cnt>Partecipi al gioco scommesse seguente:</cnt>
     </zock_lang>
     <zock_lang>
         <label>loginhome_yourevents</label>
-        <it>Partecipi ai gioci scommesse seguenti:</it>
+        <cnt>Partecipi ai gioci scommesse seguenti:</cnt>
     </zock_lang>
     <zock_lang>
         <label>logout_content</label>
-        <it>Adesso non sei piu collegato e sarai relegato.</it>
+        <cnt>Adesso non sei piu collegato e sarai relegato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>logout_title</label>
-        <it>Scollegarsi</it>
+        <cnt>Scollegarsi</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_nopicture</label>
-        <it>Nessuna immagine disponibile</it>
+        <cnt>Nessuna immagine disponibile</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_picture</label>
-        <it>Immagine:</it>
+        <cnt>Immagine:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_text</label>
-        <it>Testo:</it>
+        <cnt>Testo:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_appearance_title</label>
-        <it>Personalita</it>
+        <cnt>Personalita</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_content</label>
-        <it>In questa sezione puoi definire il tuo aspetto per gli altri e il tuo aspetto personale del ufficio scommesse, come cambiare il tuo password. &lt;p/&gt; Per andare a tutte le impostazioni del tuo profilo puoi usare i submenu.</it>
+        <cnt>In questa sezione puoi definire il tuo aspetto per gli altri e il tuo aspetto personale del ufficio scommesse, come cambiare il tuo password. &lt;p/&gt; Per andare a tutte le impostazioni del tuo profilo puoi usare i submenu.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_content</label>
-        <it>Inserisci una volta il vecchio password e due volte il password desiderato per cambiare password.</it>
+        <cnt>Inserisci una volta il vecchio password e due volte il password desiderato per cambiare password.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_new</label>
-        <it>Password nuovo:</it>
+        <cnt>Password nuovo:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_old</label>
-        <it>Password vecchio:</it>
+        <cnt>Password vecchio:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_password_title</label>
-        <it>Password</it>
+        <cnt>Password</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_approved</label>
-        <it>accetato:</it>
+        <cnt>accetato:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_changeemail</label>
-        <it>Per cambiare eMail devi inserirlo due volte:</it>
+        <cnt>Per cambiare eMail devi inserirlo due volte:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_content</label>
-        <it>Qui tra l'altro ti puoi annunciare a dei gioci scommesse.&lt;br/&gt; Ti puoi annunciare ancora ai gioci scommesse &quot;aperti&quot;, a quelli &quot;in attesa&quot; devi aspettare che l'amministratore ti acceti, &quot;accetato&quot; &amp; &quot;rifiutato&quot; significa che sei stato accetato definitivamente o che non puoi parteciparci.</it>
+        <cnt>Qui tra l'altro ti puoi annunciare a dei gioci scommesse.&lt;br/&gt; Ti puoi annunciare ancora ai gioci scommesse &quot;aperti&quot;, a quelli &quot;in attesa&quot; devi aspettare che l'amministratore ti acceti, &quot;accetato&quot; &amp; &quot;rifiutato&quot; significa che sei stato accetato definitivamente o che non puoi parteciparci.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_denied</label>
-        <it>rifiutato:</it>
+        <cnt>rifiutato:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_email_notify</label>
-        <it>Se hai fatto questo puoi scrivere un eMail a $1 per informare l'amministratore</it>
+        <cnt>Se hai fatto questo puoi scrivere un eMail a $1 per informare l'amministratore</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_eventinfo</label>
-        <it>Questo evento a $1 partite. A partita si punta $2. Percio si deve puntare $3 per partecipare a questo gioco scommesse. Per essere accettato al gioco scommesse si deve versare la rispettiva somma.</it>
+        <cnt>Questo evento a $1 partite. A partita si punta $2. Percio si deve puntare $3 per partecipare a questo gioco scommesse. Per essere accettato al gioco scommesse si deve versare la rispettiva somma.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_open</label>
-        <it>aperto:</it>
+        <cnt>aperto:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_participate</label>
-        <it>partecipare</it>
+        <cnt>partecipare</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_retire</label>
-        <it>ritirare</it>
+        <cnt>ritirare</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_staketopay</label>
-        <it>pagare la puntata</it>
+        <cnt>pagare la puntata</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_title</label>
-        <it>Parametri</it>
+        <cnt>Parametri</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_waiting</label>
-        <it>in attesa:</it>
+        <cnt>in attesa:</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_wiringcomment</label>
-        <it>Come &lt;b&gt;commento di partecipazione&lt;/b&gt; devi scrivere::&lt;br/&gt; &lt;i&gt;$1: $2 partecipa!&lt;/i&gt;</it>
+        <cnt>Come &lt;b&gt;commento di partecipazione&lt;/b&gt; devi scrivere::&lt;br/&gt; &lt;i&gt;$1: $2 partecipa!&lt;/i&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_title</label>
-        <it>Profilo</it>
+        <cnt>Profilo</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_participatefirst</label>
-        <it>Per puntare devi partecipare prima a un gioco scommesse. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Annunciati&lt;/a&gt; o &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;aspetta&lt;/a&gt; fino a quando sarai accettato dall'amministratore, se ti sei gia annunciato.</it>
+        <cnt>Per puntare devi partecipare prima a un gioco scommesse. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Annunciati&lt;/a&gt; o &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;aspetta&lt;/a&gt; fino a quando sarai accettato dall'amministratore, se ti sei gia annunciato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_sametip</label>
-        <it>Pronsotici&lt;br/&gt;uguali</it>
+        <cnt>Pronsotici&lt;br/&gt;uguali</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tendency</label>
-        <it>Tendenza (%)</it>
+        <cnt>Tendenza (%)</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tip</label>
-        <it>Pronostico</it>
+        <cnt>Pronostico</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_tips</label>
-        <it>Pronostici</it>
+        <cnt>Pronostici</cnt>
     </zock_lang>
     <zock_lang>
         <label>mytips_title</label>
-        <it>I miei pronostici</it>
+        <cnt>I miei pronostici</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_content</label>
-        <it>Il sommario serve per vedere le informazzioni piu importanti. Quale sono i pronostici degli altri? Chi è particolarmente bravo? &lt;br/&gt;Il riassunto permette di vedere soldi &amp; punti guadagnati del rispettivo utente. &lt;br/&gt;Per fare piu posto per le informazzioni è possibile minimizzare il menu alla destra.</it>
+        <cnt>Il sommario serve per vedere le informazzioni piu importanti. Quale sono i pronostici degli altri? Chi è particolarmente bravo? &lt;br/&gt;Il riassunto permette di vedere soldi &amp; punti guadagnati del rispettivo utente. &lt;br/&gt;Per fare piu posto per le informazzioni è possibile minimizzare il menu alla destra.</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_jackpot</label>
-        <it>Jackpot</it>
+        <cnt>Jackpot</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_noevents</label>
-        <it>Purtroppo non ci stanno ancora gioci scommesse da visualizzare</it>
+        <cnt>Purtroppo non ci stanno ancora gioci scommesse da visualizzare</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_onlyme</label>
-        <it>solo io</it>
+        <cnt>solo io</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_summary</label>
-        <it>Riassunto:</it>
+        <cnt>Riassunto:</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_correcttips</label>
-        <it>Corretti</it>
+        <cnt>Corretti</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_summaryall</label>
-        <it>Classifica finale:</it>
+        <cnt>Classifica finale:</cnt>
     </zock_lang>
     <zock_lang>
         <label>overview_title</label>
-        <it>Sommario</it>
+        <cnt>Sommario</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_content</label>
-        <it>Scopri chi sono i tuoi avversari</it>
+        <cnt>Scopri chi sono i tuoi avversari</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_noevents</label>
-        <it>Non ci sono ancora eventi con partecipanti.</it>
+        <cnt>Non ci sono ancora eventi con partecipanti.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_nousers</label>
-        <it>Questo gioco scommesse non ha ancora partecipanti.</it>
+        <cnt>Questo gioco scommesse non ha ancora partecipanti.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_title</label>
-        <it>Partecipanti</it>
+        <cnt>Partecipanti</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_gain</label>
-        <it>Guadagno</it>
+        <cnt>Guadagno</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_jackpotshare</label>
-        <it>Quota Jackpot</it>
+        <cnt>Quota Jackpot</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_points</label>
-        <it>Punti</it>
+        <cnt>Punti</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_provisorygain</label>
-        <it>Guadagno prov.</it>
+        <cnt>Guadagno prov.</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_rank</label>
-        <it>Posto</it>
+        <cnt>Posto</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_title</label>
-        <it>Classifica</it>
+        <cnt>Classifica</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_content</label>
-        <it>Per partecipare a un gioco scommesse devi prima creare un utente col quale ti puoi annunciare. Dopodiché puoi partecipare agli eventi.</it>
+        <cnt>Per partecipare a un gioco scommesse devi prima creare un utente col quale ti puoi annunciare. Dopodiché puoi partecipare agli eventi.</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_email</label>
-        <it>Email</it>
+        <cnt>Email</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_emailsubject</label>
-        <it>Registrazione all'ufficio scommesse</it>
+        <cnt>Registrazione all'ufficio scommesse</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_ok</label>
-        <it>Sei stato registrato con successo. Un eMail con un password è stato inviato al tuo indirizzo. Forse si impiccia nel filtro spam, perciò qui l'eMail: </it>
+        <cnt>Sei stato registrato con successo. Un eMail con un password è stato inviato al tuo indirizzo. Forse si impiccia nel filtro spam, perciò qui l'eMail: </cnt>
     </zock_lang>
     <zock_lang>
         <label>register_title</label>
-        <it>Registrarsi</it>
+        <cnt>Registrarsi</cnt>
     </zock_lang>
     <zock_lang>
         <label>register_username</label>
-        <it>Nome utente:</it>
+        <cnt>Nome utente:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_normalview</label>
-        <it>Veduta Normale</it>
+        <cnt>Veduta Normale</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_largeview</label>
-        <it>Veduta Larga</it>
+        <cnt>Veduta Larga</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_monday</label>
-        <it>Lunedi</it>
+        <cnt>Lunedi</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tuesday</label>
-        <it>Martedì</it>
+        <cnt>Martedì</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_wednesday</label>
-        <it>Mercoledì</it>
+        <cnt>Mercoledì</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_friday</label>
-        <it>Venerdì</it>
+        <cnt>Venerdì</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thursday</label>
-        <it>Giovedì</it>
+        <cnt>Giovedì</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_saturday</label>
-        <it>Sabato</it>
+        <cnt>Sabato</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_sunday</label>
-        <it>Domenica</it>
+        <cnt>Domenica</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_write</label>
-        <it>scrivere</it>
+        <cnt>scrivere</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_nexttips</label>
-        <it>Le prossime scommesse:</it>
+        <cnt>Le prossime scommesse:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_bettinggameover</label>
-        <it>Questo gioco scommesse è terminato.</it>
+        <cnt>Questo gioco scommesse è terminato.</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_correcttips</label>
-        <it>Pronostici corretti</it>
+        <cnt>Pronostici corretti</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_closetips</label>
-        <it>Pronostici casi corretti</it>
+        <cnt>Pronostici casi corretti</cnt>
     </zock_lang>
     <zock_lang>
         <label>participants_wrongtips</label>
-        <it>Pronostici falsi</it>
+        <cnt>Pronostici falsi</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_rememberme</label>
-        <it>Ricordami su questo computer</it>
+        <cnt>Ricordami su questo computer</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_tojackpot</label>
-        <it>tutte le puntate per questa partita vanno a benificio del jackpot.</it>
+        <cnt>tutte le puntate per questa partita vanno a benificio del jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_almosttips</label>
-        <it>Casi</it>
+        <cnt>Casi</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_wrongtips</label>
-        <it>Falsi</it>
+        <cnt>Falsi</cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_waitfortips</label>
-        <it>Le prossime scommesse sono ancora non pubblice.</it>
+        <cnt>Le prossime scommesse sono ancora non pubblice.</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_correct</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_diff</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_almost</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_wrong</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stake_fix</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_none</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_fix</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_stakemode_permatch</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_bank_account_intro</label>
-        <it>Dichiara dove il guadagno deve essere versato alla fine del gioco scommesse </it>
+        <cnt>Dichiara dove il guadagno deve essere versato alla fine del gioco scommesse </cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_participatereally</label>
-        <it>Davvero vuoi partecipare a questo gioco scommesse?</it>
+        <cnt>Davvero vuoi partecipare a questo gioco scommesse?</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_profilesettings</label>
-        <it>Parametri di profilo</it>
+        <cnt>Parametri di profilo</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_persdetails</label>
-        <it>Dettagli personale</it>
+        <cnt>Dettagli personale</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_withdrawreally</label>
-        <it>Davvero no vuoli partecipare?</it>
+        <cnt>Davvero no vuoli partecipare?</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_title</label>
-        <it>Avvisi</it>
+        <cnt>Avvisi</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_send</label>
-        <it>inviare</it>
+        <cnt>inviare</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_internal</label>
-        <it>Interno</it>
+        <cnt>Interno</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_receivers</label>
-        <it>Ricevitore</it>
+        <cnt>Ricevitore</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_none</label>
-        <it>non uno</it>
+        <cnt>non uno</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_add</label>
-        <it>aggiungere</it>
+        <cnt>aggiungere</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_singleusers</label>
-        <it>Utenti singolari</it>
+        <cnt>Utenti singolari</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_newmessage</label>
-        <it>Questo è un nuovo avviso di $1, inviato $2 $3:</it>
+        <cnt>Questo è un nuovo avviso di $1, inviato $2 $3:</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_readparticipe</label>
-        <it>letto!</it>
+        <cnt>letto!</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_content</label>
-        <it>Contenudo</it>
+        <cnt>Contenudo</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_system</label>
-        <it>Piattaforma di spedizione</it>
+        <cnt>Piattaforma di spedizione</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_notitle</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_nocontent</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_messages_noreceivers</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_preferredlanguage</label>
-        <it>Scegli tua lingua preferita per il sito.</it>
+        <cnt>Scegli tua lingua preferita per il sito.</cnt>
     </zock_lang>
     <zock_lang>
         <label>myprofile_settings_commentnumber</label>
-        <it>chi sono mostrati nel il &lt;i&gt;$1&lt;/i&gt;</it>
+        <cnt>chi sono mostrati nel il &lt;i&gt;$1&lt;/i&gt;</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_bank_account_text3</label>
-        <it>..e il terzo spazio è per il &lt;br&gt;&quot;detentore del conto&quot;&lt;/br&gt; (indirizzo).</it>
+        <cnt>..e il terzo spazio è per il &lt;br&gt;&quot;detentore del conto&quot;&lt;/br&gt; (indirizzo).</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stake</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_matchnb</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_jackpotmode_fraction</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpotexp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpot_fraction</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_jackpot_fix</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_distr</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_distralgorithm</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_distr_lin</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_settings_distr_exp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_firstjackpotfixfield</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_fixshares</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_expshares</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_beton</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betonexp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_toto</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_pointdistr_toto</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_komatchesexp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>general_only</label>
-        <it>solo</it>
+        <cnt>solo</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_tietough</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty_addall</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_afterpenalty_addone</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_gain_stakeback</label>
-        <it>tutti quelli che hanno pronosticato la conclusione giusta della partita ($1/$2/$3) ricevono la loro puntata ($4). Il resto delle puntate vanno a benificio del jackpot.</it>
+        <cnt>tutti quelli che hanno pronosticato la conclusione giusta della partita ($1/$2/$3) ricevono la loro puntata ($4). Il resto delle puntate vanno a benificio del jackpot.</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_team</label>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_nostake</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_fixstake</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_totalgain</label>
-        <it>Guadagno total</it>
+        <cnt>Guadagno total</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_1</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_2</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_beton_toto_x</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_matches_both_types</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_inallmatches</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_in_matches</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tournamentmatches</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_komatches</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_allpossible</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tieno</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_tietough</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties_one</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_afterpenalties_all</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minute</label>
-        <it>minuto</it>
+        <cnt>minuto</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minutes</label>
-        <it>minuti</it>
+        <cnt>minuti</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_minute_s</label>
-        <it>minuto/i</it>
+        <cnt>minuto/i</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hour</label>
-        <it>ora</it>
+        <cnt>ora</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hours</label>
-        <it>ore</it>
+        <cnt>ore</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_hour_s</label>
-        <it>ora/e</it>
+        <cnt>ora/e</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_day</label>
-        <it>giorno</it>
+        <cnt>giorno</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_days</label>
-        <it>giorni</it>
+        <cnt>giorni</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_day_s</label>
-        <it>giorno/i</it>
+        <cnt>giorno/i</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_bet_until</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_thefirstmatch</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_match</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_diff</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_points_wrong</label>
-        <it>un pronostico totalmente errato vale &lt;b&gt;$3 punto/i&lt;/b&gt;.</it>
+        <cnt>un pronostico totalmente errato vale &lt;b&gt;$3 punto/i&lt;/b&gt;.</cnt>
     </zock_lang>
     <zock_lang>
         <label>login_forgotpassword</label>
@@ -1478,11 +1478,11 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>general_filter</label>
-        <it>filtro</it>
+        <cnt>filtro</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_filterverb</label>
-        <it>filtrare</it>
+        <cnt>filtrare</cnt>
     </zock_lang>
     <zock_lang>
         <label>error_filter_emptyresults</label>
@@ -1495,214 +1495,214 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>general_monday_short</label>
-        <it>Lun</it>
+        <cnt>Lun</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_tuesday_short</label>
-        <it>Mar</it>
+        <cnt>Mar</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_wednesday_short</label>
-        <it>Mer</it>
+        <cnt>Mer</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_thursday_short</label>
-        <it>Gio</it>
+        <cnt>Gio</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_friday_short</label>
-        <it>Ven</it>
+        <cnt>Ven</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_saturday_short</label>
-        <it>Sab</it>
+        <cnt>Sab</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_sunday_short</label>
-        <it>Dom</it>
+        <cnt>Dom</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_arrangematchdays</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_showingxoutofx</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>ranking_showrankinguntil</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>general_match</label>
-        <it>Partita</it>
+        <cnt>Partita</cnt>
     </zock_lang>
     <zock_lang>
         <label>general_date</label>
-        <it>Data</it>
+        <cnt>Data</cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stakeback</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_stakebacknotpossible</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betuntil</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_betuntilexp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>general_before</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_bettinggameinitiation</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nextstep</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_nextstepdialog</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_displayinfo</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_jp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_floored</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_jackpot_fixformula</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_name</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_date</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_matchnb</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_stake</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_currency</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_round</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_fraction</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_jackpotfix</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_jackpotfixshares</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_expshare</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_betuntil</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pcorrect</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pdiff</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_palmost</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_err_invalid_pwrong</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_createevent</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_createtemplate</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_modeselection</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_scheduleactivation</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_fromphase3</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_phase3text</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_komatch</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_showeventlist</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_inputtypeexp</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>error_incorrectmatchnb</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_events_existantmatchesremoved</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_finalaccount_points</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_langlist</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
     <zock_lang>
         <label>admin_settings_installlang</label>
-        <it></it>
+        <cnt></cnt>
     </zock_lang>
 </zock>
