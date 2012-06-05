@@ -558,7 +558,9 @@ function phpManageUser($user, $what, $event){
     }elseif($what == 'nre') {
         $reimbursed = str_replace($user.':', '', $reimbursed);
     }
-	return "UPDATE ".PFIX."_events SET users_approved = '$approved', users_waiting = '$waiting', users_denied = '$denied', users_paid = '$paid',  WHERE id = '$event';";
+
+	$query =  "UPDATE ".PFIX."_events SET users_approved = '$approved', users_waiting = '$waiting', users_denied = '$denied', users_paid = '$paid' WHERE id = '$event';";
+    return $query;
 }
 
 

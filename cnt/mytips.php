@@ -207,6 +207,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                     echo $bet->getQuestion();
                     continue;
                 }
+                $sameBet = $bet->getSameBets($userbet);
+                $tendency = $bet->getTendancy();
+                $matchday = $bet->getMatchday();
 
                 $userbet = '';
 				if (isset($wrongs)){
@@ -241,12 +244,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				}
 				
 				// same tips?
-                $sameBet = $bet->getSameBets($userbet);
-
-                $tendency = $bet->getTendancy();
 
                 $matchtime = $bet->getTime();
-                $matchday = $bet->getMatchday();
                 $home = $bet->getHome();
                 $visitor = $bet->getVisitor();
 
@@ -256,14 +255,14 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 	
 				//the form can continue here
-				echo '<tr>
+				$MATCHESSTRING .= '<tr>
 					<td class="input">'.weekday($matchtime,1).', '.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
 					<td class="input">'.$matchday.'</td>
 					<td class="input">'.$home.'</td>
 					<td class="input">'.$visitor.'</td>
 					<td class="input">'.$result.'</td>';
 					if($evdat['bet_on']=='results'){
-						echo '<td class="input"><nobr><input id="h_'.$m['id'].'" 
+						$MATCHESSTRING .= '<td class="input"><nobr><input id="h_'.$m['id'].'" 
 									'.$ro.'
 									name="score_h_'.$bet->getId().'"
 									size="2" value="'.$score_h.'"> : '
@@ -273,33 +272,34 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 									size="2" value="'.$score_v.'"></nobr></td>';
 					}elseif($evdat['bet_on']=='toto'){
 						if($robool=='true'){
-							echo '<td class="input" colspan="'.$colspan.'">'.$toto.'</td>';
+							$MATCHESSTRING .= '<td class="input" colspan="'.$colspan.'">'.$toto.'</td>';
 						}else{
-							echo '<td class="input">';
-								echo '<input class="'.$disabled.'" type="radio" value="1" '.$checked['1'].' name="toto_'.$bet->getId().'">';
-							echo '</td>';
+							$MATCHESSTRING .= '<td class="input">';
+								$MATCHESSTRING .= '<input class="'.$disabled.'" type="radio" value="1" '.$checked['1'].' name="toto_'.$bet->getId().'">';
+							$MATCHESSTRING .= '</td>';
 							if(!($evdat['ko_matches']=='only' && $evdat['enable_tie']=='no')){
-								echo '<td class="input">';
+								$MATCHESSTRING .= '<td class="input">';
 									if($m['komatch'] && $evdat['enable_tie']!='yes')
-										echo '--';
+										$MATCHESSTRING .= '--';
 									else
-										echo '<input class="'.$disabled.'" type="radio" value="3" '.$checked['3'].' name="toto_'.$bet->getId().'">';
-								echo '</td>';
+										$MATCHESSTRING .= '<input class="'.$disabled.'" type="radio" value="3" '.$checked['3'].' name="toto_'.$bet->getId().'">';
+								$MATCHESSTRING .= '</td>';
 							}
-							echo '<td class="input">';
-								echo '<input class="'.$disabled.'" type="radio" value="2" '.$checked['2'].' name="toto_'.$bet->getId().'">';
-							echo '</td>';
+							$MATCHESSTRING .= '<td class="input">';
+								$MATCHESSTRING .= '<input class="'.$disabled.'" type="radio" value="2" '.$checked['2'].' name="toto_'.$bet->getId().'">';
+							$MATCHESSTRING .= '</td>';
 						}
 					}
-					echo '<td class="input">'.$sameBet.'</td>
+					$MATCHESSTRING .= '<td class="input">'.$sameBet.'</td>
 					<td class="input">'.$tendency.'</td>
 					</tr>';
-				echo '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
-				echo '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
+				$MATCHESSTRING .= '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
+				$MATCHESSTRING .= '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
 				unset($checked);
 			}
 		}
 
+        echo $MATCHESSTRING;
 
 		echo '<input name="query" type="hidden" value="'.$link_query.'">';
 		echo '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';

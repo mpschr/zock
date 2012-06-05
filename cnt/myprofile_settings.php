@@ -73,7 +73,8 @@ if(isset($_REQUEST['ac']) && isset($_POST)){
 			if($data['hiddenfield_'.$events['u'][$x]] == 1){
 				//go wait 
 				//echo 'trying to make: '.phpManageUser($_SESSION['userid'], 'w', $events['u'][$x]);
-				$db->query(phpManageUser($_SESSION['userid'], 'w', $events['u'][$x]));
+                $query=phpManageUser($_SESSION['userid'], 'w', $events['u'][$x]);
+				$db->query($query);
 				$txt = substitute($lang['myprofile_settings_notifyparticipatetxt'],
 						Array($mysettings['login'],
 						$events['u']['e'.$events['u'][$x]]['name']));
