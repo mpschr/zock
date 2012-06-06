@@ -121,6 +121,10 @@ $site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : 'home';
 
 }
 
+$xajax_compliant = array('mytips');
+//include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
+
+
 //the following function goes to error page, if a menu's not tought for the one demanding
 if (!(menuAllowance($site, $_REUQUEST['submenu']))){
     $site = 'error';
@@ -129,10 +133,32 @@ if (!(menuAllowance($site, $_REUQUEST['submenu']))){
 	siteConstructor('footer');
 }else{
 	//build the acutal site with this weird siteConstructor (is in fact just a forwarder)
-	$header = siteConstructor('header', $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
-    echo $header;
-	siteConstructor('body', $site.'.php', 'horizontal');
-    if (isset($body)) echo $body;
+
+    if (in_array($site,$xajax_compliant)) {
+
+        include_once('src/opensource/xajax/xajax_core/xajax.inc.php');
+        $xajax = new xajax();
+        $xajax->configure('javascript URI','src/opensource/xajax/');
+
+        $body = siteConstructor('body', $site.'.php', 'horizontal', '', $xajax);
+        $header = siteConstructor('header',
+            $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title'],
+            '',
+            '',
+            $xajax);
+
+        echo $header.$body;
+
+    } else {
+
+        $header = siteConstructor('header',
+                                    $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
+        echo $header;
+        siteConstructor('body', $site.'.php', 'horizontal','noxajax');
+        if (isset($body)) echo $body;
+
+    }
 	siteConstructor('footer');
 }
+
 ?>

@@ -129,7 +129,7 @@ class BetsContainer {
 
             $betsQuery = " SELECT *
             FROM ".PFIX."_qa_bets
-            WHERE `question_id`  = ".$q->getId();
+            WHERE `question_id`  = ".$q->getDbId();
             $betsOutput = $db->query($betsQuery);
             foreach ($betsOutput as $bo) {
                 $q->setBet($bo['user_id'],$bo['answer']);

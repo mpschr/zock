@@ -149,10 +149,11 @@ function loadSettings($user=0){
 	return $setting;
 }
 
-function siteConstructor($action, $title_or_site=NULL, $desc_or_menu=NULL, $keys=NULL){
+function siteConstructor($action, $title_or_site=NULL, $desc_or_menu=NULL, $keys=NULL, $xajax=NULL){
 	//creates the site from top to bottom...a forwarder function
 	global $lang;
-	switch($action){
+    $noxajax= ($xajax==null) ? true : false;
+    switch($action){
 		case 'header':
 			$title = $title_or_site;
 			$desc = $desc_or_menu;
@@ -163,8 +164,8 @@ function siteConstructor($action, $title_or_site=NULL, $desc_or_menu=NULL, $keys
 			$site = $title_or_site;
 			$menu = $desc_or_menu;
 			include_once('src/body.php');
-			break;
-		case 'footer':
+            return getBody();
+        case 'footer':
 			include_once('src/footer.php');
 			break;
 	}
@@ -417,37 +418,40 @@ function createHorizontalMenu($submenu=NULL){
 	$admin = isAdmin();
 
     $hasButtonImages = (strlen($style['btn_format'])>0);
-	//creat the main Horizontal menu
+    $menuHTML = '';
+
+    //creat the main Horizontal menu
 	if($submenu==NULL){
+
 
 		//add the admin button for the admin
 		if ($admin){
 			$linktype = ($_REQUEST['menu'] == 'admin') ? 'menulinksel' : 'menulink';
-			echo '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">';
-				echo $hasButtonImages ?  '<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>' :
+			$menuHTML .=  '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">';
+				$menuHTML .=  $hasButtonImages ?  '<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>' :
                                         '<span>'.$lang['admin_title'].'</span>';
-				echo '</a>';
+				$menuHTML .=  '</a>';
 		}
 		//normal menu (@ page entry)
 		if (!($logged)){
 			foreach($menus['normal'] as $nm){
 				$linktype = 'menulink';
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
-					echo $hasButtonImages ?' <img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
+				$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
+					$menuHTML .=  $hasButtonImages ?' <img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
                                             '<span>'.$lang[$nm.'_title'].'</span>';
 
-					echo '</a>';
+					$menuHTML .=  '</a>';
 			}
 		//the logged user menu
 		}else{
 			foreach($menus['logged'] as $nm){
 				$linktype = 'menulink';
 				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
-					echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
+				$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
+					$menuHTML .=  $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
                                             '<span>'.$lang[$nm.'_title'].'</span>';
-					echo '</a>';
+					$menuHTML .=  '</a>';
 			}
 		}
 	//make the submenu line
@@ -455,42 +459,44 @@ function createHorizontalMenu($submenu=NULL){
 		foreach($menus[$submenu] as $nm){
 			$linktype = 'menulink';
 			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';
-			echo '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
-				echo $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
+			$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
+				$menuHTML .=  $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
                                             '<span>'.$lang[$submenu.'_'.$nm.'_title'].'</span>';
-					echo '</a>';
+					$menuHTML .=  '</a>';
 		}
 	}
+    return $menuHTML;
 }
 
 function createVerticalMenu($vmenu=NULL, $option=NULL){
 	//the content of this menu is quite variable
 	$menus = menus();
-	global $lang, $link, $link_query, $ssm, $events;
+    $menuHTML = '';
+    global $lang, $link, $link_query, $ssm, $events;
 	if ($vmenu != NULL){
-		echo '<div id="menu_v">';
+		$menuHTML .=  '<div id="menu_v">';
 		foreach($menus[$vmenu] as $vm){
 			// the $link has already a ssmenu in it.. so we have to replace it for creating links
 			$sslink = preg_replace('/ssubmenu='.$ssm.'/', 'ssubmenu='.$vm, $link.$link_query);
-			echo '-<a class="vmenulink" href="'.$sslink.'">'.$lang['admin_'.$vmenu.'_'.$vm.'_title'].'</a>';
-			echo '<br>';
+			$menuHTML .=  '-<a class="vmenulink" href="'.$sslink.'">'.$lang['admin_'.$vmenu.'_'.$vm.'_title'].'</a>';
+			$menuHTML .=  '<br>';
 		}
-		echo '</div>';
+		$menuHTML .=  '</div>';
 	}
 	//ueventlist lists events where user is registered to
 	//peventlist lists events which are set public (minus userevents)
 	elseif (preg_match("(ueventlist|peventlist)", $option )){
 		$possibleEventsArray = LoadUserEvents();
-		echo '<div id="menu_v">';
+		$menuHTML .=  '<div id="menu_v">';
 		if(isset($_SESSION['userid'])){
 			$possibleEvents = explode(':', $possibleEventsArray['approved']);
 			array_pop($possibleEvents);
 		
-			if(UserEventNumber() > 0) echo $lang['general_yourevents'].'<br />';
+			if(UserEventNumber() > 0) $menuHTML .=  $lang['general_yourevents'].'<br />';
 			foreach($possibleEvents as $e){
 				$eventlink = $link.'ev='.$e;
-				echo '-<a class="vmenulink" href="'.$eventlink.'">'.$events['u']['e'.$e]['name'].'</a>';
-				echo '<br>';
+				$menuHTML .=  '-<a class="vmenulink" href="'.$eventlink.'">'.$events['u']['e'.$e]['name'].'</a>';
+				$menuHTML .=  '<br>';
 				$taken[] = $e;
 			}
 		}
@@ -503,29 +509,30 @@ function createVerticalMenu($vmenu=NULL, $option=NULL){
 				}
 
 			if($possibleEvents != NULL){	
-				echo (UserEventNumber > 0) ? $lang['general_furtherevents'] : $lang['general_publicevents'];
-				echo '<br />';
+				$menuHTML .=  (UserEventNumber > 0) ? $lang['general_furtherevents'] : $lang['general_publicevents'];
+				$menuHTML .=  '<br />';
 				foreach($possibleEvents as $e){
 					$eventlink = $link.'ev='.$e;
-					echo '-<a class="vmenulink" href="'.$eventlink.'">'.$events['p']['e'.$e]['name'].'</a>';
-					echo '<br>';
+					$menuHTML .=  '-<a class="vmenulink" href="'.$eventlink.'">'.$events['p']['e'.$e]['name'].'</a>';
+					$menuHTML .=  '<br>';
 				}
 			}
 		}	
-		echo '</div>';
+		$menuHTML .=  '</div>';
 	}
 
 	//the following 2 div's serve for mini-/maximizing the v_menu (both are necessary);
 	elseif($option == 'mmclose'){
-		echo '<div id="menu_v_mmc" class="menu_v_mm">';
-			echo '<a class="vmenulink" href="javascript: menuMM()" title="'.$lang['general_minimize'].'">></a>';
-		echo '</div>';
+		$menuHTML .=  '<div id="menu_v_mmc" class="menu_v_mm">';
+			$menuHTML .=  '<a class="vmenulink" href="javascript: menuMM()" title="'.$lang['general_minimize'].'">></a>';
+		$menuHTML .=  '</div>';
 	}
 	elseif($option == 'mmopen'){
-		echo '<div id="menu_v_mmo" class="menu_v_mm">';
-			echo '<a class="vmenulink" href="javascript: menuMM()" title="'.$lang['general_maximize'].'"><</a>';
-		echo '</div>';
+		$menuHTML .=  '<div id="menu_v_mmo" class="menu_v_mm">';
+			$menuHTML .=  '<a class="vmenulink" href="javascript: menuMM()" title="'.$lang['general_maximize'].'"><</a>';
+		$menuHTML .=  '</div>';
 	}
+    return $menuHTML;
 }
 
 
@@ -821,13 +828,13 @@ function substitute($string,$subarray){
 function styleLogo(){
 	global $style, $settings;
 	if (isset($style['logo']))
-		echo '<div id="style_logo"><a href="'.$settings['site_url'].'"><img src="src/style_'.$settings['style'].'/img/'.$style['logo'].'" /></a></div>';
+		return '<div id="style_logo"><a href="'.$settings['site_url'].'"><img src="src/style_'.$settings['style'].'/img/'.$style['logo'].'" /></a></div>';
 }
 
 function styleComment(){
 	global $style;
 	if ($style['comment'])
-		echo '<div id="style_comment">'.$style['comment'].'</div>';
+		return '<div id="style_comment">'.$style['comment'].'</div>';
 }
 
 /**

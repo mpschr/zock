@@ -205,7 +205,7 @@ class Match implements Bet{
      */
     public function getId()
     {
-        return $this->id;
+        return 'm'.$this->id;
     }
 
     /**
@@ -356,7 +356,7 @@ class Match implements Bet{
     /**
      * @return string
      */
-    public function getTendancy()
+    public function getTendency()
     {
           $toto0 = 0;
           $toto1 = 0;
@@ -477,5 +477,48 @@ class Match implements Bet{
                 $remainingString .= ' '.$rmins.$min;
         }
         return $remainingString;
+    }
+
+
+public function getRemainingTimeSpecial()
+    {
+        global $cont;
+        $day = 'd';
+        $sec_day = 24*60*60;
+        $hour = 'h';
+        $sec_hour = 60*60;
+        $min = 'm';
+        $sec_min = 60;
+
+        $show_mins = true;
+
+
+        $now = time();
+        $betuntil = $this->getDueDate();
+        $remaining = $betuntil - $now;
+        if ($remaining < 0)
+            return 'passed';
+
+        $remainingString = '';
+        $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
+        if ($rdays > 0) {
+            $remainingString .= $rdays.$day;
+            $remaining -= $rdays*$sec_day;
+        }
+
+        $rhours = ($remaining/$sec_hour > 0) ? floor($remaining/$sec_hour) : '0';
+        if ($rhours > 0) {
+            $remainingString .= ' '.$rhours.$hour;
+            $remaining -= $rhours*$sec_hour;
+        }
+        $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
+        if ($rmins > 0 && $show_mins) {
+            if ($remainingString=='')
+                $remainingString .= '<'.$rmins;
+            else
+                $remainingString .= ' '.$rmins.$min;
+        }
+        $remaining - $rmins*$sec_min;
+        return $remainingString.' '.$remaining.'s';
     }
 }

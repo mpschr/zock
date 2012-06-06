@@ -1080,5 +1080,16 @@ class Event {
         return $this->betsContainer;
     }
 
+    /**
+     * @param $id
+     * @return Bet
+     */
+    public function getBetById($id) {
+        foreach ($this->betsContainer->getBets() as $bet) {
+            /* @var $bet Bet */
+            if ($bet->getId() == $id)
+                return $bet;
+        }
+    }
 
 }

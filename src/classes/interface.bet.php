@@ -62,7 +62,7 @@ interface Bet {
      * @abstract
      * @return string
      */
-    public function getTendancy();
+    public function getTendency();
 
     /**
      * @abstract

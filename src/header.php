@@ -32,11 +32,11 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 <head>
 	<title>'.$title.'></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
-	<meta name="description" content="<? echo $desc;?>" />
-	<meta name="keywords" content="<? echo $keys;?>" />
+	<meta name="description" content="'.$desc.'" />
+	<meta name="keywords" content="'.$keys.'" />
 	<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />
-	<? if(isset($installation_style)) echo $installation_style; ?>
-	<? if(isset($favicon)) echo $favicon; ?>
+	<? if(isset($installation_style)) '. $installation_style.'
+	<? if(isset($favicon)) '. $favicon.';
     
 	<script type="text/javascript" src="src/functions.js" ></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>

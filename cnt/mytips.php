@@ -17,14 +17,20 @@ zock! is a free software licensed under GPL (General public license) v3
 =================================== 
 */
 
-include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
 
 $body .= '<h2>'.$lang['mytips_title'].'</h2>';
 
 
-//========== show matches & results
-global $db, $settings, $events, $events_test;
 
+
+
+global $db, $settings, $events, $events_test, $body;
+
+
+
+//========== show matches & results
+
+$ids='';
 
 //event handling ;) => estimate if user is registerd to events
 $nb =  UserEventNumber();
@@ -240,7 +246,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				}
 
                 $sameBet = $bet->getSameBets($userbet);
-                $tendency = $bet->getTendancy();
+                $tendency = $bet->getTendency();
                 $matchday = $bet->getMatchday();
                 $remainingTime = $bet->getRemainingTime();
 
@@ -307,9 +313,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 							$MATCHESSTRING .= '</td>';
 						}
 					}
-					$MATCHESSTRING .= '<td class="input">'.$sameBet.'</td>
-					<td class="input">'.$tendency.'</td>
-					</tr>';
+					$MATCHESSTRING .= '<td class="input" id="samebet_'.$betid.'">'.$sameBet.'</td>
+					                    <td class="input  id="tendency_'.$betid.'"">'.$tendency.'</td>
+					                    </tr>';
 				$MATCHESSTRING .= '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
 				$MATCHESSTRING .= '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
 				unset($checked);
@@ -318,12 +324,16 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
         $body .= $MATCHHEADER.$MATCHESSTRING;
 
-        /*$xajax = new xajax();
+
         $xajax -> register(XAJAX_FUNCTION, 'checkmatches');
+        //$xajax->configure('debug',true);
 
-        $xajax->processRequest();*/
+        $xajax->processRequest();
+        $xajax->printJavascript();
 
 
+
+        $body .= "<h1>DOES NOT WORK TONIGHT</h1>";
 
         $body .= '<input name="query" type="hidden" value="'.$link_query.'">';
 		$body .= '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
@@ -408,7 +418,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		$_SESSION['post'] = $_POST;
 		//go back without updating but with a lot of information
 		redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 0);
-		
+
 	}else{
 		//update	
 		foreach($ok as $x){
@@ -438,20 +448,38 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 
 }
-echo $body;
 
-function  checkmatches($id) {
+//========== xajax
+
+
+$body .= '<script type="text/javascript" charset="UTF-8">
+            /* <![CDATA[ */
+            function load_xajax() {
+                setTimeout("setInterval(\\"xajax_checkmatches(\''.$ids.'\')\\",10000)",1000);
+           }
+           /* ]]> */
+           </script>';
+
+function  checkmatches($idsstring) {
     global $events_test;
-    $event = $events_test->getEventById($_REQUEST['ev']);
-    $bets= $event->getBetsContainer()->getBets();
-    /** @var $bet Bet */
-    $bet = $bets[$id];
-
     $response = new xajaxResponse();
-    $response->assign('remains_'.$id,'innerHTML', $bet->getRemainingTime());
+    $ids = preg_split('/:/',$idsstring);
+    foreach ($ids as $id) {
+
+        if ($id=='')
+            continue;
+        $event = $events_test->getEventById($_REQUEST['ev']);
+        $bet= $event->getBetById($id);
+
+
+        /** @var $bet Bet */
+        $response->assign('remains_'.$id,'innerHTML', $bet->getRemainingTime());
+        $response->assign('samebet_'.$id,'innerHTML', $bet->getSameBets($bet->getBet($_SESSION['userid'])));
+        $response->assign('tendency_'.$id,'innerHTML', $bet->getTendency());
+
+    }
     return $response;
 }
-
 
 ?>
 

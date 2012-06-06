@@ -104,7 +104,7 @@ class Question implements Bet{
     /**
      * @return string
      */
-    public function getTendancy()
+    public function getTendency()
     {
         // TODO: Implement getTendancy() method.
         return "";
@@ -168,12 +168,21 @@ class Question implements Bet{
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getId()
     {
+        return 'q'.$this->id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDbId()
+    {
         return $this->id;
     }
+
 
     /**
      * @param string $answer
@@ -277,6 +286,12 @@ class Question implements Bet{
     public function getRemainingTime()
     {
         // TODO: Implement getRemainingTime() method.
+        return '';
+    }
+    public function getRemainingTimeSpecial()
+    {
+        // TODO: Implement getRemainingTime() method.
+        return '';
     }
 }
 
