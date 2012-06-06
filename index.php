@@ -129,8 +129,10 @@ if (!(menuAllowance($site, $_REUQUEST['submenu']))){
 	siteConstructor('footer');
 }else{
 	//build the acutal site with this weird siteConstructor (is in fact just a forwarder)
-	siteConstructor('header', $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
+	$header = siteConstructor('header', $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
+    echo $header;
 	siteConstructor('body', $site.'.php', 'horizontal');
+    if (isset($body)) echo $body;
 	siteConstructor('footer');
 }
 ?>

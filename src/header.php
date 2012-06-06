@@ -24,16 +24,17 @@ siteConstructor()*/
 global $settings, $style;
 if (isset($style['favicon'])) $favicon = '<link rel="shortcut icon" href="src/style_'.$settings['style'].'/img/'.$style['favicon'].'" type="image/x-icon" />';
 if(defined(INSTALLING)) $installation_style = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout_installation.css" />';
-?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+global $header;
+
+$header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
-	<title><?php echo $title;?></title>
+	<title>'.$title.'></title>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 	<meta name="description" content="<? echo $desc;?>" />
 	<meta name="keywords" content="<? echo $keys;?>" />
-	<link rel="stylesheet" type="text/css" href="src/style_<? echo $settings['style'] ?>/layout.css" />
+	<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />
 	<? if(isset($installation_style)) echo $installation_style; ?>
 	<? if(isset($favicon)) echo $favicon; ?>
     
@@ -43,4 +44,10 @@ if(defined(INSTALLING)) $installation_style = '<link rel="stylesheet" type="text
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-ui-1.8.2.custom.min.js"></script>
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />      
-</head>
+</head>';
+
+function getHeader() {
+    global $header;
+    return $header;
+}
+?>

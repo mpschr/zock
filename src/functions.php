@@ -158,7 +158,7 @@ function siteConstructor($action, $title_or_site=NULL, $desc_or_menu=NULL, $keys
 			$desc = $desc_or_menu;
 			if($keys == NULL); $keys = $desc;
 			include_once('src/header.php');
-			break;
+            return getHeader();
 		case 'body':
 			$site = $title_or_site;
 			$menu = $desc_or_menu;

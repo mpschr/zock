@@ -39,4 +39,3 @@ $style['btn_format'] = '';
 
 
 ?>
-

@@ -649,7 +649,7 @@ class Event {
     }
 
     /**
-     * @return \unixtime
+     * @return string
      */
     public function getBetUntil()
     {

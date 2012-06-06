@@ -28,10 +28,11 @@ $sec = (int) date('s', time());
 $additionalFuncitons = "";
 if ($_REQUEST['menu'] == 'overview') $additionalFunctions .= ", overviewArrange()";
 if (isset($_REQUEST['filter'])) $additionalFunctions .= ", filterChange(), showFilter()";
-?>
 
-<body onLoad="placeFloatingLayers(), sClock('<?echo $hour;?>','<?echo $min;?>','<?echo $sec;?>', '<?echo $lang['footer_server_time'];?>') <?echo $additionalFunctions;?>"> <!-- load the layer if one's constructed -->
-<script type="text/javascript" src="src/opensource/wz_tooltip.js" ></script>
+echo '
+
+<body onLoad="placeFloatingLayers(), sClock(\''.$hour.'\',\''.$min.'\',\''.$sec.'\', \''.$lang['footer_server_time'].'\') '. $additionalFunctions.'"> <!-- load the layer if one\'s constructed -->
+<script type="text/javascript" src="src/opensource/wz_tooltip.js" ></script> ';
 
 
 <?

@@ -1,5 +1,13 @@
 <zock>
     <zock_lang>
+        <label>general_passed</label>
+        <cnt>pasat</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_betcloses</label>
+        <cnt>Aposta es tanca en</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_info</label>
         <cnt>info</cnt>
     </zock_lang>

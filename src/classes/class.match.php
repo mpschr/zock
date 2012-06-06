@@ -131,11 +131,33 @@ class Match implements Bet{
     }
 
     /**
-     * @return array
+     * @return unixtime
      */
     function getDueDate()
     {
-        return $this->time;
+        global $db;
+        $t = $this->time;
+        $betuntilRaw = preg_split('/:/',$this->event->getBetUntil());
+        $min = 60;
+        $hour = $min*60;
+        $day = $hour*24;
+
+        /* @var $betuntil unixtime */
+        /* @var $before unixtime */
+
+        if($betuntilRaw[2]=='t'){
+            $data=$db->query("SELECT time FROM ".PFIX."_event_".$this->event->getId()." ORDER BY time ASC LIMIT 1;");
+            $betuntil = $data[0]['time'];
+        } else {
+            $betuntil = $this->time;
+        }
+        if($betuntilRaw[1]=='m'){ $before = $min * $betuntilRaw[0];}
+        elseif($betuntilRaw[1]=='h'){ $before = $hour * $betuntilRaw[0];}
+        elseif($betuntilRaw[1]=='d'){
+            $before = $day * ($betuntilRaw[0]-1);
+        }
+
+        return $betuntil - $before;
     }
 
     /**
@@ -410,5 +432,50 @@ class Match implements Bet{
         elseif ($this->event->getBetOn()=="toto") {
             return $this->score;
         }
-        return "";    }
+        return "";
+    }
+
+    /**
+     * @return string
+     */
+    public function getRemainingTime()
+    {
+        global $cont;
+        $day = 'd';
+        $sec_day = 24*60*60;
+        $hour = 'h';
+        $sec_hour = 60*60;
+        $min = 'm';
+        $sec_min = 60;
+
+        $show_mins = true;
+
+
+        $now = time();
+        $betuntil = $this->getDueDate();
+        $remaining = $betuntil - $now;
+        if ($remaining < 0)
+            return 'passed';
+
+        $remainingString = '';
+        $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
+        if ($rdays > 0) {
+            $remainingString .= $rdays.$day;
+            $remaining -= $rdays*$sec_day;
+            $show_mins = false;
+        }
+        $rhours = ($remaining/$sec_hour > 0) ? floor($remaining/$sec_hour) : '0';
+        if ($rhours > 0) {
+            $remainingString .= ' '.$rhours.$hour;
+            $remaining -= $rhours*$sec_hour;
+        }
+        $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
+        if ($rmins > 0 && $show_mins) {
+            if ($remainingString=='')
+                $remainingString .= '<'.$rmins;
+            else
+                $remainingString .= ' '.$rmins.$min;
+        }
+        return $remainingString;
+    }
 }

@@ -17,9 +17,9 @@ zock! is a free software licensed under GPL (General public license) v3
 =================================== 
 */
 
+include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
 
-
-echo '<h2>'.$lang['mytips_title'].'</h2>';
+$body .= '<h2>'.$lang['mytips_title'].'</h2>';
 
 
 //========== show matches & results
@@ -31,7 +31,7 @@ $nb =  UserEventNumber();
 $userevents = loadUserEvents();
 if($nb < 1){
 	//no event
-	echo $lang['mytips_participatefirst'];
+	$body .= $lang['mytips_participatefirst'];
 	
 }elseif($nb == 1){
 	//one event
@@ -61,7 +61,7 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 }
 
 $evdat = $events['u']['e'.$_REQUEST['ev']];
-echo '<h3>'.$evdat['name'].'</h3>';
+$body .= '<h3>'.$evdat['name'].'</h3>';
 
 
 if($nb >= 1 && !(isset($_REQUEST['mtac']))){
@@ -73,7 +73,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		unset($_SESSION['err']);
 		$data = $_SESSION['post'];
 		unset($_SESSION['post']);
-		echo '<p />'.errorMsg('filledform');
+		$body .= '<p />'.errorMsg('filledform');
 		foreach ($err as $id){
 			$wrongs[$id] = 'error';
 		}
@@ -108,12 +108,12 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	if($bdp_matches == NULL && !isset($_REQUEST['filter'])){
 
 		//well, there aren't any matches
-		echo $lang['general_nomatches'];
-		echo ' ('.$events['u']['e'.$_REQUEST['ev']]['name'].')';
+		$body .= $lang['general_nomatches'];
+		$body .= ' ('.$events['u']['e'.$_REQUEST['ev']]['name'].')';
 	}else{
 		if($bdp_rows == 0 && isset($_REQUEST['filter'])){
 			//no results with this filter
-			echo errorMsg('filter_emptyresults');
+			$body .= errorMsg('filter_emptyresults');
 		}
 
 
@@ -121,7 +121,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		//filterform
 		$filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/i', '', $link_query); 
 		$filterurl = $link.$filterurl;
-		echo '<form action="javascript: filter(\''.$filterurl.'\')">
+		$body .= '<form action="javascript: filter(\''.$filterurl.'\')">
 			<a href="javascript: showFilter()" >'.$lang['general_filter'].'</a>
 			<div id="filterform" class="notvisible" >
 				<select id="filter_on" onChange="filterChange()">
@@ -131,16 +131,16 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					<option value="visitor" '.$f_visitor.'>'.$lang['admin_events_visitor'].'</option>
 					<option value="matchday" '.$f_matchday.'>'.$lang['admin_events_matchday'].'</option>
 				</select>';
-				echo ' <span id="filter_contains">'.$lang['general_contains'].'</span> ';
-				echo ' <span id="filter_is" class="notvisible">'.$lang['general_is'].'</span> ';
-				echo '<input id="filter_this" value="'.$f[1].'" size="15"/>';
-				echo '<a href="javascript: filterUnset()"> x </a>';
-				echo ' <input type="submit" value="'.$lang['general_filterverb'].'"/>';
-			echo '</div>';	
-		echo '</form>';
+				$body .= ' <span id="filter_contains">'.$lang['general_contains'].'</span> ';
+				$body .= ' <span id="filter_is" class="notvisible">'.$lang['general_is'].'</span> ';
+				$body .= '<input id="filter_this" value="'.$f[1].'" size="15"/>';
+				$body .= '<a href="javascript: filterUnset()"> x </a>';
+				$body .= ' <input type="submit" value="'.$lang['general_filterverb'].'"/>';
+			$body .= '</div>';	
+		$body .= '</form>';
 
 		//the form (begins already here)
-		echo '<form action="'.$link.'mtac=savetips" method="POST" name="matches">';
+		$body .= '<form action="'.$link.'mtac=savetips" method="POST" name="matches">';
 		
 		$tipplus = '( 1 /';
 		if(!($evdat['ko_matches']=='only' && $evdat['enable_tie']=='no')){
@@ -152,24 +152,36 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		$tipplus .= ' 2 )';
 
 		//content
-		echo '<table class="showmatches" id="showresults">';
-		echo '<tr class=title>
+		$body .= '<table class="showmatches" id="showresults">';
+		$MATCHHEADER .= '<tr class=title>
+			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
 			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
 			<td class=title><a href="'.$link.orderIt('matchday_id', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
 			<td class=title><a href="'.$link.orderIt('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
 			<td class=title><a href="'.$link.orderIt('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>
 			<td class=title>'.$lang['admin_events_score'].'</td>';
 			if($evdat['bet_on']=='results'){
-				echo '<td class=title>'.$lang['mytips_tip'].'</td>';
+				$MATCHHEADER .= '<td class=title>'.$lang['mytips_tip'].'</td>';
 			}else{
-				echo '<td class=title colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
+				$MATCHHEADER .='<td class=title colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
 			}
-			echo '<td class=title>'.$lang['mytips_sametip'].'</td>
+			$MATCHHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
 			<td class=title>'.$lang['mytips_tendency'].'</td>
-
 			</tr>';
-	
-	//estimate page to display if nothing else specified
+
+        $QUESTIONHEADER .=  '<tr class=title>
+			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
+			<td class=title colspan=4><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
+			<td class=title>'.$lang['admin_events_score'].'</td>
+			<td class=title> Question </td>';
+
+        $QUESTIONHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
+			<td class=title>'.$lang['mytips_tendency'].'</td>
+			</tr>';
+
+        $MATCHESSTRING ='';
+
+        //estimate page to display if nothing else specified
 
 
 		if (!isset($_REQUEST['orderby']) && !isset($_REQUEST['mnb'])){
@@ -204,12 +216,11 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				//=>decide if the data in the forms should come from db or error the $_post array
 
                 if ($bet instanceof Question) {
-                    echo $bet->getQuestion();
+                    $body .= $QUESTIONHEADER;
+                    $body .= '<tr><td colspan="8">'.$bet->getQuestion().'</td></tr>';
+
                     continue;
                 }
-                $sameBet = $bet->getSameBets($userbet);
-                $tendency = $bet->getTendancy();
-                $matchday = $bet->getMatchday();
 
                 $userbet = '';
 				if (isset($wrongs)){
@@ -227,6 +238,11 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					$checked[$m[$_SESSION['userid'].'_toto']] = 'checked="checked"';
 					$toto = $m[$_SESSION['userid'].'_toto'];
 				}
+
+                $sameBet = $bet->getSameBets($userbet);
+                $tendency = $bet->getTendancy();
+                $matchday = $bet->getMatchday();
+                $remainingTime = $bet->getRemainingTime();
 
 				//still editable or not??
 				$betuntil = $bet->getDueDate();
@@ -253,10 +269,11 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				$time2 = date('H:i', $matchtime);
 				$result = $bet->getResult();
 
-	
+	            $betid = $bet->getId();
 				//the form can continue here
 				$MATCHESSTRING .= '<tr>
-					<td class="input">'.weekday($matchtime,1).', '.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
+				    <td class="input" id="remains_'.$betid.'">'.$remainingTime.'</td>
+					<td class="input">'.weekday($matchtime,1).', '.$time1.' <br/>'.$lang['general_time_at'].' '.$time2.'</td>
 					<td class="input">'.$matchday.'</td>
 					<td class="input">'.$home.'</td>
 					<td class="input">'.$visitor.'</td>
@@ -299,18 +316,25 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			}
 		}
 
-        echo $MATCHESSTRING;
+        $body .= $MATCHHEADER.$MATCHESSTRING;
 
-		echo '<input name="query" type="hidden" value="'.$link_query.'">';
-		echo '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
-		echo '<input name="ids" type="hidden" value="'.$ids.'">';
-		echo '<input name="mnb" type="hidden" value="'.$mnb.'">';
-		echo '<input name="orderby" type="hidden" value="'.$_REQUEST['orderby'].'"';
-		echo '<tr class="submit"><td class="submit" colspan="4"><input type="submit" value="'.$lang['general_savechanges'].'"></td></tr>';
-		echo '</table>';
+        /*$xajax = new xajax();
+        $xajax -> register(XAJAX_FUNCTION, 'checkmatches');
+
+        $xajax->processRequest();*/
+
+
+
+        $body .= '<input name="query" type="hidden" value="'.$link_query.'">';
+		$body .= '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
+		$body .= '<input name="ids" type="hidden" value="'.$ids.'">';
+		$body .= '<input name="mnb" type="hidden" value="'.$mnb.'">';
+		$body .= '<input name="orderby" type="hidden" value="'.$_REQUEST['orderby'].'"';
+		$body .= '<tr class="submit"><td class="submit" colspan="4"><input type="submit" value="'.$lang['general_savechanges'].'"></td></tr>';
+		$body .= '</table>';
 		//the form finishes here
-		echo '</form>';
-		echo '<p />';
+		$body .= '</form>';
+		$body .= '<p />';
 
 
 
@@ -320,16 +344,16 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			if($mnb > 1){
 				$gonb = $mnb-$settings['formlines'];
 				if ($gonb < 1) $gonb = 1;
-				echo '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
+				$body .= '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
 			}
 	
-			echo $lang['general_page'];
+			$body .= $lang['general_page'];
 			for($x=1 ; $x <= $bdp_rows; $x += $settings['formlines']){
 				$y++;
 				if ($x!=$mnb){
-					echo '  <a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a>';
+					$body .= '  <a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a>';
 				}else{
-					echo '  '.$y;
+					$body .= '  '.$y;
 				}
 			}
 	
@@ -337,7 +361,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			if($mnb + $settings['formlines'] < $bdp_rows){
 				$gonb = $mnb+$settings['formlines'];
 				if ($gonb > $bdp_rows) $gonb = $bdp_rows;
-				echo ' | <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>';
+				$body .= ' | <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>';
 			}
 		}
 	}
@@ -345,7 +369,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 //========== save tips
 }elseif($_REQUEST['mtac'] == 'savetips'){
 
-	echo $lang['general_updating'].'<br>'.$lang['general_redirect'];
+	$body .= $lang['general_updating'].'<br>'.$lang['general_redirect'];
 
 	//make array with ids to update
 	$idar = explode(':', $_POST['ids']);
@@ -403,7 +427,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				
 			}
 			if($db->query($query_changes)){
-				echo $lang['general_savedok'];
+				$body .= $lang['general_savedok'];
 				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 0);
 			}else{
 				redirect( preg_replace('/(&mtac=savetips)/', '',$rlink.$link_query.$_POST['query']), 1);
@@ -413,8 +437,21 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	}
 
 
-
 }
+echo $body;
+
+function  checkmatches($id) {
+    global $events_test;
+    $event = $events_test->getEventById($_REQUEST['ev']);
+    $bets= $event->getBetsContainer()->getBets();
+    /** @var $bet Bet */
+    $bet = $bets[$id];
+
+    $response = new xajaxResponse();
+    $response->assign('remains_'.$id,'innerHTML', $bet->getRemainingTime());
+    return $response;
+}
+
 
 ?>
 

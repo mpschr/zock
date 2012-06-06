@@ -270,5 +270,13 @@ class Question implements Bet{
     {
         return $this->question;
     }
+
+    /**
+     * @return string
+     */
+    public function getRemainingTime()
+    {
+        // TODO: Implement getRemainingTime() method.
+    }
 }
 

@@ -28,6 +28,12 @@ interface Bet {
 
     /**
      * @abstract
+     * @return string
+     */
+    public function getRemainingTime();
+
+    /**
+     * @abstract
      * @return unixtime
      */
     public function getTime();

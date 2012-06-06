@@ -19,7 +19,14 @@ zock! is a free software licensed under GPL (General public license) v3
 - Generation Time: Aug 02, 2008 at 09:32 PM
 -->
 <zock>
-  <!-- Table zock_lang -->
+    <zock_lang>
+        <label>general_passed</label>
+        <cnt>pasado</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>mytips_betcloses</label>
+        <cnt>Apuesta se cierra en</cnt>
+    </zock_lang>
     <zock_lang>
         <label>general_info</label>
         <cnt>info</cnt>
