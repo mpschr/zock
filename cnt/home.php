@@ -31,7 +31,7 @@ $active_events = $events_test->getActiveEvents();
 echo   $cont->get('home_welcome').' '.$cont->get('home_content').'<p />';
 
 //display the public, active events
-$nb = ActiveEventNumber();
+$nb = sizeof($active_events);
 if($nb > 0){
 	echo '<p>'.$cont->get('home_events').'<br>';
 	echo '<ul>';

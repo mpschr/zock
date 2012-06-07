@@ -179,8 +179,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
         $QUESTIONHEADER .= '<table class="showmatches">';
         $QUESTIONHEADER .=  '<tr class=title>
 			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
-			<td class=title colspan=4> Question</td>
-			<td class=title>'.$lang['general_result'].'result</td>
+			<td class=title > Question</td>
+			<td class=title>'.$lang['admin_events_score'].'</td>
 			<td class=title>'.$lang['mytips_tip'].'</td>';
 
         $QUESTIONHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
@@ -245,8 +245,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                         if ($point == '')
                             continue;
                         $inputid = 'bet_'.$betid.'_'.$c;
-                        $betinput .= '<input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >
-                                    '.$point.' points';
+                        $nr = $c+1;
+                        $betinput .= '<br/>'.$lang['mytips_tip'].' '.$nr.' ('.$point.' '.$lang['ranking_points'].'): <input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >';
                         $body .= "
                             <script type=\"text/javascript\">
                                 $(document).ready(function() {
@@ -268,7 +268,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                     $QUESTIONTABLE .= '
                         <tr>
                             <td id="remaining_'.$betid.'">'.$bet->getRemainingTime().'</td>
-                            <td colspan="4">'.$bet->getQuestion().'</td>
+                            <td >'.$bet->getQuestion().'</td>
                             <td>  --  </td>
                             <td>'.$betinput.'</td>
                             <td id = "samebet_'.$betid.'">'.$sameBet.'</td>

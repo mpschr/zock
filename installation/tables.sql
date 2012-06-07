@@ -129,6 +129,7 @@ CREATE TABLE IF NOT EXISTS `#PFIX#_users` (
   `email` tinytext collate utf8_unicode_ci NOT NULL,
   `name` text collate utf8_unicode_ci,
   `famname` text collate utf8_unicode_ci,
+  `event_admin` text collate utf8_unicode_ci NULL,
   `lang` text collate utf8_unicode_ci NOT NULL,
   `style` varchar(11) collate utf8_unicode_ci NOT NULL default 'zock',
   `text` text collate utf8_unicode_ci,

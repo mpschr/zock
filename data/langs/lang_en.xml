@@ -20,6 +20,10 @@ zock! is a free software licensed under GPL (General public license) v3
 
 <zock>
     <zock_lang>
+        <label>loginhome_goparticipate</label>
+        <cnt>Go participate at $1</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_passed</label>
         <cnt>passed</cnt>
     </zock_lang>
@@ -1781,9 +1785,5 @@ Before the start of the betting game means, that ALL the bets have to be placed 
     <zock_lang>
         <label>general_remove</label>
         <cnt>remove</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_goparticipate</label>
-        <cnt>Go participate at $1</cnt>
     </zock_lang>
 </zock>

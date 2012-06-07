@@ -117,11 +117,12 @@ $events['u'] = loadEvents(1);
 $events['i'] = loadEvents(-1);
 
 //seek out the site to display & check if allowed
+$homepage = isset($_SESSION['userid']) ? 'loginhome' : 'home';
 $site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : 'home';
 
 }
 
-$xajax_compliant = array('mytips');
+$xajax_compliant = array('mytips', 'loginhome');
 //include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
 
 
