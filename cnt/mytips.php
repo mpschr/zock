@@ -271,7 +271,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                             <td colspan="4">'.$bet->getQuestion().'</td>
                             <td>  --  </td>
                             <td>'.$betinput.'</td>
-                            <td id = "samebet_"'.$betid.'>same bet</td>
+                            <td id = "samebet_'.$betid.'">'.$sameBet.'</td>
                             <td id = "savestatus_'.$betid.'"></td>
 
                         </tr>';

@@ -98,12 +98,31 @@ class Question implements Bet{
 
     /**
      * @param string $somebet
-     * @return int
+     * @return string
      */
     public function getSameBets($somebet)
     {
+        $userbet = preg_split("/:/", $somebet);
+        $counts = array();
+        foreach ($userbet as $bet) {
+            if ($bet == '')
+                continue;
+            $counts[$bet] = -1;
+        }
 
-        return "?";
+        foreach($this->bets as $user => $bets) {
+            foreach(preg_split("/:/", $bets) as $bet) {
+                if (isset($counts[$bet]))
+                    $counts[$bet] +=  1;
+            }
+
+        }
+
+        $samebetString = '';
+        foreach ($counts as $b => $c) {
+            $samebetString .= '<nobr>'.$b.': '.$c.'</nobr> <br/>';
+        }
+        return ($samebetString == '') ? "?" : $samebetString;
     }
 
     /**
