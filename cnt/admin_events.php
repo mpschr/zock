@@ -22,9 +22,9 @@ global $db;
 if(isset($_REQUEST['ssubmenu'])){
 	$nv='notvisible';
 	//make a little vertical menu for less mouse moving
-	createVerticalMenu('events');
-	createVerticalMenu(NULL, 'mmopen');
-	createVerticalMenu(NULL, 'mmclose');
+	echo createVerticalMenu('events');
+    echo  createVerticalMenu(NULL, 'mmopen');
+    echo createVerticalMenu(NULL, 'mmclose');
 	?>
 	<script type="text/javascript">
 		function showEventList(){

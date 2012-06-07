@@ -270,7 +270,9 @@ if($_REQUEST['evac'] == 'save'){
     $whats = array();
     $e = $events_test->getEventById($data['id']);
 	for ($x = 1; $x<=$nbusers; $x++){
-		if ($data['hiddenfield_'.$x] != 0 || isset($data['u_'.$x])){
+        print_r($x);
+
+        if ($data['hiddenfield_'.$x] != 0 || isset($data['u_'.$x])){
 			//something happened with the user $x
 			if($data['hiddenfield_'.$x] == 1 || isset($data['u_'.$x])){
 				//approve

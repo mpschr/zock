@@ -83,4 +83,13 @@ interface Bet {
      * @return string
      */
     public function getResult();
+
+    /**
+     * @abstract
+     * @param $user int
+     * @param $bet
+     * @internal param string $userbet
+     * @return void
+     */
+    public function setBet($user,$bet);
 }

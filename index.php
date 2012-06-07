@@ -154,8 +154,8 @@ if (!(menuAllowance($site, $_REUQUEST['submenu']))){
         $header = siteConstructor('header',
                                     $lang['general_bettingOffice'].' '.$settings['name'].' > '.$lang[$site.'_title'], $lang['general_bettingOffice'].' || '.$lang[$site.'_title']);
         echo $header;
-        siteConstructor('body', $site.'.php', 'horizontal','noxajax');
-        if (isset($body)) echo $body;
+        $body = siteConstructor('body', $site.'.php', 'horizontal','noxajax');
+        //if (isset($body)) echo $body;
 
     }
 	siteConstructor('footer');

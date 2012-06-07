@@ -37,9 +37,9 @@ if($nb < 1){
 	
 }elseif($nb > 1){
 	//allow the user to navigate between his events
-	createVerticalMenu(NULL, 'ueventlist');
-	createVerticalMenu(NULL, 'mmopen');
-	createVerticalMenu(NULL, 'mmclose');
+	echo createVerticalMenu(NULL, 'ueventlist');
+	echo createVerticalMenu(NULL, 'mmopen');
+	echo createVerticalMenu(NULL, 'mmclose');
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 

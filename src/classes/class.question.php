@@ -37,6 +37,11 @@ class Question implements Bet{
     protected $event_id;
 
     /**
+     * @var Event
+     */
+    protected $event;
+
+    /**
      * @var array
      */
     protected $bets = array();
@@ -79,7 +84,7 @@ class Question implements Bet{
     public function __construct($dict,$event) {
         if (sizeof($dict)==0)
             throw new Exception("empty question");
-
+        $this->event = $event;
 
         foreach ($dict as $key => $value) {
             $this->$key = $value;
@@ -97,8 +102,8 @@ class Question implements Bet{
      */
     public function getSameBets($somebet)
     {
-        // TODO: Implement getSameBets() method.
-        return 0;
+
+        return "?";
     }
 
     /**
@@ -115,9 +120,48 @@ class Question implements Bet{
      * @param string $bet
      * @return string
      */
-    public function setBet($user,$bet)
+    public function assignBet($user,$bet)
     {
         $this->bets[$user] = $bet;
+    }
+
+
+    /**
+     * @param int $user
+     * @param string $bet
+     * @return string|void
+     */
+    public function setBet($user,$bet)
+    {
+        global $db;
+
+        if ($this->answer == $bet)
+            return true;
+
+        $this->event->getId();
+
+        if (isset($this->bets[$user])) {
+
+            $query = "UPDATE ".PFIX."_qa_bets  SET
+                        answer = '".$bet."'
+                        WHERE `question_id`=".$this->id." AND `user_id` = ".$user." ;";
+
+        } else {
+            $query = "INSERT INTO ".PFIX."_qa_bets (
+                            `answer`, `question_id`, `user_id`)
+                        VALUES (
+                            '".$bet."','".$this->id."','".$user."'
+                        );";
+        }
+
+
+        $queryres = $db->query($query);
+
+        if ($queryres) {
+            $this->bets[$user] = $bet;
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -283,15 +327,48 @@ class Question implements Bet{
     /**
      * @return string
      */
+    /**
+     * @return string
+     */
     public function getRemainingTime()
     {
-        // TODO: Implement getRemainingTime() method.
-        return '';
-    }
-    public function getRemainingTimeSpecial()
-    {
-        // TODO: Implement getRemainingTime() method.
-        return '';
+        global $cont;
+        $day = 'd';
+        $sec_day = 24*60*60;
+        $hour = 'h';
+        $sec_hour = 60*60;
+        $min = 'm';
+        $sec_min = 60;
+
+        $show_mins = true;
+
+
+        $now = time();
+        $betuntil = $this->getDueDate();
+        $remaining = $betuntil - $now;
+        if ($remaining < 0)
+            return $cont->get('mytips_passed');
+
+        $remainingString = '';
+        $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
+        if ($rdays > 0) {
+            $remainingString .= $rdays.$day;
+            $remaining -= $rdays*$sec_day;
+            $show_mins = false;
+        }
+        $rhours = ($remaining/$sec_hour > 0) ? floor($remaining/$sec_hour) : '0';
+        if ($rhours > 0) {
+            $remainingString .= ' '.$rhours.$hour;
+            $remaining -= $rhours*$sec_hour;
+        }
+        $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
+        if ($rmins > 0 && $show_mins) {
+            if ($remainingString=='')
+                $remainingString .= '<'.$rmins;
+            else
+                $remainingString .= ' '.$rmins.$min;
+        }
+        return $remainingString;
     }
 }
 

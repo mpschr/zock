@@ -45,9 +45,9 @@ if($nb < 1){
 }elseif($nb > 1){
 	//multiple events
 	//a vmenu to navigate between events
-	createVerticalMenu(NULL, 'ueventlist');
-	createVerticalMenu(NULL, 'mmopen');
-	createVerticalMenu(NULL, 'mmclose');
+	$body .= createVerticalMenu(NULL, 'ueventlist');
+    $body .= createVerticalMenu(NULL, 'mmopen');
+    $body .= createVerticalMenu(NULL, 'mmclose');
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
@@ -158,7 +158,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		$tipplus .= ' 2 )';
 
 		//content
-		$body .= '<table class="showmatches" id="showresults">';
+        $MATCHHEADER .= '<table class="showmatches">';
 		$MATCHHEADER .= '<tr class=title>
 			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
 			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
@@ -169,20 +169,22 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			if($evdat['bet_on']=='results'){
 				$MATCHHEADER .= '<td class=title>'.$lang['mytips_tip'].'</td>';
 			}else{
-				$MATCHHEADER .='<td class=title colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
+				$MATCHHEADER .='<td class="title" colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
 			}
 			$MATCHHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
 			<td class=title>'.$lang['mytips_tendency'].'</td>
+			<td ></td>
 			</tr>';
 
+        $QUESTIONHEADER .= '<table class="showmatches">';
         $QUESTIONHEADER .=  '<tr class=title>
 			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
-			<td class=title colspan=4><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
-			<td class=title>'.$lang['admin_events_score'].'</td>
-			<td class=title> Question </td>';
+			<td class=title colspan=4> Question</td>
+			<td class=title>'.$lang['general_result'].'result</td>
+			<td class=title>'.$lang['mytips_tip'].'</td>';
 
         $QUESTIONHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
-			<td class=title>'.$lang['mytips_tendency'].'</td>
+			<td></td>
 			</tr>';
 
         $MATCHESSTRING ='';
@@ -217,33 +219,76 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $bet->getDueDate();
 				$ids .= $bet->getId().':';
 				$id = $bet->getId();
-	
-				//further error handling
+                $betid = $bet->getId();
+
+                //further error handling
 				//=>decide if the data in the forms should come from db or error the $_post array
 
                 if ($bet instanceof Question) {
-                    $body .= $QUESTIONHEADER;
-                    $body .= '<tr><td colspan="8">'.$bet->getQuestion().'</td></tr>';
+
+                    /* @var $bet Question */
+                    $userbet = preg_split('/:/',$bet->getBet($_SESSION['userid']));
+                    $pointing = preg_split('/:/',$bet->getPoints());
+                    $options = sizeof($pointing)-1;
+                    $possibilities = preg_split('/:/',$bet->getPossibilities());
+                    $autocomplete = "";
+                    $sameBet = $bet->getSameBets($bet->getBet($_SESSION['userid']));
+                    foreach ($possibilities as $poss) {
+                        if ($poss == '')
+                            continue;
+                        $autocomplete .= '"'.$poss.'", ';
+                    }
+
+                    $c = 0;
+                    $betinput = '';
+                    foreach ($pointing as $point) {
+                        if ($point == '')
+                            continue;
+                        $inputid = 'bet_'.$betid.'_'.$c;
+                        $betinput .= '<input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >
+                                    '.$point.' points';
+                        $body .= "
+                            <script type=\"text/javascript\">
+                                $(document).ready(function() {
+                                    $(\"#$inputid\").autocomplete({
+                                        source: [".$autocomplete."]
+                                    });
+                                $( \"#$inputid\" ).autocomplete({
+                                   select: function(event, ui) {
+                                        savequestion('$betid',$options,ui.item.value,$c); }
+                                });
+                            });
+
+                             </script>
+                             ";
+
+                        $c++;
+                    }
+
+                    $QUESTIONTABLE .= '
+                        <tr>
+                            <td id="remaining_'.$betid.'">'.$bet->getRemainingTime().'</td>
+                            <td colspan="4">'.$bet->getQuestion().'</td>
+                            <td>  --  </td>
+                            <td>'.$betinput.'</td>
+                            <td id = "samebet_"'.$betid.'>same bet</td>
+                            <td id = "savestatus_'.$betid.'"></td>
+
+                        </tr>';
+
+
 
                     continue;
                 }
 
-                $userbet = '';
-				if (isset($wrongs)){
-					if(isset($wrongs[$bet->getId()])) $id =  '<font class=error>-></font>';
-					$score_h = $data['score_h_'.$bet->getId()];
-					if ($score_h == 'NULL') $score_h = '';
-					$score_v = $data['score_v_'.$bet->getId()];
-                    $userbet = $score_h.' : '.$score_v;
-					if ($score_v == 'NULL') $score_v = '';
-				}else{
-                    $userbet = $bet->getBet($_SESSION['userid']);
-                    $dummy = preg_split('/ : /',$userbet);
-                    $score_h = $dummy[0];
-                    $score_v = $dummy[1];
-					$checked[$m[$_SESSION['userid'].'_toto']] = 'checked="checked"';
-					$toto = $m[$_SESSION['userid'].'_toto'];
-				}
+
+                $userbet = $bet->getBet($_SESSION['userid']);
+                $dummy = preg_split('/ : /',$userbet);
+                $score_h = $dummy[0];
+                $score_v = $dummy[1];
+                $checked[$m[$_SESSION['userid'].'_toto']] = 'checked="checked"';
+                $toto = $m[$_SESSION['userid'].'_toto'];
+
 
                 $sameBet = $bet->getSameBets($userbet);
                 $tendency = $bet->getTendency();
@@ -275,7 +320,6 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				$time2 = date('H:i', $matchtime);
 				$result = $bet->getResult();
 
-	            $betid = $bet->getId();
 				//the form can continue here
 				$MATCHESSTRING .= '<tr>
 				    <td class="input" id="remains_'.$betid.'">'.$remainingTime.'</td>
@@ -284,15 +328,22 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					<td class="input">'.$home.'</td>
 					<td class="input">'.$visitor.'</td>
 					<td class="input">'.$result.'</td>';
+
 					if($evdat['bet_on']=='results'){
-						$MATCHESSTRING .= '<td class="input"><nobr><input id="h_'.$m['id'].'" 
-									'.$ro.'
-									name="score_h_'.$bet->getId().'"
-									size="2" value="'.$score_h.'"> : '
-								.'<input id="v_'.$bet->getId().'"
-									'.$ro.'
-									name="score_v_'.$bet->getId().'"
-									size="2" value="'.$score_v.'"></nobr></td>';
+						$MATCHESSTRING .= '<td class="input"><nobr>
+                                                <input id="h_'.$betid.'"
+                                                '.$ro.'
+                                                name="score_h_'.$betid.'"
+                                                size="2" value="'.$score_h.'"
+                                                onKeyUp="savebet(event,\''.$betid.'\')">
+                                            : '
+                                                .'<input id="v_'.$betid.'"
+                                                    '.$ro.'
+                                                    name="score_v_'.$bet->getId().'"
+                                                    size="2" value="'.$score_v.'"
+                                                    onKeyUp="savebet(event,\''.$betid.'\')">
+                                            </nobr></td>';
+
 					}elseif($evdat['bet_on']=='toto'){
 						if($robool=='true'){
 							$MATCHESSTRING .= '<td class="input" colspan="'.$colspan.'">'.$toto.'</td>';
@@ -314,7 +365,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 						}
 					}
 					$MATCHESSTRING .= '<td class="input" id="samebet_'.$betid.'">'.$sameBet.'</td>
-					                    <td class="input  id="tendency_'.$betid.'"">'.$tendency.'</td>
+					                    <td class="input"  id="tendency_'.$betid.'"">'.$tendency.'</td>
+					                    <td id="savestatus_'.$betid.'"></td>
 					                    </tr>';
 				$MATCHESSTRING .= '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
 				$MATCHESSTRING .= '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
@@ -322,26 +374,30 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			}
 		}
 
-        $body .= $MATCHHEADER.$MATCHESSTRING;
+        if (isset($QUESTIONTABLE)) {
+            $body .= $QUESTIONHEADER.$QUESTIONTABLE.'</table>';
+        }
+
+        if (isset($MATCHESSTRING)) {
+            $body .= $MATCHHEADER.$MATCHESSTRING.'</table>';
+        }
 
 
         $xajax -> register(XAJAX_FUNCTION, 'checkmatches');
+        $xajax -> register(XAJAX_FUNCTION, 'savebet');
+
         //$xajax->configure('debug',true);
 
         $xajax->processRequest();
         $xajax->printJavascript();
 
 
-
-        $body .= "<h1>DOES NOT WORK TONIGHT</h1>";
-
         $body .= '<input name="query" type="hidden" value="'.$link_query.'">';
 		$body .= '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
 		$body .= '<input name="ids" type="hidden" value="'.$ids.'">';
 		$body .= '<input name="mnb" type="hidden" value="'.$mnb.'">';
 		$body .= '<input name="orderby" type="hidden" value="'.$_REQUEST['orderby'].'"';
-		$body .= '<tr class="submit"><td class="submit" colspan="4"><input type="submit" value="'.$lang['general_savechanges'].'"></td></tr>';
-		$body .= '</table>';
+		//$body .= '</table>';
 		//the form finishes here
 		$body .= '</form>';
 		$body .= '<p />';
@@ -455,8 +511,51 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 $body .= '<script type="text/javascript" charset="UTF-8">
             /* <![CDATA[ */
             function load_xajax() {
-                setTimeout("setInterval(\\"xajax_checkmatches(\''.$ids.'\')\\",10000)",1000);
+                setTimeout("setInterval(\\"xajax_checkmatches(\''.$ids.'\')\\",5000)",1000);
            }
+
+           function savequestion(betid,options,newvalue,index) {
+
+                  var img = "<img src=\"src/style_'.$settings['style'].'/img/icon_loading_whitebg.gif\" height=\'20px\' width = \'20px\' />"
+                  document.getElementById("savestatus_"+betid).innerHTML=img;
+
+                var bet = "";
+
+                for (var i = 0; i < options; i++) {
+                    chosen = "";
+                    if (i==index) {
+                        chosen = newvalue;
+                    } else {
+                        chosen = document.getElementById("bet_" + betid + "_" + i).value;
+                    }
+
+                    bet = bet + chosen +  ":" ;
+                }
+                xajax_savebet(betid,bet);
+           }
+
+
+           function savebet(event,id) {
+
+                  evt = event || window.event;
+                  var keyPressed = evt.which || evt.keyCode;
+
+                  home = document.getElementById("h_"+id).value;
+                  visitor = document.getElementById("v_"+id).value;
+
+                  if (home == "" || visitor == "" || keyPressed == 9) {
+                        return;
+                  }
+
+                  var img = "<img src=\"src/style_'.$settings['style'].'/img/icon_loading_whitebg.gif\" height=\'20px\' width = \'20px\' />"
+                  document.getElementById("savestatus_"+id).innerHTML=img;
+
+                  var bet = "";
+                  bet = home  + ":" + visitor;
+
+                  xajax_savebet(id,bet)
+           }
+
            /* ]]> */
            </script>';
 
@@ -480,6 +579,29 @@ function  checkmatches($idsstring) {
     }
     return $response;
 }
+
+function savebet($id,$userbet) {
+    global $events_test,$settings;
+    $response = new xajaxResponse();
+    $event = $events_test->getEventById($_REQUEST['ev']);
+
+    $bet = $event->getBetById($id);
+    $bool = $bet->setBet($_SESSION['userid'],$userbet);
+
+    $src = '';
+    if ($bool) {
+        $src = 'src/style_'.$settings['style'].'/img/icon_ok.png';
+        $response->script('xajax_checkmatches("'.$id.'");');
+    } else {
+       $src = 'src/style_'.$settings['style'].'/img/icon_not_ok.png';
+
+    }
+    $image = " <img src=".$src." width = '20px' height= '20px' />";
+    $response->assign('savestatus_'.$id,'innerHTML', $image);
+    return $response;
+
+}
+
 
 ?>
 

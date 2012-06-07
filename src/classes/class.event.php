@@ -237,6 +237,7 @@ class Event {
         //if the admin aproves/refuses users, the different strings in the db have to be changed
         //=> a string is of the form 1:2:3: (for user 1, 2 & 3)
         $event = $this->id;
+
         for ($i=0; $i<sizeof($users); $i++) {
             $what = $whats[$i];
             $user = $users[$i];
@@ -263,12 +264,13 @@ class Event {
                 $this->users_reimbursed = str_replace($user.':', '', $this->users_reimbursed);
             }
         }
-        return $db->query("UPDATE ".PFIX."_events SET users_approved = '$this->users_approved',
+        $query = "UPDATE ".PFIX."_events SET users_approved = '$this->users_approved',
                                                             users_waiting = '$this->users_waiting',
                                                             users_denied = '$this->users_denied',
                                                             users_paid = '$this->users_paid',
                                                             users_reimbursed = '$this->users_reimbursed'
-                                                            WHERE id = '$this->id';");
+                                                            WHERE id = '$this->id';";
+        return $db->query($query);
     }
 
     private function addUserToEventDb($user) {

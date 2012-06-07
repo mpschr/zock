@@ -94,7 +94,7 @@ global $rlink, $link, $link_query, $ssm, $sm;
 $menulist = menus();
 if (isset($menulist[$_REQUEST['menu']]) && $_REQUEST['menu']){
 	$body .=  '<div class="menu_h_level_2">';
-	createHorizontalMenu($_REQUEST['menu']);
+	$body .= createHorizontalMenu($_REQUEST['menu']);
 	$body .=  '</div>';
 	$sm = (isset($_REQUEST['submenu'])) ? $_REQUEST['submenu'] : $menulist[$_REQUEST['menu']][0];
 }

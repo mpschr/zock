@@ -40,9 +40,9 @@ if($nb < 1){
 }elseif($nb > 1){
 	//multible events
 	//=> 2buttons (one hidden) and a vmenu
-	createVerticalMenu(NULL, 'peventlist');
-	createVerticalMenu(NULL, 'mmopen');
-	createVerticalMenu(NULL, 'mmclose');
+	echo createVerticalMenu(NULL, 'peventlist');
+	echo createVerticalMenu(NULL, 'mmopen');
+	echo createVerticalMenu(NULL, 'mmclose');
 	//the session variable currevent must either a public event or the user participates. It can be in the session
 	//after having looked at a public event in the overview section
 	if(isset($_SESSION['currevent']) && eventIsPublic($_REQUEST['ev'])){

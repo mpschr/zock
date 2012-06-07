@@ -458,6 +458,11 @@ td.participantdetails{
 	white-space: nowrap;
 	margin: 8px;
 }
+
+td.title {
+    text-align: center;
+}
+
 .submit {
 	text-align: center;
 	padding-top: 30px;

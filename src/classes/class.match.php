@@ -366,14 +366,16 @@ class Match implements Bet{
           $users = preg_split('/:/',$userstring);
 
           foreach ($users as $u){
+              if ($u == '')
+                  continue;
               if ($this->event->getBetOn()=="results") {
                   $home = $u.'_h';
                   $visitor = $u.'_v';
                   if($this->$home == '' || $this->$visitor == ''){
                       ++$toto0;
                   }else if($this->$home > $this->$visitor){
-                         ++$toto1;		}
-                  else if($this->$home < $this->$visitor){
+                         ++$toto1;
+                  }else if($this->$home < $this->$visitor){
                      ++$toto2;
                   }else{
                      ++$totoX;
@@ -480,45 +482,39 @@ class Match implements Bet{
     }
 
 
-public function getRemainingTimeSpecial()
+    /**
+     * @param int $user
+     * @param $bet
+     * @internal param string $userbet
+     * @return void
+     */
+    public function setBet($user,$bet)
     {
-        global $cont;
-        $day = 'd';
-        $sec_day = 24*60*60;
-        $hour = 'h';
-        $sec_hour = 60*60;
-        $min = 'm';
-        $sec_min = 60;
+        global $db;
 
-        $show_mins = true;
+        if ($this->event->getBetOn()=='results') {
+            $betparts = preg_split('/:/',$bet);
+            if (sizeof($betparts) != 2)
+                return false;
+            if (!(is_numeric($betparts[0]) && is_numeric($betparts[1])))
+                return false;
 
+            $home = $user."_h";
+            $visitor = $user."_v";
 
-        $now = time();
-        $betuntil = $this->getDueDate();
-        $remaining = $betuntil - $now;
-        if ($remaining < 0)
-            return 'passed';
+            if ($betparts[0] == $this->$home && $betparts[1] == $this->$visitor)
+                return true;
 
-        $remainingString = '';
-        $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
-        if ($rdays > 0) {
-            $remainingString .= $rdays.$day;
-            $remaining -= $rdays*$sec_day;
+            $query = "UPDATE ".PFIX."_event_".$this->event->getId()." SET
+                        ".$home." = '".$betparts[0]."', ".$visitor." = '".$betparts[1]."'
+                        WHERE id = ".$this->id.";";
+            $queryres = $db->query($query);
+            if ($queryres) {
+                $this->$home = $betparts[0];
+                $this->$visitor = $betparts[1];
+                return true;
+            }
         }
-
-        $rhours = ($remaining/$sec_hour > 0) ? floor($remaining/$sec_hour) : '0';
-        if ($rhours > 0) {
-            $remainingString .= ' '.$rhours.$hour;
-            $remaining -= $rhours*$sec_hour;
-        }
-        $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
-        if ($rmins > 0 && $show_mins) {
-            if ($remainingString=='')
-                $remainingString .= '<'.$rmins;
-            else
-                $remainingString .= ' '.$rmins.$min;
-        }
-        $remaining - $rmins*$sec_min;
-        return $remainingString.' '.$remaining.'s';
+        return false;
     }
 }
