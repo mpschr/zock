@@ -77,7 +77,9 @@ if(is_dir('installation')){
 	include_once('src/style_'.$settings['style'].'/info.php');
 }else{
 
-include_once('src/functions.php');
+    include_once('src/classes/class.usercollection.php');
+
+    include_once('src/functions.php');
 
 //useful variable as constant.
 //this one is needed for all the DB-reqeusts
@@ -110,6 +112,7 @@ if (isset($_POST['hf_read'])){
 //the function
 include_once('src/classes/class.event.php');
 include_once('src/classes/class.eventcollection.php');
+
 $events_test = new EventCollection($_SESSION['userid']);
 
 $events['p'] = loadEvents(0);

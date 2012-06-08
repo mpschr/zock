@@ -246,8 +246,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                             continue;
                         $inputid = 'bet_'.$betid.'_'.$c;
                         $nr = $c+1;
-                        $betinput .= '<br/>'.$lang['mytips_tip'].' '.$nr.' ('.$point.' '.$lang['ranking_points'].'): <input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >';
-                        $body .= "
+                        $betinput .= '<nobr>'.$lang['mytips_tip'].' '.$nr.' ('.$point.' '.$lang['ranking_points'].'):
+                                        <input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >';
+                        $betinput .= "</nobr>
                             <script type=\"text/javascript\">
                                 $(document).ready(function() {
                                     $(\"#$inputid\").autocomplete({

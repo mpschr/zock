@@ -131,7 +131,7 @@ function loadSettings($user=0){
 			if(isset($_COOKIE['syle'])){
 				$styles = preg_split('/:/', $setting['style_forusers']);
 				array_pop($styles);
-				if ($COOKIE['style']!="" && in_array($_COOKIE['style'],$styles))
+				if ($_COOKIE['style']!="" && in_array($_COOKIE['style'],$styles))
 					$setting['style'] = $usets['style'];
 
 			}
