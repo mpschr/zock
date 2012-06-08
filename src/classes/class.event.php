@@ -528,11 +528,14 @@ class Event {
      */
     public function userIsApproved($userID) {
 
+
         $users = preg_split('/:/',$this->users_approved);
-        if (in_array($userID,$users))
+        if (in_array($userID,$users)) {
             return true;
-        else
+        }
+        else{
             return false;
+        }
 
     }
 
@@ -541,6 +544,7 @@ class Event {
      * @return bool
      */
     public function userIsWaiting($userID) {
+
 
         $users = preg_split('/:/',$this->users_waiting);
         if (in_array($userID,$users))
@@ -556,6 +560,7 @@ class Event {
      * @return bool
      */
     public function userIsDenied($userID) {
+
 
         $users = preg_split('/:/',$this->users_denied);
         if (in_array($userID,$users))

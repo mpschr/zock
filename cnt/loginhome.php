@@ -49,6 +49,33 @@ if($nb > 0){
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';
 
+	if ($_SESSION['userid'] == 1) {
+		$query = "SELECT DISTINCT id,login
+			FROM  `zock_users` 
+			LEFT JOIN  `zock_qa_bets` ON id = user_id
+			WHERE user_id IS NULL ";
+		$o = $db->query($query);
+		if (sizeof($o) > 0) {
+			$body .= '<b>no question answered '.sizeof($o).'</b>';
+
+			foreach ($o as $u) {
+                if ($ev->userIsApproved($u['id'])) {
+				    $body .= ' '.$u['login'].',';
+                }
+			}
+            $body .= '<b>no bet for first game </b>';
+           /* $usersapproved = preg_split('/:/',$ev->getUsersApproved());
+            foreach ($usersapproved as $u) {
+                if ($ev->getBetById(1)->getBet($u) == '') {
+                    $body .= $u.', ';
+                }
+            }*/
+
+
+        }
+		
+	}
+
         $body .= '<li class="evlist"><b>'.$ev->getName().': ';
 		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
 		$rawdata = $db->query("SELECT ".$queryfield."
