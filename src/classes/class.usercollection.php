@@ -54,7 +54,7 @@ class UserCollection extends Collection {
         $output = $db->query("SELECT * FROM ".PFIX."_users");
         $userNb = sizeof($output);
 
-        for ($i = 1; $i<=$userNb; $i++) {
+        for ($i = 0; $i<$userNb; $i++) {
             $u = new User($output[$i]);
             parent::add($u);
         }
@@ -71,31 +71,34 @@ class UserCollection extends Collection {
     }
 
     /**
+     * @param $event Event
      * @return array
      */
-    public function getEventUsers()
+    public function getEventUsers($event)
     {
-        if ($this->eventUsers == null) {
-            $this->eventUsers = array();
-            foreach($this->items as $event) {
-                /* @var $event Event */
-                if ($event->userIsApproved($this->userId)) {
-                    array_push($this->eventUsers,$event);
+        /* @var $event Event */
+        $evid = $event->getId();
+        if ($this->eventUsers[$evid] == null) {
+            $this->eventUsers[$evid] = array();
+            foreach($this->items as $user) {
+                /* @var $user User */
+                if ($event->userIsApproved($user->getId())) {
+                    $this->eventUsers[$evid][] = $user;
                 }
             }
         }
-        return $this->eventUsers;
+        return $this->eventUsers[$evid];
     }
 
     /**
      * @param int $id
      * @return \Event|null
      */
-    public function getEventById($id) {
-        foreach($this->items as $event) {
-            /* @var $event Event */
-            if ($event->getId()==$id)
-                return $event;
+    public function getUserById($id) {
+        foreach($this->items as $user) {
+            /* @var $user Event */
+            if ($user->getId()==$id)
+                return $user;
         }
         return null;
     }

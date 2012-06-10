@@ -125,7 +125,7 @@ $site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : 'home';
 
 }
 
-$xajax_compliant = array('mytips', 'loginhome');
+$xajax_compliant = array('mytips', 'loginhome', 'overview');
 //include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
 
 

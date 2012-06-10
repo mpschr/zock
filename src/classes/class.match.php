@@ -423,18 +423,22 @@ class Match implements Bet{
     public function getResult()
     {
         $result = "";
+
         if ($this->event->getBetOn()=="results") {
             $home = 'score_h';
             $visitor = 'score_v';
+
+            if ($this->$home == null)
+                return '';
+
             $result .= $this->$home;
             $result .= ' : ';
             $result .= $this->$visitor;
-            return $this->$result;
+            return $result;
         }
         elseif ($this->event->getBetOn()=="toto") {
             return $this->score;
         }
-        return "";
     }
 
     /**
@@ -474,7 +478,7 @@ class Match implements Bet{
         $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
         if ($rmins > 0 && $show_mins) {
             if ($remainingString=='')
-                $remainingString .= '<'.$rmins;
+                $remainingString .= '<'.$rmins.$min;
             else
                 $remainingString .= ' '.$rmins.$min;
         }
@@ -491,6 +495,9 @@ class Match implements Bet{
     public function setBet($user,$bet)
     {
         global $db;
+
+        if (time()>$this->getDueDate())
+            return false;
 
         if ($this->event->getBetOn()=='results') {
             $betparts = preg_split('/:/',$bet);
@@ -516,5 +523,90 @@ class Match implements Bet{
             }
         }
         return false;
+    }
+
+    /**
+     * @return void
+     */
+    public function getCorrectBets()
+    {
+        $correctBets = 0;
+        $users = preg_split('/:/',$this->event->getUsersApproved());
+        foreach ($users as $u) {
+
+            if ($u == '') continue;
+
+            if ($this->getBet($u) == $this->getResult())
+                $correctBets++;
+        }
+        return $correctBets;
+    }
+
+    /**
+     * @param $user int
+     * @return bool
+     */
+    public function isCorrectBet($user)
+    {
+
+        if ($this->getBet($user) == $this->getResult()) {
+            return true;
+        }else {
+            return false;
+
+        }
+    }
+
+    /**
+     * @param $user int
+     * @return bool
+     */
+    public function isCorrectDiff($user)
+    {
+        $h = $user.'_h';
+        $v = $user.'_v';
+        if ($this->getScoreH() - $this->getScoreV() ==
+            $this->$h - $this->$v) {
+            return true;
+        }else {
+            return false;
+
+        }
+    }
+
+    /**
+     * @param $user int
+     * @return bool
+     */
+    public function isCorrectWinner($user)
+    {
+        $h = $user.'_h';
+        $v = $user.'_v';
+        if ($this->getScoreH()==$this->getScoreV() &&
+            $this->$h==$this->$v ||
+            $this->getScoreH() > $this->getScoreV() == $this->$h > $this->$v) {
+             return true;
+        }else {
+            return false;
+
+        }
+    }
+
+    /**
+     * @param $user int
+     */
+    public function getUserPoints($user)
+    {
+        $userpoints = $user.'_points';
+        return $this->$userpoints;
+    }
+
+    /**
+     * @param $user int
+     */
+    public function getMoney($user)
+    {
+        $usermoney = $user.'_money';
+        return $this->$usermoney;
     }
 }

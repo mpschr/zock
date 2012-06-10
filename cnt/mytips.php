@@ -212,6 +212,22 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
             $nb++;
 			$start = $mnb;
 			$limit = $mnb + $settings['formlines'];
+
+            //still editable or not??
+            $betuntil = $bet->getDueDate();
+            $now = time();
+            $disabled = "";
+            if ($betuntil<$now){
+                //no, not editable
+                $robool = "true";
+                $ro = 'class="readonly" readonly="readonly"';
+            }else{
+                //yes, it is
+                $robool = "false";
+                $ro = 'class=""';
+                $disabled = 'class=""';
+            }
+
 			
 			if ($nb+1 >= $start && $nb+1 < $limit){
 			
@@ -227,7 +243,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 if ($bet instanceof Question) {
 
                     /* @var $bet Question */
-                    $userbet = preg_split('/:/',$bet->getBet($_SESSION['userid']));
+                    $userbet = $bet->getBet($_SESSION['userid']);
                     $pointing = preg_split('/:/',$bet->getPoints());
                     $options = sizeof($pointing)-1;
                     $possibilities = preg_split('/:/',$bet->getPossibilities());
@@ -247,7 +263,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                         $inputid = 'bet_'.$betid.'_'.$c;
                         $nr = $c+1;
                         $betinput .= '<nobr>'.$lang['mytips_tip'].' '.$nr.' ('.$point.' '.$lang['ranking_points'].'):
-                                        <input id="'.$inputid.'" value="'.$userbet[$c].'" size="10" >';
+                                        <input id="'.$inputid.'"  '.$ro.' value="'.$userbet[$c].'" size="10" >';
                         $betinput .= "</nobr>
                             <script type=\"text/javascript\">
                                 $(document).ready(function() {
@@ -295,21 +311,6 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $tendency = $bet->getTendency();
                 $matchday = $bet->getMatchday();
                 $remainingTime = $bet->getRemainingTime();
-
-				//still editable or not??
-				$betuntil = $bet->getDueDate();
-				$now = time();
-                $disabled = "";
-				if ($betuntil<$now){
-					//no, not editable
-					$robool = "true";
-					$ro = 'class="readonly" readonly="readonly"';
-				}else{
-					//yes, it is
-					$robool = "false";
-					$ro = 'class=""';
-					$disabled = 'class=""';
-				}
 				
 				// same tips?
 

@@ -92,4 +92,35 @@ interface Bet {
      * @return void
      */
     public function setBet($user,$bet);
+
+
+    /**
+     * @abstract
+     * @return void
+     */
+    public function getCorrectBets();
+
+    /**
+     * @abstract
+     * @param $user int
+     */
+    public function isCorrectBet($user);
+
+    /**
+     * @abstract
+     * @param $user int
+     */
+    public function getUserPoints($user);
+
+    /**
+     * @abstract
+     * @param $user int
+     */
+    public function getMoney($user);
+
+    /**
+     * @abstract
+     * @return mixed
+     */
+    public function getMatchdayId();
 }

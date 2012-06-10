@@ -59,12 +59,30 @@ class BetsContainer {
     /////////////////////////////////////////////////
 
 
-    function betSort(&$objArray,$sort_flags=0) {
+    function betSort(&$objArray,$orderby='dueDate',$sort_flags=0) {
         $indeces = array();
-        foreach($objArray as $obj) {
-            $indeces[] = $obj->getDueDate();
+
+        if ($orderby == 'dueDate')
+        {
+            foreach($objArray as $obj) {
+                $indeces[] = $obj->getDueDate();
+            }
+            return array_multisort($indeces,$objArray,$sort_flags);
         }
-        return array_multisort($indeces,$objArray,$sort_flags);
+
+        elseif ($orderby == 'matchDay')
+        {
+            foreach($objArray as $obj) {
+                /* @var $obj Bet */
+                $indeces[] = $obj->getDueDate();
+            }
+            $objArray = array_multisort($indeces,$objArray,$sort_flags);
+            foreach($objArray as $obj) {
+                /* @var $obj Bet */
+                $indeces[] = $obj->getMatchdayId();
+            }
+            return array_multisort($indeces,$objArray,$sort_flags);
+        }
     }
 
     /**
@@ -151,7 +169,7 @@ class BetsContainer {
         if (sizeof($questions) > 0)
             $this->bets = array_merge($this->bets, $questions);
 
-        $this->betSort($this->bets);
+        $this->betSort($this->bets,$orderby);
 
         return $this->bets;
     }

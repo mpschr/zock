@@ -103,17 +103,24 @@ class User {
      */
     private $home_comments;
 
-
     /////////////////////////////////////////////////
     // CONSTRUCTOR
     /////////////////////////////////////////////////
 
-    function __construct($userdataarray) {
-        if ($userdataarray != '')
-            return null;
-
-        foreach($userdataarray as $label => $content) {
-            $this->$label = $content;
+    function __construct($userdata) {
+        if (!is_array($userdata) && is_int($userdata)) {
+            require_once('src/opensource/db_mysql.php');
+            $db = new bDb();
+            $q = 'SELECT * FROM '. PFIX . '_users WHERE id = '.$userdata;
+            $output = $db->query($q);
+            foreach ($output[0] as $label => $content ) {
+                $this->$label = $content;
+            }
+        }
+        elseif (is_array($userdata) && sizeof($userdata)>0) {
+            foreach($userdata as $label => $content) {
+                $this->$label = $content;
+            }
         }
     }
 

@@ -98,11 +98,16 @@ class Question implements Bet{
 
     /**
      * @param string $somebet
-     * @return string
+     * @return string|array
      */
     public function getSameBets($somebet)
     {
-        $userbet = preg_split("/:/", $somebet);
+        $userbet = null;
+        if (!is_array($somebet)) {
+            $userbet = preg_split("/:/", $somebet);
+        } else {
+            $userbet = $somebet;
+        }
         $counts = array();
         foreach ($userbet as $bet) {
             if ($bet == '')
@@ -152,6 +157,10 @@ class Question implements Bet{
      */
     public function setBet($user,$bet)
     {
+
+        if (time()>$this->getDueDate())
+            return false;
+
         global $db;
 
         if ($this->answer == $bet)
@@ -189,7 +198,7 @@ class Question implements Bet{
      */
     public function getBet($user)
     {
-       return $this->bets[$user];
+       return preg_split('/:/',$this->bets[$user]);
     }
 
     /**
@@ -366,7 +375,7 @@ class Question implements Bet{
         $betuntil = $this->getDueDate();
         $remaining = $betuntil - $now;
         if ($remaining < 0)
-            return $cont->get('mytips_passed');
+            return 'passed';
 
         $remainingString = '';
         $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
@@ -383,11 +392,43 @@ class Question implements Bet{
         $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
         if ($rmins > 0 && $show_mins) {
             if ($remainingString=='')
-                $remainingString .= '<'.$rmins;
+                $remainingString .= '<'.$rmins.$min;
             else
                 $remainingString .= ' '.$rmins.$min;
         }
         return $remainingString;
+    }
+
+    /**
+     * @return void
+     */
+    public function getCorrectBets()
+    {
+        // TODO: Implement getCorrectBets() method.
+    }
+
+    /**
+     * @param $user int
+     */
+    public function isCorrectBet($user)
+    {
+        // TODO: Implement isCorrectBet() method.
+    }
+
+    /**
+     * @param $user int
+     */
+    public function getUserPoints($user)
+    {
+        // TODO: Implement getUserPoints() method.
+    }
+
+    /**
+     * @param $user int
+     */
+    public function getMoney($user)
+    {
+        // TODO: Implement getMoney() method.
     }
 }
 

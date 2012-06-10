@@ -22,6 +22,7 @@ global $events_test, $db, $cont;
 
 $body .= '<h2>'.$cont->get('loginhome_title').'</h2>';
 
+$thisuser =  new User($_SESSION['userid']);
 
 //get the number of events, in which the user participates
 $userevents = $events_test->getUserEvents();
@@ -39,7 +40,6 @@ if($nb > 0){
 	$mysettings = loadSettings($_SESSION['userid']);
 
 
-	
 	//display some information and links for this events
 	$body .= '<ul>';
 	foreach ($userevents as $ev){
@@ -49,32 +49,6 @@ if($nb > 0){
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';
 
-	if ($_SESSION['userid'] == 1) {
-		$query = "SELECT DISTINCT id,login
-			FROM  `zock_users` 
-			LEFT JOIN  `zock_qa_bets` ON id = user_id
-			WHERE user_id IS NULL ";
-		$o = $db->query($query);
-		if (sizeof($o) > 0) {
-			$body .= '<b>no question answered '.sizeof($o).'</b>';
-
-			foreach ($o as $u) {
-                if ($ev->userIsApproved($u['id'])) {
-				    $body .= ' '.$u['login'].',';
-                }
-			}
-            $body .= '<b>no bet for first game </b>';
-           /* $usersapproved = preg_split('/:/',$ev->getUsersApproved());
-            foreach ($usersapproved as $u) {
-                if ($ev->getBetById(1)->getBet($u) == '') {
-                    $body .= $u.', ';
-                }
-            }*/
-
-
-        }
-		
-	}
 
         $body .= '<li class="evlist"><b>'.$ev->getName().': ';
 		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
@@ -93,7 +67,7 @@ if($nb > 0){
 			}
 			$body .= $cont->get('ranking_rank').': <b>'.$info['rank'][$_SESSION['userid']].'</b>, '
 				.$cont->get('ranking_points').': <b>'.$info['points'][$_SESSION['userid']].'</b>, '
-				.$gainlang.': <b>'.($info['money'][$_SESSION['userid']]+$info['jackpots'][$info['rank'][$_SESSION['userid']]]).' '.$events['p']['e'.$ev]['currency'].'</b>';
+				.$gainlang.': <b>'.($info['money'][$_SESSION['userid']]+$info['jackpots'][$info['rank'][$_SESSION['userid']]]).' '.$ev->getCurrency().'</b>';
 		}
 		
 		$body .= '<br/>';
