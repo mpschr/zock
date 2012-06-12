@@ -582,6 +582,10 @@ class Match implements Bet{
     {
         $h = $user.'_h';
         $v = $user.'_v';
+
+        if ($this->getScoreH() == "")
+            return false;
+
         if ($this->getScoreH()==$this->getScoreV() &&
             $this->$h==$this->$v ||
             $this->getScoreH() > $this->getScoreV() == $this->$h > $this->$v) {

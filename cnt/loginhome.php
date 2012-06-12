@@ -30,6 +30,39 @@ $nb = sizeof($userevents);
 $eventid_array=array();
 $eventid_string="";
 
+$hasNotPaidEvent = false;
+$notGottenReimbursed = false;
+$mustPayBack = false;
+
+if ($nb > 0) {
+    foreach ($userevents as $event) {
+        /* @var $event Event */
+        if ($event->getFinished()) {
+            if(!$event->userHasBeenReimbursed($_SESSION['userid']))
+                $notGottenReimbursed = true;
+        } else {
+            if(!$event->userHasPaid($_SESSION['userid']))
+                $hasNotPaidEvent = true;
+        }
+    }
+}
+
+
+if ($hasNotPaidEvent) {
+    $body .= indication('Pay the stake for the event to the organizer. If you already have notify it to him or her');
+}
+else if ($notGottenReimbursed) {
+    $body .= indication('You should get reimbursed soon. Otherwise make pressure :-)');
+}
+else if ($thisuser->getAccountDetails() == "") {
+    $body .= indication('Fill out your bank account details so you can get reimbursed');
+} else  if ($thisuser->getPicture() == ""){
+    $body .= indication('Upload a picture in your profile. Otherwise it will be a pig');
+} else if ($thisuser->getName() == "" || $thisuser->getFamname() == "") {
+    $body .= indication('Fill your out your Name so the other users know you are');
+}
+
+
 
 if($nb > 0){
 
@@ -48,7 +81,6 @@ if($nb > 0){
         $eventid = $ev->getId();
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';
-
 
         $body .= '<li class="evlist"><b>'.$ev->getName().': ';
 		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
