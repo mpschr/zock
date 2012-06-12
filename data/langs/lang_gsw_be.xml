@@ -19,6 +19,26 @@ zock! is a free software licensed under GPL (General public license) v3
 -->
 <zock>
     <zock_lang>
+        <label>loginhome_paystake</label>
+        <cnt>Bitte bezau am Organisator dr Wettisatz für ds Ereigniss: $1 . Faus du das scho gmacht hesch, säg das ihm oder ihre.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_reimbursement</label>
+        <cnt>Baud söttisch dr Gwinn übercho. Schüsch machsch haut e chly druck ufe Organisator. :-)</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutbankdetails</label>
+        <cnt>Füu dini Bankdate us damit dir dr Gwinn cha zrüggzaut wärde.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutname</label>
+        <cnt>Füu di Name us, damit d Mitspiler wüsse wär du bisch.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_putpicture</label>
+        <cnt>Lad es Biud i dis Profiu ufe, schüsch isch es es Söili.</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_passed</label>
         <cnt>verby</cnt>
     </zock_lang>

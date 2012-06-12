@@ -49,17 +49,16 @@ if ($nb > 0) {
 
 
 if ($hasNotPaidEvent) {
-    $body .= indication('Pay the stake for the event to the organizer. If you already have notify it to him or her');
-}
-else if ($notGottenReimbursed) {
-    $body .= indication('You should get reimbursed soon. Otherwise make pressure :-)');
+    $body .= indication($cont->get('loginhome_paystake'));
 }
 else if ($thisuser->getAccountDetails() == "") {
-    $body .= indication('Fill out your bank account details so you can get reimbursed');
+    $body .= indication($cont->get('loginhome_filloutbankdetails'));
+}else if ($notGottenReimbursed) {
+    $body .= indication($cont->get('loginhome_reimbursement'));
 } else  if ($thisuser->getPicture() == ""){
-    $body .= indication('Upload a picture in your profile. Otherwise it will be a pig');
+    $body .= indication($cont->get('loginhome_putpicture'));
 } else if ($thisuser->getName() == "" || $thisuser->getFamname() == "") {
-    $body .= indication('Fill your out your Name so the other users know you are');
+    $body .= indication($cont->get('loginhome_filloutname'));
 }
 
 
@@ -132,7 +131,7 @@ if($nb > 0){
 		foreach ($commentdata as $cmt){
 		//tilteline
 		$body .= '<b>';
-		$body .= '<div class="cmttitler">'.$cont->get('general_by').' '.$user[$cmt['user']].'</div>';
+		$body .= '<div class="cmttitler">'.$cont->get('general_by').' <a href="?menu=participants&showuser=' . $cmt['user'] . '">'.$user[$cmt['user']].'</a></div>';
 		$body .= '<div class="cmttitlel">'.$cmt['title'].'</div>';
 		$body .= '</b>';
 		//comment	

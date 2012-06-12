@@ -20,6 +20,26 @@ zock! is a free software licensed under GPL (General public license) v3
 
 <zock>
     <zock_lang>
+        <label>loginhome_paystake</label>
+        <cnt>Bitte bezahle dem Organisator den Wetteinsatz für das Ereignis: $1 . Falls du das schon gemacht hast, teile es ihm oder ihr mit.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_reimbursement</label>
+        <cnt>Du solltest den Gewinn bald erhalten. Ansonsten mache Druck auf den Organisator :-)</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutbankdetails</label>
+        <cnt>Fülle deine Bankdetails aus damit dir zurückgezahlt werden kann.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutname</label>
+        <cnt>Fülle deinen Namen aus damit die Mitspieler wissen wer du bist.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_putpicture</label>
+        <cnt>Lade ein Bild in dein Profil hoch, ansonsten ist es ein Schwein.</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_passed</label>
         <cnt>vorbei</cnt>
     </zock_lang>

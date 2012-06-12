@@ -115,9 +115,9 @@ if($nb2 != NULL && $nb != NULL){
 					$lang['mytips_tips'].'</a></td></tr>';
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
-                    show: <a href="javascript: doRanksGraph()"> ranks</a>
-                    <a href="javascript: doPointsGraph()"> points </a>   
-		    add: <input style="font-size:9px;" size="10" id="addUser" class="input autouser"></input>
+                    <b><a href="javascript: doRanksGraph()"> ' . $lang['ranking_rank'] . '</a>
+                    <a href="javascript: doPointsGraph()"> ' . $lang['ranking_points'] . ' </a> </b>
+		    add: <input style="font-size:9px;" size="10" id="addUser" class="input autouser"/>
                     </td></tr>';
                 echo '<tr><td colspan=2>';
                     echo '<div id="chartdiv" height="300px" width="500px">';
@@ -210,7 +210,7 @@ $u = array($details[0]['login']);
 $p[] = $pointsData;
 
 if ($_SESSION['userid'] != $_REQUEST['showuser']) {
-	addToPlot($lang['general_you'],$_SESSION['userid']); 
+	addToPlot('you',$_SESSION['userid']);
 }
 if (isset($_REQUEST['add'])) {
 	$add = preg_split('/:/',$_REQUEST['add']);
@@ -218,11 +218,12 @@ if (isset($_REQUEST['add'])) {
 	foreach ($add as $id)
 		addToPlot($userarray[$id],$id);
 }
-writeGraphScript($p,$r,array_reverse($u),eventUserNumber($_REQUEST['ev']));
+writeGraphScript($p,$r,$u,eventUserNumber($_REQUEST['ev']));
 
 function addToPlot($user, $userid) {
 
 	global $p,$r,$u,$db;
+    $pUser = 0;
 	$rawdata = $db->query("SELECT ".$userid."_points, ".$userid."_ranking, ".$userid."_money FROM ".PFIX."_event_".$_REQUEST['ev']. " WHERE score_h IS NOT NULL ORDER BY time");
 				foreach ($rawdata as $row){
                     $pUser = $pUser + $row[$userid."_points"];
@@ -252,9 +253,9 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
 
     
     global $lang;
-    $userscp = $users;
+    $series = '';
     foreach ($users as $u)
-        $series .= "{label:'".array_pop($users)."'},";
+        $series .= "{label:'".$u."'},";
 
     // points
     $pointsGraph = "
@@ -268,9 +269,10 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
     }
     ";
 
-    echo $pointGraph;
+    //echo $pointsGraph;
     //ranks
 
+    $rankticks = '';
     for ($i=$rankmax; $i>0; $i-- ) 
            $rankticks.= "[$i,$i],"; 
     $ranksGraph = "
@@ -280,15 +282,24 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
                 {  title:'". $lang['ranking_rank']."',
                    series:[".$series."],
                    legend:{show:true,location:'nw'},
-                   axes:{yaxis:{ticks:[".$rankticks."]}}
+                   axes:{
+                        yaxis:{ ticks:[".$rankticks."] }
+                   },
+                   highlighter: {
+                        show: true,
+                        sizeAdjust: 7.5
+                   },
+                   cursor: {
+                        show: false
+                   }
                 });
     }
     ";
 
-    if ($_REQUEST['curves'] == 'ranks') {
-	$displaygraph = 'doRanksGraph();';
+    if ($_REQUEST['points'] == 'ranks') {
+        $displaygraph = 'doPointsGraph();';
     } else {
-	$displaygraph = 'doPointsGraph();';
+        $displaygraph = 'doRanksGraph();';
     }
 
     echo "
@@ -302,7 +313,3 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
     
     "; 
 }
-
-
-
-?>

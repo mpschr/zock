@@ -1,5 +1,25 @@
 <zock>
     <zock_lang>
+        <label>loginhome_paystake</label>
+        <cnt>Si us plau, pagar al organitzador l'aposta per l'esdeveniment: $1. Si ja ho has fet, compartir amb ell o ella.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_reimbursement</label>
+        <cnt>Aviat rebrà el guany. En cas contrari, fer pressió sobre els organitzadors. :-)</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutbankdetails</label>
+        <cnt>Ompliu les teves dades bancàries  de manera que es pot pagar-te.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutname</label>
+        <cnt>Omple el teu nom, pel que els jugadors sàpiguen qui ets.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_putpicture</label>
+        <cnt>Carrega una foto al seu perfil, en cas contrari, és un porc.</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_passed</label>
         <cnt>pasat</cnt>
     </zock_lang>

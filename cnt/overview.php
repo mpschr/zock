@@ -166,10 +166,15 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
 
             $body .=  '<div id="overview"><table>';
 
+            $rowview = false;
+            if (isset($_REQUEST['row'])) {
+                $rowview = true;
+            }
 
             //title row of the table
-            $body .=  '<tr class=title>
-			<td class=title><a href="' . $link . orderIt('time', $orderby, $link_query) . '"> ' . $lang['admin_events_time'] . '</a></td>
+            $body .=  '<tr class=title>';
+            if (!$rowview) {
+			$body .= '<td class=title><a href="' . $link . orderIt('time', $orderby, $link_query) . '"> ' . $lang['admin_events_time'] . '</a></td>
 			<td class=title><a href="' . $link . orderIt('matchday_id', $orderby, $link_query) . '"> ' . $lang['admin_events_matchday'] . '</a></td>
 			<td class=title><a href="' . $link . orderIt('home', $orderby, $link_query) . '"> ' . $lang['admin_events_home'] . '</a></td>
 			<td class=title><a href="' . $link . orderIt('visitor', $orderby, $link_query) . '"> ' . $lang['admin_events_visitor'] . '</a></td>';
@@ -179,26 +184,37 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                 $body .=  '<td class=title><a href="' . $link . orderIt('score', $orderby, $link_query) . '"> ' . $lang['admin_events_score'] . '</a></td>';
             if ($event->getStakeMode() == 'permatch')
                 $body .=  '<td class=title><a href="' . $link . orderIt('jackpot', $orderby, $link_query) . '"> ' . $lang['overview_jackpot'] . '</a></td>';
-            foreach ($users as $user) {
-                /* @var $user User */
-                $player_column = $user->getId();
-                if (!isset($_REQUEST['col'])) {
-                    $body .=  '<td class="title"><a href="' . $link . 'col=' . $player_column . '">' . $user->getLogin() . '</a></td>';
-                } elseif (isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
-                    $body .=  '<td class="title">' . $user->getLogin() . '</td><td class="title"><a href="' . $link . '">>>></a>';
+
+
+                foreach ($users as $user) {
+                    /* @var $user User */
+                    $player_column = $user->getId();
+                    if (!isset($_REQUEST['col'])) {
+                        $body .=  '<td class="title"><a href="' . $link . 'col=' . $player_column . '">' . $user->getLogin() . '</a></td>';
+                    } elseif (isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
+                        $body .=  '<td class="title">' . $user->getLogin() . '</td><td class="title"><a href="' . $link . '">>>></a>';
+                    }
                 }
             }
+
+            $body .= '</tr>';
+
             //to count the rows of matches
             $r = 0;
 
             //is set false if summeries are to be displayed
             $onlyall = true;
             $betonresults = ($event->getBetOn() == 'results') ? true : false;
-
+            $last = '';
+            $now = '';
             foreach ($bets as $bet) {
                 /* @var $bet Bet */
                 //increment rows
                 $r++;
+
+                if ($rowview && $r != $_REQUEST['row'])
+                    continue;
+
                 /*display a summary (either time or matchday, else no summary),
                 if the value in question changes (matchday, or day)*/
                 $last = $now; //for the comparison
@@ -213,7 +229,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                         break;
                 }
                 //the actual summary
-                if ($last != $now && $r != 1) {
+                if ($last != $now && $r != 1 && (!$rowview)) {
                     $body .=  '<tr class="ow_summary">';
                     $pointsnmoney = array($lang['ranking_points'], $lang['ranking_gain']);
                     $body .=  '<td>' . substitute($lang['overview_summary'], $pointsnmoney) . '</td>';
@@ -258,7 +274,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                 $ismatch = false;
                 if ($bet instanceof Question) {
                     /* @var $bet Question */
-                    $body .= '<td class=ow colspan="4">'. wordwrap($bet->getQuestion(),'70','<br/>') .'</td>';
+                    $body .= '<td class="ow_team" colspan="4">'. wordwrap($bet->getQuestion(),'70','<br/>') .'</td>';
                     $body .= '<td>'. $bet->getResult() .'</td>
                                 <td></td>';
                 }
@@ -266,7 +282,11 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                     $ismatch = true;
 
                     /* @var $bet Match */
-                    $body .=  '<td class="ow_date" width="50px">' . weekday($bet->getTime(), 1) . ', ' . date('d.m.Y - H:i', $bet->getTime()) . '</td>';
+                    $rowlink_p1 = !$rowview ? '<a href="' . $link . 'row=' . $r . '">' : '';
+                    $rowlink_p2 = !$rowview ? '</a>' : '';
+                    $body .=  '<td class="ow_date" width="50px">' . $rowlink_p1
+                        . weekday($bet->getTime(), 1) . ', ' . date('d.m.Y - H:i', $bet->getTime())
+                        . $rowlink_p2 . '</td>';
                     $body .=  '<td class="ow">' . $bet->getMatchday() . '</td>'; // "normal" td
 
                     $body .=  '<td class="ow_team" width="50px">' . $bet->getHome() . '</td>';
@@ -283,7 +303,20 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                         $jackpot += $bet->getJackpot();
                     }
                 }
+                if ($rowview) {
+                    $body .= '</table>';
+                    $body .= '<table>';
+                }
                 foreach ($users as $user) {
+
+                    if ($rowview) {
+                       if (!isset($_REQUEST['col'])) {
+                           $body .=  '<td><a href="' . $link . 'col=' . $user->getId() . '">' . $user->getLogin() . '</a></td>';
+                       } elseif (isset($_REQUEST['col']) && $user->getId() == $_REQUEST['col']) {
+                           $body .=  '<td>' . $user->getLogin() . '</td><td class="title"><a href="' . $link . '">>>></a>';
+                       }
+                    }
+
                     $uid = $user->getId();
                     $player_column = $uid;
                     // show tips already?
@@ -330,30 +363,37 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
 
                     $points[$uid] += $bet->getUserPoints($uid); //for the summaries
                     $money[$uid] += $bet->getMoney($uid); //for the summaries
+
+                    if ($rowview) $body .= '</tr>';
+
                 }
 
-                $body .=  '</tr>' . "\r\n";
+                if (!$rowview) $body .=  '</tr>' . "\r\n";
             }
 
-            //the end summary
-            $body .=  '<tr class="ow_summaryall">';
-            $body .=  '<td>' . $lang['overview_summaryall'] . '</td>';
-            $body .=  '<td></td>';
-            $body .=  '<td></td>';
-            $body .=  '<td></td>';
-            $body .=  '<td></td>';
-            if ($event->getStakeMode() == 'permatch') $body .=  '<td class="ow">' . $jackpot_all . '</td>';
-            foreach ($users as $user) {
-                $player_column = $user->getId(); // set player_column 0 again..
-                //$player_column++;
-                if (!isset($_REQUEST['col']) || isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
-                    if ($event->getStakeMode() == 'permatch') $display_m = $money_all[$user->getId()] . ' & ';
-                    $body .=  '<td class="ow">' . $display_m . $points_all[$user->getId()] . '</td>';
+            if ($rowview) {
+                $body .= '</table>';
+            } else {
+                //the end summary
+                $body .=  '<tr class="ow_summaryall">';
+                $body .=  '<td>' . $lang['overview_summaryall'] . '</td>';
+                $body .=  '<td></td>';
+                $body .=  '<td></td>';
+                $body .=  '<td></td>';
+                $body .=  '<td></td>';
+                if ($event->getStakeMode() == 'permatch') $body .=  '<td class="ow">' . $jackpot_all . '</td>';
+                foreach ($users as $user) {
+                    $player_column = $user->getId(); // set player_column 0 again..
+                    //$player_column++;
+                    if (!isset($_REQUEST['col']) || isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
+                        if ($event->getStakeMode() == 'permatch') $display_m = $money_all[$user->getId()] . ' & ';
+                        $body .=  '<td class="ow">' . $display_m . $points_all[$user->getId()] . '</td>';
+                    }
                 }
-            }
-            $body .=  '</tr>';
+                $body .=  '</tr>';
 
-            $body .=  '</table>';
+                $body .=  '</table>';
+            }
             $body .=  '</div>';
         }
 

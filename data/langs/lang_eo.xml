@@ -19,6 +19,26 @@ zock! is a free software licensed under GPL (General public license) v3
 -->
 <zock>
     <zock_lang>
+        <label>loginhome_paystake</label>
+        <cnt>Bonvolu pagi la organizanto la konkurin de la evento: $ 1. Se vi jam faris ĝin, dividi ĝin kun li aŭ ŝi.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_reimbursement</label>
+        <cnt>Vi devus baldaŭ akiri la venkon. Alie, fari premon sur la organizantoj :-)</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutbankdetails</label>
+        <cnt>Plenigu viajn banko detaloj tiel ni povas repagi.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutname</label>
+        <cnt>Plenigu viajn nomon de la ludantoj scii kiu vi estas.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_putpicture</label>
+        <cnt>Ŝarĝi foton en via profilo ĉe, alie ĝi estas porko.</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>general_passed</label>
         <cnt>pasis</cnt>
     </zock_lang>

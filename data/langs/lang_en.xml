@@ -20,6 +20,26 @@ zock! is a free software licensed under GPL (General public license) v3
 
 <zock>
     <zock_lang>
+        <label>loginhome_paystake</label>
+        <cnt>Please pay to the organizer the stake for the event: $1. If you already have done so, notify it to him or her.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_reimbursement</label>
+        <cnt>You should get the winnings soon. Otherwise make pressure on the organizer :-)</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutbankdetails</label>
+        <cnt>Fill out your bank account details so you can get reimbursed.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_filloutname</label>
+        <cnt>Fill your out your name so the other users know you are.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>loginhome_putpicture</label>
+        <cnt>Upload a picture to your profile. Otherwise it will be a pig</cnt>
+    </zock_lang>
+    <zock_lang>
         <label>loginhome_goparticipate</label>
         <cnt>Go participate at $1</cnt>
     </zock_lang>
