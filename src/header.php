@@ -26,6 +26,14 @@ if (isset($style['favicon'])) $favicon = '<link rel="shortcut icon" href="src/st
 if(defined(INSTALLING)) $installation_style = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout_installation.css" />';
 global $header;
 
+$style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />';
+
+if ($_SESSION['userid'] == 1) {
+    $bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.min.js"></script>
+                <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>';
+    //$style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.min.css" />';
+}
+
 $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -34,14 +42,21 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 	<meta name="description" content="'.$desc.'" />
 	<meta name="keywords" content="'.$keys.'" />
-	<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />
-	<? if(isset($installation_style)) '. $installation_style.'
-	<? if(isset($favicon)) '. $favicon.';
-    
+	'. $installation_style.'
+	'. $favicon.'
+
+    '.$style_css.'
+
+
 	<script type="text/javascript" src="src/functions.js" ></script>
-    <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>
+
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-1.7.2.min.js"></script>
+
+    '.$bootstrap.'
+
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-ui-1.8.2.custom.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>
+
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />      
 </head>';
