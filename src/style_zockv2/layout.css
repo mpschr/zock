@@ -60,13 +60,21 @@ h2{
 	text-decoration: underline;
 }
 
-a:link, a:visited {
+a {
 	color: #337900;
 	text-decoration: none;
 }
-a:hover {
-	color: #33bb00;
-} 
+
+.dropdown-menu li > a {
+    color: #ffffff;
+}
+
+
+.dropdown-menu li {
+    padding: 0px;
+    margin: 0px;
+}
+
 
 table {
 	font-size: 11px;
@@ -151,10 +159,8 @@ li {
 }
 
 #menu_h_top{
-	padding-top: 13px;
 	/*background: url('img/zock_top.png') no-repeat;*/
-    padding-bottom: 10px;
-	z-index: 1;
+	z-index: 3;
 	position: relative;
 }
 
@@ -164,8 +170,12 @@ li {
 	background: white;
 	color: black;
 	white-space: nowrap;
-	border-width: 4px 4px 4px 4px;
-    border-radius: 15px;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-left-width: 4px;
+    border-bottom-width: 0px;
+    border-top-left-radius: 15px;
+    border-top-left-radius: 15px;
     border-style: solid;
 	position: relative;
     padding-top: 5px;
@@ -204,6 +214,8 @@ a.menulink:hover > span, a.menulinksel > span{
 	border-color: black;
 	line-height: 1.5;
 }
+
+
 a.menulink, a.menulinksel { 
     margin: 0;
     padding: 0;    
@@ -231,7 +243,7 @@ a.menulink, a.menulinksel {
 	/* the div that'll contain the actual information/content */
 	padding: 1px 10px 10px 10px;
 	border-style: solid;
-	border-width: 4px 4px 4px 4px;
+	border-width: 0px 4px 4px 4px;
 	border-color: black;
 	text-align: left;
 	background: white;
@@ -239,7 +251,8 @@ a.menulink, a.menulinksel {
 	position: relative;
 	z-index: 1;
 	visibility: visible;
-    border-radius: 15px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
 }
 
 

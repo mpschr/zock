@@ -328,9 +328,7 @@ function menus(){
 					'ranking',
 					'participants',
 					'comments',
-					'myprofile',
-					'loginhome',
-					'logout');
+					'loginhome');
 					
 	$menus['admin'] = array(	'settings',
 					'events',
@@ -340,10 +338,15 @@ function menus(){
 	$menus['events'] = array (	'settings',
 					'matches',
 					'results');
+
+    $menus['logout'] = 'logout';
+
+    $menus['profile'] = 'myprofile';
 					
-	$menus['myprofile'] = array(	'settings',
+	$menus[$menus['profile']] = array(
+                    'settings',
 					'appearance',
-					'password');	
+					'password');
 					
 	//the following arrays are for allowance check purpose only
 		//=> is necessary for they are only displayed when the
@@ -417,6 +420,11 @@ function createHorizontalMenu($submenu=NULL){
 	$logged = isLogged();
 	$admin = isAdmin();
 
+    if ($logged) {
+        $uc = new UserCollection();
+        $userlogin = $uc->getUserById($_SESSION['userid'])->getLogin();
+    }
+
     $hasButtonImages = (strlen($style['btn_format'])>0);
     $menuHTML = '';
 
@@ -425,12 +433,54 @@ function createHorizontalMenu($submenu=NULL){
 
 
 		//add the admin button for the admin
-		if ($admin){
-			$linktype = ($_REQUEST['menu'] == 'admin') ? 'menulinksel' : 'menulink';
-			$menuHTML .=  '<a class="'.$linktype.'" id="admin" href="index.php?menu=admin">';
-				$menuHTML .=  $hasButtonImages ?  '<img src="src/style_'.$stl.'/btn_admin.'.$style['btn_format'].'" alt="'.$lang['admin_title'].'"/>' :
-                                        '<span>'.$lang['admin_title'].'</span>';
-				$menuHTML .=  '</a>';
+		if ($logged){
+            $off = $menus['logout'];
+            $userprofile = $menus['profile'];
+            $userprofileMenus = $menus[$userprofile];
+
+            $menuHTML .= '
+                       <div class="btn-group pull-right">
+
+                           <a class="btn  btn-primary"
+                                href="index.php?menu='.$off.'" rel="tooltip" title="Log Out">
+                                <span>&nbsp;</span><i class="icon-off icon-white"></i>
+                           </a>
+
+                           <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                                href="#" rel="tooltip" title="Account">
+                                <i class="icon-user icon-white"></i>
+                                <span>'.$userlogin.'</span>
+                                <i class="caret"></i>
+                           </a>';
+
+            $menuHTML .= ' <ul class="btn-primary dropdown-menu">';
+
+            foreach ($userprofileMenus as $usermenu) {
+                $menuText = $hasButtonImages ?
+                    '<img src="src/style_'.$stl.'/btn_'.$usermenu.'.'.$style['btn_format'].'" alt="'.$lang[$userprofile.'_'.$usermenu.'_title'].'"/>' :
+                    '<span>'.$lang[$userprofile.'_'.$usermenu.'_title'].'</span>';
+
+                $menuHTML .=        '<li>
+                                        <a href="index.php?menu='.$userprofile.'&submenu='.$usermenu.'">'.$menuText.'</a>
+                                    </li>';
+            }
+
+            if ($admin) {
+                    $menuHTML .= '<li class="divider"></li>';
+                foreach ($menus['admin'] as $adminsubmenu) {
+                    $adminmenu = 'admin';
+                    $menuText = $hasButtonImages ?
+                        '<img src="src/style_'.$stl.'/btn_'.$adminsubmenu.'.'.$style['btn_format'].'" alt="'.$lang[$adminmenu.'_'.$adminsubmenu.'_title'].'"/>' :
+                        '<span>'.$lang[$adminmenu.'_'.$adminsubmenu.'_title'].'</span>';
+
+                    $menuHTML .=        '<li>
+                                        <a href="index.php?menu='.$adminmenu.'&submenu='.$adminsubmenu.'">'.$menuText.'</a>
+                                    </li>';
+                }
+            }
+
+            $menuHTML .= '</ul></div>';
+
 		}
 		//normal menu (@ page entry)
 		if (!($logged)){
@@ -456,6 +506,8 @@ function createHorizontalMenu($submenu=NULL){
 		}
 	//make the submenu line
 	}else{
+        if ($submenu=='myprofile')
+            return;
 		foreach($menus[$submenu] as $nm){
 			$linktype = 'menulink';
 			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';

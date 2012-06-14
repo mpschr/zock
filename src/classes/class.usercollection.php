@@ -92,7 +92,7 @@ class UserCollection extends Collection {
 
     /**
      * @param int $id
-     * @return \Event|null
+     * @return \User|null
      */
     public function getUserById($id) {
         foreach($this->items as $user) {

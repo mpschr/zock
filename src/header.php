@@ -39,6 +39,7 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 	<meta name="description" content="'.$desc.'" />
 	<meta name="keywords" content="'.$keys.'" />
+	'.$bootstrap.'
 	'. $installation_style.'
 	'. $favicon.'
 
@@ -49,7 +50,6 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-1.7.2.min.js"></script>
 
-    '.$bootstrap.'
 
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-ui-1.8.2.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>
