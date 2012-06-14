@@ -432,8 +432,34 @@ function createHorizontalMenu($submenu=NULL){
 	if($submenu==NULL){
 
 
-		//add the admin button for the admin
-		if ($logged){
+        //normal menu (@ page entry)
+        if (!($logged)){
+            $menuHTML .= '
+                            <div class="subnav subnav-fixed">
+                              <ul class="nav nav-pills">';
+
+            foreach($menus['normal'] as $menu){
+                $active = '';
+                if ($_REQUEST['menu'] == $menu) $active = 'active';
+
+                $menuText = $hasButtonImages ?
+                    '<img src="src/style_'.$stl.'/btn_'.$menu.'.'.$style['btn_format'].'" alt="'.$lang[$menu.'_title'].'" />' :
+                    '<span>'.$lang[$menu.'_title'].'</span>';
+
+                $menuHTML .=        '<li class="'.$active.'">
+                                        <a href="index.php?menu='.$menu.'">'.$menuText.'</a>
+                                    </li>';
+            }
+
+            $menuHTML .=     '</ul>
+                            </div><!-- close subnac-->';
+
+        }else{
+            //the logged user menu
+
+
+
+            //add the user profile and admin button
             $off = $menus['logout'];
             $userprofile = $menus['profile'];
             $userprofileMenus = $menus[$userprofile];
@@ -465,8 +491,9 @@ function createHorizontalMenu($submenu=NULL){
                                     </li>';
             }
 
+
             if ($admin) {
-                    $menuHTML .= '<li class="divider"></li>';
+                $menuHTML .= '<li class="divider"></li>';
                 foreach ($menus['admin'] as $adminsubmenu) {
                     $adminmenu = 'admin';
                     $menuText = $hasButtonImages ?
@@ -479,41 +506,53 @@ function createHorizontalMenu($submenu=NULL){
                 }
             }
 
+
+
             $menuHTML .= '</ul></div>';
 
-		}
-		//normal menu (@ page entry)
-		if (!($logged)){
-			foreach($menus['normal'] as $nm){
-				$linktype = 'menulink';
-				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
-					$menuHTML .=  $hasButtonImages ?' <img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
-                                            '<span>'.$lang[$nm.'_title'].'</span>';
 
-					$menuHTML .=  '</a>';
-			}
-		//the logged user menu
-		}else{
-			foreach($menus['logged'] as $nm){
-				$linktype = 'menulink';
-				if ($_REQUEST['menu'] == $nm) $linktype = 'menulinksel';
-				$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$nm.'">';
-					$menuHTML .=  $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$nm.'_title'].'"/>' :
-                                            '<span>'.$lang[$nm.'_title'].'</span>';
-					$menuHTML .=  '</a>';
-			}
-		}
+
+            $menuHTML .= '
+                        <div class="nav">
+                        <div class="subnav subnav-fixed">
+                          <ul class="nav nav-pills">';
+
+            $first = true;
+            foreach($menus['logged'] as $menu){
+                $active = '';
+                if ($_REQUEST['menu'] == $menu) $active = 'active';
+
+                $menuText = $hasButtonImages ?
+                    '<img src="src/style_'.$stl.'/btn_'.$menu.'.'.$style['btn_format'].'" alt="'.$lang[$menu.'_title'].'" />' :
+                    '<span>'.$lang[$menu.'_title'].'</span>';
+
+                $menuHTML .=    '<li class="'.$active.'">
+                                    <a href="index.php?menu='.$menu.'">'.$menuText.'</a>
+                                </li>';
+                if ($first) {
+                    $first = false;
+                } else {
+                    $menuHTML .= '<li class="divider"></li>';
+                }
+            }
+
+                    $menuHTML .= '</ul>';
+
+            $menuHTML .='</div></div><!-- close subnav-->';
+
+
+        }
+
 	//make the submenu line
 	}else{
         if ($submenu=='myprofile')
             return;
-		foreach($menus[$submenu] as $nm){
-			$linktype = 'menulink';
-			if ($_REQUEST['submenu'] == $nm) $linktype = 'menulinksel';
-			$menuHTML .=  '<a class="'.$linktype.'" id="'.$nm.'" href="index.php?menu='.$submenu.'&submenu='.$nm.'">';
-				$menuHTML .=  $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$nm.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$nm.'_title'].'"/>' :
-                                            '<span>'.$lang[$submenu.'_'.$nm.'_title'].'</span>';
+		foreach($menus[$submenu] as $menu){
+			$active = 'menulink';
+			if ($_REQUEST['submenu'] == $menu) $active = 'menulinksel';
+			$menuHTML .=  '<a class="'.$active.'" id="'.$menu.'" href="index.php?menu='.$submenu.'&submenu='.$menu.'">';
+				$menuHTML .=  $hasButtonImages ? '<img src="src/style_'.$stl.'/btn_'.$submenu.'_'.$menu.'.'.$style['btn_format'].'" alt="'.$lang[$submenu.'_'.$menu.'_title'].'"/>' :
+                                            '<span>'.$lang[$submenu.'_'.$menu.'_title'].'</span>';
 					$menuHTML .=  '</a>';
 		}
 	}

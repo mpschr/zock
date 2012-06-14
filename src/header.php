@@ -28,7 +28,7 @@ global $header;
 
 $style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />';
 
-$bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.min.js"></script>
+$bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.js"></script>
             <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>';
 
 $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
@@ -39,11 +39,8 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
 	<meta name="description" content="'.$desc.'" />
 	<meta name="keywords" content="'.$keys.'" />
-	'.$bootstrap.'
 	'. $installation_style.'
 	'. $favicon.'
-
-    '.$style_css.'
 
 
 	<script type="text/javascript" src="src/functions.js" ></script>
@@ -55,7 +52,11 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>
 
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />      
+    <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />
+       	'.$bootstrap.'
+        '.$style_css.'
+
+
 </head>';
 
 function getHeader() {

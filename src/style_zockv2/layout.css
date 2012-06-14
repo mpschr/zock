@@ -39,11 +39,6 @@ these are the following ones:
 
 
 /* =============== general/normal ============== */
-html, body {
-	font-family: 'Trebuchet MS';
-	font-size: 11px;
-	color: black;
-}
 
 body {
 	background: #337900;
@@ -73,9 +68,17 @@ a {
 .dropdown-menu li {
     padding: 0px;
     margin: 0px;
+    border-radius: 0px;
 }
 
+.nav-pills > li {
+    border-radius: 0px;
+    float: left;
+}
 
+li.divider {
+    border-right: black;
+}
 table {
 	font-size: 11px;
 	margin: 8px;
@@ -97,14 +100,6 @@ textarea {
 
 img {
 	border-style: none;
-}
-ul {
-	margin-left: 0px; padding: 0px;
-
-}
-li {
-/*	list-style: none;*/
-	margin-left: 20px; padding: 0px;
 }
 		  
 /* =============== from top to down (standard site) ============== */

@@ -179,13 +179,13 @@ function editResult(id, row){
 		ro = $(h).attr('readonly');
         $(h).attr('readonly', !$(h).attr('readonly'));
         $(v).attr('readonly', !$(v).attr('readonly'));
-        
         $(special).attr('readonly', !$(special).attr('readonly'));
 	}else{
 		
         var s1 = '#s1_' + id;
 		var sX = '#sX_' + id;
 		var s2 = '#s2_' + id;
+
 		ro = $(h).attr('disabled');
 
         $(s1).attr('readonly', !$(s1).attr('readonly'));
@@ -193,7 +193,7 @@ function editResult(id, row){
         $(s2).attr('readonly', !$(s2).attr('readonly'));
         $(special).attr('readonly', !$(special).attr('readonly'));
 	}
-	if(ro==false){
+	if(ro=='readonly'){
 		hf.value = "false";
 		img.src = "src/"+ style +"/img/edit_cancel.png"
 		img.alt = cancel
