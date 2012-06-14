@@ -28,11 +28,8 @@ global $header;
 
 $style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />';
 
-if ($_SESSION['userid'] == 1) {
-    $bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.min.js"></script>
-                <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>';
-    //$style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.min.css" />';
-}
+$bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>';
 
 $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">

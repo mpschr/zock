@@ -165,59 +165,40 @@ function editResult(id, row){
 //for this, the image & the value in the hiddenfield has to change as well.
 	//=> called in admin_events_results
 	
-	var special = document.getElementById('special_'+ id)
+	var special = '#special_'+ id
 	var hf = document.getElementById('ro_' + id)
 	var img = document.getElementById('im_'+ id)
 	var style = document.getElementById('style').value
 	var edit = document.getElementById('edit').value
 	var cancel = document.getElementById('cancel').value
 	var score_input_type = document.getElementById('score_input_type').value
+    var ro = ""
 	if(score_input_type == 'results'){
-		ro = document.getElementById('h_' + id).className
-		var h = document.getElementById('h_' + id);
-		var v = document.getElementById('v_'+ id);
+        var h = '#h_' + id;
+		var v = '#v_'+ id
+		ro = $(h).attr('readonly');
+        $(h).attr('readonly', !$(h).attr('readonly'));
+        $(v).attr('readonly', !$(v).attr('readonly'));
+        
+        $(special).attr('readonly', !$(special).attr('readonly'));
 	}else{
-		ro = document.getElementById('s1_' + id).className
-		var s1 = document.getElementById('s1_' + id);
-		var sX = document.getElementById('sX_' + id);
-		var s2 = document.getElementById('s2_' + id);
+		
+        var s1 = '#s1_' + id;
+		var sX = '#sX_' + id;
+		var s2 = '#s2_' + id;
+		ro = $(h).attr('disabled');
+
+        $(s1).attr('readonly', !$(s1).attr('readonly'));
+        $(sX).attr('readonly', !$(sX).attr('readonly'));
+        $(s2).attr('readonly', !$(s2).attr('readonly'));
+        $(special).attr('readonly', !$(special).attr('readonly'));
 	}
-	if(ro == "readonly"){
-		if(score_input_type == 'results'){
-			h.className = "";
-			v.className = "";
-			h.readOnly=false;
-			v.readOnly=false;
-		}else{
-			s1.className = "";
-			s1.disabled=false;
-			sX.className = "";
-			sX.disabled=false;
-			s2.className = "";
-			s2.disabled=false;
-		}
-		special.className = "";
-		special.readOnly=false;
+	if(ro==false){
 		hf.value = "false";
 		img.src = "src/"+ style +"/img/edit_cancel.png"
 		img.alt = cancel
 		img.title = cancel
 	}else{
-		if(score_input_type == 'results'){
-			h.className = "readonly";
-			v.className = "readonly";
-			h.readOnly=true;
-			v.readOnly=true;
-		}else{
-			s1.className = "readonly";
-			s1.disabled=true;
-			sX.className = "readonly";
-			sX.disabled=true;
-			s2.className = "readonly";
-			s2.disabled=true;
-		}
-		special.className = "readonly";
-		special.readOnly=true;
 		hf.value = "true";
 		img.src = "src/"+ style +"/img/edit.png"
 		img.alt = edit

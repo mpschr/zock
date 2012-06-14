@@ -120,7 +120,8 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 				//further error handling
 				$id = $m['id'];
 				$imgsrc = 'src/'.$bdp_style.'/img/edit.png';
-
+                
+                $ro="";
 				//decide if the data in the forms should come from db or error the $_post array
 				if (isset($wrongs) && $data['ro_'.$m['id']] == 'false'){
 					//get the data the user entered and invoked an error
@@ -131,7 +132,7 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 					if(isset($wrongs[$m['id']])){
 						$id =  '<font class=error>-></font>';
 						$robool = "false";
-						$ro = 'class=""';
+						$ro = 'readonly="false"';
 					}
 				}else{
 					$score_h = $m['score_h'];
@@ -139,9 +140,9 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 					$special = $m['score_special'];
 					//readonly per default
 					$robool = "true";
-					$ro = 'class="readonly" readonly="readonly"';
-					$dis = 'class="readonly" disabled="disabled"';
-					$checked[$m['score']] = 'checked="checked"';
+					$ro = 'readonly="true"';
+					$dis = 'disabled="true"';
+					$checked[$m['score']] = 'checked="true"';
 				}
 				$time1 = date('d.m.Y', $m['time']);
 				$time2 = date('H:i', $m['time']);
@@ -155,23 +156,18 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 					<td class="input">'.$matchday.'</td>
 					<td class="input">'.$home.'</td>
 					<td class="input">'.$visitor.'</td>';
-/*					echo '<td class="input"><input id="h_'.$m['id'].'" 
-								'.$ro.'
-								name="score_h_'.$m['id'].'" 
-								size="2" value="'.$score_h.'"> : '
-							.'<input id="v_'.$m['id'].'" 
-								'.$ro.'
-								name="score_v_'.$m['id'].'" 
-								size="2" value="'.$score_v.'"></td>*/
 					if($evdat['score_input_type']=='results'){
-						echo '<td class="input"><input id="h_'.$m['id'].'" 
+						echo '<td><input 
+                                    class="input-mini"
+                                    id="h_'.$m['id'].'" 
 									'.$ro.'
 									name="score_h_'.$m['id'].'" 
-									size="2" value="'.$score_h.'"> : '
+									 value="'.$score_h.'"> : '
 								.'<input id="v_'.$m['id'].'" 
 									'.$ro.'
+                                    class="input-mini"
 									name="score_v_'.$m['id'].'" 
-									size="2" value="'.$score_v.'"></td>';
+									value="'.$score_v.'"></td>';
 					}elseif($evdat['score_input_type']=='toto'){
 						echo '<td class="input">';
 						echo '<input '.$dis.' id="s1_'.$m['id'].'" type="radio" value="1" '.$checked['1'].' name="toto_'.$m['id'].'">';
@@ -196,8 +192,9 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 
 					echo '<td class="input"><input id="special_'.$m['id'].'" 
 								'.$ro.' 
+                                class="input-mini"
 								name="special_'.$m['id'].'" 
-								size="3" value="'.$special.'"></td>';
+								value="'.$special.'"></td>';
 					echo '<td class="input"><a href="javascript: 
 							editResult(\''.$m['id'].'\', \''.$lines.'\')">
 							<img id="im_'.$m['id'].'" src="'.$imgsrc.'" 

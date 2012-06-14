@@ -332,18 +332,26 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					<td class="input">'.$result.'</td>';
 
 					if($evdat['bet_on']=='results'){
-						$MATCHESSTRING .= '<td class="input"><nobr>
-                                                <input id="h_'.$betid.'"
+						$MATCHESSTRING .= '<td><nobr>
+                                             <input type="number" class="input-mini"
+                                                style="height:25px;"
+                                                size="2"
+                                                id="h_'.$betid.'"
                                                 '.$ro.'
                                                 name="score_h_'.$betid.'"
-                                                size="2" value="'.$score_h.'"
-                                                onKeyUp="savebet(event,\''.$betid.'\')">
+                                                value="'.$score_h.'"
+                                                oninput="savebet(event,\''.$betid.'\')"
+                                            >
                                             : '
-                                                .'<input id="v_'.$betid.'"
+                                                .'<input type="number" class="input-mini"
+                                                    style="height:25px;"
+                                                    size="2"
+                                                    id="v_'.$betid.'"
                                                     '.$ro.'
                                                     name="score_v_'.$bet->getId().'"
-                                                    size="2" value="'.$score_v.'"
-                                                    onKeyUp="savebet(event,\''.$betid.'\')">
+                                                    value="'.$score_v.'"
+                                                    oninput="savebet(event,\''.$betid.'\')"
+                                                  >
                                             </nobr></td>';
 
 					}elseif($evdat['bet_on']=='toto'){
