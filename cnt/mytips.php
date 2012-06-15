@@ -33,28 +33,34 @@ global $db, $settings, $events, $events_test, $body;
 $ids='';
 
 //event handling ;) => estimate if user is registerd to events
-$nb =  UserEventNumber();
-$userevents = loadUserEvents();
+
+$userevents = $events_test->getUserEvents();
+$nb = sizeof($userevents);
+/* @var $thisevent Event */
+$thisevent =  null;
+
 if($nb < 1){
 	//no event
 	$body .= $lang['mytips_participatefirst'];
 	
 }elseif($nb == 1){
 	//one event
-	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
+	$thisevent = $userevents[0];
 }elseif($nb > 1){
-	//multiple events
-	//a vmenu to navigate between events
-	$body .= createVerticalMenu(NULL, 'ueventlist');
-    $body .= createVerticalMenu(NULL, 'mmopen');
-    $body .= createVerticalMenu(NULL, 'mmclose');
-	//the session variable currevent must either a public event or the user participates. It can be in the session
+
+    //the it can be in the session
 	//after having looked at a public event in the overview section
-	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
+    if (isset($_SESSION['currevent'])) {
+        $currevent = $events_test->getEventById($_SESSION['currevent']);
+        $thisevent = ($currevent->userIsApproved($_SESSION['userid'])) ?
+                                                        $currevent :
+                                                        $userevents[0];
+    } else {
+        $thisevent = $userevents[0];
+    }
 }
-//$_REQUEST['ev'] overrules the insight of the event handling :)
-if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent;
+//$_REQUEST['ev'] overrules $_SESSION['currevent']
+if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent->getId();
 //update the current event variable in Session
 $_SESSION['currevent'] = $_REQUEST['ev'];
 
@@ -66,8 +72,9 @@ if(!userParticipates($_REQUEST['ev']) && $nb > 0){
 	exit;
 }
 
+$body .= $events_test->createEventsTabs($userevents);
+
 $evdat = $events['u']['e'.$_REQUEST['ev']];
-$body .= '<h3>'.$evdat['name'].'</h3>';
 
 
 if($nb >= 1 && !(isset($_REQUEST['mtac']))){

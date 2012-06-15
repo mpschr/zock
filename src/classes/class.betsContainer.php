@@ -59,7 +59,7 @@ class BetsContainer {
     /////////////////////////////////////////////////
 
 
-    function betSort(&$objArray,$orderby,$sort_flag=SORT_DESC) {
+    function betSort(&$objArray,$orderby,$sort_flag=SORT_ASC) {
         $indeces = array();
 
 
@@ -69,34 +69,40 @@ class BetsContainer {
                 $indeces[] = $obj->getDueDate();
             }
 
-            return array_multisort($indeces,$objArray,$sort_flag);
+            array_multisort($indeces,SORT_NUMERIC,$sort_flag,$objArray);
         }
 
         elseif ($orderby == 'matchDay')
         {
-            foreach($objArray as $obj) {
-                /* @var $obj Bet */
-                $indeces[] = $obj->getDueDate();
-            }
+            $this->betSort($objArray,'dueDate',$sort_flag);
 
-            $objArray = array_multisort($indeces,$objArray,$sort_flag,SORT_NUMERIC);
             foreach($objArray as $obj) {
                 /* @var $obj Bet */
                 $indeces[] = $obj->getMatchdayId();
             }
-            return array_multisort($indeces,$objArray,$sort_flag,SORT_NUMERIC);
-
+            array_multisort($indeces,SORT_NUMERIC,$sort_flag,$objArray);
 
         } elseif ($orderby == 'home') {
-            foreach($objArray as $obj) {
+            foreach($objArray as $key => $obj) {
                 if ($obj instanceof Match) {
                     /* @var $obj Match */
                     $indeces[] = $obj->getHome();
                 } else {
-                    unset($obj);
+                    unset($objArray[$key]);
                 }
             }
-            return array_multisort($indeces,$objArray,$sort_flag,SORT_STRING);
+            return array_multisort($indeces,SORT_STRING,$sort_flag,$objArray);
+        }
+        elseif ($orderby == 'visitor') {
+            foreach($objArray as $key => $obj) {
+                if ($obj instanceof Match) {
+                    /* @var $obj Match */
+                    $indeces[] = $obj->getHome();
+                } else {
+                    unset($objArray[$key]);
+                }
+            }
+            return array_multisort($indeces,SORT_STRING,$sort_flag,$objArray);
         }
     }
 

@@ -199,7 +199,32 @@ class EventCollection extends Collection {
     // METHODS
     /////////////////////////////////////////////////
 
+    public function createEventsTabs($events) {
 
+        global $link, $link_query;
+
+        $eventstabs = '';
+        if (sizeof($events)<1)
+            return '';
+
+        $eventstabs .= '<ul class="nav nav-tabs">';
+
+        foreach($events as $e) {
+            /* @var $e Event */
+
+            $active = ($_SESSION['currevent'] == $e->getId())  ? 'class="active"' : "";
+
+            $eventstabs .= '<li '.$active.'>';
+            $eventstabs .=      '<a href="'.$link.'ev='.$e->getId().'">'.$e->getName().'</a>';
+            $eventstabs .= '</li>';
+
+        }
+
+
+         $eventstabs .= '</ul>';
+
+        return $eventstabs;
+    }
 
     /////////////////////////////////////////////////
     // GETTERS AND SETTERS

@@ -21,7 +21,7 @@ $body .=  '<h2>' . $lang['overview_title'] . '</h2>';
 
 global $db, $settings, $events, $events_test, $cont;
 
-//event handling ;) => estimate if user is registerd to events & load the events
+
 $viewableEvents = $events_test->onlyPublicEvents($events_test->getActiveEvents());
 $nb = sizeof($viewableEvents);
 
@@ -42,44 +42,34 @@ if ($nb < 1) {
 
 } elseif ($nb > 1) {
     //multible events
-    //=> 2buttons (one hidden) and a vmenu
-    $body .=  createVerticalMenu(NULL, 'peventlist');
-    $body .=  createVerticalMenu(NULL, 'mmopen');
-    $body .=  createVerticalMenu(NULL, 'mmclose');
+
     //the session variable currevent must either a public event or the user participates. It can be in the session
     //after having looked at a public event in the overview section
 
-    $re = $events_test->getEventById($_REQUEST['ev']);
+    $requestedE = $events_test->getEventById($_REQUEST['ev']);
 
-    if (isset($_SESSION['currevent']) && $re != null &&
-        $re->getPublic()) {
-        //$requested = $_SESSION['currevent'] = $_REQUEST['ev'];
-        $event = $re;
+    if ($requestedE != null ) {
+        $event = $requestedE;
+        $body .= 'set event to requested!'.$event->getName();
     } else {
-        if (!(isset($_REQUEST['ev'])) && !(isset($_SESSION['currevent']))) {
-            if ($_SESSION['logged']) {
-                #$thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
-                $event = $viewableEvents[0];
-            } else {
-                $event = $viewableEvents[0];
-            }
-        } else {
+        if (isset($_SESSION['currevent'])) {
             $event = $events_test->getEventById($_SESSION['currevent']);
+        } else {
+            $event = $viewableEvents[0];
         }
     }
-
 }
 //$_REQUEST['ev'] overrules the insight of the event handling :)
 if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $event->getId();
 //update the current event variable in Session
 if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid'])) {
 
+
     $_SESSION['currevent'] = $_REQUEST['ev'];
 
     $usersC = new UserCollection();
     $users = $usersC->getEventUsers($event);
 
-    $body .=  '<h3>' . $event->getName() . '</h3>';
 
     if ($nb >= 1) {
         //show all of it
@@ -136,7 +126,8 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                 $body .=  errorMsg('filter_emptyresults');
             }
 
-            $body .=  $lang['overview_content'] . '<p>';
+            $body .=  $lang['overview_content'];
+            $body .= $events_test->createEventsTabs($viewableEvents);
 
             //filterform
             $filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/', '', $link_query);

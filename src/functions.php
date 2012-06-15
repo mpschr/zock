@@ -462,6 +462,10 @@ function createHorizontalMenu($submenu=NULL){
             $userprofile = $menus['profile'];
             $userprofileMenus = $menus[$userprofile];
 
+            $userM = array($userprofile,'admin');
+            $active = '';
+            if (in_array($_REQUEST['menu'],$userM)) $active = 'active';
+
             $menuHTML .= '
                        <div class="btn-group pull-right">
                            <a class="btn  btn-primary"
@@ -469,7 +473,7 @@ function createHorizontalMenu($submenu=NULL){
                                 <span>&nbsp;</span><i class="icon-off icon-white"></i>
                            </a>
 
-                           <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown"
+                           <a class="btn btn-primary dropdown-toggle '.$active.'" data-toggle="dropdown"
                                 href="#" rel="tooltip" title="Account">
                                 <i class="icon-user icon-white"></i>
                                 <span>'.$userlogin.'</span>
@@ -503,11 +507,7 @@ function createHorizontalMenu($submenu=NULL){
                 }
             }
 
-
-
             $menuHTML .= '</ul></div>';
-
-
             //$menuHTML .= '
             //           <div class="container">';
                         /*<div class="subnav subnav-fixed">

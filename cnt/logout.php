@@ -19,10 +19,15 @@ zock! is a free software licensed under GPL (General public license) v3
 
 echo '<h2>'.$lang['logout_title'].'</h2>';
 
-//the logout!
-session_destroy();
+if (isset($_SESSION['userid'])) {
+    //the logout!
+    session_destroy();
 
-//goodbye & send to home
-echo $lang['logout_content'];
-redirect('home', 3);
-?>
+    //goodbye & send to home
+    redirect('logout', 0);
+
+} else {
+
+    echo $lang['logout_content'];
+
+}

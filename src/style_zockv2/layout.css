@@ -60,6 +60,36 @@ a {
 	text-decoration: none;
 }
 
+
+table {
+	font-size: 11px;
+	margin: 8px;
+}
+
+input, textarea, hr, select, button {
+	font-family: 'Trebuchet MS';
+	padding-left: 2px;
+}
+
+input[disabled] {
+	background: grey;
+}
+
+
+textarea {
+	font-size: 11px;
+}
+
+img {
+	border-style: none;
+}
+
+
+/* =============== bootstrap ============== */
+
+.btn {
+    margin-top: 4px;
+}
 .dropdown-menu li > a {
     color: #ffffff;
 }
@@ -107,29 +137,8 @@ a {
 li.divider {
     border-right: black;
 }
-table {
-	font-size: 11px;
-	margin: 8px;
-}
-
-input, textarea, hr, select, button {
-	font-family: 'Trebuchet MS';
-	padding-left: 2px;
-}
-
-input[disabled] {
-	background: grey;
-}
 
 
-textarea {
-	font-size: 11px;
-}
-
-img {
-	border-style: none;
-}
-		  
 /* =============== from top to down (standard site) ============== */
 
 /*DIV-BOXES*/
@@ -153,16 +162,19 @@ img {
 
 
 #style_logo {
+    height: 128px;
+    width : 128px;
 	position: absolute;
-	left: 680px;
+	left: 90%;
 	top: -30px;
 	z-index: 1;
 }
 
 #motherdiv{
 	/* the div that will contain all the other following divs */
-	max-width: 750px;
-	margin: 30px 0px 0px 0px;
+	max-width: 800px;
+	margin-left: 15%;
+    margin-right: 15%;
 	position: relative;
 	background: transparent;
 }
