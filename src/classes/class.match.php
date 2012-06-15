@@ -453,7 +453,7 @@ class Match implements Bet{
         $sec_hour = 60*60;
         $min = 'm';
         $sec_min = 60;
-
+        $labelclass = '';
         $show_mins = true;
 
 
@@ -464,25 +464,34 @@ class Match implements Bet{
             return 'passed';
 
         $remainingString = '';
+        //days
         $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';
         if ($rdays > 0) {
             $remainingString .= $rdays.$day;
             $remaining -= $rdays*$sec_day;
             $show_mins = false;
+            $labelclass = 'label-info';
         }
+        //hours
         $rhours = ($remaining/$sec_hour > 0) ? floor($remaining/$sec_hour) : '0';
         if ($rhours > 0) {
+            if ($show_mins) {
+                $labelclass = 'label-warning';
+            }
             $remainingString .= ' '.$rhours.$hour;
             $remaining -= $rhours*$sec_hour;
         }
+        //mins
         $rmins = ($remaining/$sec_min > 0) ? floor($remaining/$sec_min) : '0';
         if ($rmins > 0 && $show_mins) {
-            if ($remainingString=='')
+            if ($remainingString=='') {
+                $labelclass = 'label-important';
                 $remainingString .= '<'.$rmins.$min;
-            else
+            } else {
                 $remainingString .= ' '.$rmins.$min;
+            }
         }
-        return $remainingString;
+        return '<span class="label '.$labelclass.'">'.$remainingString.'</span>';
     }
 
 

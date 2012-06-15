@@ -452,7 +452,7 @@ function createHorizontalMenu($submenu=NULL){
             }
 
             $menuHTML .=     '</ul>
-                            </div><!-- close subnac-->';
+                            </div><!-- close subnav-->';
 
         }else{
             //the logged user menu
@@ -508,16 +508,20 @@ function createHorizontalMenu($submenu=NULL){
             $menuHTML .= '</ul></div>';
 
 
-
-            /*$menuHTML .= '
-                        <div class="nav">
-                        <div class="subnav subnav-fixed">
+            //$menuHTML .= '
+            //           <div class="container">';
+                        /*<div class="subnav subnav-fixed">
                           <ul class="nav nav-pills">';*/
-            $menuHTML .= '
-                        <div class="nav">
-                        <div class="pagination">
-                          <ul>';
-            $first = true;
+            /*$menuHTML .= '<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                            <span class="icon-bar icon-white"></span>
+                            <span class="icon-bar icon-white"></span>
+                            <span class="icon-bar icon-white"></span>
+                          </button>';*/
+            //$menuHTML .= '<div class="subnav nav-collapse">';
+            $menuHTML .= '<div class="subnav">';
+            $menuHTML .= '<ul class="nav nav-pills">';
+
+
             foreach($menus['logged'] as $menu){
                 $active = '';
                 if ($_REQUEST['menu'] == $menu) $active = 'active';
@@ -529,16 +533,12 @@ function createHorizontalMenu($submenu=NULL){
                 $menuHTML .=    '<li class="'.$active.'">
                                     <a href="index.php?menu='.$menu.'">'.$menuText.'</a>
                                 </li>';
-                if ($first) {
-                    $first = false;
-                } else {
-                    $menuHTML .= '<li class="divider"></li>';
-                }
+
             }
 
                     $menuHTML .= '</ul>';
 
-            $menuHTML .='</div></div><!-- close subnav-->';
+            $menuHTML .='</div><!-- close subnav-->';
 
 
         }
@@ -832,6 +832,15 @@ function makeStyleSelect(){
 	}
 	$select .= '</select>';
 	return $select;
+}
+
+function orderBy($what, $o, $lq){
+    //this function cleans the links for the links where you can order a table
+    //=> before using this function, the array $orderby must've been created!
+    $str = preg_replace('/(orderby=)(.*)(SORT_ASC|SORT_DESC)[& ]/i', '', $lq);
+    $str .= 'orderby=';
+    $str .= ($what.$o[1] == $o[0].'SORT_ASC') ? $what.':SORT_DESC' : $what.':SORT_ASC' ;
+    return $str;
 }
 
 function orderIt($what, $o, $lq){

@@ -85,6 +85,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		}
 	}
 
+    //get the info by what it content should be ordered
+    $orderby = (isset($_REQUEST['orderby'])) ? explode(':', $_REQUEST['orderby']) : explode(':', 'dueDate:SORT_ASC');
+
 	//filtering
 	if (isset($_REQUEST['filter'])){
 		$f = preg_split('/:/', $_REQUEST['filter']);
@@ -105,7 +108,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 	}
 
     $event = $events_test->getEventById($_REQUEST['ev']);
-    $bdp_matches = $event->getBetsContainer()->getBets($_REQUEST['filter'],$_REQUEST['orderby']);
+    $bdp_matches = $event->getBetsContainer()->getBets($_REQUEST['filter'],implode(':',$orderby));
     $bdp_rows =  sizeof($bdp_matches);
 
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
@@ -160,11 +163,11 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		//content
         $MATCHHEADER .= '<table class="showmatches">';
 		$MATCHHEADER .= '<tr class=title>
-			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
-			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
-			<td class=title><a href="'.$link.orderIt('matchday_id', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
-			<td class=title><a href="'.$link.orderIt('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
-			<td class=title><a href="'.$link.orderIt('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>
+			<td class=title><a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
+			<td class=title>'.$lang['admin_events_time'].'</td>
+			<td class=title><a href="'.$link.orderBy('matchDay', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
+			<td class=title><a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
+			<td class=title><a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>
 			<td class=title>'.$lang['admin_events_score'].'</td>';
 			if($evdat['bet_on']=='results'){
 				$MATCHHEADER .= '<td class=title>'.$lang['mytips_tip'].'</td>';
@@ -178,7 +181,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
         $QUESTIONHEADER .= '<table class="showmatches">';
         $QUESTIONHEADER .=  '<tr class=title>
-			<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
+			<td class=title><a href="'.$link.orderBy('time', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
 			<td class=title > Question</td>
 			<td class=title>'.$lang['admin_events_score'].'</td>
 			<td class=title>'.$lang['mytips_tip'].'</td>';

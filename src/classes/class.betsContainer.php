@@ -59,15 +59,17 @@ class BetsContainer {
     /////////////////////////////////////////////////
 
 
-    function betSort(&$objArray,$orderby='dueDate',$sort_flags=0) {
+    function betSort(&$objArray,$orderby,$sort_flag=SORT_DESC) {
         $indeces = array();
+
 
         if ($orderby == 'dueDate')
         {
             foreach($objArray as $obj) {
                 $indeces[] = $obj->getDueDate();
             }
-            return array_multisort($indeces,$objArray,$sort_flags);
+
+            return array_multisort($indeces,$objArray,$sort_flag);
         }
 
         elseif ($orderby == 'matchDay')
@@ -76,12 +78,25 @@ class BetsContainer {
                 /* @var $obj Bet */
                 $indeces[] = $obj->getDueDate();
             }
-            $objArray = array_multisort($indeces,$objArray,$sort_flags);
+
+            $objArray = array_multisort($indeces,$objArray,$sort_flag,SORT_NUMERIC);
             foreach($objArray as $obj) {
                 /* @var $obj Bet */
                 $indeces[] = $obj->getMatchdayId();
             }
-            return array_multisort($indeces,$objArray,$sort_flags);
+            return array_multisort($indeces,$objArray,$sort_flag,SORT_NUMERIC);
+
+
+        } elseif ($orderby == 'home') {
+            foreach($objArray as $obj) {
+                if ($obj instanceof Match) {
+                    /* @var $obj Match */
+                    $indeces[] = $obj->getHome();
+                } else {
+                    unset($obj);
+                }
+            }
+            return array_multisort($indeces,$objArray,$sort_flag,SORT_STRING);
         }
     }
 
@@ -162,14 +177,16 @@ class BetsContainer {
      * @param string $orderby
      * @return array(Bet)
      */
-    public function getBets($filter='',$orderby='') {
+    public function getBets($filter='',$orderby='dueDate') {
         $this->bets = array();
         $this->bets = array_merge($this->bets, $this->getMatches($filter));
         $questions = $this->getQuestions();
         if (sizeof($questions) > 0)
             $this->bets = array_merge($this->bets, $questions);
 
-        $this->betSort($this->bets,$orderby);
+        $orderby = preg_split('/:/',$orderby);
+        if ($orderby[1]!='') $orderby[1] = constant($orderby[1]);
+        $this->betSort($this->bets,$orderby[0],$orderby[1]);
 
         return $this->bets;
     }
