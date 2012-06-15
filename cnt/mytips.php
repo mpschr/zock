@@ -416,29 +416,43 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 		//skip pages
 		if (!(isset($err))){
-			$queryfilter = preg_replace( '/mnb=([0-9]+)([& ])/', '', $link_query);
-			if($mnb > 1){
+
+            $queryfilter = preg_replace( '/mnb=([0-9]+)([& ])/', '', $link_query);
+
+
+            $body .= '<div id="pager" class="pagination pagination-centered">';
+            $body .= '<ul>';
+            if($mnb > 1){
 				$gonb = $mnb-$settings['formlines'];
 				if ($gonb < 1) $gonb = 1;
-				$body .= '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
+                $body .= '
+                        <li class="previous">
+                            <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a>
+                        </li>
+                        ';
+				//$body .= '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
 			}
-	
-			$body .= $lang['general_page'];
+
+            //$body .= '<li class="disabled"><a href="#pager">'.$lang['general_page'].'</a></li>';
+            $y = 0;
 			for($x=1 ; $x <= $bdp_rows; $x += $settings['formlines']){
-				$y++;
-				if ($x!=$mnb){
-					$body .= '  <a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a>';
-				}else{
-					$body .= '  '.$y;
-				}
+                $y++;
+                $activeclass = ($x==$mnb) ? 'class="active"' : '';
+					$body .= '  <li '.$activeclass.'><a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a></li>';
 			}
-	
+
 
 			if($mnb + $settings['formlines'] < $bdp_rows){
 				$gonb = $mnb+$settings['formlines'];
 				if ($gonb > $bdp_rows) $gonb = $bdp_rows;
-				$body .= ' | <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>';
-			}
+                $body .= '
+                        <li class="next">
+                            <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>
+                        </li>
+                        ';
+                $body .= '</ul></div><!--close pagination-->';
+
+            }
 		}
 	}
 

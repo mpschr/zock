@@ -457,8 +457,6 @@ function createHorizontalMenu($submenu=NULL){
         }else{
             //the logged user menu
 
-
-
             //add the user profile and admin button
             $off = $menus['logout'];
             $userprofile = $menus['profile'];
@@ -466,7 +464,6 @@ function createHorizontalMenu($submenu=NULL){
 
             $menuHTML .= '
                        <div class="btn-group pull-right">
-
                            <a class="btn  btn-primary"
                                 href="index.php?menu='.$off.'" rel="tooltip" title="Log Out">
                                 <span>&nbsp;</span><i class="icon-off icon-white"></i>
@@ -512,11 +509,14 @@ function createHorizontalMenu($submenu=NULL){
 
 
 
-            $menuHTML .= '
+            /*$menuHTML .= '
                         <div class="nav">
                         <div class="subnav subnav-fixed">
-                          <ul class="nav nav-pills">';
-
+                          <ul class="nav nav-pills">';*/
+            $menuHTML .= '
+                        <div class="nav">
+                        <div class="pagination">
+                          <ul>';
             $first = true;
             foreach($menus['logged'] as $menu){
                 $active = '';
