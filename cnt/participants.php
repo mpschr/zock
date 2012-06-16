@@ -17,42 +17,44 @@ zock! is a free software licensed under GPL (General public license) v3
 =================================== 
 */
 
-echo '<h2>'.$lang['participants_title'].'</h2>';
+global $db, $settings, $events, $events_test;
 
-global $db, $settings, $events;
+    $userevents = $events_test->getUserEvents();
+    $nb = sizeof($userevents);
+    /* @var $thisevent Event */
+    $thisevent =  null;
 
-$nb =  UserEventNumber();
-$userevents = loadUserEvents();
 if($nb < 1){
-	// no events
-	echo $lang['loginhome_noevent'];
-	
+    //no event
+    echo $lang['mytips_participatefirst'];
+
 }elseif($nb == 1){
-	//one event, one possibility..
-	$thisevent = preg_replace('/([0-9]+):$/', '\\1', $userevents['approved']);
-	
+    //one event
+    $thisevent = $userevents[0];
 }elseif($nb > 1){
-	//multiple events
-	//a vmenu to navigate between events
-	echo createVerticalMenu(NULL, 'ueventlist');
-	//the session variable currevent must either a public event or the user participates. It can be in the session
-	//after having looked at a public event in the overview section
-	(isset($_SESSION['currevent']) && userParticipates($_SESSION['currevent'], $_SESSION['userid'])) ? 
-			$thisevent = $_SESSION['currevent'] : $thisevent = preg_replace('/.*:([0-9]+):$/', '\\1', $userevents['approved']);
+
+    //the it can be in the session
+    //after having looked at a public event in the overview section
+    if (isset($_SESSION['currevent'])) {
+        $currevent = $events_test->getEventById($_SESSION['currevent']);
+        $thisevent = ($currevent->userIsApproved($_SESSION['userid'])) ?
+            $currevent :
+            $userevents[0];
+    } else {
+        $thisevent = $userevents[0];
+    }
 }
 //$_REQUEST['ev'] overrules the insight of the event handling :)
-if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent;
+if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $thisevent->getId();
 //update the current event variable in Session
 $_SESSION['currevent'] = $_REQUEST['ev'];
 
 //when a curious user modiefies the url...
-if(!userParticipates($_REQUEST['ev']) && $nb > 0){
+if(!$thisevent->userIsApproved($_SESSION['userid']) && $nb > 0){
 	//if the user is registered to an event and tries to view the comments of another event
 	errorPage('notinevent');
 	exit;
 }
-
-
 
 
 // get the users & their names
@@ -65,8 +67,10 @@ $nb2 = eventUserNumber($_REQUEST['ev']);
 
 if($nb2 != NULL && $nb != NULL){
 //showit all
-	echo '<h3>'.$events['u']['e'.$_REQUEST['ev']]['name'].'</h3>';
 	echo $lang['participants_content'];
+
+    echo $events_test->createEventsTabs($userevents);
+
 	echo '<div class="appearance">';
 	if(isset($_REQUEST['showuser'])){
 		if (userParticipates($_REQUEST['ev'], $_REQUEST['showuser']) == TRUE){

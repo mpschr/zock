@@ -183,7 +183,7 @@ class BetsContainer {
      * @param string $orderby
      * @return array(Bet)
      */
-    public function getBets($filter='',$orderby='dueDate') {
+    public function getBets($filter='',$orderby='dueDate:SORT_ASC') {
         $this->bets = array();
         $this->bets = array_merge($this->bets, $this->getMatches($filter));
         $questions = $this->getQuestions();
@@ -191,7 +191,9 @@ class BetsContainer {
             $this->bets = array_merge($this->bets, $questions);
 
         $orderby = preg_split('/:/',$orderby);
-        if ($orderby[1]!='') $orderby[1] = constant($orderby[1]);
+        if ($orderby[1]!='') {
+            $orderby[1] = constant($orderby[1]);
+        }
         $this->betSort($this->bets,$orderby[0],$orderby[1]);
 
         return $this->bets;

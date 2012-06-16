@@ -406,7 +406,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
         $xajax -> register(XAJAX_FUNCTION, 'checkmatches');
         $xajax -> register(XAJAX_FUNCTION, 'savebet');
 
-        //$xajax->configure('debug',true);
+       // $xajax->configure('debug',true);
 
         $xajax->processRequest();
         $xajax->printJavascript();
