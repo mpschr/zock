@@ -130,7 +130,8 @@ if (!defined(INSTALLING)) {
     // get Message (very important)
     $msg = getNewMessage($_SESSION['userid']);
     if ($msg != "") {
-        $body .= makeFloatingLayer($msg['title'], $msg['content'], 0, '_msg_' . $msg['id'], 'message_layer');
+        $body .= makeModal($msg['title'], $msg['content'], $msg['footer'], $msg['id'], 'show');
+        //$body .= makeFloatingLayer($msg['title'], $msg['content'], 0, '_msg_' . $msg['id'], 'message_layer');
     }
 }
 
@@ -147,6 +148,7 @@ $bodyend = '
 </div>
 </div>
 </div><!-- ..closed -->';
+
 
 if ($noxajax) {
     echo $bodyend;

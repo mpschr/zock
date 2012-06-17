@@ -31,6 +31,15 @@ $style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings
 $bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.js"></script>
             <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>';
 
+$bootstrap_activators = '<script type="text/javascript">
+                            $(document).ready(function() {
+                                $("[rel=tooltip]").tooltip();
+                                $("[rel=modal]").modal();
+                                $(".modal").appendTo($("body"));
+                                $(".modal-backdrop").appendTo($("body"));
+                            })
+                        </script>';
+
 $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
@@ -54,6 +63,7 @@ $header ='<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />
        	'.$bootstrap.'
+       	'.$bootstrap_activators.'
         '.$style_css.'
 
 

@@ -466,12 +466,25 @@ function createHorizontalMenu($submenu=NULL){
             $active = '';
             if (in_array($_REQUEST['menu'],$userM)) $active = 'active';
 
+            $message = '';
+            $msg = getNewMessage($_SESSION['userid']);
+            if ($msg != "") {
+                //$message = makeModal($msg['title'], $msg['content'], $msg['footer'], $id, 'show');
+                $envelope = '<a class="btn  btn-primary" data-toggle="modal"
+                                href="#modal_'.$msg['id'].'"  title="New Message">
+                                <span>&nbsp;</span><i class="icon-envelope icon-white"></i>
+                           </a>';
+            }
+
+
             $menuHTML .= '
                        <div class="btn-group pull-right">
                            <a class="btn  btn-primary"
                                 href="index.php?menu='.$off.'" rel="tooltip" title="Log Out">
                                 <span>&nbsp;</span><i class="icon-off icon-white"></i>
                            </a>
+
+                           '.$envelope.'
 
                            <a class="btn btn-primary dropdown-toggle '.$active.'" data-toggle="dropdown"
                                 href="#" rel="tooltip" title="Account">
@@ -920,6 +933,37 @@ function makeFloatingLayer($title=NULL, $content=NULL, $closeX=1, $id=1, $class=
 	return $fl;
 }
 
+function makeModal($title=NULL, $content=NULL, $footer, $id, $show="hide"){
+
+
+    $id = 'modal_'.$id;
+
+    $fl = '<div id="'.$id.'" class="modal hide fade in">';
+
+    $fl .= '<div class="modal-header">';
+    $fl .=      '<h3>'.$title.'</h3>';
+    $fl .= '</div>';
+
+    $fl .= '<div class="modal-body">
+                <p>
+                    '.$content.'
+                </p>
+            </div>';
+
+    $fl .= '<div class="modal-footer">
+                '.$footer.'
+           </div>
+
+           </div><!--close modal-->
+           ';
+
+    $fl .= '<div class="modal-backdrop hide  fade in"  ></div>';
+
+
+    return $fl;
+}
+
+
 function substitute($string,$subarray){
 	preg_match_all('(\$[0-9]+)', $string, $nb);
 	return str_replace($nb[0], $subarray, $string);
@@ -1208,12 +1252,19 @@ function getNewMessage($userid){
 			$message['title'] = $row['title'];
 
 			$intro = array( $users[$row['author']], $lang['general_time_at'], date('H:i, Y.m.d', $row['time']));
-			$message['content'] = '<div class="message_intro">'.substitute($lang['admin_messages_newmessage'], $intro).'</div>';
-			$message['content'] .= '<p/>'.nl2br($row['content']);
-			$message['content'] .= '<form name="msg_read" method="POST" action="">
+			$message['content'] .= nl2br($row['content']);
+
+            //$message['footer'] = '<input type="submit" class="btn btn-primary" value="'.$lang['general_readparticipe'].'"/>';
+            $message['footer'] .= '<h6>'.substitute($lang['admin_messages_newmessage'], $intro).'</h6>';
+            $message['footer'] .=
+                '<form name="msg_read" id="msg_read" method="POST" action="">
 						<input type="hidden" name="hf_read" value="'.$row['id'].'"/>
-						<input type="submit" value="'.$lang['general_readparticipe'].'"/>
-						</form>';
+		        </form>
+		        <a onclick="document.forms[\'msg_read\'].submit();" class="btn btn-primary"> '.$lang['general_readparticipe'].'</a>
+		         <button class="btn pull-left" data-dismiss="modal" data-target="#modal_'.$row['id'].'">
+                    close
+               </button>
+               ';
 		}
 	    return $message;
 	}
