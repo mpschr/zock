@@ -472,7 +472,8 @@ function createHorizontalMenu($submenu=NULL){
                 //$message = makeModal($msg['title'], $msg['content'], $msg['footer'], $id, 'show');
                 $envelope = '<a class="btn  btn-primary" data-toggle="modal"
                                 href="#modal_'.$msg['id'].'"  title="New Message">
-                                <span>&nbsp;</span><i class="icon-envelope icon-white"></i>
+                                <span class="label label-info">1</span>
+                                <i class="icon-envelope icon-white"></i>
                            </a>';
             }
 
@@ -1266,8 +1267,10 @@ function getNewMessage($userid){
                </button>
                ';
 		}
-	    return $message;
+        if ($message != "")
+            return $message;
 	}
+    return $message;
 }
 
 function messageRead($msg, $user){
