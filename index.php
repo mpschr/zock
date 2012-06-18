@@ -121,7 +121,7 @@ $events['i'] = loadEvents(-1);
 
 //seek out the site to display & check if allowed
 $homepage = isset($_SESSION['userid']) ? 'loginhome' : 'home';
-$site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : 'home';
+$site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : $homepage;
 
 }
 

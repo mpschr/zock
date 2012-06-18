@@ -383,7 +383,7 @@ function menuAllowance($requested_menu, $optional_submenu=NULL){
 		else return FALSE;
 	}
 
-
+    $loggeduserMenus = array_merge(array($menu['profile']),$menu['logged']);
 
 	//if just a menu is demanded or the submenus are ok. Logged users should not
 	//call the unlogged menus (as login, register....)
@@ -393,7 +393,7 @@ function menuAllowance($requested_menu, $optional_submenu=NULL){
 		return TRUE;	
 		
 	//user calls user menu (or admin calls user menu)
-	elseif($_SESSION['logged'] && in_array($requested_menu, $menu['logged']))
+	elseif($_SESSION['logged'] && in_array($requested_menu, $loggeduserMenus))
 		return TRUE;
 		
 	//neither of the menu types is demanded, which leaves the admin menu
