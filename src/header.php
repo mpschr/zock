@@ -33,10 +33,12 @@ $bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bo
 
 $bootstrap_activators = '<script type="text/javascript">
                             $(document).ready(function() {
+                                $(".collapse").collapse();
                                 $("[rel=tooltip]").tooltip();
                                 $("[rel=modal]").modal();
                                 $(".modal").appendTo($("body"));
                                 $(".modal-backdrop").appendTo($("body"));
+
                             })
                         </script>';
 

@@ -104,6 +104,12 @@ class Event {
      */
     protected $p_almost;
 
+
+    /**
+     * @var int
+     */
+    protected $p_diff;
+
     /**
      * @var int
      */
@@ -1097,6 +1103,22 @@ class Event {
             if ($bet->getId() == $id)
                 return $bet;
         }
+    }
+
+    /**
+     * @param int $p_diff
+     */
+    public function setPDiff($p_diff)
+    {
+        $this->p_diff = $p_diff;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPDiff()
+    {
+        return $this->p_diff;
     }
 
 }

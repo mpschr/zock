@@ -77,6 +77,8 @@ CREATE TABLE IF NOT EXISTS `#PFIX#_qa_bets` (
   `question_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   `answer` text default NULL,
+  `points` int(11) default NULL,
+  `ranking` int(11) default NULL,
   PRIMARY KEY (q_id,u_id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 

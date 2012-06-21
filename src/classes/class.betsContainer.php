@@ -118,6 +118,9 @@ class BetsContainer {
             $filterQuery = " WHERE ";
             $f = preg_split('/:/', $filter);
             switch ($f[0]){
+                case 'withresult':
+                    $filterQuery .= "`score_h` NOT LIKE '' ;";
+                    break;
                 case 'team':
                     $filterQuery .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
                     break;
@@ -152,16 +155,31 @@ class BetsContainer {
     }
 
     /**
+     * @param string $filter
      * @return array
      * @throws Exception
      */
-    private function getQuestions() {
+    private function getQuestions($filter='') {
+
+        if ($filter!=''){
+            $filterQuery = " AND ";
+            $f = preg_split('/:/', $filter);
+
+            switch ($f[0]){
+                case 'withresult':
+                    $filterQuery .= "`answer` NOT LIKE '' ;";
+                    break;
+            }
+        }
+
         $db = new bDb();
         $query = " SELECT *
             FROM ".PFIX."_qa_questions
-            WHERE `event_id`  = ".$_REQUEST['ev'];
+            WHERE `event_id`  = ".$_REQUEST['ev'] . $filterQuery;
         $output = $db->query($query);
         $questions = null;
+
+
         foreach ($output as $question) {
             /* @var $question array */
             $q = new Question($question,$this->event);

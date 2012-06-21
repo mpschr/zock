@@ -112,6 +112,11 @@ img {
     border-radius: 4px;
 }
 
+small {
+    line-height: 99%;
+    font-size: 85%;
+}
+
 /* LARGE DESKTOP SCREENS */
 @media (min-width: 1210px) {
 
@@ -512,7 +517,11 @@ td.participantdetails{
 	border-color: black;
 	border-top-width: 5px;
 	white-space: nowrap;
-	margin: 8px;
+
+}
+
+div.title {
+    margin-bottom: 5px;
 }
 
 td.title {
