@@ -301,17 +301,37 @@ if ($betNb == 0) {
             break;
     }
 
+    echo '<script type="text/javascript">
+                             function unmask(id) {
+                                var obj = $(\'#\'+id);
+                                obj.fadeIn();
+                             }
+                             function mask(id) {
+                                var obj = $(\'#\'+id);
+                                obj.fadeOut();
+                             }
+          </script>';
 
 
     foreach ($listsource as $u => $r) {
 
 
+        /** @var $user User */
+        $user = $users->getUserById($u);
+
+
         //making tooltip
         $userrankingdetails = '<div class="row">';
         $rts = array_reverse($recenttips);
-        $userrankingdetails .= '<div class="span2"> '
-            . '<img  src="./data/user_img/' . $picture[$u] . '" />
-            </div>';
+        $userrankingdetails .= 
+          '<div class="span2"> '
+            . '<div class="thumb-hover"  onMouseOver="unmask(\'mask'.$u.'\')" onMouseOut="mask(\'mask'.$u.'\')">'
+                . '<a href="?menu=participants&showuser='.$user->getId().'">
+                        <img class="rankingimage" src="./data/user_img/' . $user->getPicture() . '"  />'
+                        . '<div id="mask'.$u.'" class="mask"> <span> '.$user->getFullName().' </span> </div>
+                   </a>
+               </div>'
+          . '</div>';
         $userrankingdetails .= '<div class="span2"><small>';
         foreach ($rts as $rt) {
             $userrankingdetails .= '<br/>' . $rt['home'] . ' - ' . $rt['visitor'] . ': <span class="ow_' . getResultCSSClass($evinfo, $rt['score_h'], $rt['score_v'], $rt[$u . '_h'], $rt[$u . '_v']) . '">'
@@ -352,7 +372,7 @@ if ($betNb == 0) {
 	            <div class="accordion-heading">';
         //the ranking table
 
-        //href="?menu=participants&showuser='.$u.'"
+        //href=
         echo '
   		  <a class="accordeon-toggle" data-toggle="collapse" data-parent="#ranking-accordeon" href="#collapse' . $u . '"
   		    style="text-decoration:none; color:black">

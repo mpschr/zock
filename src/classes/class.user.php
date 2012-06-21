@@ -147,7 +147,17 @@ class User {
         return $content;
     }
 
-
+    /**
+     * @return string
+     */
+    public function getFullName() {
+        $fullname = '';
+        $fullname .= $this->name;
+        if ($fullname != '' && $this->famname != '')
+            $fullname .= ' ';
+        $fullname .= $this->famname;
+        return ($fullname == '') ? 'Tito Cerdito' : $fullname;
+    }
 
     /**
      * @param string $account_details
@@ -338,7 +348,9 @@ class User {
      */
     public function getPicture()
     {
-        return $this->picture;
+        return ($this->picture == '') ?
+            '@thumb' :
+            $this->picture;
     }
 
     /**

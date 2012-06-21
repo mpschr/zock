@@ -183,7 +183,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                     if (!isset($_REQUEST['col'])) {
                         $body .=  '<td class="title"><a href="' . $link . 'col=' . $player_column . '">' . $user->getLogin() . '</a></td>';
                     } elseif (isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
-                        $body .=  '<td class="title">' . $user->getLogin() . '</td><td class="title"><a href="' . $link . '">>>></a>';
+                        $body .=  '<td class="title">' . $user->getLogin() . '</td><td class="title"><a href="' . $link . '"> >>> </a>';
                     }
                 }
             }
@@ -256,7 +256,8 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                     }
                 }
 
-                $body .=  '<tr id="tr' . $r . '" onMouseOver="setOverBG(\'tr' . $r . '\', \'' . $settings['style'] . '\')"
+                $body .=  '<tr id="tr' . $r . '"
+                                onMouseOver="setOverBG(\'tr' . $r . '\', \'' . $settings['style'] . '\')"
 								onMouseOut="unsetOverBG(\'tr' . $r . '\')"
 								onClick="switchToActivatedBG(\'tr' . $r . '\', \'' . $settings['style'] . '\')">';
 
@@ -330,11 +331,12 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                 $rclass = 'ow_almost';
                             else $rclass = 'ow_wrong';
 
-                            $body .=  '<td
-                                    onMouseOver="Tip(\'' . $user->getLogin() . '<br />'
+                            $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .'"
+                                data-content="'
                                 . '<img  src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
-                                . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/>\');" '
-                                . 'onMouseOut="UnTip();" class="' . $rclass . '">';
+                                . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/>"
+
+                                   class="' . $rclass . '">';
 
                             $userbetString = '';
                             if (sizeof($userbet)>0) {

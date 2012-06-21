@@ -144,6 +144,73 @@ li.divider {
 }
 
 
+ /* hovering over thumbnails to display title/excerpt
+ thumb-hover */
+ 
+.thumb-hover {
+   float: left;
+   overflow: hidden;
+   position: relative;   
+}
+
+.thumb-hover .mask {
+    width:100%; 
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    left: 0;
+    /* save hack? http://stackoverflow.com/questions/4804581/css-expand-child-div-height-to-parents-height */
+    /*  padding-bottom: 32768px; margin-bottom: -32768px; */
+    /*max-height:0px;*/
+    padding: 5px;
+
+   transition: height 1s;
+   -webkit-transition-delay: height 1s;
+   -moz-transition-delay: height 1s;
+   -o-transition-delay: height 1s;
+   -ms-transition: height 1s;
+}
+
+.thumb-hover img {
+   display: block;
+   position: relative;
+   width:100%;
+}
+
+.thumb-hover h4, .thumb-hover p {
+    color: #fff;
+    padding-left:9px;
+    padding-right:9px;
+    padding-top:9px;
+}
+  
+.thumb-hover a, .mask>a, .thumb-hover a:hover, .mask>a:hover{
+  color: #fff; 
+    text-decoration:none;
+} 
+
+/* hovering parts */
+.thumb-hover .mask {
+   background-color: #000000;
+   color: white;
+   font-weight: bold;
+  /* filter: alpha(opacity=0);
+   opacity: 0*/;
+    display: none;
+}
+
+/*
+.thumb-hover:hover .mask{
+   -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";
+   filter: alpha(opacity=100);
+   opacity: 1;
+   max-height: 50px;
+}               */
+ 
+
+/* end of hovering thumbnails */
+
+
 /* =============== from top to down (standard site) ============== */
 
 /*DIV-BOXES*/
@@ -295,6 +362,9 @@ a.menulink, a.menulinksel {
     border-bottom-left-radius: 15px;
 }
 
+img.rankingimage {
+   width: 100%;
+}
 
 
 /* the vertical menu is an optional menu & not always displayed*/
