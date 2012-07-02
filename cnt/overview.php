@@ -75,7 +75,6 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
         //show all of it
         if (!(isset($_REQUEST['ev']))) $_REQUEST['ev'] = $event->getId();
 
-        $orderby = (isset($_REQUEST['orderby'])) ? explode(':', $_REQUEST['orderby']) : explode(':', 'time:ASC');
 
 
         //filtering
@@ -103,12 +102,11 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
         }
 
         //get all the data!
-        if ($orderby[0] == 'matchday_id') $orderplus = ", time ASC";
-        $orderby = 'matchdayid';
 
         $bets = $event->getBetsContainer()->getBets($filter='',$orderby);
         $rows = sizeof($bets);
 
+        $orderby = (isset($_REQUEST['orderby'])) ? explode(':', $_REQUEST['orderby']) : explode(':', 'dueDate:SORT_ASC');
         //which users participate in this event? => get their names
 
         //$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed (not yet implemented in overview)
@@ -165,10 +163,10 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
             //title row of the table
             $body .=  '<tr class=title>';
             if (!$rowview) {
-			$body .= '<td class=title><a href="' . $link . orderIt('time', $orderby, $link_query) . '"> ' . $lang['admin_events_time'] . '</a></td>
-			<td class=title><a href="' . $link . orderIt('matchday_id', $orderby, $link_query) . '"> ' . $lang['admin_events_matchday'] . '</a></td>
-			<td class=title><a href="' . $link . orderIt('home', $orderby, $link_query) . '"> ' . $lang['admin_events_home'] . '</a></td>
-			<td class=title><a href="' . $link . orderIt('visitor', $orderby, $link_query) . '"> ' . $lang['admin_events_visitor'] . '</a></td>';
+			$body .= '<td class=title><a href="' . $link . orderBy('time', $orderby, $link_query) . '"> ' . $lang['admin_events_time'] . '</a></td>
+			<td class=title><a href="' . $link . orderBy('matchday', $orderby, $link_query) . '"> ' . $lang['admin_events_matchday'] . '</a></td>
+			<td class=title><a href="' . $link . orderBy('home', $orderby, $link_query) . '"> ' . $lang['admin_events_home'] . '</a></td>
+			<td class=title><a href="' . $link . orderBy('visitor', $orderby, $link_query) . '"> ' . $lang['admin_events_visitor'] . '</a></td>';
             if ($event->getScoreInputType() == 'results')
                 $body .=  '<td class=title><a href="' . $link . orderIt('score_h', $orderby, $link_query) . '"> ' . $lang['admin_events_score'] . '</a></td>';
             else
@@ -209,12 +207,11 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                 /*display a summary (either time or matchday, else no summary),
                 if the value in question changes (matchday, or day)*/
                 $last = $now; //for the comparison
-                switch ($orderby[0]) {
-                    case 'time':
+                if($orderby[0] == 'dueDate') {
                         $now = date('Ymd', (int) $bet->getTime());
-                        $onlyall = false;
-                        break;
-                    case 'matchday_id':
+                        $onlyall = false;      
+                }
+                else if ($orderby[0] == 'matchday') {
                         $now = $bet->getMatchdayId();
                         $onlyall = false;
                         break;
