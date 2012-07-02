@@ -207,6 +207,9 @@ if ($betNb == 0) {
 
 
     //event is over!
+    if ($info['pastmatches'] == $info['totalmatches'])
+        $thisevent->setFinished(true);
+
     if ($thisevent->getFinished()) {
         $over = true;
         if (!isset($_REQUEST['sort']))

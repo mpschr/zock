@@ -71,18 +71,20 @@ interface Bet {
      */
     public function getBet($user);
 
-    /**
-     * @abstract
-     * @return string
-
-    public function getBetType();
-     * **/
 
     /**
      * @abstract
      * @return string
      */
     public function getResult();
+
+    /**
+     * @abstract
+     * @param $result String
+     * @param $special
+     * @return bool
+     */
+    public function setResult($result,$special='');
 
     /**
      * @abstract

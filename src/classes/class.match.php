@@ -131,7 +131,7 @@ class Match implements Bet{
     }
 
     /**
-     * @return unixtime
+     * @return array|\unixtime
      */
     function getDueDate()
     {
@@ -442,6 +442,27 @@ class Match implements Bet{
     }
 
     /**
+     * @param string $result
+     * @param string $special
+     * @return bool
+     */
+    public function setResult($result,$special='')
+    {
+        if ($this->event->getBetOn()=="results") {
+            $ressplit = preg_split('/ : /',$result);
+            $this->score_h = $ressplit[0];
+            $this->score_v = $ressplit[1];
+            if ($special != '')
+                $this->score_special = $special;
+        } else {
+            $this->score = $result;
+            if ($special != '')
+                $this->score_special = $special;
+        }
+        return $this->updatePointsAndMoney();
+    }
+
+    /**
      * @return string
      */
     public function getRemainingTime()
@@ -622,4 +643,170 @@ class Match implements Bet{
         $usermoney = $user.'_money';
         return $this->$usermoney;
     }
+
+    /////////////////////////////////////////////////
+    // METHODS
+    /////////////////////////////////////////////////
+
+
+    /**
+     * @return bool
+     */
+    public function updatePointsAndMoney() {
+
+        if ($this->score_h == '')
+            return false;
+
+        global $events, $db;
+
+        //prepare data for a lot of calculating
+
+        //=> which and how many users for this event?
+        $evUsers = explode(':', $this->event->getUsersApproved());
+        array_pop ($evUsers);
+        $nb = sizeof($evUsers);
+
+
+        //=>define which success yields how many points.. (to be adjustable in a later version)
+        $correct = $this->event->getPCorrect();
+        $diff = $this->event->getPDiff();
+        $almost = $this->event->getPAlmost();
+        $wrong = $this->event->getPWrong();
+
+        //how many tipped CORRECT (1), DIFF/ALMOST (0) correct, WRONG (-1)
+        //+ creating array with success value ($good, indicated in brackets) for each user
+        //+ creating array with pionts for each user
+        $nbCorrect = $nbDiff = $nbAlmost = $nbWrong = 0;
+        $success = array();
+        foreach($evUsers as $p){
+//            if($this->event->getBetOn()=='results' && $this->event->getScoreInputType()=='results'){
+
+            $userpoints = $p.'_points';
+
+            if($this->isCorrectBet($p)){
+                //correct:
+                $success[$p] = 1;
+                $nbCorrect++;
+                $this->$userpoints = $correct;
+            }elseif($this->isCorrectDiff($p)){
+                //diff:
+                $success[$p] = 0;
+                $nbAlmost++;
+                $this->$userpoints = $diff;
+            }elseif($this->isCorrectWinner($p)){
+                //almost:
+                $success[$p] = 0;
+                $nbAlmost++;
+                $this->$userpoints = $almost;
+                //wrong:
+            } else {
+                $nbWrong++;
+                $success[$p] = -1;
+                $points[$p] = $wrong;
+            }
+        }
+
+        /*
+        //======DEBUG
+        $nb=80;
+        $nbCorrect = 3;
+        $evData['round'] = 0.05;
+        */
+        if($this->event->getStakeMode()=='permatch'){
+            //money business
+            //=>how much gets everybody and is going into the jackpot?
+            $factor = (1/$this->event->getRound());
+            $totalstake = $nb*$this->event->getStake();
+            $money = array();
+            if($nbCorrect>0){
+                $exact = floor(($factor*$totalstake)/$nbCorrect)/$factor;
+                $floored = $totalstake-($exact*$nbCorrect);
+                foreach($evUsers as $p) {
+                    $usermoney = $p.'_money';
+                    $this->$usermoney = ($success[$p] == 1) ? $exact : '0';
+                }
+            }elseif($this->event->getStakeBack()=='yes'){
+                foreach($evUsers as $p) {
+                    $usermoney = $p.'_money';
+                    $this->$usermoney = ($success[$p] == 0) ? $this->event->getStake() : '0';
+                }
+            }else{
+                foreach($evUsers as $p) {
+                    $usermoney = $p.'_money';
+                    $this->$usermoney = '0';
+                }
+            }
+            $wonMoney = 0;
+            foreach($evUsers as $p) {
+                $usermoney = $p.'_money';
+                $wonMoney += $this->$usermoney;
+            }
+            $this->jackpot = $totalstake-array_sum($money);
+        }else{
+            foreach($evUsers as $p) {
+                $usermoney = $p.'_money';
+                $this->$usermoney = '0';
+            }
+            $this->jackpot = 0;
+        }
+
+        return $this->saveUpdatedBet();
+    }
+
+
+    /**
+     * @return bool
+     */
+    public function saveUpdatedBet() {
+
+        global $db;
+
+        if($this->event->getScoreInputType()=='results'){
+            $a= $this->getScoreH();
+            $b= $this->getscoreV();
+            $set = " SET score_h = '".$a."',
+						score_v = '".$b."',";
+        }else{
+            $a = $this->score;
+            $set = " SET score = '".$a."', ";
+        }
+
+        $evUsers = explode(':', $this->event->getUsersApproved());
+        array_pop ($evUsers);
+
+        //query preparation
+        //=>1st part
+        $query_changes = "UPDATE ".PFIX."_event_".$this->event->id
+            .$set.
+            "score_special = '".$this->getScoreSpecial()."'";
+        //=> jackpot
+        $query_changes .= ", jackpot = '".$this->jackpot."'";
+
+        //=>points
+        foreach($evUsers as $u) {
+            $userpoints = $u.'_points';
+            $query_changes .= ", ".$u."_points = '".$this->$userpoints."'";
+        }
+
+        //=>money
+        foreach($evUsers as $u) {
+            $usermoney = $u.'_money';
+            $query_changes .= ", ".$u."_money = '".$this->$usermoney."' ";
+        }
+
+        /*//=>ranks
+        foreach($evUsers as $u) {
+            $userranking = $u.'_ranking';
+            $query_changes .= ", ".$u."_ranking = '".$this->$userranking."' ";
+        }*/
+
+        //=>which row(match-id dependent)
+        $query_changes .= "WHERE id = '".$this->id."';";
+
+        //finally update
+
+        $done = $db->query($query_changes);
+        return $done;
+    }
+
 }

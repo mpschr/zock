@@ -240,9 +240,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 			
 			if ($nb+1 >= $start && $nb+1 < $limit){
-			
-				$lines++;
-                $bet->getDueDate();
+
 				$ids .= $bet->getId().':';
 				$id = $bet->getId();
                 $betid = $bet->getId();
@@ -292,11 +290,17 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                         $c++;
                     }
 
+                    $res = '';
+                    foreach($bet->getResult() as $r) {
+                        if ($res != '') $comma = ", ";
+                        $res .= $comma.$r;
+                    }
+
                     $QUESTIONTABLE .= '
                         <tr>
                             <td id="remaining_'.$betid.'">'.$bet->getRemainingTime().'</td>
                             <td >'.$bet->getQuestion().'</td>
-                            <td>  --  </td>
+                            <td>  '. $res .'  </td>
                             <td>'.$betinput.'</td>
                             <td id = "samebet_'.$betid.'">'.$sameBet.'</td>
                             <td id = "savestatus_'.$betid.'"></td>

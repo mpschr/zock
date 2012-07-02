@@ -998,7 +998,7 @@ class Event {
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getStakeBack()
     {

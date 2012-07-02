@@ -22,10 +22,10 @@ global $db;
 if(isset($_REQUEST['ssubmenu'])){
 	$nv='notvisible';
 	//make a little vertical menu for less mouse moving
-	echo createVerticalMenu('events');
-    echo  createVerticalMenu(NULL, 'mmopen');
-    echo createVerticalMenu(NULL, 'mmclose');
-	?>
+	$body .=  createVerticalMenu('events');
+    $body .=   createVerticalMenu(NULL, 'mmopen');
+    $body .=  createVerticalMenu(NULL, 'mmclose');
+    $body .= '
 	<script type="text/javascript">
 		function showEventList(){
 			var c = document.getElementById("eventlistdiv").getAttribute("class");
@@ -35,28 +35,27 @@ if(isset($_REQUEST['ssubmenu'])){
 				document.getElementById("eventlistdiv").setAttribute("class", "notvisible");
 			}
 		}
-	</script>
-	<?
-	echo '<a href="javascript: showEventList()">'.$lang['admin_events_showeventlist'].'</a>';
+	</script>';
+	$body .=  '<a href="javascript: showEventList()">'.$lang['admin_events_showeventlist'].'</a>';
 }
 
 //======== the list of events (top of page)
-echo '<div id="eventlistdiv" class="'.$nv.'">';
+$body .=  '<div id="eventlistdiv" class="'.$nv.'">';
 $events_read = $db->query("SELECT * FROM ".PFIX."_events");
-echo '<ul>'
+$body .=  '<ul>'
 	.'<li><a href="'.$link.'evac=addnew">'.$lang['admin_events_addnew'].'</a>'
 	.'<li>'.$lang['admin_events_edit']
 	.'<ul>';
 foreach($events_read as $e){
 	$cleanlink = preg_replace('/submenu=(.*)&/', '', $link);
-	echo '<li>'.$e['name'].' (<a href="'.$link.'ssubmenu=settings&ev='.$e['id'].'">'.$lang['admin_events_settings_title'].'</a> || '
+	$body .=  '<li>'.$e['name'].' (<a href="'.$link.'ssubmenu=settings&ev='.$e['id'].'">'.$lang['admin_events_settings_title'].'</a> || '
 		.'<a href="'.$link.'ssubmenu=matches&ev='.$e['id'].'">'.$lang['admin_events_matches_title'].'</a> || '
 		.'<a href="'.$link.'ssubmenu=results&ev='.$e['id'].'">'.$lang['admin_events_results_title'].'</a>)';
 
 }
-echo 	'</ul></ul>';
+$body .=  	'</ul></ul>';
 
-if(isset($_REQUEST['ssubmenu'])) echo '<hr>';
+if(isset($_REQUEST['ssubmenu'])) $body .=  '<hr>';
 
 
 //========== add new event
@@ -75,13 +74,13 @@ if ($_REQUEST['evac'] == 'addnew'){
 			$err[$i] = ($e) ? 'error'  : 'title';
 		}
 		//display error message if an error occurred
-		if (in_array('error', $err)) echo '<font class="error">'.$lang['error_filledform'].'</font>';
+		if (in_array('error', $err)) $body .=  '<font class="error">'.$lang['error_filledform'].'</font>';
 	}	
 
 
 	infoBarEventCreation(1);
 	// the form for the creation of a new event
-	echo '<form name="addnew" action="'.$link.'evac=save" method="POST">'
+	$body .=  '<form name="addnew" action="'.$link.'evac=save" method="POST">'
 		.'<input type="hidden" name="form" value="ssubmenu=settings&ev=">'
 		.'<input type="hidden" name="formname" value="phase1">'
 		.'<table class="showform">
@@ -114,7 +113,7 @@ if ($_REQUEST['evac'] == 'addnew'){
 	include_once('cnt/admin_events_actions.php');
 }
 
-echo '</div>'; //close div from top 
+$body .=  '</div>'; //close div from top 
 
 //========== everything else (in ssubmenus)
 //	=> in specific files
@@ -122,4 +121,3 @@ echo '</div>'; //close div from top
 if(isset($_REQUEST['ssubmenu']) && $_REQUEST['evac']!='save'){
 	include_once('cnt/admin_events_'.$_REQUEST['ssubmenu'].'.php');	
 }
-?>

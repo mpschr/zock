@@ -84,7 +84,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 
 	$handle = fopen("src/vars.php" , "w");
 		foreach($newbuffer as $line){
-			echo $line;
+			$body .= $line;
 			fwrite($handle, $line);
 		}
 	fclose($handle);
@@ -112,14 +112,14 @@ if($_REQUEST['setac'] == 'savesettings'){
     $mail->SMTPDebug  = 1;
 	if(!$mail->Send()){
 		$db->query("UPDATE ".PFIX."_settings SET value = 'false' WHERE setting = 'functionalSMTP';");
-		echo '<font class="error">'.$lang['admin_settings_mailnotsent'].'</font>';
+		$body .= '<font class="error">'.$lang['admin_settings_mailnotsent'].'</font>';
 	}else{
 		$db->query("UPDATE ".PFIX."_settings SET value = 'true' WHERE setting = 'functionalSMTP';");
-		echo substitute($lang['admin_settings_mailsent'], $settings['email']);
+		$body .= substitute($lang['admin_settings_mailsent'], $settings['email']);
 	}
 
 }else{
-	echo $lang['admin_settings_content'];
+	$body .= $lang['admin_settings_content'];
 
 	//preparations
 
@@ -134,35 +134,35 @@ if($_REQUEST['setac'] == 'savesettings'){
 	}
 
 	//the form
-	echo '<div class="showform">';
-	echo '<form name="settings" method="POST" action="'.$link.'setac=savesettings">';
+	$body .= '<div class="showform">';
+	$body .= '<form name="settings" method="POST" action="'.$link.'setac=savesettings">';
 
 		//=> Name of the site/bet office
-		echo '<div class="title">'.$lang['admin_settings_name'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_nametext'], 40)).'</div>';
-			echo '<div class="input"><input name="name" size="15" value="'.$settings['name'].'"></div>';
+		$body .= '<div class="title">'.$lang['admin_settings_name'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_nametext'], 40)).'</div>';
+			$body .= '<div class="input"><input name="name" size="15" value="'.$settings['name'].'"></div>';
 
 		//=> slogan/description of the site/bet office
-		echo '<div class="title">'.$lang['admin_settings_description'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_descriptiontext'], 40)).'</div>';
-			echo '<div class="input"><input name="description" size="30" value="'.$settings['description'].'"></div>';
+		$body .= '<div class="title">'.$lang['admin_settings_description'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_descriptiontext'], 40)).'</div>';
+			$body .= '<div class="input"><input name="description" size="30" value="'.$settings['description'].'"></div>';
 	
 			//=> bank account details
-		echo '<div class="title">'.$lang['general_bank_account'].':</div>';
-			echo '<div class="explanation">'.$lang['admin_settings_bank_account_text'].'<br/>'.$lang['admin_settings_bank_account_text1'].'</div>';
-			echo '<div class="input"><input name="account_type" size="30" value="'.$settings['account_type'].'"/></div>';
-			echo '<div class="explanation">'.$lang['admin_settings_bank_account_text2'].'</div>';
-			echo '<div class="input"><input name="account_details" size="30" value="'.$settings['account_details'].'"/></div>';
-			echo '<div class="explanation">'.$lang['admin_settings_bank_account_text3'].'</div>';
-			echo '<div class="input"><textarea name="account_holder" rows="4" cols="30">'.$settings['account_holder'].'</textarea></div>';
+		$body .= '<div class="title">'.$lang['general_bank_account'].':</div>';
+			$body .= '<div class="explanation">'.$lang['admin_settings_bank_account_text'].'<br/>'.$lang['admin_settings_bank_account_text1'].'</div>';
+			$body .= '<div class="input"><input name="account_type" size="30" value="'.$settings['account_type'].'"/></div>';
+			$body .= '<div class="explanation">'.$lang['admin_settings_bank_account_text2'].'</div>';
+			$body .= '<div class="input"><input name="account_details" size="30" value="'.$settings['account_details'].'"/></div>';
+			$body .= '<div class="explanation">'.$lang['admin_settings_bank_account_text3'].'</div>';
+			$body .= '<div class="input"><textarea name="account_holder" rows="4" cols="30">'.$settings['account_holder'].'</textarea></div>';
 
 
 		//=> the language
-		echo '<div class="title">'.$lang['general_language'].'</div>';
+		$body .= '<div class="title">'.$lang['general_language'].'</div>';
 		if(sizeof($langs['short'])>1){
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_lang'], 40)).'</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_lang'], 40)).'</div>';
 			$select = makeLangSelect($settings['lang']);
-			echo '<div class="input">'.$select.'</div>';
+			$body .= '<div class="input">'.$select.'</div>';
 		}
 		?><script type="text/javascript">
 			function showLangList(){
@@ -175,75 +175,75 @@ if($_REQUEST['setac'] == 'savesettings'){
 		}
 		</script><?
 		//=> install language
-		echo '<div>'.$lang['admin_settings_installlang'].'<br/>
+		$body .= '<div>'.$lang['admin_settings_installlang'].'<br/>
 				<a href="javascript: showLangList()">'.$lang['admin_settings_langlist'].'</a></div>';
-		echo '<div class="input" id="langlistdiv">';
+		$body .= '<div class="input" id="langlistdiv">';
 		$langdircnt = scandir('data/langs');
-		echo '<b>'.$lang['general_remove'].':</b><br/>';
+		$body .= '<b>'.$lang['general_remove'].':</b><br/>';
 		for ($x = 0 ; $x < sizeof($langs['short']) ; $x++){
 			if($langs['short'][$x] != $_SESSION['dlang'])
-				echo $langs['long'][$x].' <input type="checkbox" name="langr_'.$langs['short'][$x].'" /><br/>'; 
+				$body .= $langs['long'][$x].' <input type="checkbox" name="langr_'.$langs['short'][$x].'" /><br/>'; 
 		} 
-		echo '<br/><b>'.$lang['general_install'].':</b><br/>';
+		$body .= '<br/><b>'.$lang['general_install'].':</b><br/>';
 		foreach ($langdircnt as $el){
 			if (is_file('data/langs/'.$el) && substr($el, -3) == 'xml'){
 				$l_short = substr($el, 5);
 				$l_short =  str_replace('.xml', '', $l_short);
 				if (!in_array($l_short, $langs['short'])){
 					$l_long = lookupLangName($l_short);
-					echo $l_long.' <input type="checkbox" name="langi_'.$l_short.'" /><br/>'; 
+					$body .= $l_long.' <input type="checkbox" name="langi_'.$l_short.'" /><br/>'; 
 				}
 			}
 		}
-		echo '</div>';
+		$body .= '</div>';
 
 		//=> the style
-		echo '<div class="title">'.$lang['admin_settings_style'].'</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_styletext'], 40)).'</div>';
+		$body .= '<div class="title">'.$lang['admin_settings_style'].'</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_styletext'], 40)).'</div>';
 			$selectStyle = makeStyleSelect();
-			echo '<div class="input">'.$selectStyle.'</div>';
+			$body .= '<div class="input">'.$selectStyle.'</div>';
 
 		//=> the url of the site
-		echo '<div class="title">'.$lang['admin_settings_siteurl'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['myprofile_settings_siteurltext'], 40)).'</div>';
-			echo '<div class="input"><input name="site_url" size="30" value="'.$settings['site_url'].'"></div>';
+		$body .= '<div class="title">'.$lang['admin_settings_siteurl'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['myprofile_settings_siteurltext'], 40)).'</div>';
+			$body .= '<div class="input"><input name="site_url" size="30" value="'.$settings['site_url'].'"></div>';
 
 
 		//=> the email of the "owner"
-		echo '<div class="title">'.$lang['register_email'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['myprofile_settings_changeemail'], 40)).'</div>';
-			echo '<div class="input"><input name="email1" size="30" value="'.$settings['email'].'"></div>';
-			echo '<div class="input"><input name="email2" size="30" value=""></div>';
+		$body .= '<div class="title">'.$lang['register_email'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['myprofile_settings_changeemail'], 40)).'</div>';
+			$body .= '<div class="input"><input name="email1" size="30" value="'.$settings['email'].'"></div>';
+			$body .= '<div class="input"><input name="email2" size="30" value=""></div>';
 		//=> sending of emails activated?
 		if($settings['functionalSMTP'] == 'true'){
-			echo '<div class="input">'.$lang['admin_settings_smtpactivated'];
-			echo '<br/><a href="javascript: showFloatingLayer(\'smtpdetails\')">'.$lang['admin_settings_modifysmtp'].'</a></div>';
+			$body .= '<div class="input">'.$lang['admin_settings_smtpactivated'];
+			$body .= '<br/><a href="javascript: showFloatingLayer(\'smtpdetails\')">'.$lang['admin_settings_modifysmtp'].'</a></div>';
 		}else{
-			echo '<div class="input">'.$lang['admin_settings_smtpdisactivated'];
-			echo '<br/><a href="javascript: showFloatingLayer(\'smtpdetails\')">'.$lang['admin_settings_modifysmtp'].'</a></div>';
+			$body .= '<div class="input">'.$lang['admin_settings_smtpdisactivated'];
+			$body .= '<br/><a href="javascript: showFloatingLayer(\'smtpdetails\')">'.$lang['admin_settings_modifysmtp'].'</a></div>';
 
 		}
 
 	
 		//=> notifications 
-		echo '<div class="title">'.$lang['admin_settings_notifications'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_notificationstext'], 40)).'</div>';
-			echo '<div class="input"><input type="checkbox" name="notify_newaccount" value="true" '.$settings['notify_newaccount'].'>'.$lang['admin_settings_notify_newaccount'].'<br/>';
-			echo '<input type="checkbox" name="notify_participate" value="true" '.$settings['notify_participate'].'>'.$lang['admin_settings_notify_participate'].'<br/>';
-			echo '<input type="checkbox" name="notify_withdraw" value="true" '.$settings['notify_withdraw'].'>'.$lang['admin_settings_notify_withdraw'].'</div>';
-			echo '<div class="input"><input type="radio" name="notification_system" value="internal" '.$notification_system['internal'].'>'.$lang['admin_messages_internal'];
-			echo ($settings['functionalSMTP']=='true') ? 
+		$body .= '<div class="title">'.$lang['admin_settings_notifications'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_notificationstext'], 40)).'</div>';
+			$body .= '<div class="input"><input type="checkbox" name="notify_newaccount" value="true" '.$settings['notify_newaccount'].'>'.$lang['admin_settings_notify_newaccount'].'<br/>';
+			$body .= '<input type="checkbox" name="notify_participate" value="true" '.$settings['notify_participate'].'>'.$lang['admin_settings_notify_participate'].'<br/>';
+			$body .= '<input type="checkbox" name="notify_withdraw" value="true" '.$settings['notify_withdraw'].'>'.$lang['admin_settings_notify_withdraw'].'</div>';
+			$body .= '<div class="input"><input type="radio" name="notification_system" value="internal" '.$notification_system['internal'].'>'.$lang['admin_messages_internal'];
+			$body .= ($settings['functionalSMTP']=='true') ? 
 				'<input type="radio" name="notification_system" value="email" '.$notification_system['email'].'/>'.$lang['register_email'].'</div>' :
 				'</div>';
 
 		//=> formlines to be displayed
-		echo '<div class="title">'.$lang['admin_settings_formlines'].':</div>';
-			echo '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_formlinestext'], 40)).'</div>';
-			echo '<div class="input"><input name="formlines" size="5" value="'.$settings['formlines'].'"></div>';
-		echo '<div class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"></div>';
-	echo '</form>';
+		$body .= '<div class="title">'.$lang['admin_settings_formlines'].':</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap($lang['admin_settings_formlinestext'], 40)).'</div>';
+			$body .= '<div class="input"><input name="formlines" size="5" value="'.$settings['formlines'].'"></div>';
+		$body .= '<div class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"></div>';
+	$body .= '</form>';
 
-	echo '</div>';
+	$body .= '</div>';
 		$flcnt = '<form name="smtp" method="POST" action="'.$link.'setac=savesmtp">';
 		$flcnt.= '<div >'.$lang['admin_settings_smtpexp'].'</div>';
 		$flcnt.= '<div class="title">'.$lang['admin_settings_smtpserver'].'
@@ -263,6 +263,6 @@ if($_REQUEST['setac'] == 'savesettings'){
 		$flcnt.= '<div class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"/></div>';
 		$flcnt.= '</form>';
 
-		echo makeFloatingLayer('SMTP', $flcnt, 1, 'smtpdetails');		
+		$body .= makeFloatingLayer('SMTP', $flcnt, 1, 'smtpdetails');		
 }
 ?>

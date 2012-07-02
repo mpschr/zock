@@ -27,20 +27,20 @@ global $db, $settings, $events;
 $inactive = (isset($events['i']['e'.$_REQUEST['ev']])) ? true : false;
 // is it an event in phase 1 or 2?
 if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
-	echo '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
+	$body .=  '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
 	infoBarEventCreation('2');
-	echo $lang['admin_events_fromphase3'];
+	$body .=  $lang['admin_events_fromphase3'];
 }else{
 //step 3 or activated
 //show all of it!
 	
 	if ($inactive){
-		echo '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
+		$body .=  '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
 		$ko_matches = $events['i']['e'.$_REQUEST['ev']]['ko_matches'];
 		$stake_mode = $events['i']['e'.$_REQUEST['ev']]['stake_mode'];
 		infoBarEventCreation('3');
 	}else{
-		echo '<h3>'.$events['u']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
+		$body .=  '<h3>'.$events['u']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_matches_title'].'</h3>';
 		$ko_matches = $events['u']['e'.$_REQUEST['ev']]['ko_matches'];
 		$stake_mode = $events['u']['e'.$_REQUEST['ev']]['stake_mode'];
 	}
@@ -50,7 +50,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		unset($_SESSION['err']);
 		if(isset($_SESSION['post'])) errorMsg('filledform');
 		else{
-			 echo errorMsg($err[1]);
+			 $body .=  errorMsg($err[1]);
 			unset($err);
 		}
 		$data = $_SESSION['post'];
@@ -103,7 +103,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 	if($bdp_matches == NULL && !isset($data) && !$_REQUEST['filter']){
 			//well, there's nothing to display
-			echo $lang['admin_events_nomatches'];
+			$body .=  $lang['admin_events_nomatches'];
 			$nomatches = 1;
 	
 	}
@@ -112,9 +112,9 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 	if(true){
 		if($bdp_rows == 0 && isset($_REQUEST['filter'])){
 			//no results with this filter
-			echo errorMsg('filter_emptyresults');
+			$body .=  errorMsg('filter_emptyresults');
 		}
-		if(!isset($data)) echo $lang['admin_events_matches_content'].'<p/>';
+		if(!isset($data)) $body .=  $lang['admin_events_matches_content'].'<p/>';
 
 		?>
 		<script type="text/javascript">
@@ -127,18 +127,18 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		//manipulation links
 		if (!(isset($err))){
 			if($stake_mode!='permatch'){
-				echo '<a href="javascript: addNewMatch()">+ '.$lang['admin_events_matches_title'].'</a>';
-				echo ' || <a href="javascript: showFloatingLayer(\'2\')">'.$lang['admin_events_addemptymatches'].'</a>';
-				echo ' || ';
+				$body .=  '<a href="javascript: addNewMatch()">+ '.$lang['admin_events_matches_title'].'</a>';
+				$body .=  ' || <a href="javascript: showFloatingLayer(\'2\')">'.$lang['admin_events_addemptymatches'].'</a>';
+				$body .=  ' || ';
 			}
 			//no matches yet -> no competitor change, but install event
 			if(!$nomatches){
-				echo '<a href="javascript: showFloatingLayer(\'1\')">'.$lang['admin_events_changecompetitor'].'</a>';
-				echo ' || ';
+				$body .=  '<a href="javascript: showFloatingLayer(\'1\')">'.$lang['admin_events_changecompetitor'].'</a>';
+				$body .=  ' || ';
 			}
 			if(!$nomatches){
-				echo '<a href="javascript: showFloatingLayer(\'3\')">'.$lang['admin_events_installevent'].'</a>';
-				echo ' || ';
+				$body .=  '<a href="javascript: showFloatingLayer(\'3\')">'.$lang['admin_events_installevent'].'</a>';
+				$body .=  ' || ';
 			}
 		}
 
@@ -151,10 +151,10 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			$md = $db->query($query);
 			if (sizeof($md) > 0){
 				//=>another manipulation link:  layer is made after this form!
-				echo '<a href="javascript: showMatchdayIds()">'.$lang['admin_events_arrangematchdays'].'</a>';
-				echo '<p/>';
-				echo '<form name="arrangematches" action="?menu=admin&submenu=events&evac=arrangematchdays" method="POST" >';
-				echo '<table id="matchdays" style="display: none;">';
+				$body .=  '<a href="javascript: showMatchdayIds()">'.$lang['admin_events_arrangematchdays'].'</a>';
+				$body .=  '<p/>';
+				$body .=  '<form name="arrangematches" action="?menu=admin&submenu=events&evac=arrangematchdays" method="POST" >';
+				$body .=  '<table id="matchdays" style="display: none;">';
 
 					$col = $row = 0;
 					$number = sizeof($md);
@@ -162,29 +162,29 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 					for ($i=0;$i<$percolumn*4;$i++){
 						$col++;
 						if (($i+1)%4 == 1){
-							echo '<tr>';
+							$body .=  '<tr>';
 							$row++;
 						}
 						$mdrow = $col*$percolumn-($percolumn-$row)-1;
 						if($mdrow<$number){
 							if($md[$mdrow]['matchday_id'] == '999999') $md[$mdrow]['matchday_id'] = '';
-							echo '<td width="150px">';
-							echo '<input size="2" name="md_'.($i+1).'" readonly class="readonly" value="'.$md[$mdrow]['matchday'].'"/>:';
-							echo '  <input size="2" name="mdid_'.($i+1).'" value="'.$md[$mdrow]['matchday_id'].'" tabindex="'.($mdrow+1).'"/>';
-							echo '</td>';
+							$body .=  '<td width="150px">';
+							$body .=  '<input size="2" name="md_'.($i+1).'" readonly class="readonly" value="'.$md[$mdrow]['matchday'].'"/>:';
+							$body .=  '  <input size="2" name="mdid_'.($i+1).'" value="'.$md[$mdrow]['matchday_id'].'" tabindex="'.($mdrow+1).'"/>';
+							$body .=  '</td>';
 						}else{
-							echo '<td></td>';
+							$body .=  '<td></td>';
 						}
 						if(($i+1)%4 == 0){
-							echo '</tr>';
+							$body .=  '</tr>';
 							$col = 0;
 						}
 					}
-					echo '<input type="hidden" name="md_nb" value="'.$number.'"/>';
-					echo '<input type="hidden" name="eve" value="'.$_REQUEST['ev'].'"/>';
-					echo '<tr><td colspan="4"><input type="submit" value="'.$lang['general_savechanges'].'"/></td></tr>';
-				echo '</table>';
-				echo '</form>';
+					$body .=  '<input type="hidden" name="md_nb" value="'.$number.'"/>';
+					$body .=  '<input type="hidden" name="eve" value="'.$_REQUEST['ev'].'"/>';
+					$body .=  '<tr><td colspan="4"><input type="submit" value="'.$lang['general_savechanges'].'"/></td></tr>';
+				$body .=  '</table>';
+				$body .=  '</form>';
 			}
 		}
 
@@ -192,7 +192,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		if(!isset($data)){
 			$filterurl = preg_replace('/(filter=)[a-zA-Z0-9:]+[&]/i', '', $link_query); 
 			$filterurl = $link.$filterurl;
-			echo '<form action="javascript: filter(\''.$filterurl.'\')">
+			$body .=  '<form action="javascript: filter(\''.$filterurl.'\')">
 				<a href="javascript: showFilter()" >'.$lang['general_filter'].'</a>
 				<div id="filterform" class="notvisible" >
 				<select id="filter_on" onChange="filterChange()">
@@ -202,26 +202,26 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 				<option value="visitor" '.$f_visitor.'>'.$lang['admin_events_visitor'].'</option>
 				<option value="matchday" '.$f_matchday.'>'.$lang['admin_events_matchday'].'</option>
 				</select>';
-			echo ' <span id="filter_contains">'.$lang['general_contains'].'</span> ';
-			echo ' <span id="filter_is" class="notvisible">'.$lang['general_is'].'</span> ';
-			echo '<input id="filter_this" value="'.$f[1].'" size="15"/>';
-			echo '<a href="javascript: filterUnset()"> x </a>';
-			echo ' <input type="submit" value="'.$lang['general_filterverb'].'"/>';
-			echo '</div>';	
-			echo '</form>';
+			$body .=  ' <span id="filter_contains">'.$lang['general_contains'].'</span> ';
+			$body .=  ' <span id="filter_is" class="notvisible">'.$lang['general_is'].'</span> ';
+			$body .=  '<input id="filter_this" value="'.$f[1].'" size="15"/>';
+			$body .=  '<a href="javascript: filterUnset()"> x </a>';
+			$body .=  ' <input type="submit" value="'.$lang['general_filterverb'].'"/>';
+			$body .=  '</div>';	
+			$body .=  '</form>';
 		}
 
 	//the form
-	echo '<form action="?menu=admin&submenu=events&'.'evac=savematches&which='.$mnb.'" method="POST" name="matches">';
-	echo '<table class="showmatches" id="showmatches">';
-	echo '<tr class=title>
+	$body .=  '<form action="?menu=admin&submenu=events&'.'evac=savematches&which='.$mnb.'" method="POST" name="matches">';
+	$body .=  '<table class="showmatches" id="showmatches">';
+	$body .=  '<tr class=title>
 		<td class=title><a href="'.$link.orderIt('id', $orderby, $link_query).'"> '.$lang['general_id'].'</a></td>
 		<td class=title><a href="'.$link.orderIt('time', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
 		<td class=title><a href="'.$link.orderIt('matchday_id', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
 		<td class=title><a href="'.$link.orderIt('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
 		<td class=title><a href="'.$link.orderIt('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>';
-		if($ko_matches=='yes')	echo '<td class=title>'.$lang['admin_events_komatch'].'</td>';
-		echo '</tr>';
+		if($ko_matches=='yes')	$body .=  '<td class=title>'.$lang['admin_events_komatch'].'</td>';
+		$body .=  '</tr>';
 
 		//if filter is set, watch out that mnb is not too high
 		if($bdp_rows < $mnb) $mnb = 1; 	
@@ -268,7 +268,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 	
 				//the form
-				echo '<tr>
+				$body .=  '<tr>
 					<td class="input"> '.$id.'</td>
 					<td class="input"><input class="'.$ro2.' datepicker" 
 								name="time1_'.$m['id'].'" size="10" 
@@ -287,23 +287,23 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 						name="visitor_'.$m['id'].'" size="15" 
 						value="'.$visitor.'" '.$ro.'"></td>';
 				if($ko_matches=='yes'){
-					echo '<td class="input">';
+					$body .=  '<td class="input">';
 					if(!$past){
-						echo '<input type="radio" class="'.$ro2.'" 
+						$body .=  '<input type="radio" class="'.$ro2.'" 
 						name="komatch_'.$m['id'].'" 
 						value="1" '.$sel[1].'">';
 					}
-					if(!$past || $past && isset($sel[1])) echo $lang['general_yes'];
+					if(!$past || $past && isset($sel[1])) $body .=  $lang['general_yes'];
 					if(!$past){
-						echo '<input type="radio" class="'.$ro2.'" 
+						$body .=  '<input type="radio" class="'.$ro2.'" 
 						name="komatch_'.$m['id'].'" 
 						value="0" '.$sel[0].'">';
 					}
-					if(!$past || $past && isset($sel[0])) echo $lang['general_no'].'
+					if(!$past || $past && isset($sel[0])) $body .=  $lang['general_no'].'
 					</td>';
 				}
-				echo '</tr>';
-					echo '<input type="hidden" name="ro_'.$m['id'].'" value="'.$ro2.'">';
+				$body .=  '</tr>';
+					$body .=  '<input type="hidden" name="ro_'.$m['id'].'" value="'.$ro2.'">';
 
 				//unset these two variables for they won't affect the next row
 				unset($ro); unset($ro2);
@@ -315,7 +315,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		if (isset($data)){
 			for($x=1 ; $x <= $data['adds'] ; $x++){
 				$index = (isset($wrongs['new'.$x])) ? '<font class=error>-></font>' : 'new'.$x;
-				echo '<tr>
+				$body .=  '<tr>
 					<td class="input"> '.$index.'</td>
 					<td class="input"><input name="newtime1_'.$x.'" class="datepicker" 
 							size="10" value="'.$data['newtime1_'.$x].'">
@@ -330,18 +330,18 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 						size="15" value="'.$data['newvisitor_'.$x].'"></td>';
 				if($ko_matches=='yes'){
 					$sel[$data['newkomatch_'.$x]] = 'checked="checked"';
-					echo '<td class="input">';
-						echo '<input type="radio"  
+					$body .=  '<td class="input">';
+						$body .=  '<input type="radio"  
 						name="komatch_'.$m['id'].'" 
 						value="1" '.$sel[1].'>';
-						echo $lang['general_yes'];
-						echo '<input type="radio"  
+						$body .=  $lang['general_yes'];
+						$body .=  '<input type="radio"  
 						name="komatch_'.$m['id'].'" 
 						value="0" '.$sel[0].'>';
-						echo $lang['general_no'];
-					echo '</td>';
+						$body .=  $lang['general_no'];
+					$body .=  '</td>';
 					}
-					echo '</tr>';
+					$body .=  '</tr>';
 				}
 			}
 
@@ -354,7 +354,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 	$latestdate = $db->query($query);
 	if(!isset($data)){
 		for($x=1;$x<21;$x++){
-			echo '<tr id="newtr_'.$x.'" class="notvisible">
+			$body .=  '<tr id="newtr_'.$x.'" class="notvisible">
 				<td class="input">new'.$x.'</td>
 				<td class="input"><input name="newtime1_'.$x.'" class="datepicker" value="'.date('d.m.Y', $latestdate[0]['maxtime']).'" size="10">
 					'.$lang['general_time_at'].'
@@ -363,18 +363,18 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 					<td class="input"><input name="newhome_'.$x.'" class="autoteam" size="15"></td>
 					<td class="input"><input name="newvisitor_'.$x.'" class="autoteam" size="15"></td>';
 				if($ko_matches=='yes'){
-					echo '<td class="input">';
-						echo '<input type="radio"  
+					$body .=  '<td class="input">';
+						$body .=  '<input type="radio"  
 						name="newkomatch_'.$x.'" 
 						value="1" >';
-						echo $lang['general_yes'];
-						echo '<input type="radio" 
+						$body .=  $lang['general_yes'];
+						$body .=  '<input type="radio" 
 						name="newkomatch_'.$x.'" 
 						value="0" checked="checked">';
-						echo $lang['general_no'];
-					echo '</td>';
+						$body .=  $lang['general_no'];
+					$body .=  '</td>';
 				}
-			echo '</tr>';
+			$body .=  '</tr>';
 		}
 	}
 
@@ -402,7 +402,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
     
     //autocomplete script
 
-    echo "
+    $body .=  "
     <script>
         $(document).ready(function() {
             $(\"input.autoteam\").autocomplete({
@@ -422,15 +422,15 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 	$addsbefore =  (isset($data)) ? $data['adds'] : '0';
 
 	//hidden information for later check and/or javascript function
-	echo '<input name="adds" id="adds" type="hidden" value="'.$addsbefore.'">';
-	echo '<input id="enoughadds" type="hidden" value="'.$lang['admin_events_enoughadds'].'">';
-	echo '<input name="query" type="hidden" value="'.$link_query.'">';
-	echo '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
-	echo '<input name="lines" type="hidden" value="'.$lines.'">';
-	echo '<tr class="submit"><td></td><td class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"></td></tr>';
-	echo '</table>';
-	echo '</form>';
-	echo '<p />';
+	$body .=  '<input name="adds" id="adds" type="hidden" value="'.$addsbefore.'">';
+	$body .=  '<input id="enoughadds" type="hidden" value="'.$lang['admin_events_enoughadds'].'">';
+	$body .=  '<input name="query" type="hidden" value="'.$link_query.'">';
+	$body .=  '<input name="event" type="hidden" value="'.$_REQUEST['ev'].'">';
+	$body .=  '<input name="lines" type="hidden" value="'.$lines.'">';
+	$body .=  '<tr class="submit"><td></td><td class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"></td></tr>';
+	$body .=  '</table>';
+	$body .=  '</form>';
+	$body .=  '<p />';
 
 		//make the floting Layer for changeing competitor
 		if(!$nomatches){
@@ -443,7 +443,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			$flcnt .= '<td>'.$lang['admin_events_competitorchangeto'].'</td>';
 			$flcnt .= '<td><input class="input_fl autoteam" name="changeto" size="15" /></td>';
 			$flcnt .= '</td></tr></table><input type="submit" value="'.$lang['general_savechanges'].'"/></form>';
-			echo makeFloatingLayer($lang['admin_events_changecompetitor'], $flcnt);
+			$body .=  makeFloatingLayer($lang['admin_events_changecompetitor'], $flcnt);
 
 			$flcnt = '<form name="changecompetitor" action="?menu=admin&submenu=events&evac=addemptymatches" method="POST">';
 			$flcnt .= '<input name="eve" type="hidden" value="'.$_REQUEST['ev'].'">';
@@ -451,7 +451,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			$flcnt .= $lang['admin_events_howmanyemptymatches'].'  ';
 			$flcnt .= '<input class="input_fl" name="emptymatches" size="15" />';
 			$flcnt .= '<input type="submit" value="'.$lang['general_savechanges'].'"/></form>';
-			echo makeFloatingLayer($lang['admin_events_addemptymatches'], $flcnt, 1, 2);
+			$body .=  makeFloatingLayer($lang['admin_events_addemptymatches'], $flcnt, 1, 2);
 
 		}
 		if(!$nomatches){
@@ -462,7 +462,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 			$flcnt .= '<tr><td><input name="eventup" size="30" type="file"></td></tr>';
 			$flcnt .= '<tr><td>Delimiter:<br/> <input name="delimiter" size="10" type="text"></td></tr>';
 			$flcnt .= '</table><input type="submit" value="'.$lang['general_upload'].'"/></form>';
-			echo makeFloatingLayer($lang['admin_events_installevent'], $flcnt, 1, 3);
+			$body .=  makeFloatingLayer($lang['admin_events_installevent'], $flcnt, 1, 3);
 		}
 
 
@@ -472,16 +472,16 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		if($mnb > 1){
 			$gonb = $mnb-$settings['formlines'];
 			if ($gonb < 1) $gonb = 1;
-			echo '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
+			$body .=  '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
 		}
 
-		echo $lang['general_page'];
+		$body .=  $lang['general_page'];
 		for($x=1 ; $x <= $bdp_rows; $x += $settings['formlines']){
 			$y++;
 			if ($x!=$mnb){
-				echo '  <a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a>';
+				$body .=  '  <a href="'.$link.$queryfilter.'mnb='.$x.'">'.$y.'</a>';
 			}else{
-				echo '  '.$y;
+				$body .=  '  '.$y;
 			}
 		}
 
@@ -489,7 +489,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 		if($mnb + $settings['formlines'] < $bdp_rows){
 			$gonb = $mnb+$settings['formlines'];
 			if ($gonb > $bdp_rows) $gonb = $bdp_rows;
-			echo ' | <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>';
+			$body .=  ' | <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goforward'].'</a>';
 		}
 	}
 }

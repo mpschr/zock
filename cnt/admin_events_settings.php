@@ -20,9 +20,9 @@ zock! is a free software licensed under GPL (General public license) v3
 global $events, $events_test, $cont;
 
 if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
-	echo '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_settings_title'].'</h3>';
+	$body .=  '<h3>'.$events['i']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_settings_title'].'</h3>';
 }else{
-	echo '<h3>'.$events['u']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_settings_title'].'</h3>';
+	$body .=  '<h3>'.$events['u']['e'.$_REQUEST['ev']]['name'].': '.$lang['admin_events_settings_title'].'</h3>';
 }
 //========== edit an event
 if($_REQUEST['ssubmenu'] == 'settings'){
@@ -52,19 +52,19 @@ if($_REQUEST['ssubmenu'] == 'settings'){
 		foreach ($err as $i => $e){
 			$err[$i] = ($e) ? 'error'  : 'title';
 		}
-		if (in_array('error', $err)) echo '<font class="error">'.$lang['error_filledform'].'</font>';
+		if (in_array('error', $err)) $body .=  '<font class="error">'.$lang['error_filledform'].'</font>';
 	}
 
 /*
 $flcnt = generateEventInfo($_REQUEST['ev']);
 	foreach($flcnt as $sid => $cnt)
-		echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
+		$body .=  makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
 
-echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfkasfisldf</a><p/>';
+$body .=  '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfkasfisldf</a><p/>';
 */
 	//is event active or not?
 	if($selectedEvent->getActive() == 1){
-		echo $lang['admin_events_active'].'<p>';
+		$body .=  $lang['admin_events_active'].'<p>';
 		$users['db'] = $db->query("SELECT id, login, account_type, account_holder, account_details FROM ".PFIX."_users");
 		foreach ($users['db'] as $row){
 			$users['all'][$row['id']]['name'] = $row['login'];
@@ -98,7 +98,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				$flcnt = '<b>'.$users['all'][$id]['account_type'].'</b><p/<p/>'
 					.'<pre>'.$users['all'][$id]['account_holder'].'</pre><br/>'
 					.$users['all'][$id]['account_details'].'<br/>';
-				echo makeFloatingLayer($users['all'][$id]['name'], $flcnt,1,$id.'_account');
+				$body .=  makeFloatingLayer($users['all'][$id]['name'], $flcnt,1,$id.'_account');
 			}
             $flcnt .= '<input type="hidden" name="id" value="'.$selectedEvent->getId().'"/>';
 
@@ -127,7 +127,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 							<td>'.$lang['register_email'].':</td>
 							<td>'.$userinfo['email'].'</td>
 					</tr></table>';
-			echo makeFloatingLayer($userinfo['login'], $flcnt, 1, 'u'.$userinfo['id']);
+			$body .=  makeFloatingLayer($userinfo['login'], $flcnt, 1, 'u'.$userinfo['id']);
 			$u['w']	.= '<font id="uw_'.$id.'">'.$users['all'][$id]['name'].'</font>
 					<a href="javascript: manageUser(\'a\', \''.$id.'\')">'.$lang['admin_events_approve'].'</a> /
 					<a href="javascript: manageUser(\'d\', \''.$id.'\')">'.$lang['admin_events_deny'].'</a> / 
@@ -161,14 +161,14 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			}
 		}
 		$flcnt .= '</tr></table><input type="submit"/ value="'.$lang['general_savechanges'].'"></form>';
-		echo makeFloatingLayer($lang['admin_events_adduser'], $flcnt);	
+		$body .=  makeFloatingLayer($lang['admin_events_adduser'], $flcnt);	
 
 		//Settings_title	
-		echo '<h3>'.$lang['admin_events_eventsettings'].'</h3>';
+		$body .=  '<h3>'.$lang['admin_events_eventsettings'].'</h3>';
 		
 
 		//the form
-		echo '<form name="edit" action="?menu=admin&submenu=events&evac=saveactive" method="POST">'
+		$body .=  '<form name="edit" action="?menu=admin&submenu=events&evac=saveactive" method="POST">'
 		.'<input type="hidden" name="id" value="'.$selectedEvent->getId().'">'.$u['h']
 		.'<table class="showform">
 			<tr>
@@ -204,7 +204,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			</tr>
 		</table>';
 		//integrate FloatingLayer into form!
-		echo '</form>';
+		$body .=  '</form>';
 
 
 
@@ -217,13 +217,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		if($eve['p_correct'] != NULL){
 			$flcnt = generateEventInfo($_REQUEST['ev']);
 			foreach($flcnt as $sid => $cnt)
-				echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
-			echo '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
+				$body .=  makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
+			$body .=  '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
 		}
 
 
 
-	//	echo '<p>'.$lang['admin_events_inactive'];
+	//	$body .=  '<p>'.$lang['admin_events_inactive'];
 		?>
 		<script type="text/javascript">
 			function switchInput(spec){
@@ -295,7 +295,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						stakebackexp.setAttribute("class", "explanation");
 						stakebackdiv.setAttribute("class", "input");
 						if(betonfield.value=="toto" && stakebackfield.value=="yes"){
-							alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
+							alert("<?$body .=  $lang['admin_events_stakebacknotpossible'];?>");
 							stakebackfield.value="no";
 							stakebackfield.selectedindex=0;
 						}
@@ -308,7 +308,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			var stakebackfield = document.getElementById("stakebackfield");
 			var betonfield = document.getElementById("betonfield");
 			if(betonfield.value=="toto" && stakebackfield.value=="yes"){
-				alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
+				alert("<?$body .=  $lang['admin_events_stakebacknotpossible'];?>");
 				stakebackfield.value="no";
 				stakebackfield.selectedindex=0;
 			}
@@ -446,7 +446,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					inputtypeexp.setAttribute("class", "explanation");
 					inputtypefield.setAttribute("class", "input");
 					if(stakebackfield.value=="yes"){
-						alert("<?echo $lang['admin_events_stakebacknotpossible'];?>");
+						alert("<?$body .=  $lang['admin_events_stakebacknotpossible'];?>");
 						stakebackfield.value="no";
 						stakebackfield.selectedindex=0;
 					}
@@ -498,7 +498,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 			namefield = document.getElementById("namefield");
 			if(namefield.value==""){
-				alert("<? echo $lang['admin_events_err_invalid_name']; ?>");
+				alert("<? $body .=  $lang['admin_events_err_invalid_name']; ?>");
 				return;
 			}
 
@@ -512,7 +512,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 			two_digits = /[0-9][0-9]/;
 			four_digits = /[0-9][0-9][0-9][0-9]/;
 			if(!(two_digits.test(dlsp[0])) || !(two_digits.test(dlsp[1])) || !(four_digits.test(dlsp[2])) ){
-				alert("<? echo $lang['admin_events_err_invalid_date']; ?>");
+				alert("<? $body .=  $lang['admin_events_err_invalid_date']; ?>");
 				return;
 			}
 
@@ -522,7 +522,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				if(stakemodefield.value=="permatch"){
 					matchnbfield = document.getElementById("matchnbfield");
 					if(matchnbfield.value == "" || matchnbfield.value=="0" || !(numerical.test(matchnbfield.value))){
-						alert("<? echo $lang['admin_events_err_invalid_matchnb']; ?>");
+						alert("<? $body .=  $lang['admin_events_err_invalid_matchnb']; ?>");
 						return;
 					}
 				}
@@ -530,19 +530,19 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 				stakefield = document.getElementById("stakefield");
 				if(stakefield.value == "" || stakefield.value=="0" || !(numericaldot.test(stakefield.value))){
-					alert("<? echo $lang['admin_events_err_invalid_stake']; ?>");
+					alert("<? $body .=  $lang['admin_events_err_invalid_stake']; ?>");
 					return;
 				}
 
 				currencyfield = document.getElementById("currencyfield");
 				if(currencyfield.value == "" || numerical.test(currencyfield.value)){
-					alert("<? echo $lang['admin_events_err_invalid_currency']; ?>");
+					alert("<? $body .=  $lang['admin_events_err_invalid_currency']; ?>");
 					return;
 				}
 
 				roundfield = document.getElementById("roundfield");
 				if(roundfield.value == "" || roundfield.value=="0" || !(numericaldot.test(roundfield.value))){
-					alert("<? echo $lang['admin_events_err_invalid_round']; ?>");
+					alert("<? $body .=  $lang['admin_events_err_invalid_round']; ?>");
 					return;
 				}
 
@@ -550,13 +550,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				if(jackpotmodefield.value=="fraction"){
 					fractionfield = document.getElementById("fractionfield");
 					if(!(numerical.test(fractionfield.value)) || parseInt(fractionfield.value) > 100 || parseInt(fractionfield.value) < 1){
-						alert("<? echo $lang['admin_events_err_invalid_fraction']; ?>");
+						alert("<? $body .=  $lang['admin_events_err_invalid_fraction']; ?>");
 						return;
 					}
 				}else{
 					jackpotfixfield = document.getElementById("jackpotfixfield");
 					if(!(numerical.test(jackpotfixfield.value)) || parseInt(jackpotfixfield.value) < 1){
-						alert("<? echo $lang['admin_events_err_invalid_jackpotfix']; ?>");
+						alert("<? $body .=  $lang['admin_events_err_invalid_jackpotfix']; ?>");
 						return;
 					}
 				}
@@ -568,13 +568,13 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 					fixshsp = fixsharesfield.value.split(":");
 					fixshsp.pop();
 					if(fixshsp.length != parseInt(jackpotfixfield.value)){
-						alert("<? echo $lang['admin_events_err_invalid_jackpotfixshares']; ?>");
+						alert("<? $body .=  $lang['admin_events_err_invalid_jackpotfixshares']; ?>");
 						return;
 					}
 				}else if(jpdistrmodefield.value=="exp"){
 					expsharesfield = document.getElementById("expsharesfield");
 					if(!(numericaldot.test(expsharesfield.value)) || parseFloat(expsharesfield.value) >= 1 || parseFloat(expsharesfield.value) < 0.1){
-						alert("<? echo $lang['admin_events_err_invalid_expshare']; ?>");
+						alert("<? $body .=  $lang['admin_events_err_invalid_expshare']; ?>");
 						return;
 					}
 				}
@@ -584,32 +584,32 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 			betuntilfield = document.getElementById("betuntilfield");
 			if(betuntilfield.value=="" || !(numericaldot.test(betuntilfield.value))){
-				alert("<? echo $lang['admin_events_err_invalid_betuntil']; ?>");
+				alert("<? $body .=  $lang['admin_events_err_invalid_betuntil']; ?>");
 				return;
 			}
 
 			correct = document.getElementById("correct");
 			if(correct.value == "" || !(numerical.test(correct.value))){
-				alert("<? echo $lang['admin_events_err_invalid_pcorrect']; ?>");
+				alert("<? $body .=  $lang['admin_events_err_invalid_pcorrect']; ?>");
 				return;
 			}
 			if(document.getElementById("diffbox").checked==true){
 				diff = document.getElementById("diff");
 				if(diff.value == "" || !(numerical.test(diff.value))){
-					alert("<? echo $lang['admin_events_err_invalid_pdiff']; ?>");
+					alert("<? $body .=  $lang['admin_events_err_invalid_pdiff']; ?>");
 					return;
 				}
 			}
 			if(document.getElementById("almostbox").checked==true){
 				almost = document.getElementById("almost");
 				if(almost.value == "" || !(numerical.test(almost.value))){
-					alert("<? echo $lang['admin_events_err_invalid_palmost']; ?>");
+					alert("<? $body .=  $lang['admin_events_err_invalid_palmost']; ?>");
 					return;
 				}
 			}
 			wrong = document.getElementById("wrong");
 			if(wrong.value == "" || !(numericalnegative.test(wrong.value))){
-				alert("<? echo $lang['admin_events_err_invalid_pwrong']; ?>");
+				alert("<? $body .=  $lang['admin_events_err_invalid_pwrong']; ?>");
 				return;
 			}
 
@@ -625,7 +625,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 						$lang['admin_events_settings_distr_lin'],
 						$lang['admin_events_settings_distr_exp']);
 
-		echo makeFloatingLayer('','', 0, 'fixshares');
+		$body .=  makeFloatingLayer('','', 0, 'fixshares');
 
 		//preparations...
 
@@ -737,9 +737,9 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 		}
 
 			//form
-		echo '<h3>'.$lang['admin_events_eventsettings'].'</h3>';
+		$body .=  '<h3>'.$lang['admin_events_eventsettings'].'</h3>';
 
-		echo '<form name="edit" action="index.php?menu=admin&submenu=events&evac=save" method="POST">'
+		$body .=  '<form name="edit" action="index.php?menu=admin&submenu=events&evac=save" method="POST">'
 		.'<input type="hidden" name="form" value="ssubmenu=settings&'.$link_query.'">'
 		.'<input type="hidden" name="formname" value="phase2">'
 		.'<input type="hidden" id="nextstep" name="nextstep" value="">'
@@ -877,12 +877,12 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 	}else{
 		infoBarEventCreation(3,3);
 		$sslink = preg_replace('/ssubmenu=settings/', 'ssubmenu=matches', $link.$link_query);
-		echo substitute($lang['admin_events_phase3text'], array($sslink, $lang['admin_events_deadline']));
+		$body .=  substitute($lang['admin_events_phase3text'], array($sslink, $lang['admin_events_deadline']));
 
 		$flcnt = generateEventInfo($_REQUEST['ev']);
 		foreach($flcnt as $sid => $cnt)
-			echo makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
-		echo '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
+			$body .=  makeFloatingLayer($events['u']['e'.$id]['name'], $cnt, 1, $_REQUEST['ev'].'_'.$sid);
+		$body .=  '<p/><div align="center"><b><a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">'.$lang['admin_events_displayinfo'].'</a></b></div>';
 
 	//Preparation for the form
 		//=> process public setting
@@ -896,7 +896,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 
 
 		//the form
-		echo '<form name="phase3" action="?menu=admin&submenu=events&evac=save" method="POST">'
+		$body .=  '<form name="phase3" action="?menu=admin&submenu=events&evac=save" method="POST">'
 		.'<input type="hidden" name="id" value="'.$selectedEvent->getId().'">'.$u['h']
 		.'<input type="hidden" name="form" value="ssubmenu=settings&'.$link_query.'">'
 		.'<input type="hidden" name="formname" value="phase3">'
@@ -914,7 +914,7 @@ echo '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')">sfk
 				<div class="input"><input id="deadlinefield" name="deadline" size=10 value="'.date('d.m.Y', $eve['deadline']).'"></div>
 				<div class="submit"><input type="submit" value="'.$lang['general_savechanges'].'"></div>
 		</div>';
-		echo '</form>';
+		$body .=  '</form>';
 
 
 	}

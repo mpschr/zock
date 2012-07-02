@@ -70,7 +70,7 @@ if($_REQUEST['evac'] == 'save'){
 		else redirect($rlink.$_POST['form']);
 	}else{
 	//saveit!
-		echo $lang['general_updating'].'<br>';
+		$body .=  $lang['general_updating'].'<br>';
 		$data = $_POST;
 
 		//conversion in UNIX-TIME
@@ -186,7 +186,7 @@ if($_REQUEST['evac'] == 'save'){
 
 					//do the queries
 					if($db->query($query2)){
-						echo '<br/>newtable: '.$lang['general_savedok'];
+						$body .=  '<br/>newtable: '.$lang['general_savedok'];
 						if($data['stake_mode'] == 'permatch'){
 							$data['eve']=$data['id'];
 							$data['emptymatches']=$data['match_nb'];
@@ -194,8 +194,8 @@ if($_REQUEST['evac'] == 'save'){
 							$_REQUEST['evac']='addemptymatches';
 						}
 					}else{
-						echo '<p />query->'.$query2;
-						echo '<br/>newtable: '.$lang['general_savednotok'];
+						$body .=  '<p />query->'.$query2;
+						$body .=  '<br/>newtable: '.$lang['general_savednotok'];
 					}
 				}
 			}
@@ -226,13 +226,13 @@ if($_REQUEST['evac'] == 'save'){
 				$last = array_pop($ids);
 				redirect($rlink.$_POST['form'].$last['id'], 3);
 			}else{
-				echo '<br/>eventsettings: '.$lang['general_savedok'].'<br>';
-				echo $lang['general_redirect'];
+				$body .=  '<br/>eventsettings: '.$lang['general_savedok'].'<br>';
+				$body .=  $lang['general_redirect'];
 				redirect($rlink.$_POST['form'], 3);
 			}
 		}else{
-			echo '<br/>eventsettings: '.$lang['general_savednotok'];
-			echo '<p>query->'.$query;
+			$body .=  '<br/>eventsettings: '.$lang['general_savednotok'];
+			$body .=  '<p>query->'.$query;
 		}
 	}
 
@@ -246,11 +246,11 @@ if($_REQUEST['evac'] == 'save'){
 				SET active = '1' 
 				WHERE id = '".$data['ev']."';";
 		if($db->query($query)){
-			echo $lang['general_savedok'];
+			$body .=  $lang['general_savedok'];
 			redirect($_SERVER['HTTP_REFERER'],3,1);
 		}else{
-			echo $lang['general_savednotok'].'<br/>';
-			echo $query;
+			$body .=  $lang['general_savednotok'].'<br/>';
+			$body .=  $query;
 			redirect($_SERVER['HTTP_REFERER'],5,1);
 		}
 	}else{
@@ -311,23 +311,23 @@ if($_REQUEST['evac'] == 'save'){
 	}
 
     if (!($e->manageUsers($users,$whats))) {
-        echo $lang['general_savednotok'].'<br />';
+        $body .=  $lang['general_savednotok'].'<br />';
     }
 
 	//the rest of the settings don't need checks and are updated here (only condition: settings-formular!"
 	if(!isset($data['adduserform'])){	
 		if($db->query("UPDATE ".PFIX."_events SET name = '".$data['name']."', public = '".$data['public']."' WHERE id ='".$data['id']."'")){
-			echo $lang['general_savedok'].'<br>';
+			$body .=  $lang['general_savedok'].'<br>';
 		}else{
-			echo $lang['general_savednotok'].'<br>';
+			$body .=  $lang['general_savednotok'].'<br>';
 		}
 	}
-	echo $lang['general_redirect']; 
+	$body .=  $lang['general_redirect']; 
 	redirect($rlink.'ssubmenu=settings&ev='.$data['id'], 2);
 
 //========== save matches
 }elseif($_REQUEST['evac'] == 'savematches'){
-	echo $lang['general_updating'].'<br />';
+	$body .=  $lang['general_updating'].'<br />';
 	
 	$item=0;
 	
@@ -435,7 +435,7 @@ if($_REQUEST['evac'] == 'save'){
 			$db->query($query_new);
 		}
 		
-	$echo['general_redirect'];
+	$body .= ['general_redirect'];
 	redirect($_SERVER["HTTP_REFERER"], 0, 1);
 }
 
@@ -443,7 +443,7 @@ if($_REQUEST['evac'] == 'save'){
 
 }elseif($_REQUEST['evac'] == 'saveresults'){
 	global $events;
-	echo $lang['general_updating'].'<br>';
+	$body .=  $lang['general_updating'].'<br>';
 	$evdat = $events['u']['e'.$_POST['event']];
 	//check the edited results on errors
 	$ok = Array();	
@@ -635,16 +635,16 @@ if($_REQUEST['evac'] == 'save'){
 
 
 		}//end of else (no-err)
-		echo $lang['general_redirect'];
+		$body .=  $lang['general_redirect'];
 		redirect( preg_replace('/(evac=saveresults&which=[0-9]+)&/', '',$rlink.$link_query.'ssubmenu=results&'.$_POST['query']), 3);
 	}
 }
 
 function calculatePointsAndMoney ($event, $match, $score_a, $score_b){
-	global $events, $db, $my_smtp;
-	
+	global $events, $db;
+
 	//prepare data for a lot of calculating
-	
+
 	  //=> which and how many users for this event?
 	$evUsers = explode(':', $events['u']['e'.$event]['a']);
 	array_pop ($evUsers);
@@ -657,16 +657,16 @@ function calculatePointsAndMoney ($event, $match, $score_a, $score_b){
 	$diff = $evData['p_diff'];
 	$almost = $evData['p_almost'];
 	$wrong = $evData['p_wrong'];
-	  
+
 	  //=>all data for this match
 	$data = $db->query("SELECT * FROM ".PFIX."_event_".$event." WHERE id='".$match."';");
 	foreach ($data[0] as $label => $info){
 		$maData[$label] = $info;
-	}	
+	}
 	unset ($data);
-	
-	
-	
+
+
+
 	//how many tipped CORRECT (1), DIFF/ALMOST (0) correct, WRONG (-1)
 	  	//+ creating array with success value ($good, indicated in brackets) for each user
 		//+ creating array with pionts for each user
@@ -724,13 +724,13 @@ $evData['round'] = 0.05;
 		$totalstake = $nb*$evData['stake'];
 		$money = array();
 		if($nbCorrect>0){
-			$exact = floor(($factor*$totalstake)/$nbCorrect)/$factor;	
+			$exact = floor(($factor*$totalstake)/$nbCorrect)/$factor;
 			$floored = $totalstake-($exact*$nbCorrect);
 			foreach($evUsers as $p)
 				$money[$p] = ($success[$p] == 1) ? $exact : '0';
 		}elseif($evData['stake_back']=='yes'){
 			foreach($evUsers as $p)
-				$money[$p] = ($success[$p] == 0) ? $evData['stake'] : '0';		
+				$money[$p] = ($success[$p] == 0) ? $evData['stake'] : '0';
 		}else{
 			foreach($evUsers as $p)
 				$money[$p] = '0';
@@ -742,7 +742,7 @@ $evData['round'] = 0.05;
 		$jackpot = 0;
 	}
 	//return all the important info collected & calculated in an array!
-	
+
 	return array( 	'money' => $money, 'points' => $points, 'jackpot' => $jackpot);
 }
 
@@ -776,10 +776,9 @@ function calculateRanking($event, $match, $pam){
 	foreach ($points_p as $index => $pt){
 		$rank[$points_u[$index]] = $ranker;
 		$counter++;
-//echo $points_p[$counter-1]. ' : '.$points_p[$counter-2].'<br/>';
+//$body .=  $points_p[$counter-1]. ' : '.$points_p[$counter-2].'<br/>';
 		if ($points_p[$counter-1] != $points_p[$counter-2]) $ranker = $counter;
 	}
-//print_r($rank);
 	return $rank;
 }	
 
@@ -801,13 +800,13 @@ $query2 = $db->query($sql2);
 
 //We suppose that if one's has been written successfully, the other one is also written
 if ($query1 || $query2){
-		echo $lang['general_savedok'].'<br />';
-		echo $lang['general_redirect'];
+		$body .=  $lang['general_savedok'].'<br />';
+		$body .=  $lang['general_redirect'];
 		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 0);
 }else{
 
-		echo $lang['general_savednotok'].'<br />';
-		echo $lang['general_redirect'];
+		$body .=  $lang['general_savednotok'].'<br />';
+		$body .=  $lang['general_redirect'];
 		redirect( $rlink.'ssubmenu=matches&ev='.$data['eve'], 1);
 }
 
@@ -819,7 +818,7 @@ if ($query1 || $query2){
 	$data = $_POST;
 	$srcfile = $_FILES['eventup']['tmp_name'];
     $delimiter = $data['delimiter'];
-    echo "delimiter: ".$delimiter;
+    $body .=  "delimiter: ".$delimiter;
     $ical = new ical($srcfile);
 #    print_r($ical->events());	
 
@@ -863,11 +862,11 @@ if ($query1 || $query2){
         $sql  = "INSERT INTO ".PFIX."_event_".$data['eve']." (`id`, `time`, `matchday`, `home`, `visitor`, `score_h`, `score_v`, `score_special`, `jackpot`) VALUES ".$contents; 
 
 		if(!isset($err)){
-			echo $lang['general_savedok'].'<br>';
-			echo $lang['general_redirect'];
+			$body .=  $lang['general_savedok'].'<br>';
+			$body .=  $lang['general_redirect'];
 		    redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
 		}else{
-            echo $lang[$err[1]];
+            $body .=  $lang[$err[1]];
 		}
 	}else{
 		$_SESSION['err'] = $err;
@@ -887,14 +886,14 @@ if ($query1 || $query2){
 			$db->query($query);
 		
 	if($_REQUEST['notincluded']!=1){ 
-		echo $lang['general_saving'].'<br/>';
-		echo $lang['general_redirect'];
+		$body .=  $lang['general_saving'].'<br/>';
+		$body .=  $lang['general_redirect'];
 		redirect($_SERVER["HTTP_REFERER"], 3, 1);
 	}
 
 //========== arrangematchdays
 }elseif($_REQUEST['evac'] == 'arrangematchdays'){
-	echo $lang['general_updating'];
+	$body .=  $lang['general_updating'];
 	$data=$_POST;
 	for($i=1;$i<=$data['md_nb'];$i++){
 		$query = "UPDATE ".PFIX."_event_".$data['eve']." 

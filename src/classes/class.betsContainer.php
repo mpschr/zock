@@ -189,7 +189,7 @@ class BetsContainer {
             WHERE `question_id`  = ".$q->getDbId();
             $betsOutput = $db->query($betsQuery);
             foreach ($betsOutput as $bo) {
-                $q->assignBet($bo['user_id'],$bo['answer']);
+                $q->assignBet($bo['user_id'],$bo['answer'],$bo['points'],$bo['ranking']);
             }
             $questions[] = $q;
         }

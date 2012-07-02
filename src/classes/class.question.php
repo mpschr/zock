@@ -47,6 +47,16 @@ class Question implements Bet{
     protected $bets = array();
 
     /**
+     * @var array
+     */
+    protected $userpoints = array();
+
+    /**
+     * @var array
+     */
+    protected $ranking = array();
+
+    /**
      * @var int
      */
     protected $matchday_id;
@@ -135,18 +145,22 @@ class Question implements Bet{
      */
     public function getTendency()
     {
-        // TODO: Implement getTendancy() method.
+        // TODO: Implement getTendency() method.
         return "";
     }
 
     /**
      * @param int $user
      * @param string $bet
+     * @param $points
+     * @param $ranking
      * @return string
      */
-    public function assignBet($user,$bet)
+    public function assignBet($user,$bet,$points,$ranking)
     {
         $this->bets[$user] = $bet;
+        $this->userpoints[$user] = $points;
+        $this->ranking[$user] = $ranking;
     }
 
 
@@ -206,7 +220,7 @@ class Question implements Bet{
      */
     public function getResult()
     {
-        return $this->answer;
+        return preg_split('/:/',$this->answer);
     }
 
 
@@ -240,7 +254,7 @@ class Question implements Bet{
     }
 
     /**
-     * @return string
+     * @return int|string
      */
     public function getId()
     {
@@ -281,7 +295,7 @@ class Question implements Bet{
     }
 
     /**
-     * @return int
+     * @return int|mixed
      */
     public function getMatchdayId()
     {
@@ -409,10 +423,20 @@ class Question implements Bet{
 
     /**
      * @param $user int
+     * @return array
      */
     public function isCorrectBet($user)
     {
-        // TODO: Implement isCorrectBet() method.
+        $correct = array();
+        $bets = preg_split('/:/', $this->bets[$user]);
+        $answers = $this->getResult();
+
+        for ($i = 0; $i < sizeof($bets); $i++) {
+            if ($bets[$i] == '')
+                continue;
+            $correct[] = in_array($bets[$i],$answers);
+        }
+        return $correct;
     }
 
     /**
@@ -420,15 +444,83 @@ class Question implements Bet{
      */
     public function getUserPoints($user)
     {
-        // TODO: Implement getUserPoints() method.
+        return $this->userpoints[$user];
     }
 
     /**
      * @param $user int
+     * @return int
      */
     public function getMoney($user)
     {
-        // TODO: Implement getMoney() method.
+        return 0;
     }
+
+    /**
+     * @param $result String
+     * @param string $special
+     * @return bool
+     */
+    public function setResult($result,$special='')
+    {
+        $this->answer = $result;
+        return $this->updatePoints();
+    }
+
+    private function updatePoints()
+    {
+        if ($this->answer == '')
+            return false;
+
+        $evUsers = explode(':', $this->event->getUsersApproved());
+        array_pop ($evUsers);
+
+        foreach ($evUsers as $u) {
+            $correct = $this->isCorrectBet($u);
+            $pointing = explode(':',$this->points);
+            $points = 0;
+            for ($i = 0; $i < sizeof($correct); $i++) {
+                if ($correct[$i])
+                    $points += $pointing[$i];
+            }
+            $this->userpoints[$u] = $points;
+        }
+
+        return $this->saveUpdatedBet();
+
+    }
+
+    private function saveUpdatedBet()
+    {
+        global $db;
+
+        $evUsers = explode(':', $this->event->getUsersApproved());
+        array_pop ($evUsers);
+
+        $query = "UPDATE ".PFIX."_qa_questions  SET
+                    answer = '" . $this->answer .  "'
+                    WHERE `id`=" . $this->id . " ;";
+
+        if (!$db->query($query))
+            return false;
+
+        foreach ($evUsers as $user) {
+
+            $query = "UPDATE ".PFIX."_qa_bets  SET
+                            points = '".$this->getUserPoints($user)."'
+                            WHERE `question_id`=".$this->id." AND `user_id` = ".$user." ;";
+            $qres = $db->query($query);
+
+            if (!$db->last_query) {
+                print_r($db);
+                return false;
+            }
+        }
+
+
+        return true;
+    }
+
+
 }
 

@@ -264,7 +264,10 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                 if ($bet instanceof Question) {
                     /* @var $bet Question */
                     $body .= '<td class="ow_team" colspan="4">'. wordwrap($bet->getQuestion(),'70','<br/>') .'</td>';
-                    $body .= '<td>'. $bet->getResult() .'</td>
+                    $answer = '';
+                    foreach ($bet->getResult() as $a)
+                        $answer .= $a.' ';
+                    $body .= '<td class="title">'. $answer .'</td>
                                 <td></td>';
                 }
                 elseif ($bet instanceof Match) {

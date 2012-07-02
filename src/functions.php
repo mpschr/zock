@@ -1535,7 +1535,45 @@ if ($rows == 0) {
 			break;
 	}
 
-	//gather info for check if multiple users on the same rank
+
+    global $events_test;
+    if ($until==""||$until="none") {
+        $event = $events_test->getEventById($ev);
+        $bets = $event->getBetsContainer()->getBets();
+        $userscl = new UserCollection();
+        $usersar = $userscl->getEventUsers($event);
+        foreach ($bets as $bet) {
+            if ($bet instanceof Question) {
+                /* @var $bet Question  */
+
+                if ($bet->getAnswer() == '')
+                    continue;
+
+                foreach ($usersar as $u) {
+                    /* @var $u User */
+                    $p = $bet->getUserPoints($u->getId());
+                    $points[$u->getId()] += $p;
+                }
+            }
+        }
+    }
+
+    arsort($points);
+    $counter = 1;
+    $ranker = 1;
+    $rank = array();
+    foreach ($points as $id => $pt){
+        $points_p[] = $pt;
+        $points_u[] = $id;
+    }
+    foreach ($points_p as $index => $pt){
+        $rank[$points_u[$index]] = $ranker;
+        $counter++;
+        if ($points_p[$counter-1] != $points_p[$counter-2])
+            $ranker = $counter;
+    }
+
+    //gather info for check if multiple users on the same rank
 	//and divde their jackpots equally plus forward the undividable part;
 	foreach($rank as $r) $rank_quantity[$r]++;
 	for($p=1; $p<=$jackpotters; $p++){
@@ -1558,6 +1596,7 @@ if ($rows == 0) {
 			}
 		}
 	}
+
 	$info = Array();
 	$info['money'] = $money;
 	$info['jackpots'] = $jackpots;
