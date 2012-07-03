@@ -62,7 +62,6 @@ else if ($thisuser->getAccountDetails() == "") {
 }
 
 
-
 if($nb > 0){
 
 	//singular or plural?
@@ -71,6 +70,8 @@ if($nb > 0){
 
 	$mysettings = loadSettings($_SESSION['userid']);
 
+    if (!(isset($_REQUEST['ev']))) 
+        $_REQUEST['ev'] = $userevents[0]->getId();
 
 	//display some information and links for this events
 	$body .= '<ul>';

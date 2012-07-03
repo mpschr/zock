@@ -1536,8 +1536,8 @@ if ($rows == 0) {
 	}
 
 
-    global $events_test;
-    if ($until==""||$until="none") {
+    if ($until=="" || $until == "none") {
+        global $events_test;
         $event = $events_test->getEventById($ev);
         $bets = $event->getBetsContainer()->getBets();
         $userscl = new UserCollection();
