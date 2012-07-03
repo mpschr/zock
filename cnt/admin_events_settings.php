@@ -111,9 +111,20 @@ $body .=  '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')
             $u['a'] .= '<td><a href="javascript: userPaid(\''.$cont->get('admin_settings_paid').'\', \''.$cont->get('admin_settings_notpaid').'\', \''.$id.'\')">
                             <p class="'.$paidclass.'" id="'.$id.'_paid">'.$paidstring.'</p>
                         </a></td>';
-            if ($selectedEvent->getFinished()==1)
-                $u['a'] .= "<td>gwinn übercho</td>";
-            $u['a'] .= "</tr>";
+
+            if ($selectedEvent->getFinished()==true) {
+                $u['a'] .= '<input type="hidden" name="'.$id.'_reimbursedhf" id="'.$id.'_reimbursedhf" value="">';
+                $reimbursedstring = ($selectedEvent->userHasBeenReimbursed($id)) ?
+                    'zrüggzaut' :
+                   'nid zrüggzaut';
+
+                $reimbursedclass = ($selectedEvent->userHasBeenReimbursed($id)) ?
+                    'positive' : 'negative';
+                $u['a'] .= '<td><a href="javascript: userReimbursed(\'zrüggzaut\', \'nid zrüggzaut\', \''.$id.'\')">
+                            <p class="'.$reimbursedclass.'" id="'.$id.'_reimbursed">'.$reimbursedstring.'</p>
+                        </a></td>';
+            }
+                $u['a'] .= "</tr>";
 		}
         $u['a'] .= "</table>";
 		$users['waiting'] = explode(':', $selectedEvent->getUsersWaiting());

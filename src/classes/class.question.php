@@ -220,6 +220,9 @@ class Question implements Bet{
      */
     public function getResult()
     {
+        if ($this->answer == null || $this->answer == "" )
+            return "";
+
         return preg_split('/:/',$this->answer);
     }
 

@@ -435,7 +435,7 @@ if($_REQUEST['evac'] == 'save'){
 			$db->query($query_new);
 		}
 		
-	$body .= ['general_redirect'];
+	$body .= $lang['general_redirect'];
 	redirect($_SERVER["HTTP_REFERER"], 0, 1);
 }
 

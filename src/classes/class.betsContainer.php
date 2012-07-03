@@ -139,7 +139,7 @@ class BetsContainer {
         $orderplus = "";
         $matches = null;
         $query = "SELECT *
-				FROM ".PFIX."_event_".$_REQUEST['ev']
+				FROM ".PFIX."_event_". $this->event->getId()
             .$filterQuery;
 
         $db = new bDb();
@@ -175,7 +175,7 @@ class BetsContainer {
         $db = new bDb();
         $query = " SELECT *
             FROM ".PFIX."_qa_questions
-            WHERE `event_id`  = ".$_REQUEST['ev'] . $filterQuery;
+            WHERE `event_id`  = ". $this->event->getId() . $filterQuery;
         $output = $db->query($query);
         $questions = null;
 
@@ -203,6 +203,12 @@ class BetsContainer {
      */
     public function getBets($filter='',$orderby='dueDate:SORT_ASC') {
         $this->bets = array();
+
+        $active = (int) $this->event->getActive();
+        if ($active<1) {
+            return $this->bets;
+        }
+
         $this->bets = array_merge($this->bets, $this->getMatches($filter));
         $questions = $this->getQuestions();
         if (sizeof($questions) > 0)

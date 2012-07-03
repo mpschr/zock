@@ -231,6 +231,11 @@ class Event {
         foreach ($eventDetails as $key => $value) {
             $this->$key = $value;
         }
+
+         $bets = $this->betsContainer->getBets();
+         $lastbet = array_pop($bets);
+         if ($lastbet != null && $lastbet->getResult() != "")
+             $this->setFinished(true);
     }
 
     /**

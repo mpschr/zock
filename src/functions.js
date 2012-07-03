@@ -87,6 +87,24 @@ function manageUser(what, id){
 	document.getElementById(hiddenfield).value = hfvalue
 }
 
+function userReimbursed(pos,neg,id) {
+    var hiddenfield = document.getElementById(id + "_reimbursedhf");
+    var elementToSwap = document.getElementById(id+"_reimbursed");
+    var toClass = '';
+    var toString = '';
+
+    if (elementToSwap.innerHTML==pos) {
+        elementToSwap.innerHTML = neg;
+        elementToSwap.className = 'negative';
+        hiddenfield.value = "notreimbursed";
+    } else {
+        elementToSwap.innerHTML = pos;
+        elementToSwap.className = 'positive';
+        hiddenfield.value = "reimbursed";
+    }
+
+}
+
 
 function userPaid(pos,neg,id) {
     var hiddenfield = document.getElementById(id + "_paidhf");

@@ -317,37 +317,66 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                     if (!isset($_REQUEST['col']) || isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
                         //if the time of the game has come, then show the tips
 
-                        $userbet = $bet->getBet($uid);
-                        if (!is_array($userbet))  $userbet = array($userbet);
-
-
                         if ($showbets) {
-                            //the user tip can have different formats
-                            if ($bet->isCorrectBet($uid))
-                                $rclass = 'ow_correct';
-                            elseif ($betonresults && $ismatch && $bet->isCorrectBet($uid))
-                                $rclass = 'ow_diff';
-                            elseif ($betonresults && $ismatch && $bet->isCorrectWinner($uid))
-                                $rclass = 'ow_almost';
-                            else $rclass = 'ow_wrong';
 
-                            $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .'"
-                                data-content="'
-                                . '<img  src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
-                                . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/>"
-
-                                   class="' . $rclass . '">';
+                            $userbet = $bet->getBet($uid);
+                            if (!is_array($userbet))  $userbet = array($userbet);
 
                             $userbetString = '';
-                            if (sizeof($userbet)>0) {
-                                $userbetString = $userbet[0];
-                                unset($userbet[0]);
-                                foreach ($userbet as $ub)  $userbetString .= '<br/>'.$ub;
+                            if ($bet instanceof Match) {
+
+                                //the user tip can have different formats
+                                if ($bet->isCorrectBet($uid))
+                                    $rclass = 'ow_correct';
+                                elseif ($betonresults && $ismatch && $bet->isCorrectBet($uid))
+                                    $rclass = 'ow_diff';
+                                elseif ($betonresults && $ismatch && $bet->isCorrectWinner($uid))
+                                    $rclass = 'ow_almost';
+                                else $rclass = 'ow_wrong';
+
+
+                                $userbetString = '';
+                                if (sizeof($userbet)>0) {
+                                    $userbetString = $userbet[0];
+                                    unset($userbet[0]);
+                                    foreach ($userbet as $ub)  $userbetString .= '<br/>'.$ub;
+                                }
+
+                                $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .'"
+                                    data-content="'
+                                    . '<img  src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
+                                    . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/>"
+
+                                       class="' . $rclass . '">'.$userbetString;
+
+                            } else if ($bet instanceof Question) {
+
+                                $correct = $bet->isCorrectBet($uid);
+                                $pointing = preg_split('/:/',$bet->getPoints());
+
+                                for ($i = 0; $i < sizeof($correct); $i++) {
+                                    if ($pointing[$i] == '')
+                                        continue;
+
+                                    if ($userbetString != '')
+                                        $userbetString .= '<br/>';
+
+                                    if($correct[$i]) {
+                                        $userbetString .= '<span class="ow_correct">'.$userbet[$i].' ('.$pointing[$i].'p)</span>';
+                                    } else {
+                                        $userbetString .=  '<span class="ow_wrong">'.$userbet[$i].'</span>';
+                                    }
+
+                                }
+                                $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .' "
+                                            data-content="<img  src=\'./data/user_img/' . $user->getPicture() . ' \' '
+                                            .'/>">'
+                                    .$userbetString;
                             }
-                            $body .= $userbetString;
                         } else {
                             $body .= '<td class=ow>x';
                         }
+
                     }
                    // if (!isset($_REQUEST['col']) || isset($_REQUEST['col']) && $player_column == $_REQUEST['col']) {
                         //if ($betonresults) $body .=  ($showbets) ? $bet->getBet($uid) : 'x' ;
