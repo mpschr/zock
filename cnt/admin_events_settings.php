@@ -156,6 +156,8 @@ $body .=  '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')
 			$afterdeadline .= ' <a href="javascript: showFloatingLayer(\'1\')">+</a>';
 		}
 		
+		$xajax -> register(XAJAX_FUNCTION, 'manageuser');
+		
 		//prepare a Floating layer:	
 		$flcnt = '<form name="adduser" action="?menu=admin&submenu=events&evac=saveactive" method="POST">';
 			//=> the values in the hidden fields don't change, but the info is needed by the update-procedure following this form
@@ -932,5 +934,70 @@ $body .=  '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')
 //========== activate an event
 //	=> in admin_events_actions.php
 }
-?>
+
+
+$xajax->processRequest();
+$xajax->printJavascript();
+
+function manageuser($users,$what) {
+	global $events_test;
+	$e = $events_test->getEventById($_REQUEST['ev']);
+	$bool = ($e->manageUsers($user,$what));
+	
+	$response = new xajaxResponse();
+
+	
+    if ($bool) {
+        $src = 'src/style_'.$settings['style'].'/img/icon_ok.png';
+    } else {
+        $src = 'src/style_'.$settings['style'].'/img/icon_not_ok.png';
+    }
+
+    $image = " <img src=".$src." width = '20px' height= '20px' />";
+    $response->assign('savestatus_'.$id,'innerHTML', $image);
+    return $response;
+}
+
+$body .= '<script type="text/javascript" charset="UTF-8">
+            /* <![CDATA[ */
+            
+				function userReimbursed(pos,neg,id) {
+					var hiddenfield = document.getElementById(id + "_reimbursedhf");
+					var elementToSwap = document.getElementById(id+"_reimbursed");
+					var toClass = '';
+					var toString = '';
+
+					if (elementToSwap.innerHTML==pos) {
+						elementToSwap.innerHTML = neg;
+						elementToSwap.className = 'negative';
+						hiddenfield.value = "notreimbursed";
+					} else {
+						elementToSwap.innerHTML = pos;
+						elementToSwap.className = 'positive';
+						hiddenfield.value = "reimbursed";
+					}
+
+				}
+
+
+				function userPaid(pos,neg,id) {
+					var hiddenfield = document.getElementById(id + "_paidhf");
+					var elementToSwap = document.getElementById(id+"_paid");
+					var toClass = '';
+					var toString = '';
+
+					if (elementToSwap.innerHTML==pos) {
+						elementToSwap.innerHTML = neg;
+						elementToSwap.className = 'negative';
+						hiddenfield.value = "notpaid";
+					} else {
+						elementToSwap.innerHTML = pos;
+						elementToSwap.className = 'positive';
+						hiddenfield.value = "paid";
+					}
+				}
+
+           /* ]]> */
+           </script>';
+
 

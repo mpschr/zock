@@ -87,43 +87,6 @@ function manageUser(what, id){
 	document.getElementById(hiddenfield).value = hfvalue
 }
 
-function userReimbursed(pos,neg,id) {
-    var hiddenfield = document.getElementById(id + "_reimbursedhf");
-    var elementToSwap = document.getElementById(id+"_reimbursed");
-    var toClass = '';
-    var toString = '';
-
-    if (elementToSwap.innerHTML==pos) {
-        elementToSwap.innerHTML = neg;
-        elementToSwap.className = 'negative';
-        hiddenfield.value = "notreimbursed";
-    } else {
-        elementToSwap.innerHTML = pos;
-        elementToSwap.className = 'positive';
-        hiddenfield.value = "reimbursed";
-    }
-
-}
-
-
-function userPaid(pos,neg,id) {
-    var hiddenfield = document.getElementById(id + "_paidhf");
-    var elementToSwap = document.getElementById(id+"_paid");
-    var toClass = '';
-    var toString = '';
-
-    if (elementToSwap.innerHTML==pos) {
-        elementToSwap.innerHTML = neg;
-        elementToSwap.className = 'negative';
-        hiddenfield.value = "notpaid";
-    } else {
-        elementToSwap.innerHTML = pos;
-        elementToSwap.className = 'positive';
-        hiddenfield.value = "paid";
-    }
-
-}
-
 function manageEvent(what, id, text){
 //sets the hiddenfield of the event to wathever value it should be changed to
 	//=> called in myprofile_settings
