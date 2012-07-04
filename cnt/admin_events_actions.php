@@ -308,6 +308,10 @@ if($_REQUEST['evac'] == 'save'){
             $users[] = $x;
             $whats[] = $data[$x.'_paidhf'];
         }
+        if ($data[$x.'_reimbursedhf']!="") {
+            $users[] = $x;
+            $whats[] = $data[$x.'_reimbursedhf'];
+        }
 	}
 
     if (!($e->manageUsers($users,$whats))) {

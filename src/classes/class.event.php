@@ -249,6 +249,11 @@ class Event {
         //=> a string is of the form 1:2:3: (for user 1, 2 & 3)
         $event = $this->id;
 
+        if (!(is_array($users)))
+            $users = array($users);
+        if (!(is_array($whats)))
+            $whats = array($whats);
+
         for ($i=0; $i<sizeof($users); $i++) {
             $what = $whats[$i];
             $user = $users[$i];

@@ -939,8 +939,8 @@ $body .=  '<a href="javascript: showFloatingLayer(\''.$_REQUEST['ev'].'_stake\')
 $xajax->processRequest();
 $xajax->printJavascript();
 
-function manageuser($users,$what) {
-	global $events_test;
+function manageuser($user,$what) {
+	global $events_test,$settings;
 	$e = $events_test->getEventById($_REQUEST['ev']);
 	$bool = ($e->manageUsers($user,$what));
 	
@@ -958,46 +958,42 @@ function manageuser($users,$what) {
     return $response;
 }
 
-$body .= '<script type="text/javascript" charset="UTF-8">
+$body .= "<script type='text/javascript' charset='UTF-8'>
             /* <![CDATA[ */
             
 				function userReimbursed(pos,neg,id) {
-					var hiddenfield = document.getElementById(id + "_reimbursedhf");
-					var elementToSwap = document.getElementById(id+"_reimbursed");
+					var elementToSwap = document.getElementById(id+'_reimbursed');
 					var toClass = '';
 					var toString = '';
 
 					if (elementToSwap.innerHTML==pos) {
 						elementToSwap.innerHTML = neg;
 						elementToSwap.className = 'negative';
-						hiddenfield.value = "notreimbursed";
+						xajax_manageuser(id,'notreimbursed');
 					} else {
 						elementToSwap.innerHTML = pos;
 						elementToSwap.className = 'positive';
-						hiddenfield.value = "reimbursed";
+						xajax_manageuser(id,'reimbursed');
 					}
-
 				}
 
 
 				function userPaid(pos,neg,id) {
-					var hiddenfield = document.getElementById(id + "_paidhf");
-					var elementToSwap = document.getElementById(id+"_paid");
+					var elementToSwap = document.getElementById(id+'_paid');
 					var toClass = '';
 					var toString = '';
 
 					if (elementToSwap.innerHTML==pos) {
 						elementToSwap.innerHTML = neg;
-						elementToSwap.className = 'negative';
-						hiddenfield.value = "notpaid";
+						xajax_manageuser(id,'notpaid');
 					} else {
 						elementToSwap.innerHTML = pos;
 						elementToSwap.className = 'positive';
-						hiddenfield.value = "paid";
+						xajax_manageuser(id,'paid');
 					}
 				}
 
            /* ]]> */
-           </script>';
+           </script>";
 
 
