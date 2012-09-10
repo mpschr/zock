@@ -496,11 +496,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>La vetmono por ĉiu matĉo (ĉiu veto) estas $1</cnt>
+        <cnt>La vetmono por ĉiu matĉo (ĉiu veto) estas $1. Entute, $2 partioj tuj estos luditaj - tiel, la palison por ĉiuj partioj estas $3. </cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>Add to this $1.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt>This part does directly go into the jackpot</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt>This part of the stake is directly destined to the winner.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>Okazos $1 matĉojn. Tiu postulas ke la totala sumo estas $2! Tiu ĉi sumo estas trankontigenda antaŭ la unua veto fareblas.</cnt>
+        <cnt>La totala sumo estas $1! Tiu ĉi sumo estas trankontigenda antaŭ la unua veto fareblas.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

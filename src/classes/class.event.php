@@ -333,8 +333,9 @@ class Event {
 
 
         //STAKE
-        $to_sub1 = array($this->stake.' '.$this->currency);
-        $to_sub2 = array($matchnb, $this->stake*$matchnb.' '.$this->currency);
+        $to_sub1 = array($this->stake.' '.$this->currency,$matchnb, $this->stake*$matchnb.' '.$this->currency);
+	$to_sub2 = array($this->extra_stake.' '.$this->currency);
+        $to_sub3 = array( $this->stake*$matchnb+$this->extra_stake.' '.$this->currency);
 
         $layers['stake'] = $header.'<table class="eventinfo"><tr>
 			<td class="topalign"><b>'.$point++.'.</b></td>';
@@ -348,9 +349,16 @@ class Event {
                 break;
             case 'permatch':
                 $layers['stake'] .= '<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_stakepermatch'), $to_sub1).'</td>
-				</tr><tr>
+                                    </tr>';
+                if ($this->extra_stake > 0) {
+                    $layers['stake'] .= '<td/><td><b>'.$alphabet[$subpoint++].')</b> '. substitute($cont->get('eventinfo_extrastake'),$to_sub2);
+                    $layers['stake'] .= $this->extra_stake_purpose == 'jackpot' ? $cont->get('eventinfo_extrastake_jackpot') : $cont->get('eventinfo_extrastake_winner');
+		    $layers['stake'] .= '</td>';
+                }
+                $layers['stake'] .= '<tr>
 					<td/>
-					<td><b>'.$alphabet[$subpoint++].')</b> '.substitute($cont->get('eventinfo_staketotal'), $to_sub2).'</td>';
+					<td><b>'.$alphabet[$subpoint++].')</b> <i>'.substitute($cont->get('eventinfo_staketotal'), $to_sub3).'</i></td>';
+                break;
         }
         $layers['stake'] .= '</tr></table>';
 

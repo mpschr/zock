@@ -497,11 +497,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>El importe de la apuesta para cada partido (para cada apuesta) es $1.</cnt>
+        <cnt>El importe de la apuesta para cada partido (para cada apuesta) es $1. En total hay $2 partidos - por lo tanto la apuesta suma $3 para los partidos</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>Se realizarán $1 partidos. Es decir el importe total de los apuestas es $2. Tienes que transferir el dinero antes de apostar la primera apuesta.</cnt>
+        <cnt>El importe total de los apuestas es $1 Tienes que transferir el dinero antes de apostar la primera apuesta.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>A esto se añaden $1.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt>Esta parte de la apuesta está destinada para el bote directamente.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt>Esta parte de la apuesta está destinada para el ganador.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

@@ -496,11 +496,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>Les enjeux pour chaque match (chaque pronostic) est $1.</cnt>
+        <cnt>Les enjeux pour chaque match (chaque pronostic) est $1. $2 de jeux ont lieu lors de cet évènement. Donc, l'enjeu pour les jeux es de $3</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>A ça, $1 est ajouté à l'enjeu.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt>Cette parte est destinée au jackpot.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt>Cette parte est destinée au gagnant.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>$1 de jeux ont lieu lors de cet évènement. Donc, l'enjeu total est de $2! Cet argent est à verser avant qu'on puisse commencer à pronostiquer.</cnt>
+        <cnt>L'enjeu total est de $1! Cet argent est à verser avant qu'on puisse commencer à pronostiquer.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

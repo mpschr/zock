@@ -497,11 +497,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>Der Einsatz für jedes Spiel (jede einzelne Wette) beträgt $1.</cnt>
+        <cnt>Der Einsatz für jedes Spiel (jede einzelne Wette) beträgt $1. Es finden $2 Spiele statt - das heisst, der Wettbetrag für alle Spiele ist $3</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>Zu dem werden $1 hinzugerechnet</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt> - dieser Teil des Wettbetrages geht direkt in den Jackpot.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt> - dieser Teil des Wettbetrages gehört direkt dem zukünfigen Gewinner.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>Es finden $1 Spiele statt. Das heisst, dass der gesamte Wettbetrag beträgt $2! Dieses Geld ist zu überweisen bevor der erste Tipp abgegeben werden kann.</cnt>
+        <cnt>Dies ergibt, dass der gesamte Wettbetrag $1 ist. Dieses Geld ist zu überweisen bevor der erste Tipp abgegeben werden kann.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

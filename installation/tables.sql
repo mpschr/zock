@@ -39,6 +39,8 @@ CREATE TABLE `#PFIX#_events` (
   `jp_distr_algorithm` enum('lin','exp','fix') collate utf8_unicode_ci NOT NULL default 'lin',
   `jp_distr_exp_value` varchar(11) collate utf8_unicode_ci default '0',
   `jp_distr_fix_shares` varchar(11) collate utf8_unicode_ci default '0',
+  `extra_stake` float default NULL,
+  `extra_stake_purpose` enum('jackpot', 'winner') collate utf8_unicode_ci NOT NULL default 'jackpot',
   `users_approved` text collate utf8_unicode_ci,
   `users_waiting` text collate utf8_unicode_ci,
   `users_denied` text collate utf8_unicode_ci,

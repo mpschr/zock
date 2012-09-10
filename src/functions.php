@@ -1681,28 +1681,30 @@ function infoBarEventCreation($p,$s=0){
 
 	$phase[$p]= 'class="actualphase"';
 
-	echo '<div class="infoBar">';
-	echo '<b>'.$lang['admin_events_createevent'].':</b><br/>';
-	echo '<font '.$phase['1'].'>1. '.$lang['admin_events_createtemplate'].'</font> / 
+	$infoBarString = '';
+	$infoBarString .=  '<div class="infoBar">';
+	$infoBarString .=  '<b>'.$lang['admin_events_createevent'].':</b><br/>';
+	$infoBarString .=  '<font '.$phase['1'].'>1. '.$lang['admin_events_createtemplate'].'</font> / 
 		<font '.$phase['2'].'>2. '.$lang['admin_events_modeselection'].'</font> / 
 		<font '.$phase['3'].'>3. '.$lang['admin_events_scheduleactivation'].'</font>';
 
 	if ($s==2){
-		echo '<br/>'.$lang['admin_events_nextstepdialog'];
-		echo ' <a href="javascript: verify(\'1\')">'
+		$infoBarString .=  '<br/>'.$lang['admin_events_nextstepdialog'];
+		$infoBarString .=  ' <a href="javascript: verify(\'1\')">'
 		.$lang['admin_events_nextstep'].'</a>';
 	}
 	if ($s==3){
 /*confirm activation because it's an important irreversible step
 		and prevent any apostrophs in the dialog which would turn down the javascript function*/
 		$dialog = preg_replace('/\'/', '\\\'', $lang['admin_events_activatedialog']);
-		echo '<br/><a href="javascript: activate(\''.$_REQUEST['ev'].'\', \''.$dialog.'\')">'
+		$infoBarString .=  '<br/><a href="javascript: activate(\''.$_REQUEST['ev'].'\', \''.$dialog.'\')">'
 			.$lang['admin_events_activate'].'</a>';
 
 		/*confirm activation because it's an important irreversible step
 			and prevent any apostrophs in the dialog which would turn down the javascript function*/
 	}
-	echo '</div>';
+	$infoBarString .=  '</div>';
+	return $infoBarString;
 }
 
 function getStyleInfo($name){

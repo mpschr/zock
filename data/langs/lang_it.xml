@@ -496,11 +496,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>La puntata per ogni partita è di $1</cnt>
+        <cnt>La puntata per ogni partita è di $1. Si giocano $2 partite. Dunque la puntata di giochi è di $3!</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>Si giocano $1 partite. Dunque la puntata totale è di $2! Questa somma è da versare sul conto finché si puo fare qualsiasi pronostici.</cnt>
+        <cnt>La somma total è $1. Questa somma è da versare sul conto finché si puo fare qualsiasi pronostici.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>A questo aggiunge $1.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt>Questa parte della scommessa è destinata per il jackpot direttamente.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt>Questa parte della scommessa è destinata per il vincitore direttamente.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

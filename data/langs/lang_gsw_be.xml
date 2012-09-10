@@ -496,11 +496,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>Dr Isatz für jedes Spiu (jedi einzelni Wett) betreit $1.</cnt>
+        <cnt>Dr Isatz für jedes Spiu (jedi einzelni Wett) betreit $1. Es finde $2 Spiu statt - das heisst, dr Wettbetrag für aui Spiu isch $3</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>Zudäm wärde $1 derzuegrächnet</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt> - dä Teil vom Wettbetrag wird diräkt zum Jackpot derzuezeut.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt> - dä Teil vom Wettbetrag wird diräkt am Gwinner i Ussicht gsteut.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>Es finde $1 Spiu statt. Das heisst, dass dr gsamt Wettbetrag $2 betreit! Das Gäud isch z überwiise bevor der erscht Tipp cha abgä wärde.</cnt>
+        <cnt>Ds ergit, dass gsamt Wettbetrag betreit $1! Das Gäud isch z überwiise bevor der erscht Tipp cha abgä wärde.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>

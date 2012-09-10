@@ -830,30 +830,19 @@ if ($query1 || $query2){
 	$rawdata = $db->query("SELECT id FROM ".PFIX."_event_".$data['eve'].";");
 	$matches = sizeof($rawdata);
 
-	if ($events['i']['e'.$data['eve']]['stake_mode']=='permatch' &&
-		$events['i']['e'.$data['eve']]['match_nb'] == sizeof($events) ||
-		$events['i']['e'.$data['eve']]['stake_mode']!='permatch')
-	{
-		#if ($matches>0){
-		#	//delete all entries
-		#	$db->query("DELETE FROM ".PFIX."_event_".$data['eve']." WHERE id>0 ;");
-		#	$db->query(" ALTER TABLE ".PFIX."_event_".$data['eve']." AUTO_INCREMENT =1;");
-		#}
-
-	}else{
-		$err[1] = 'incorrectmatchnb';
-	}
 	if(!isset($err)){
         $matchid=1;
         date_default_timezone_set('UTC');        
         foreach ($ical->events() as $event) {
             $time = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
-            $matchday = 'NULL';
-            $competitors = preg_split('/'.$delimiter.'/',$event['SUMMARY']);
-            $home=trim($competitors[0]);
-            $visitor=trim($competitors[1]);
+            preg_match("/\((.*)\)/",$event['SUMMARY'], $matchday_match);
+            $matchday = sizeof($matchday_match) > 0 ? $matchday_match[1] : '--';
+            preg_match("/^[^(]+/",$event['SUMMARY'], $competitors_string );
+            $competitors = preg_split('/ ?'.$delimiter.' ?/',$competitors_string[0]);
+            $home =trim($competitors[0]);
+            $visitor = sizeof($competitors) > 0 ? trim($competitors[1]) : '¿?' ;
             $sql = "UPDATE ".PFIX."_event_".$data['eve']." 
-                    SET `time`=$time, `home`='$home', `visitor`='$visitor' 
+                    SET `time`=$time, `home`='$home', `visitor`='$visitor', `matchday`='$matchday' 
                     WHERE `id`=$matchid;";
 
             if (!$db->query($sql)) {
@@ -868,13 +857,13 @@ if ($query1 || $query2){
 		if(!isset($err)){
 			$body .=  $lang['general_savedok'].'<br>';
 			$body .=  $lang['general_redirect'];
-		    redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
+		    #redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 2);
 		}else{
             $body .=  $lang[$err[1]];
 		}
 	}else{
 		$_SESSION['err'] = $err;
-		redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 0);
+		#redirect($rlink.'ssubmenu=matches&ev='.$data['eve'], 3);
 	}
 //========== addemptymatches 
 }elseif($_REQUEST['evac'] == 'addemptymatches'){

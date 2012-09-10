@@ -78,7 +78,7 @@ if ($_REQUEST['evac'] == 'addnew'){
 	}	
 
 
-	infoBarEventCreation(1);
+	$body .= infoBarEventCreation(1);
 	// the form for the creation of a new event
 	$body .=  '<form name="addnew" action="'.$link.'evac=save" method="POST">'
 		.'<input type="hidden" name="form" value="ssubmenu=settings&ev=">'

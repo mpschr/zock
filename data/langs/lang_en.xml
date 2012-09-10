@@ -501,11 +501,23 @@ zock! is a free software licensed under GPL (General public license) v3
     </zock_lang>
     <zock_lang>
         <label>eventinfo_stakepermatch</label>
-        <cnt>The stake for every match (every single bet) is $1.</cnt>
+        <cnt>The stake for every match (every single bet) is $1. In total, $2 matches are going to be played - thus, the stake for all the matches is $3.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake</label>
+        <cnt>To this, $1 is added to the stake.</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_jackpot</label>
+        <cnt>This part does directly go into the jackpot</cnt>
+    </zock_lang>
+    <zock_lang>
+        <label>eventinfo_extrastake_winner</label>
+        <cnt>This part of the stake is directly destined to the winner.</cnt>
     </zock_lang>
     <zock_lang>
         <label>eventinfo_staketotal</label>
-        <cnt>There are $1 matches taking place. This means that the whole bet sum is an amount of $2! This amount is to be wired before the first bet can be placed.</cnt>
+        <cnt>The whole bet sum is an amount of $1! This amount is to be wired before the first bet can be placed.</cnt>
     </zock_lang>
     <zock_lang>
         <label>footer_contact</label>
