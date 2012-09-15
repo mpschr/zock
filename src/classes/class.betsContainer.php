@@ -140,7 +140,7 @@ class BetsContainer {
         $matches = null;
         $query = "SELECT *
 				FROM ".PFIX."_event_". $this->event->getId()
-            .$filterQuery;
+            .$filterQuery. " ORDER BY `time`,`matchday_id`,`matchday` ASC;";
 
         $db = new bDb();
         $output = $db->query($query);

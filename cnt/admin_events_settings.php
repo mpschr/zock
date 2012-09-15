@@ -111,6 +111,7 @@ if($_REQUEST['ssubmenu'] == 'settings'){
             $u['a'] .= '<td><a href="javascript: userPaid(\''.$cont->get('admin_settings_paid').'\', \''.$cont->get('admin_settings_notpaid').'\', \''.$id.'\')">
                             <p class="'.$paidclass.'" id="'.$id.'_paid">'.$paidstring.'</p>
                         </a></td>';
+            $u['a'] .= '<td id="savestatus_'.$id.'"></td>';
 
             if ($selectedEvent->getFinished()==true) {
                 $u['a'] .= '<input type="hidden" name="'.$id.'_reimbursedhf" id="'.$id.'_reimbursedhf" value="">';
@@ -151,12 +152,12 @@ if($_REQUEST['ssubmenu'] == 'settings'){
             $u['d']	.= $users['all'][$id]['name'].'<br>';
 
         //=>If deadline's over, propose the addition of users, nevertheless...
-        if ($selectedEvent->getDeadline() < time()){
             $afterdeadline = '<br>'.$lang['admin_events_deadlineover'];
             $afterdeadline .= ' <a href="javascript: showFloatingLayer(\'1\')">+</a>';
-        }
 
         $xajax -> register(XAJAX_FUNCTION, 'manageuser');
+        #$xajax -> configure('debug',true);
+
 
         //prepare a Floating layer:
         $flcnt = '<form name="adduser" action="?menu=admin&submenu=events&evac=saveactive" method="POST">';
@@ -945,7 +946,7 @@ function manageuser($user,$what) {
 
     $response = new xajaxResponse();
 
-
+    $src = '';
     if ($bool) {
         $src = 'src/style_'.$settings['style'].'/img/icon_ok.png';
     } else {
@@ -953,7 +954,7 @@ function manageuser($user,$what) {
     }
 
     $image = " <img src=".$src." width = '20px' height= '20px' />";
-    $response->assign('savestatus_'.$id,'innerHTML', $image);
+    $response->assign('savestatus_'.$user,'innerHTML', $image);
     return $response;
 }
 

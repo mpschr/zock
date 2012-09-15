@@ -29,6 +29,8 @@ $userevents = $events_test->getUserEvents();
 $nb = sizeof($userevents);
 $eventid_array=array();
 $eventid_string="";
+$showEventsToRegister = false;
+$show_comments_later = false;
 
 $hasNotPaidEvent = false;
 $notGottenReimbursed = false;
@@ -63,18 +65,17 @@ else if ($thisuser->getAccountDetails() == "") {
 
 
 if($nb > 0){
-
-	//singular or plural?
-	$body .= ($nb > 1) ? $cont->get('loginhome_yourevents') : $cont->get('loginhome_yourevent');
-
-
 	$mysettings = loadSettings($_SESSION['userid']);
 
     if (!(isset($_REQUEST['ev']))) 
         $_REQUEST['ev'] = $userevents[0]->getId();
 
+
+    //singular or plural?
+    $event_summaries .= ($nb > 1) ? $cont->get('loginhome_yourevents') : $cont->get('loginhome_yourevent');
+
 	//display some information and links for this events
-	$body .= '<ul>';
+    $event_summaries .= '<ul>';
 	foreach ($userevents as $ev){
         /* @var $ev Event */
 
@@ -82,7 +83,12 @@ if($nb > 0){
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';
 
-        $body .= '<li class="evlist"><b>'.$ev->getName().': ';
+        if (!$notGottenReimbursed) {
+            $nb = $nb - 1;
+            continue;
+        }
+
+        $event_summaries .= '<li class="evlist"><b>'.$ev->getName().': ';
 		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
 		$rawdata = $db->query("SELECT ".$queryfield."
 					FROM ".PFIX."_event_".$eventid. "
@@ -97,25 +103,25 @@ if($nb > 0){
 				$over = true;
 				$gainlang = $cont->get('ranking_totalgain');
 			}
-			$body .= $cont->get('ranking_rank').': <b>'.$info['rank'][$_SESSION['userid']].'</b>, '
+			$event_summaries .= $cont->get('ranking_rank').': <b>'.$info['rank'][$_SESSION['userid']].'</b>, '
 				.$cont->get('ranking_points').': <b>'.$info['points'][$_SESSION['userid']].'</b>, '
 				.$gainlang.': <b>'.($info['money'][$_SESSION['userid']]+$info['jackpots'][$info['rank'][$_SESSION['userid']]]).' '.$ev->getCurrency().'</b>';
 		}
 		
-		$body .= '<br/>';
-			$body .= ' </b><a href="?menu=mytips&ev='.$eventid.'">'.$cont->get('mytips_title').'</a> ||';
-			$body .= ' <a href="?menu=overview&ev='.$eventid.'">'.$cont->get('overview_title').'</a>
+		$event_summaries .= '<br/>';
+			$event_summaries .= ' </b><a href="?menu=mytips&ev='.$eventid.'">'.$cont->get('mytips_title').'</a> ||';
+			$event_summaries .= ' <a href="?menu=overview&ev='.$eventid.'">'.$cont->get('overview_title').'</a>
 					(<a href="?menu=overview&ev='.$eventid.'&u='.$_SESSION['userid'].'">'.$cont->get('overview_onlyme').'</a>)  || ';
-			$body .= ' <a href="?menu=comments&ev='.$eventid.'">'.$cont->get('comments_title').'</a>';
-			if (isAdmin()) $body .= ' || <a href="?menu=admin&submenu=events&ssubmenu=settings&ev='.$eventid.'">'.$cont->get('admin_events_settings_title').'</a>';
-			if (isAdmin()) $body .= ' || <a href="?menu=admin&submenu=events&ssubmenu=results&ev='.$eventid.'#now">'.$cont->get('admin_events_results_title').'</a>';
+			$event_summaries .= ' <a href="?menu=comments&ev='.$eventid.'">'.$cont->get('comments_title').'</a>';
+			if (isAdmin()) $event_summaries .= ' || <a href="?menu=admin&submenu=events&ssubmenu=settings&ev='.$eventid.'">'.$cont->get('admin_events_settings_title').'</a>';
+			if (isAdmin()) $event_summaries .= ' || <a href="?menu=admin&submenu=events&ssubmenu=results&ev='.$eventid.'#now">'.$cont->get('admin_events_results_title').'</a>';
 
-		$body .= '</li>';
+		$event_summaries .= '</li>';
 	}
-	$body .= '</ul>';
+	$event_summaries .= '</ul>';
 
 	if ($mysettings['home_comments'] > 0){
-		$body .= $cont->get('loginhome_newcomments').'<p/>';
+		$latest_comments .= $cont->get('loginhome_newcomments').'<p/>';
 	
 		//get user names to display them
 		$users_raw = $db->query("SELECT id, login FROM ".PFIX."_users;");
@@ -128,24 +134,36 @@ if($nb > 0){
 		$querystring .= "ORDER BY time DESC LIMIT ".$mysettings['home_comments'].";";
 		$commentdata = $db->query($querystring);
 	
-		$body .= '<div class="comment">';
+		$latest_comments .= '<div class="comment">';
 		foreach ($commentdata as $cmt){
 		//tilteline
-		$body .= '<b>';
-		$body .= '<div class="cmttitler">'.$cont->get('general_by').' <a href="?menu=participants&showuser=' . $cmt['user'] . '">'.$user[$cmt['user']].'</a></div>';
-		$body .= '<div class="cmttitlel">'.$cmt['title'].'</div>';
-		$body .= '</b>';
+		$latest_comments .= '<b>';
+		$latest_comments .= '<div class="cmttitler">'.$cont->get('general_by').' <a href="?menu=participants&showuser=' . $cmt['user'] . '">'.$user[$cmt['user']].'</a></div>';
+		$latest_comments .= '<div class="cmttitlel">'.$cmt['title'].'</div>';
+		$latest_comments .= '</b>';
 		//comment	
-		$body .= '<div class="cmttext">'.substr($cmt['text'], 0, 50).'... '
+		$latest_comments .= '<div class="cmttext">'.substr($cmt['text'], 0, 50).'... '
 			.'<a href="?menu=comments&ev='.$cmt['event'].'#'.$cmt['id'].'">'.$cont->get('general_read').'</a></div>';
 		}
-		$body .= '</div>';
+		$latest_comments .= '</div>';
 	
-	}	
+	}
+
+    if ($nb > 0) {
+        $body .= $event_summaries.$latest_comments;
+    } else {
+        $show_comments_later = true;
+    }
+
 }else{
 
     $body .= $cont->get('loginhome_content').'<p />';
+}
 
+if ($nb == 0)
+    $showEventsToRegister = true;
+
+if ($showEventsToRegister) {
 
     //tell the user that he's not registered to any event
 	$body .= $cont->get('loginhome_noevent');
@@ -169,10 +187,12 @@ if($nb > 0){
             $body .= ' || <a href="?menu=overview&ev='.$evid.'">'.$cont->get('overview_title').'</a>';
             $body .= '</li>';
         }
-        $body .= '</ul>';
+        $body .= '</ul><br/>';
     }
 }
 
-
+if ($show_comments_later) {
+    $body .= $latest_comments;
+}
 
 ?>
