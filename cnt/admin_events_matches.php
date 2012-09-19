@@ -270,15 +270,15 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 				//the form
 				$body .=  '<tr>
 					<td class="input"> '.$id.'</td>
-					<td class="input"><input class="'.$ro2.' datepicker" 
-								name="time1_'.$m['id'].'" size="10" 
+					<td class="input"><input class=" '.$ro2.' inpupt-small datepicker "
+								name="time1_'.$m['id'].'"
 								value="'.$time1.'" '.$ro.'>
 						'.$lang['general_time_at'].'
-							<input class="'.$ro2.'" 
-								name="time2_'.$m['id'].'" size="4" 
+							<input class="'.$ro2.' inpupt-small"
+								name="time2_'.$m['id'].'"
 								value="'.$time2.'" '.$ro.'"></td>
-					<td class="input"><input class="'.$ro2.' automatchday" 
-						name="matchday_'.$m['id'].'" size="8"  
+					<td class="input"><input class="'.$ro2.' automatchday inpupt-small"
+						name="matchday_'.$m['id'].'"
 						value="'.$matchday.'" '.$ro.'"></td>
 					<td class="input"><input class="'.$ro2.' autoteam" 
 						name="home_'.$m['id'].'" size="15" 

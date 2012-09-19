@@ -131,7 +131,7 @@ if ($betNb == 0) {
     $dates = $db->query("SELECT DISTINCT FROM_UNIXTIME(time, '%d.%m.%Y') AS date,
 						FROM_UNIXTIME(time, '%Y%m%d') AS vdate  
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
-						WHERE " . $queryfield . " IS NOT NULL ORDER BY time ASC;");
+						WHERE " . $queryfield . " IS NOT NULL ORDER BY time,matchday_id,matchday ASC;");
     $counter = 0;
     foreach ($dates as $row) {
         $counter++;
@@ -156,7 +156,7 @@ if ($betNb == 0) {
     echo '<select id="matches" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matches\')">';
     $matches = $db->query("SELECT DISTINCT id
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
-						WHERE " . $queryfield . " IS NOT NULL ORDER BY time ASC;");
+						WHERE " . $queryfield . " IS NOT NULL ORDER BY time,matchday_id,matchday ASC;");
     echo '<option value="none"></option>';
     for ($i = 1; $i <= sizeof($matches); $i++) {
         if ($_REQUEST['showuntil'] == 'match:' . $i) {
@@ -192,14 +192,14 @@ if ($betNb == 0) {
 
     //get info for tooltips
     //recenttips
-    $query = "SELECT * FROM " . PFIX . "_event_" . $_REQUEST['ev'] . " WHERE " . $queryfield . " IS NOT NULL ORDER BY time ASC;";
+    $query = "SELECT * FROM " . PFIX . "_event_" . $_REQUEST['ev'] . " WHERE " . $queryfield . " IS NOT NULL ORDER BY time,matchday_id,matchday ASC;";
     $rawdata = $db->query($query);
     $showrecent = 5;
     while ($showrecent-- != 0) {
         $recenttips[] = array_pop($rawdata);
     }
     //nexttips
-    $query = "SELECT * FROM " . PFIX . "_event_" . $_REQUEST['ev'] . " WHERE " . $queryfield . " IS NULL ORDER BY time ASC;";
+    $query = "SELECT * FROM " . PFIX . "_event_" . $_REQUEST['ev'] . " WHERE " . $queryfield . " IS NULL ORDER BY time,matchday_id,matchday ASC;";
     $rawdata = $db->query($query);
     foreach ($rawdata as $row) {
         if (betUntil($row['time'], $_REQUEST['ev']) < time()) $nexttips[] = $row;

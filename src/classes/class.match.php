@@ -146,7 +146,7 @@ class Match implements Bet{
         /* @var $before unixtime */
 
         if($betuntilRaw[2]=='t'){
-            $data=$db->query("SELECT time FROM ".PFIX."_event_".$this->event->getId()." ORDER BY time ASC LIMIT 1;");
+            $data=$db->query("SELECT time FROM ".PFIX."_event_".$this->event->getId()." ORDER BY time,matchday_id,matchday ASC LIMIT 1;");
             $betuntil = $data[0]['time'];
         } else {
             $betuntil = $this->time;
