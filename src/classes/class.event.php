@@ -147,6 +147,16 @@ class Event {
     protected $jp_distr_fix_shares;
 
     /**
+     * @var float
+     */
+    protected $extra_stake;
+
+    /**
+     * @var string
+     */
+    protected $extra_stake_purpose;
+
+    /**
      * @var string
      */
     protected $users_approved;
@@ -1137,6 +1147,38 @@ class Event {
     public function getPDiff()
     {
         return $this->p_diff;
+    }
+
+    /**
+     * @param float $extra_stake
+     */
+    public function setExtraStake($extra_stake)
+    {
+        $this->extra_stake = $extra_stake;
+    }
+
+    /**
+     * @return float
+     */
+    public function getExtraStake()
+    {
+        return $this->extra_stake;
+    }
+
+    /**
+     * @param string $extra_stake_purpose
+     */
+    public function setExtraStakePurpose($extra_stake_purpose)
+    {
+        $this->extra_stake_purpose = $extra_stake_purpose;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExtraStakePurpose()
+    {
+        return $this->extra_stake_purpose;
     }
 
 }

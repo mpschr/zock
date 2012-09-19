@@ -421,8 +421,16 @@ if ($betNb == 0) {
     echo '<div class="row ow_summary">
 			<div class="span3">' . $lang['overview_summary'] . '</div>';
     if ($evinfo['stake_mode'] == 'permatch') {
+
+        $jackpotsum = array_sum($info['jackpots']);
+        if ($thisevent->getExtraStake()>0) {
+            $extrastake = $thisevent->getExtraStake()*sizeof($users->getEventUsers($thisevent));
+            $jackpotsum = $jackpotsum.' ('.($jackpotsum-$extrastake).' + '.$extrastake.')';
+        }
+
+
         echo '<div class="span1">' . array_sum($info['money']) . '</div>
-				<div class="span1">' . array_sum($info['jackpots']) . '</div>';
+				<div class="span1">' .$jackpotsum . '</div>';
     }
     echo '<div class="span1">' . (array_sum($info['money']) + array_sum($info['jackpots'])) . '</div>
 			<div class="span1">' . array_sum($info['correct']) . '</div>';

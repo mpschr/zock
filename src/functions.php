@@ -1443,6 +1443,7 @@ $pastmatches =  $db->query($query);
 if ($rows == 0) {
 	echo $lang['general_nomatches'];
 }else{*/
+    $jackpot = 0;
 	$evUsNb = eventUserNumber($ev);
 	foreach($pastmatches as $pm){
 			foreach($pm as $label => $info){
@@ -1476,6 +1477,13 @@ if ($rows == 0) {
 	// get further info for the event
 	$event_info = $db->query("SELECT * FROM ".PFIX."_events WHERE id='".$ev."'");
 	if($event_info[0]['stake_mode']=='fix') $jackpot = $evUsNb*$event_info[0]['stake'];
+
+    if($event_info[0]['extra_stake'] > 0){
+        if ($event_info[0]['extra_stake_purpose'] == 'jackpot') {
+            $jackpot += $event_info[0]['extra_stake']*$evUsNb;
+        }
+    }
+    //TODO: exra_stake to winner
 
 
 //*simulation*/ $event_info[0]['jp_fraction_or_fix'] = 'fix';
