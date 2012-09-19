@@ -763,7 +763,7 @@ class Match implements Bet{
 
         if($this->event->getScoreInputType()=='results'){
             $a= $this->getScoreH();
-            $b= $this->getscoreV();
+            $b= $this->getScoreV();
             $set = " SET score_h = '".$a."',
 						score_v = '".$b."',";
         }else{

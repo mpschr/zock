@@ -409,7 +409,7 @@ $body .= '<script type="text/javascript" charset="UTF-8">
                   document.getElementById("savestatus_"+id).innerHTML=img;
 
                   var bet = "";
-                  bet = home  + ":" + visitor;
+                  bet = home  + " : " + visitor;
 
                   xajax_saveresult(id,bet)
            }
