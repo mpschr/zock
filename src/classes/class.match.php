@@ -616,10 +616,13 @@ class Match implements Bet{
         if ($this->getScoreH() == "")
             return false;
 
-        if ($this->getScoreH()==$this->getScoreV() &&
-            $this->$h==$this->$v ||
-            $this->getScoreH() > $this->getScoreV() == $this->$h > $this->$v) {
-             return true;
+        if (( $this->getScoreH()==$this->getScoreV() &&
+                $this->$h==$this->$v)
+            || (($this->getScoreH() > $this->getScoreV()) && ($this->$h > $this->$v))
+            || (($this->getScoreH() < $this->getScoreV()) && ($this->$h < $this->$v))) {
+
+            return true;
+
         }else {
             return false;
 
@@ -702,7 +705,7 @@ class Match implements Bet{
             } else {
                 $nbWrong++;
                 $success[$p] = -1;
-                $points[$p] = $wrong;
+                $this->$userpoints = $wrong;
             }
         }
 
@@ -804,6 +807,7 @@ class Match implements Bet{
         $query_changes .= "WHERE id = '".$this->id."';";
 
         //finally update
+        //print_r($query_changes);
 
         $done = $db->query($query_changes);
         return $done;

@@ -296,7 +296,7 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 
     $xajax -> register(XAJAX_FUNCTION, 'saveresult');
 
-    //$xajax->configure('debug',true);
+    $xajax->configure('debug',true);
 
     $xajax->processRequest();
     $xajax->printJavascript();
