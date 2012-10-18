@@ -317,10 +317,8 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
                             <a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a>
                         </li>
                         ';
-            //$body .= '<a href="'.$link.$queryfilter.'mnb='.$gonb.'">'.$lang['general_goback'].'</a> | ';
         }
 
-        //$body .= '<li class="disabled"><a href="#pager">'.$lang['general_page'].'</a></li>';
         $y = 0;
         for($x=1 ; $x <= $bdp_rows; $x += $settings['formlines']){
             $y++;
