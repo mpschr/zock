@@ -86,9 +86,12 @@ if($nb > 0){
         $gottenReimbursed = $ev->userHasBeenReimbursed($_SESSION['userid']);
         if ($gottenReimbursed) {
             $nb = $nb - 1;
-            print_r("  this->".$notGottenReimbursed);
             continue;
         }
+
+        // first participating and active event:
+        if (!isset($_SESSION['currevent']))
+            $_SESSION['currevent'] = $ev->getId();
 
         $event_summaries .= '<li class="evlist"><b>'.$ev->getName().': ';
 		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';

@@ -328,7 +328,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                 //the user tip can have different formats
                                 if ($bet->isCorrectBet($uid))
                                     $rclass = 'ow_correct';
-                                elseif ($betonresults && $ismatch && $bet->isCorrectBet($uid))
+                                elseif ($betonresults && $ismatch && $bet->isCorrectDiff($uid))
                                     $rclass = 'ow_diff';
                                 elseif ($betonresults && $ismatch && $bet->isCorrectWinner($uid))
                                     $rclass = 'ow_almost';

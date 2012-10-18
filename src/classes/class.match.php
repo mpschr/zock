@@ -595,6 +595,10 @@ class Match implements Bet{
     {
         $h = $user.'_h';
         $v = $user.'_v';
+
+        if ($this->getScoreH() == "" || $this->$h == '' && $this->$v == '')
+            return false;
+
         if ($this->getScoreH() - $this->getScoreV() ==
             $this->$h - $this->$v) {
             return true;
@@ -613,16 +617,14 @@ class Match implements Bet{
         $h = $user.'_h';
         $v = $user.'_v';
 
-        if ($this->getScoreH() == "")
+        if ($this->getScoreH() == "" || $this->$h == '' && $this->$v == '')
             return false;
 
         if (( $this->getScoreH()==$this->getScoreV() &&
                 $this->$h==$this->$v)
             || (($this->getScoreH() > $this->getScoreV()) && ($this->$h > $this->$v))
             || (($this->getScoreH() < $this->getScoreV()) && ($this->$h < $this->$v))) {
-
             return true;
-
         }else {
             return false;
 
@@ -720,39 +722,36 @@ class Match implements Bet{
             //=>how much gets everybody and is going into the jackpot?
             $factor = (1/$this->event->getRound());
             $totalstake = $nb*$this->event->getStake();
-            $money = array();
+            $this->jackpot = $totalstake;
             if($nbCorrect>0){
                 $exact = floor(($factor*$totalstake)/$nbCorrect)/$factor;
-                $floored = $totalstake-($exact*$nbCorrect);
+                $this->jackpot = $totalstake -($exact*$nbCorrect);
                 foreach($evUsers as $p) {
                     $usermoney = $p.'_money';
-                    $this->$usermoney = ($success[$p] == 1) ? $exact : '0';
+                    $this->$usermoney = ($success[$p] == 1) ? $exact : 0;
                 }
             }elseif($this->event->getStakeBack()=='yes'){
                 foreach($evUsers as $p) {
                     $usermoney = $p.'_money';
-                    $this->$usermoney = ($success[$p] == 0) ? $this->event->getStake() : '0';
+                    $this->$usermoney = ($success[$p] == 0) ? $this->event->getStake() : 0;
+                    $this->jackpot -= $this->$usermoney;
                 }
             }else{
                 foreach($evUsers as $p) {
                     $usermoney = $p.'_money';
-                    $this->$usermoney = '0';
+                    $this->$usermoney = 0;
                 }
             }
-            $wonMoney = 0;
-            foreach($evUsers as $p) {
-                $usermoney = $p.'_money';
-                $wonMoney += $this->$usermoney;
-            }
-            $this->jackpot = $totalstake-array_sum($money);
+            // avoid stupid php bug:
+            if ($this->jackpot < $this->event->getRound())
+                $this->jackpot = 0;
         }else{
             foreach($evUsers as $p) {
                 $usermoney = $p.'_money';
-                $this->$usermoney = '0';
+                $this->$usermoney = 0;
             }
             $this->jackpot = 0;
         }
-
         return $this->saveUpdatedBet();
     }
 
