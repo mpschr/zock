@@ -83,8 +83,10 @@ if($nb > 0){
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';
 
-        if (!$notGottenReimbursed) {
+        $gottenReimbursed = $ev->userHasBeenReimbursed($_SESSION['userid']);
+        if ($gottenReimbursed) {
             $nb = $nb - 1;
+            print_r("  this->".$notGottenReimbursed);
             continue;
         }
 
