@@ -561,6 +561,11 @@ td.participantdetails{
 	height: 650px;
 }
 
+img.overview-user-img {
+   max-width: 150px;
+   max-height: 150px;
+}
+
 /*
 #overviewtitlerow {
 	overflow: auto;

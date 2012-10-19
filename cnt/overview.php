@@ -342,12 +342,12 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                     foreach ($userbet as $ub)  $userbetString .= '<br/>'.$ub;
                                 }
 
-                                $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .'"
-                                    data-content="'
-                                    . '<img  src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
-                                    . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/>"
-
-                                       class="' . $rclass . '">'.$userbetString;
+                                $popoverTags = 'rel="popover" data-original-title="'.$user->getLogin() .'" ';
+                                $body .=  '<td data-content="'
+                                    . '<img class=&quot;overview-user-img&quot; src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
+                                    . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/> <br/>'
+                                    . $user->getText().'"
+                                       class="' . $rclass . '" '.$popoverTags.'>'.$userbetString;
 
                             } else if ($bet instanceof Question) {
 
@@ -368,10 +368,12 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                     }
 
                                 }
-                                $body .=  '<td   rel="popover" data-orignal-title="'.$user->getLogin() .' "
-                                            data-content="<img  src=\'./data/user_img/' . $user->getPicture() . ' \' '
-                                            .'/>">'
-                                    .$userbetString;
+                                $popoverTags = 'rel="popover" data-original-title="'.$user->getLogin() .'" ';
+                                $body .=  '<td data-content="'
+                                    . '<img class=&quot;overview-user-img&quot; src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
+                                    . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/> <br/>'
+                                    . $user->getText().'"
+                                       class="' . $rclass . '" '.$popoverTags.'>'.$userbetString;
                             }
                         } else {
                             $body .= '<td class=ow>x';
