@@ -199,6 +199,22 @@ li.divider {
     display: none;
 }
 
+.datepicker {
+    width: 70px;
+}
+
+.time {
+    width: 70px;
+}
+
+.automatchday {
+    width: 70px;
+}
+
+.autoteam {
+    width: 100px;
+}
+
 /*
 .thumb-hover:hover .mask{
    -ms-filter: "progid: DXImageTransform.Microsoft.Alpha(Opacity=100)";

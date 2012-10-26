@@ -442,6 +442,29 @@ class Match implements Bet{
     }
 
     /**
+     * @return string
+     */
+    public function getInverseResult() {
+        $result = "";
+
+        if ($this->event->getBetOn()=="results") {
+            $home = 'score_h';
+            $visitor = 'score_v';
+
+            if ($this->$home == null)
+                return '';
+
+            $result .= $this->$visitor;
+            $result .= ' : ';
+            $result .= $this->$home;
+            return $result;
+        }
+        elseif ($this->event->getBetOn()=="toto") {
+            return $this->score;
+        }
+    }
+
+    /**
      * @param string $result
      * @param string $special
      * @return bool

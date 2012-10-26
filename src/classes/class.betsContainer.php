@@ -117,22 +117,28 @@ class BetsContainer {
         if ($filter!=''){
             $filterQuery = " WHERE ";
             $f = preg_split('/:/', $filter);
-            switch ($f[0]){
-                case 'withresult':
-                    $filterQuery .= "`score_h` NOT LIKE '' ;";
-                    break;
-                case 'team':
-                    $filterQuery .= "`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%'";
-                    break;
-                case 'home';
-                    $filterQuery .= "`home` LIKE '%".$f[1]."%'";
-                    break;
-                case 'visitor';
-                    $filterQuery .= "`visitor` LIKE '%".$f[1]."%'";
-                    break;
-                case 'matchday';
-                    $filterQuery .= "`matchday` LIKE '".$f[1]."'";
-                    break;
+            $index = 0;
+            while ($index < sizeof($f)) {
+                if ($index > 0)
+                    $filterQuery .= " AND ";
+                switch ($f[$index]){
+                    case 'withresult':
+                        $filterQuery .= "`score_h` IS NOT null ";
+                        break;
+                    case 'team':
+                        $filterQuery .= "(`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%')";
+                        break;
+                    case 'home';
+                        $filterQuery .= "`home` LIKE '%".$f[1]."%'";
+                        break;
+                    case 'visitor';
+                        $filterQuery .= "`visitor` LIKE '%".$f[1]."%'";
+                        break;
+                    case 'matchday';
+                        $filterQuery .= "`matchday` LIKE '".$f[1]."'";
+                        break;
+                }
+                $index += 2;
             }
         }
 
@@ -144,7 +150,9 @@ class BetsContainer {
 
         $db = new bDb();
         $output = $db->query($query);
-        //$matches = array();
+
+        //print_r($query);
+
         $counter = 0;
         foreach ($output as $match) {
             $m = new Match($match,$this->event);

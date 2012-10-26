@@ -116,6 +116,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
     $event = $events_test->getEventById($_REQUEST['ev']);
     $bdp_matches = $event->getBetsContainer()->getBets($_REQUEST['filter'],implode(':',$orderby));
+    $body .= ''
     $bdp_rows =  sizeof($bdp_matches);
 
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
@@ -313,6 +314,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 }
 
 
+
                 $userbet = $bet->getBet($_SESSION['userid']);
                 $dummy = preg_split('/ : /',$userbet);
                 $score_h = $dummy[0];
@@ -332,7 +334,37 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $home = $bet->getHome();
                 $visitor = $bet->getVisitor();
 
-				$time1 = date('d.m.Y', $matchtime);
+                $lastgamesH = $event->getBetsContainer()->getBets('team:'.$home.':withresult:','dueDate:SORT_DESC');
+                $lastgamesV = $event->getBetsContainer()->getBets('team:'.$visitor.':withresult:','dueDate:SORT_DESC');
+
+                $lastGamesHome = '';
+                foreach ($lastgamesH as $lastmatch) {
+                    if (!$lastmatch instanceof Match)
+                        continue;
+                    /* @var $lastmatch Match */
+                    $athome = $lastmatch->getHome() == $home;
+                    $lastGamesHome .= $athome ? $lastmatch->getResult() : $lastmatch->getInverseResult();
+                    $lastGamesHome .= ' vs ';
+                    $lastGamesHome .= $athome ? $lastmatch->getVisitor() : $lastmatch->getHome();
+                    $lastGamesHome .= ' @ '.$lastmatch->getMatchday();
+                    $lastGamesHome .= '<br/>';
+                }
+
+                $lastGamesVisitor = '';
+                foreach ($lastgamesV as $lastmatch) {
+                    if (!$lastmatch instanceof Match)
+                        continue;
+                    /* @var $lastmatch Match */
+                    $athome = $lastmatch->getHome() == $visitor;
+                    $lastGamesVisitor .= $athome ? $lastmatch->getResult() : $lastmatch->getInverseResult();
+                    $lastGamesVisitor .= ' vs ';
+                    $lastGamesVisitor .= $athome ? $lastmatch->getVisitor() : $lastmatch->getHome();
+                    $lastGamesVisitor .= ' @ '.$lastmatch->getMatchday().'';
+                    $lastGamesVisitor .= '<br/>';
+                }
+
+
+                $time1 = date('d.m.Y', $matchtime);
 				$time2 = date('H:i', $matchtime);
 				$result = $bet->getResult();
 
@@ -341,8 +373,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				    <td class="input" id="remains_'.$betid.'">'.$remainingTime.'</td>
 					<td class="input">'.weekday($matchtime,1).', '.$time1.' <br/>'.$lang['general_time_at'].' '.$time2.'</td>
 					<td class="input">'.$matchday.'</td>
-					<td class="input">'.$home.'</td>
-					<td class="input">'.$visitor.'</td>
+					<td class="input" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesHome.'">'.$home.'</td>
+					<td class="input" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesVisitor.'">'.$visitor.'</td>
 					<td class="input">'.$result.'</td>';
 
 					if($evdat['bet_on']=='results'){

@@ -169,8 +169,8 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 						if($mdrow<$number){
 							if($md[$mdrow]['matchday_id'] == '999999') $md[$mdrow]['matchday_id'] = '';
 							$body .=  '<td width="150px">';
-							$body .=  '<input size="2" name="md_'.($i+1).'" readonly class="readonly" value="'.$md[$mdrow]['matchday'].'"/>:';
-							$body .=  '  <input size="2" name="mdid_'.($i+1).'" value="'.$md[$mdrow]['matchday_id'].'" tabindex="'.($mdrow+1).'"/>';
+							$body .=  '<input width="70px" name="md_'.($i+1).'" readonly class="readonly" value="'.$md[$mdrow]['matchday'].'"/>:';
+							$body .=  '  <input width="70px"  name="mdid_'.($i+1).'" value="'.$md[$mdrow]['matchday_id'].'" tabindex="'.($mdrow+1).'"/>';
 							$body .=  '</td>';
 						}else{
 							$body .=  '<td></td>';
@@ -274,7 +274,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 								name="time1_'.$m['id'].'"
 								value="'.$time1.'" '.$ro.'>
 						'.$lang['general_time_at'].'
-							<input class="'.$ro2.' inpupt-small"
+							<input class="'.$ro2.' time inpupt-small"
 								name="time2_'.$m['id'].'"
 								value="'.$time2.'" '.$ro.'"></td>
 					<td class="input"><input class="'.$ro2.' automatchday inpupt-small"
