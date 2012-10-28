@@ -193,11 +193,11 @@ if ($betNb == 0) {
         $info = $ranking->getRankingDetails();
     }
 
-    //get info for tooltips
+    //get info for details
     //recenttips
     $query = "SELECT * FROM " . PFIX . "_event_" . $_REQUEST['ev'] . " WHERE " . $queryfield . " IS NOT NULL ORDER BY time,matchday_id,matchday ASC;";
     $rawdata = $db->query($query);
-    $showrecent = 5;
+    $showrecent = 8;
     while ($showrecent-- != 0) {
         $recenttips[] = array_pop($rawdata);
     }
@@ -338,7 +338,7 @@ if ($betNb == 0) {
                    </a>
                </div>'
           . '</div>';
-        $userrankingdetails .= '<div class="span2"><small>';
+        $userrankingdetails .= '<div class="span3"><small>';
         foreach ($rts as $rt) {
             $userrankingdetails .= '<br/>' . $rt['home'] . ' - ' . $rt['visitor'] . ': <span class="ow_' . getResultCSSClass($evinfo, $rt['score_h'], $rt['score_v'], $rt[$u . '_h'], $rt[$u . '_v']) . '">'
                 . $rt[$u . '_h'] . ':' . $rt[$u . '_v'] . '</span>';
