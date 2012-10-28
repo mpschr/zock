@@ -116,7 +116,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
     $event = $events_test->getEventById($_REQUEST['ev']);
     $bdp_matches = $event->getBetsContainer()->getBets($_REQUEST['filter'],implode(':',$orderby));
-    $body .= ''
+    $body .= '';
     $bdp_rows =  sizeof($bdp_matches);
 
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
@@ -343,10 +343,10 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                         continue;
                     /* @var $lastmatch Match */
                     $athome = $lastmatch->getHome() == $home;
-                    $lastGamesHome .= $athome ? $lastmatch->getResult() : $lastmatch->getInverseResult();
-                    $lastGamesHome .= ' vs ';
+                    $lastGamesHome .= $athome ? '<b>'.$lastmatch->getResult() : '<b>'.$lastmatch->getInverseResult();
+                    $lastGamesHome .= '</b> vs ';
                     $lastGamesHome .= $athome ? $lastmatch->getVisitor() : $lastmatch->getHome();
-                    $lastGamesHome .= ' @ '.$lastmatch->getMatchday();
+                    $lastGamesHome .= '<span class=\'greyedout\'>  '.$lastmatch->getMatchday().'</span>';
                     $lastGamesHome .= '<br/>';
                 }
 
@@ -356,10 +356,10 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                         continue;
                     /* @var $lastmatch Match */
                     $athome = $lastmatch->getHome() == $visitor;
-                    $lastGamesVisitor .= $athome ? $lastmatch->getResult() : $lastmatch->getInverseResult();
-                    $lastGamesVisitor .= ' vs ';
+                    $lastGamesVisitor .= $athome ? '<b>'.$lastmatch->getResult() : '<b>'.$lastmatch->getInverseResult();
+                    $lastGamesVisitor .= '</b> vs ';
                     $lastGamesVisitor .= $athome ? $lastmatch->getVisitor() : $lastmatch->getHome();
-                    $lastGamesVisitor .= ' @ '.$lastmatch->getMatchday().'';
+                    $lastGamesVisitor .= '<span class=\'greyedout\'>  '.$lastmatch->getMatchday().'</span>';
                     $lastGamesVisitor .= '<br/>';
                 }
 

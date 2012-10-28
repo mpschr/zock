@@ -159,6 +159,11 @@ class Event {
     /**
      * @var string
      */
+    protected $match_grouping;
+
+    /**
+     * @var string
+     */
     protected $users_approved;
 
     /**
@@ -1180,5 +1185,22 @@ class Event {
     {
         return $this->extra_stake_purpose;
     }
+
+    /**
+     * @param string $match_grouping
+     */
+    public function setMatchGrouping($match_grouping)
+    {
+        $this->match_grouping = $match_grouping;
+    }
+
+    /**
+     * @return string
+     */
+    public function getMatchGrouping()
+    {
+        return $this->match_grouping;
+    }
+
 
 }

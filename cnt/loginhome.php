@@ -99,7 +99,8 @@ if($nb > 0){
 					FROM ".PFIX."_event_".$eventid. "
 					WHERE ".$queryfield." IS NOT NULL ORDER BY time");
 		if (sizeof($rawdata) > 0){
-			$info = rankingCalculate($eventid);
+            $ranking = new Ranking($event);
+			$info = $ranking->getRankingDetails();
 			$points = $money = $rank = 0;
 			$query = "SELECT * FROM ".PFIX."_event_".$eventid." WHERE ".$queryfield." IS NULL ORDER BY time ASC;";
 			$finishedraw=$db->query($query);

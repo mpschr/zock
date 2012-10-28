@@ -582,6 +582,10 @@ img.overview-user-img {
    max-height: 150px;
 }
 
+
+.greyedout {
+    color: #d3d3d3;
+}
 /*
 #overviewtitlerow {
 	overflow: auto;

@@ -78,6 +78,7 @@ if(is_dir('installation')){
 }else{
 
     include_once('src/classes/class.usercollection.php');
+    include_once('src/classes/class.ranking.php');
 
     include_once('src/functions.php');
 
@@ -125,7 +126,7 @@ $site = (isset($_REQUEST['menu'])) ? $_REQUEST['menu'] : $homepage;
 
 }
 
-$xajax_compliant = array('mytips', 'loginhome', 'overview', 'admin');
+$xajax_compliant = array('mytips', 'loginhome', 'overview', 'admin','ranking');
 //include_once 'src/opensource/xajax/xajax_core/xajax.inc.php';
 
 

@@ -300,7 +300,7 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
     }
     ";
 
-    if ($_REQUEST['points'] == 'ranks') {
+    if ($_REQUEST['points'] != 'ranks') {
         $displaygraph = 'doPointsGraph();';
     } else {
         $displaygraph = 'doRanksGraph();';
