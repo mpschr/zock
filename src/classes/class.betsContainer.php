@@ -58,24 +58,76 @@ class BetsContainer {
     // METHODS
     /////////////////////////////////////////////////
 
+    function debugfirstten(&$somearray) {
+
+        for ($i = 0; $i<10; $i++)
+            echo $somearray[$i]->getId().'; ';
+        echo '<br/>';
+
+    }
 
     function betSort(&$objArray,$orderby,$sort_flag=SORT_ASC) {
         $indeces = array();
 
+        //print_r($objArray[0]->getHome());
+
 
         if ($orderby == 'dueDate')
         {
+            //matchday
+            /*
+            $indeces = array();
+            foreach($objArray as $obj) {
+                if ($obj instanceof Question)
+                    $indeces[] = "Z";
+                else {
+                    /* @var $obj Bet */
+            /*        $indeces[] = $obj->getMatchday();
+                }
+            }
+            $this->debugfirstten($objArray);
+            array_multisort($indeces,SORT_STRING,$sort_flag,$objArray);
+            $this->debugfirstten($objArray);
+            */
+
+
+            //matchday id
+            $indeces = array();
+            $counter = 0;
+            foreach($objArray as $obj) {
+                /* @var $obj Bet */
+                //$indeces[] = $obj->getMatchdayId();
+                $indeces[] = $counter;
+            }
+            //print_r($indeces);
+            //$this->debugfirstten($objArray);
+            array_multisort($indeces,SORT_NUMERIC,$sort_flag,$objArray);
+            //$this->debugfirstten($objArray);
+
+
+
+            //due date (final)
+            $indeces = array();
             foreach($objArray as $obj) {
                 $indeces[] = $obj->getDueDate();
             }
-
+            //$this->debugfirstten($objArray);
             array_multisort($indeces,SORT_NUMERIC,$sort_flag,$objArray);
+            //f$this->debugfirstten($objArray);
+
         }
 
         elseif ($orderby == 'matchDay')
         {
-            $this->betSort($objArray,'dueDate',$sort_flag);
+            //duedate
+            $indeces = array();
+            foreach($objArray as $obj) {
+                $indeces[] = $obj->getDueDate();
+            }
+            array_multisort($indeces,SORT_NUMERIC,$sort_flag,$objArray);
 
+            //matchday (final)
+            $indeces = array();
             foreach($objArray as $obj) {
                 /* @var $obj Bet */
                 $indeces[] = $obj->getMatchdayId();
@@ -217,6 +269,10 @@ class BetsContainer {
             return $this->bets;
         }
 
+
+        $matches = $this->getMatches($filter);
+
+
         $this->bets = array_merge($this->bets, $this->getMatches($filter));
         $questions = $this->getQuestions();
         if (sizeof($questions) > 0)
@@ -226,6 +282,7 @@ class BetsContainer {
         if ($orderby[1]!='') {
             $orderby[1] = constant($orderby[1]);
         }
+
         $this->betSort($this->bets,$orderby[0],$orderby[1]);
 
         return $this->bets;
