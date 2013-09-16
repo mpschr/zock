@@ -271,9 +271,10 @@ class BetsContainer {
 
 
         $matches = $this->getMatches($filter);
-
-
-        $this->bets = array_merge($this->bets, $this->getMatches($filter));
+	
+	if (is_array($matches)){ 
+	        $this->bets = array_merge($this->bets, $matches);
+	}
         $questions = $this->getQuestions();
         if (sizeof($questions) > 0)
             $this->bets = array_merge($this->bets, $questions);
