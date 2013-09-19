@@ -349,7 +349,7 @@ class User {
     public function getPicture()
     {
         return ($this->picture == '') ?
-            '@thumb' :
+            'nopic-thumb.jpg' :
             $this->picture;
     }
 
