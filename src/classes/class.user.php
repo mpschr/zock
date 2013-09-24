@@ -122,6 +122,9 @@ class User {
                 $this->$label = $content;
             }
         }
+        if ($this->picture == "") {
+                $this->picture = "default-pig.jpg";
+        }
     }
 
 
@@ -348,9 +351,7 @@ class User {
      */
     public function getPicture()
     {
-        return ($this->picture == '') ?
-            'nopic-thumb.jpg' :
-            $this->picture;
+        return $this->picture;
     }
 
     /**
