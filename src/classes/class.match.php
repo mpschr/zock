@@ -835,4 +835,17 @@ class Match implements Bet{
         return $done;
     }
 
+    
+     /**
+     * @param int $userid
+     * @return bool
+     */
+    public function isEmptyBet($userid) {
+        if ($this->getBet($userid) == "")  {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    }
+
 }

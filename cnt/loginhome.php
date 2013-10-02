@@ -94,11 +94,12 @@ if($nb > 0){
             $_SESSION['currevent'] = $ev->getId();
 
         $event_summaries .= '<li class="evlist"><b>'.$ev->getName().': ';
-		$queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
-		$rawdata = $db->query("SELECT ".$queryfield."
-					FROM ".PFIX."_event_".$eventid. "
-					WHERE ".$queryfield." IS NOT NULL ORDER BY time");
-		if (sizeof($rawdata) > 0){
+        $queryfield = ($ev->getBetOn() == 'results') ? 'score_h' : 'score';
+        $rawdata = $db->query("SELECT ".$queryfield."
+                                FROM ".PFIX."_event_".$eventid. "
+                                WHERE ".$queryfield." IS NOT NULL ORDER BY time");
+        if (sizeof($rawdata) > 0){
+            
             $ranking = new Ranking($event);
 			$info = $ranking->getRankingDetails();
 			$points = $money = $rank = 0;
@@ -113,6 +114,31 @@ if($nb > 0){
 				.$cont->get('ranking_points').': <b>'.$info['points'][$_SESSION['userid']].'</b>, '
 				.$gainlang.': <b>'.($info['money'][$_SESSION['userid']]+$info['jackpots'][$info['rank'][$_SESSION['userid']]]).' '.$ev->getCurrency().'</b>';
 		}
+                
+                            $bdp_matches = $event->getBetsContainer()->getBets('withoutresults','time:ASC');            
+
+                            
+                /*@var $open_bets array(Bet) */
+                $open_bets = array();            
+                $bet_comparator = "";           
+                foreach($bdp_matches as $bet) {
+                    /* @var $bet Bet */
+                    if($bet->isEmptyBet($userid)) {
+                        if ($bet_comparator == "") {
+                            $bet_comparator = date( "z-Y", $bet->getDueDate());
+                            $dueto = $bet->getRemainingTime();
+                        } 
+                        if ($bet_comparator == date( "z-Y", $bet->getDueDate())) {
+                            array_push($open_bets, $bet);
+                        } else {
+                            break;
+                        }
+                    }                    
+                }
+                if (size($open_bets) > 0) {
+                    $event_summaries .= '<br/>' . size($open_bets) . " open bets, due until " . $bet_comparator;
+                }
+                
 		
 		$event_summaries .= '<br/>';
 			$event_summaries .= ' </b><a href="?menu=mytips&ev='.$eventid.'">'.$cont->get('mytips_title').'</a> ||';

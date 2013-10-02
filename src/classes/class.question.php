@@ -524,6 +524,19 @@ class Question implements Bet{
         return true;
     }
 
+    
+     /**
+     * @param int $userid
+     * @return bool
+     */
+    public function isEmptyBet($userid) {
+        if($this->getBet($userid) == "") {
+            return TRUE;
+        } else {
+            return FALSE;
+        }        
+    }
+
 
 }
 

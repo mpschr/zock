@@ -177,6 +177,9 @@ class BetsContainer {
                     case 'withresult':
                         $filterQuery .= "`score_h` IS NOT null ";
                         break;
+                    case 'withoutresult':
+                        $filterQuery .= "`score_h` IS null ";
+                        break;
                     case 'team':
                         $filterQuery .= "(`home` LIKE '%".$f[1]."%' OR `visitor` LIKE '%".$f[1]."%')";
                         break;
@@ -229,6 +232,8 @@ class BetsContainer {
                 case 'withresult':
                     $filterQuery .= "`answer` NOT LIKE '' ;";
                     break;
+                case 'withoutresult':
+                    $filterQuery .= "`answer` IS '' ;";
             }
         }
 

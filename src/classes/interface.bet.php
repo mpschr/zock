@@ -125,4 +125,10 @@ interface Bet {
      * @return mixed
      */
     public function getMatchdayId();
+    
+    /**
+     * @abstract
+     * @return boolean
+     */
+    public function isEmptyBet($userid);
 }
