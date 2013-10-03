@@ -115,18 +115,17 @@ if($nb > 0){
 				.$gainlang.': <b>'.($info['money'][$_SESSION['userid']]+$info['jackpots'][$info['rank'][$_SESSION['userid']]]).' '.$ev->getCurrency().'</b>';
 		}
                 
-                            $bdp_matches = $event->getBetsContainer()->getBets('withoutresults','time:ASC');            
-
                             
+                $bdp_matches = $event->getBetsContainer()->getBets('withoutresult');                        
                 /*@var $open_bets array(Bet) */
-                $open_bets = array();            
-                $bet_comparator = "";           
+                $open_bets = array();      
+                $bet_comparator = "";
                 foreach($bdp_matches as $bet) {
                     /* @var $bet Bet */
+                    $userid = $thisuser->getId();
                     if($bet->isEmptyBet($userid)) {
                         if ($bet_comparator == "") {
                             $bet_comparator = date( "z-Y", $bet->getDueDate());
-                            $dueto = $bet->getRemainingTime();
                         } 
                         if ($bet_comparator == date( "z-Y", $bet->getDueDate())) {
                             array_push($open_bets, $bet);
@@ -135,8 +134,8 @@ if($nb > 0){
                         }
                     }                    
                 }
-                if (size($open_bets) > 0) {
-                    $event_summaries .= '<br/>' . size($open_bets) . " open bets, due until " . $bet_comparator;
+                if (sizeof($open_bets) > 0) {
+                    $event_summaries .= '<br/>' . sizeof($open_bets) . " open bets, due until " . $open_bets[0]->getRemainingTime();
                 }
                 
 		

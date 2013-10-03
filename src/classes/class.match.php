@@ -409,6 +409,9 @@ class Match implements Bet{
             $bet .= $this->$home;
             $bet .= ' : ';
             $bet .= $this->$visitor;
+            if ($bet == ' : ') {
+                return "";
+            }
             return $bet;
         }
         elseif ($this->event->getBetOn()=="toto") {
