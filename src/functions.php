@@ -848,6 +848,32 @@ function makeStyleSelect(){
 	return $select;
 }
 
+
+function makeTimeZoneSelector() {
+    // produces a form with all time zones in it.
+    global $settings;
+    $default = $settings['time_zone'];
+    $inputform = "<input class='autotimezone' 
+						name='time_zone' size='20' 
+						value=".$default.">";
+    
+    $timezone_ids = DateTimeZone::listIdentifiers();
+    foreach ($timezone_ids as $t) {
+        $timezonelist .= '"'.$t.'", ';
+    }
+    
+    $inputscript = "<script>
+                        $(document).ready(function() {
+                            $(\"input.autotimezone\").autocomplete({
+                                source: [".$timezonelist."]
+                            });
+                        });
+                    </script>";   
+    
+    return $inputform.$inputscript;
+    
+}
+
 function orderBy($what, $o, $lq){
     //this function cleans the links for the links where you can order a table
     //=> before using this function, the array $orderby must've been created!

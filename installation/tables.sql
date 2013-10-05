@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `#PFIX#_qa_bets` (
   `answer` text default NULL,
   `points` int(11) default NULL,
   `ranking` int(11) default NULL,
-  PRIMARY KEY (q_id,u_id)
+  PRIMARY KEY (question_id,user_id)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- messages
@@ -119,6 +119,7 @@ INSERT INTO `#PFIX#_settings` (`setting`, `value`) VALUES
 ('account_holder', 'My Name\r\nMy Street\r\nMy ZIP-Code and Town\r\nFuther Info'),
 ('notify_newaccount', 'true'),
 ('functionalSMTP', 'false'),
+('time_zone', ''),
 ('site_url', ''),
 ('notify_participate', 'true'),
 ('notify_withdraw', 'true'),

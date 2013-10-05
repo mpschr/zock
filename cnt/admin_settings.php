@@ -28,7 +28,8 @@ if($_REQUEST['setac'] == 'savesettings'){
 		$data['email1'] = $data['email2'] = $settings['email'];
 	if(!isset($data['lsel'])) $data['lsel'] = $_SESSION['dlang'];
 	
-	$update = array (	'lang' => $data['lsel'],
+	$update = array (	
+                'lang' => $data['lsel'],
 				'name' => $data['name'],
 				'description' => $data['description'],
 				'formlines' => $data['formlines'],
@@ -38,6 +39,7 @@ if($_REQUEST['setac'] == 'savesettings'){
 				'account_details' => $data['account_details'],
 				'account_holder' => $data['account_holder'],
 				'site_url' => $data['site_url'],
+                'time_zone' => $data['time_zone'],
 				'notify_newaccount' => $data['notify_newaccount'],
 				'notify_participate' => $data['notify_participate'],
 				'notify_withdraw' => $data['notify_withdraw'],
@@ -196,6 +198,12 @@ if($_REQUEST['setac'] == 'savesettings'){
 			}
 		}
 		$body .= '</div>';
+        
+        //=> the site time zone
+        $body .= '<div class="title">(nt) Time zone:</div>';
+			$body .= '<div class="explanation">'.nl2br(wordwrap("(nt) Select a time zone for your site")).'</div>';
+			$selectTimeZone = makeTimeZoneSelector();
+			$body .= '<div class="input">'.$selectTimeZone.'</div>';
 
 		//=> the style
 		$body .= '<div class="title">'.$lang['admin_settings_style'].'</div>';

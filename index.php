@@ -90,6 +90,12 @@ define(PFIX, $my_db['prefix']);
 //load settings of the site, not the user
 $settings = loadSettings();
 
+// set time zone
+if ($settings['time_zone'] != "") {
+    date_default_timezone_set($settings['time_zone']);
+}
+
+
 //include style info file
 include_once('src/style_'.$settings['style'].'/info.php');
 
