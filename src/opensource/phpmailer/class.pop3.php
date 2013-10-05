@@ -128,7 +128,7 @@ class POP3 {
    * @param string $username
    * @param string $password
    */
-  public function Authorise ($host, $port = false, $tval = false, $username, $password, $debug_level = 0) {
+  public function Authorise ($host, $username, $password, $port = false, $tval = false, $debug_level = 0) {
     $this->host = $host;
 
     //  If no port value is passed, retrieve it
@@ -315,7 +315,7 @@ class POP3 {
    * @param integer $size
    * @return string
    */
-  private public function getResponse ($size = 128) {
+  public function getResponse ($size = 128) {
     $pop3_response = fgets($this->pop_conn, $size);
 
     return $pop3_response;

@@ -508,8 +508,9 @@ function findPos(obj) {
 
 
 //The Clock
-<!-- Original:  Tomleung (lok_2000_tom@hotmail.com) This tag should not be removed-->
-<!--Server time ticking clock v2.0 Updated by js-x.com-->
+// Original:  Tomleung (lok_2000_tom@hotmail.com) This tag should not be removed
+// Server time ticking clock v2.0 Updated by js-x.com
+
 function MakeArrayday(size)
 {
   this.length = size;
