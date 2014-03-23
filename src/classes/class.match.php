@@ -86,6 +86,11 @@ class Match implements Bet{
      */
     protected $bets;
 
+    /**
+     * @var int;
+     */
+    protected $points_factor;
+
 
     /////////////////////////////////////////////////
     // CONSTRUCTOR
@@ -128,6 +133,25 @@ class Match implements Bet{
     function setTime($unixtime)
     {
         $this->time = $unixtime;
+    }
+
+    /**
+     * @param float $points_factor
+     */
+    public function setPointsFactor($points_factor)
+    {
+        $this->points_factor = $points_factor;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPointsFactor()
+    {
+        if (is_null($this->points_factor)) {
+            return 1;
+        }
+        return $this->points_factor;
     }
 
     /**
@@ -718,22 +742,22 @@ class Match implements Bet{
                 //correct:
                 $success[$p] = 1;
                 $nbCorrect++;
-                $this->$userpoints = $correct;
+                $this->$userpoints = $correct * $this->points_factor;
             }elseif($this->isCorrectDiff($p)){
                 //diff:
                 $success[$p] = 0;
                 $nbAlmost++;
-                $this->$userpoints = $diff;
+                $this->$userpoints = $diff * $this->points_factor;
             }elseif($this->isCorrectWinner($p)){
                 //almost:
                 $success[$p] = 0;
                 $nbAlmost++;
-                $this->$userpoints = $almost;
+                $this->$userpoints = $almost * $this->points_factor;
                 //wrong:
             } else {
                 $nbWrong++;
                 $success[$p] = -1;
-                $this->$userpoints = $wrong;
+                $this->$userpoints = $wrong * $this->points_factor;
             }
         }
 

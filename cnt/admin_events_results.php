@@ -239,10 +239,13 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
                     }
                     $res = $bet->getResult();
                     $options = sizeof($res);
-
+                    if ($res == "") {
+                        $res = array("");
+                    }
 
                     $c = 0;
                     $betinput = '';
+
                     foreach ($res as $r) {
                         $inputid = 'bet_'.$betid.'_'.$c;
                         $nr = $c+1;

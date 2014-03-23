@@ -434,6 +434,10 @@ class Question implements Bet{
         $bets = preg_split('/:/', $this->bets[$user]);
         $answers = $this->getResult();
 
+        if($answers == "") {
+            $answers = array();
+        }
+
         for ($i = 0; $i < sizeof($bets); $i++) {
             if ($bets[$i] == '')
                 continue;

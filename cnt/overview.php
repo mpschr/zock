@@ -265,8 +265,10 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                     /* @var $bet Question */
                     $body .= '<td class="ow_team" colspan="4">'. wordwrap($bet->getQuestion(),'70','<br/>') .'</td>';
                     $answer = '';
-                    foreach ($bet->getResult() as $a)
-                        $answer .= $a.' ';
+                    if ($bet->getResult()!="") {
+                        foreach ($bet->getResult() as $a)
+                            $answer .= $a.' ';
+                    }
                     $body .= '<td class="title">'. $answer .'</td>
                                 <td></td>';
                 }

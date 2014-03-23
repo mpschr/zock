@@ -184,6 +184,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			}
 			$MATCHHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
 			<td class=title>'.$lang['mytips_tendency'].'</td>
+			<td>Extra</td>
 			<td ></td>
 			</tr>';
 
@@ -292,10 +293,13 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                     }
 
                     $res = '';
+                    if($bet->getResult != "") {
                     foreach($bet->getResult() as $r) {
                         if ($res != '') $comma = ", ";
                         $res .= $comma.$r;
                     }
+                    }
+
 
                     $QUESTIONTABLE .= '
                         <tr>
@@ -327,7 +331,13 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $tendency = $bet->getTendency();
                 $matchday = $bet->getMatchday();
                 $remainingTime = $bet->getRemainingTime();
-				
+                $pointsFactor = "";
+                if ($bet instanceof Match) {
+                    if ($bet->getPointsFactor() != 1) {
+                        $pointsFactor = '<span class="label label-warning">'.$bet->getPointsFactor().'x!</span>';
+                    }
+                }
+
 				// same tips?
 
                 $matchtime = $bet->getTime();
@@ -422,6 +432,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					}
 					$MATCHESSTRING .= '<td class="input" id="samebet_'.$betid.'">'.$sameBet.'</td>
 					                    <td class="input"  id="tendency_'.$betid.'"">'.$tendency.'</td>
+					                    <td>'.$pointsFactor.'</td>
 					                    <td id="savestatus_'.$betid.'"></td>
 					                    </tr>';
 				$MATCHESSTRING .= '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';

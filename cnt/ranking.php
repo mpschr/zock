@@ -26,7 +26,7 @@ $thisevent = null;
 
 if ($nb < 1) {
     //no event
-    echo $lang['mytips_participatefirst'];
+    $body .= $lang['mytips_participatefirst'];
 
 } elseif ($nb == 1) {
     //one event
@@ -67,7 +67,7 @@ $betNb = sizeof($bets);
 
 //if there are no matches yet for this event
 if ($betNb == 0) {
-    echo $lang['general_nomatches'];
+    $body .= $lang['general_nomatches'];
 } else {
 
     ?>
@@ -91,20 +91,20 @@ if ($betNb == 0) {
     $cleanurl = preg_replace('/(showuntil=)[a-zA-Z0-9:_]+[&]/i', '', $link_query);
     $cleanurl = $link . $cleanurl;
 
-    echo $lang['ranking_showrankinguntil'];
+    $body .= $lang['ranking_showrankinguntil'];
 
-    echo $events_test->createEventsTabs($userevents);
+    $body .= $events_test->createEventsTabs($userevents);
     $queryfield = ($events['u']['e' . $_REQUEST['ev']]['score_input_type'] == 'results') ? 'score_h' : 'score';
 
 
-    echo '<form style="display:inline;">';
-    echo '<select id="matchday_id" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matchday_id\')">';
+    $body .= '<form style="display:inline;">';
+    $body .= '<select id="matchday_id" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matchday_id\')">';
     $query = "SELECT DISTINCT matchday, matchday_id
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
 						WHERE " . $queryfield . " IS NOT NULL ORDER BY matchday_id ASC;";
 
     $mdids = $db->query($query);
-    echo '<option value="none"></option>';
+    $body .= '<option value="none"></option>';
     $counter = 0;
     foreach ($mdids as $row) {
         $counter++;
@@ -122,12 +122,12 @@ if ($betNb == 0) {
         } else {
             $selected = '';
         }
-        echo '<option value="matchday_id:' . $row['matchday_id'] . '" ' . $selected . '>' . $row['matchday'] . '</option>';
+        $body .= '<option value="matchday_id:' . $row['matchday_id'] . '" ' . $selected . '>' . $row['matchday'] . '</option>';
     }
-    echo '</select>';
-    echo ' / <b>' . $lang['general_date'] . '</b> ';
-    echo '<select id="dates" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'dates\')">';
-    echo '<option value="none"></option>';
+    $body .= '</select>';
+    $body .= ' / <b>' . $lang['general_date'] . '</b> ';
+    $body .= '<select id="dates" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'dates\')">';
+    $body .= '<option value="none"></option>';
     $dates = $db->query("SELECT DISTINCT FROM_UNIXTIME(time, '%d.%m.%Y') AS date,
 						FROM_UNIXTIME(time, '%Y%m%d') AS vdate  
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
@@ -149,15 +149,15 @@ if ($betNb == 0) {
         } else {
             $selected = '';
         }
-        echo '<option value="date:' . $row['vdate'] . '" ' . $selected . '>' . $row['date'] . '</option>';
+        $body .= '<option value="date:' . $row['vdate'] . '" ' . $selected . '>' . $row['date'] . '</option>';
     }
-    echo '</select>';
-    echo ' / <b>' . $lang['general_match'] . '</b> ';
-    echo '<select id="matches" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matches\')">';
+    $body .= '</select>';
+    $body .= ' / <b>' . $lang['general_match'] . '</b> ';
+    $body .= '<select id="matches" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matches\')">';
     $matches = $db->query("SELECT DISTINCT id
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
 						WHERE " . $queryfield . " IS NOT NULL ORDER BY time,matchday_id,matchday ASC;");
-    echo '<option value="none"></option>';
+    $body .= '<option value="none"></option>';
     for ($i = 1; $i <= sizeof($matches); $i++) {
         if ($_REQUEST['showuntil'] == 'match:' . $i) {
             $type = $lang['general_match'];
@@ -173,21 +173,24 @@ if ($betNb == 0) {
         } else {
             $selected = '';
         }
-        echo '<option value="match:' . $i . '" ' . $selected . '>' . $i . '</option>';
+        $body .= '<option value="match:' . $i . '" ' . $selected . '>' . $i . '</option>';
     }
-    echo '</select>';
-    echo '</form>';
+    $body .= '</select>';
+    $body .= '</form>';
     if (isset($ante) && isset($post))
         $steplinks = $ante . ' | ' . $post;
     else
         $steplinks = $ante . $post;
-    echo '<br/><br/>';
+    $body .= '<br/><br/>';
 
+    $ranking = new Ranking($thisevent);
     if (isset($_REQUEST['showuntil'])) {
-        $info = rankingCalculate($_REQUEST['ev'], $_REQUEST['showuntil']);
+        //$info = rankingCalculate($_REQUEST['ev'], $_REQUEST['showuntil']);
+        $info = $ranking->getRankingDetails($_REQUEST['showuntil']);
         $addtosorturl = '&showuntil=' . $_REQUEST['showuntil'];
     } else {
-        $info = rankingCalculate($_REQUEST['ev']);
+        //$info = rankingCalculate($_REQUEST['ev']);
+        $info = $ranking->getRankingDetails();
     }
 
     //get info for tooltips
@@ -286,7 +289,7 @@ if ($betNb == 0) {
 
     
 
-    echo '<script type="text/javascript">
+    $body .= '<script type="text/javascript">
                              function unmask(id) {
                                 var obj = $(\'#\'+id);
                                 obj.fadeIn();
@@ -300,29 +303,29 @@ if ($betNb == 0) {
 
 
 
-    echo '<canvas id="rankingcanvas" width="480" height="200" style="border:1px solid #c3c3c3;">
+    $body .= '<canvas id="rankingcanvas" width="480" height="200" style="border:1px solid #c3c3c3;">
 	Your browser does not support the HTML5 canvas tag.
 	</canvas>';
 
-    if (isset($type)) echo '  ' . $type . ': ' . $steplinks . '<br/>';
-    echo substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));
+    if (isset($type)) $body .= '  ' . $type . ': ' . $steplinks . '<br/>';
+    $body .= substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));
 
 
-    echo '<div class="accordion" id="ranking-accordion">';
+    $body .= '<div class="accordion" id="ranking-accordion">';
 
-    echo '<div class="row title">
+    $body .= '<div class="row title">
 			<div class="span1 column">' . $lang['ranking_rank'] . '</div>
 			<div class="span1 column">' . $lang['general_who'] . '</div>
 			<div class="span1 column"><a href="' . $link . 'sort=points' . $addtosorturl . '">' . $lang['ranking_points'] . '</a></div>';
     if ($evinfo['stake_mode'] == 'permatch') {
-        echo '<div class="span1 column"><a href="' . $link . 'sort=gain' . $addtosorturl . '">' . $lang['ranking_gain'] . '</a></div>';
-        echo '<div class="span1 column"><a href="' . $link . 'sort=jackpotshare' . $addtosorturl . '">' . $lang['ranking_jackpotshare'] . '</a></div>';
+        $body .= '<div class="span1 column"><a href="' . $link . 'sort=gain' . $addtosorturl . '">' . $lang['ranking_gain'] . '</a></div>';
+        $body .= '<div class="span1 column"><a href="' . $link . 'sort=jackpotshare' . $addtosorturl . '">' . $lang['ranking_jackpotshare'] . '</a></div>';
     }
-    echo '<div class="span1 column"><a href="' . $link . 'sort=provgain' . $addtosorturl . '">' . $lang['ranking_provisorygain'] . '</a></div>
+    $body .= '<div class="span1 column"><a href="' . $link . 'sort=provgain' . $addtosorturl . '">' . $lang['ranking_provisorygain'] . '</a></div>
 			<div class="span1 column"><a href="' . $link . 'sort=correct' . $addtosorturl . '">' . $lang['ranking_correcttips'] . '</a></div>';
-    //if ($difftrue) echo '<div class="span1 column"><a href="' . $link . 'sort=diff' . $addtosorturl . '">' . $lang['ranking_difftips'] . '</a></div>';
-    //if ($almosttrue) echo '<div class="span1 column"><a href="' . $link . 'sort=almost' . $addtosorturl . '">' . $lang['ranking_almosttips'] . '</a></div>';
-    echo '<div class="span1 column "><a href="' . $link . 'sort=wrong' . $addtosorturl . '">' . $lang['ranking_wrongtips'] . '</a></div>
+    //if ($difftrue) $body .= '<div class="span1 column"><a href="' . $link . 'sort=diff' . $addtosorturl . '">' . $lang['ranking_difftips'] . '</a></div>';
+    //if ($almosttrue) $body .= '<div class="span1 column"><a href="' . $link . 'sort=almost' . $addtosorturl . '">' . $lang['ranking_almosttips'] . '</a></div>';
+    $body .= '<div class="span1 column "><a href="' . $link . 'sort=wrong' . $addtosorturl . '">' . $lang['ranking_wrongtips'] . '</a></div>
 		</div>';
 
     $rankids = array("-",3,2,1);
@@ -385,18 +388,18 @@ if ($betNb == 0) {
             '<b>' . $info['rank'][$u] . '</b>';
         unset($secondaryrank);
 
-        echo '<div class="accordion-group">
+        $body .= '<div class="accordion-group">
 	            <div class="accordion-heading">';
         //the ranking table
 
         //href=
-        echo '
+        $body .= '
   		  <a class="accordeon-toggle" data-toggle="collapse" data-parent="#ranking-accordeon" href="#collapse' . $u . '"
   		    style="text-decoration:none; color:black">
           <div class="row">
 				<div class=" span1">' . $rankrepresentation . '	</div>';
-        echo '<div class="span1" ><b>'. $userarray[$u] .'</b></div>';
-        echo '<div class=" span1 ' . $cl_points . '">' . $info['points'][$u] . '</div>';
+        $body .= '<div class="span1" ><b>'. $userarray[$u] .'</b></div>';
+        $body .= '<div class=" span1 ' . $cl_points . '">' . $info['points'][$u] . '</div>';
         if ($info['rank'][$u] != '"') {
             $thisranksjackpot = $info['jackpots'][$info['rank'][$u]];
             if ($thisranksjackpot == '') {
@@ -404,22 +407,22 @@ if ($betNb == 0) {
             }
         }
         if ($evinfo['stake_mode'] == 'permatch') {
-            echo '<div class=" span1 ' . $cl_gain . '">' . $info['money'][$u] . '</div>';
-            echo '<div class=" span1">' . $thisranksjackpot . '</div>';
+            $body .= '<div class=" span1 ' . $cl_gain . '">' . $info['money'][$u] . '</div>';
+            $body .= '<div class=" span1">' . $thisranksjackpot . '</div>';
         }
         if ($evinfo['stake_mode'] != 'none')
-            echo '<div class=" span1 ' . $cl_totgain . '">' . ($thisranksjackpot + $info['money'][$u]) . '</div>';
-        echo '<div class=" span1 ' . $cl_correct . '">' . $info['correct'][$u] . '</div>';
-        //if ($difftrue) echo '<div class=" span1 ' . $cl_diff . '">' . $info['diff'][$u] . '</div>';
-        //if ($almosttrue) echo '<div class=" span1 ' . $cl_almost . '">' . $info['almost'][$u] . '</div>';
-        echo '<div class=" span1 ' . $cl_wrong . ' ">' . $info['wrong'][$u] . '</div>';
+            $body .= '<div class=" span1 ' . $cl_totgain . '">' . ($thisranksjackpot + $info['money'][$u]) . '</div>';
+        $body .= '<div class=" span1 ' . $cl_correct . '">' . $info['correct'][$u] . '</div>';
+        //if ($difftrue) $body .= '<div class=" span1 ' . $cl_diff . '">' . $info['diff'][$u] . '</div>';
+        //if ($almosttrue) $body .= '<div class=" span1 ' . $cl_almost . '">' . $info['almost'][$u] . '</div>';
+        $body .= '<div class=" span1 ' . $cl_wrong . ' ">' . $info['wrong'][$u] . '</div>';
 
-        echo '</div></a></div>';
+        $body .= '</div></a></div>';
 
-        echo '<div id = "collapse' . $u . '" class="accordion-body in collapse">';
-        echo $userrankingdetails;
-        echo '</div>';
-        echo '</div><!-- collapsable group close -->';
+        $body .= '<div id = "collapse' . $u . '" class="accordion-body in collapse">';
+        $body .= $userrankingdetails;
+        $body .= '</div>';
+        $body .= '</div><!-- collapsable group close -->';
 
     }
 
@@ -432,7 +435,7 @@ if ($betNb == 0) {
         if ($info['r_quant'][$r] > 1) $info['jackpots'][$r . '_missing'] = ($info['r_quant'][$r] - 1) * $s;
     }
 
-    echo '<div class="row ow_summary">
+    $body .= '<div class="row ow_summary">
 			<div class="span3">' . $lang['overview_summary'] . '</div>';
     if ($evinfo['stake_mode'] == 'permatch') {
 
@@ -443,19 +446,19 @@ if ($betNb == 0) {
         }
 
 
-        echo '<div class="span1">' . array_sum($info['money']) . '</div>
+        $body .= '<div class="span1">' . array_sum($info['money']) . '</div>
 				<div class="span1">' .$jackpotsum . '</div>';
     }
-    echo '<div class="span1">' . (array_sum($info['money']) + array_sum($info['jackpots'])) . '</div>
+    $body .= '<div class="span1">' . (array_sum($info['money']) + array_sum($info['jackpots'])) . '</div>
 			<div class="span1">' . array_sum($info['correct']) . '</div>';
-    //if ($difftrue) echo '<td>' . array_sum($info['diff']) . '</td>';
-    //if ($almosttrue) echo '<td>' . array_sum($info['almost']) . '</td>';
-    echo '<div class="span1">' . array_sum($info['wrong']) . '</div>';
-    echo '</div>';
+    //if ($difftrue) $body .= '<td>' . array_sum($info['diff']) . '</td>';
+    //if ($almosttrue) $body .= '<td>' . array_sum($info['almost']) . '</td>';
+    $body .= '<div class="span1">' . array_sum($info['wrong']) . '</div>';
+    $body .= '</div>';
 //*simulation*/ /*
 
 //*simulation*/
-     echo '
+     $body .= '
 	<script>
 
 	var c=document.getElementById("rankingcanvas");
