@@ -253,6 +253,17 @@ class Event {
              $this->setFinished(true);
     }
 
+
+    public function getPointFactorsArray() {
+        $factors = array(1);
+        foreach($this->betsContainer->getBets() as $bet) {
+            if($bet instanceof Match) {
+                array_push($factors, (float) $bet->getPointsFactor());
+            }
+        }
+        return(array_values(array_unique($factors)));
+    }
+
     /**
      * @param $users array
      * @param $whats array

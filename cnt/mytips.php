@@ -119,6 +119,25 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
     $body .= '';
     $bdp_rows =  sizeof($bdp_matches);
 
+
+    // decide how and which badges to use for point factors
+    $pointsFactor = $event->getPointFactorsArray();
+    $badgemap = array(1 => "");
+    $badgeoptions = array("badge",
+                            "badge badge-success",
+                            "badge badge-info",
+                            "badge badge-warning",
+                            "badge badge-important",
+                            "badge badge-inverse");
+
+    if (sizeof($pointsFactor)==1) {
+        $badgemap[$pointsFactor[0]] = "";
+    } else {
+        for ($i = 0; $i<  sizeof($pointsFactor); $i++) {
+            $badgemap[$pointsFactor[$i+1]] = $badgeoptions[$i % 6];
+        }
+    }
+
 	//$mnb stands for Match NumBer, is necessary to limit the amount of matches displayed
 	$mnb = (isset($_REQUEST['mnb'])) ? $_REQUEST['mnb'] : 1;
 
@@ -334,7 +353,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $pointsFactor = "";
                 if ($bet instanceof Match) {
                     if ($bet->getPointsFactor() != 1) {
-                        $pointsFactor = '<span class="label label-warning">'.$bet->getPointsFactor().'x!</span>';
+                        $f = (float) $bet->getPointsFactor();
+                        $pointsFactor = '<span class="'.$badgemap[$f].'">'.$f.'x!</span>';
                     }
                 }
 

@@ -826,14 +826,22 @@ if ($query1 || $query2){
     $ical = new ical($srcfile);
 #    print_r($ical->events());	
 
-    $events = $ical->events();
+    #$events = $ical->events();
 	$rawdata = $db->query("SELECT id FROM ".PFIX."_event_".$data['eve'].";");
 	$matches = sizeof($rawdata);
 
+    #clean before putting games
+    #$sql = "UPDATE ".PFIX."_event_".$data['eve']."
+    #                SET `time`=$time, `home`='', visitor=''";
+    #$db->query($sql);
+
 	if(!isset($err)){
         $matchid=1;
-        date_default_timezone_set('UTC');        
-        foreach ($ical->events() as $event) {
+        date_default_timezone_set('UTC');
+
+        $body .= "<br/>game details<br/>";
+
+        foreach ($ical->sortEventsWithOrder($ical->events()) as $event) {
             $time = $ical->iCalDateToUnixTimestamp($event['DTSTART']);
             preg_match("/\((.*)\)/",$event['SUMMARY'], $matchday_match);
             $matchday = sizeof($matchday_match) > 0 ? $matchday_match[1] : '--';
@@ -845,11 +853,17 @@ if ($query1 || $query2){
                     SET `time`=$time, `home`='$home', `visitor`='$visitor', `matchday`='$matchday' 
                     WHERE `id`=$matchid;";
 
+            $body .= "<br/>".$matchid."-".$home." : ".$visitor;
+
+
             if (!$db->query($sql)) {
-                break;
+
 		        $err[1] = 'general_savednotok';
             }
             $matchid=1+$matchid;
+
+
+
         }
 	    
         $sql  = "INSERT INTO ".PFIX."_event_".$data['eve']." (`id`, `time`, `matchday`, `home`, `visitor`, `score_h`, `score_v`, `score_special`, `jackpot`) VALUES ".$contents; 
