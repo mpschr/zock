@@ -572,6 +572,43 @@ class Event {
     // METHODS
     /////////////////////////////////////////////////
 
+    private function points_per($subject,$who) {
+
+        global $db;
+
+
+        $groups_query = $db->query("SELECT DISTINCT(".$subject.") from zock_event_".$this->getId().";");
+        $groups = array();
+        $users  = array();
+
+
+        foreach ($groups_query as $g) {
+            $groups[] = $g[$subject];
+        }
+
+        $pointssql = "SELECT ";
+        foreach ($who as $user) {
+            if ($user != "") $pointssql .= "sum(".$user."_points) AS '".$user."', ";
+            $users[] = $user;
+        }
+        $pointssql .= $subject;
+        $pointssql .= " from zock_event_".$this->getId()." ";
+        $pointssql .= " group by ".$subject.";";
+
+        $mdranking =  $db->query($pointssql);
+
+        return($mdranking);
+    }
+
+    public function pointsPerMatchday($who) {
+        return($this->points_per('matchday',$who));
+    }
+
+
+    public function points_per_team() {
+        return($this->points_per('team_h'));
+    }
+
     /**
      * @param int $userID
      * @return bool
@@ -643,6 +680,12 @@ class Event {
             return true;
         else
             return false;
+    }
+
+    public function toArray($str,$sep=":"){
+        $arr = explode($sep,$str);
+        array_pop($arr);
+        return($arr);
     }
 
     /////////////////////////////////////////////////

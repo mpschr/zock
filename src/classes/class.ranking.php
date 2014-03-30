@@ -56,6 +56,34 @@ class Ranking {
     // METHODS
     /////////////////////////////////////////////////
 
+
+    private function matchQuery($select,$until="") {
+        $event = $this->event;
+        $ev = $event->getId();
+        $score_field = ($this->event->getScoreInputType() == 'results') ? 'score_h' : 'score';
+
+        $query = "SELECT ".$select." FROM ".PFIX."_event_".$ev." WHERE ".$score_field." IS NOT NULL ORDER BY time ASC;";
+        if($until!="") {
+            $u = preg_split('/:/',$until);
+            if($u[0] == 'matchday_id')
+                $query = "SELECT ".$select." FROM ".PFIX."_event_".$ev."
+			WHERE matchday_id <= '".$u[1]."'
+			AND ".$score_field." IS NOT NULL
+			ORDER BY matchday_id ASC, time ASC;";
+            elseif($u[0] == 'date')
+                $query = "SELECT ".$select.",FROM_UNIXTIME(time, '%Y%m%d') as vdate
+			FROM ".PFIX."_event_".$ev."
+			WHERE FROM_UNIXTIME(time, '%Y%m%d') <= ".$u[1]."
+			AND ".$score_field." IS NOT NULL
+			ORDER BY time ASC ;";
+            elseif($u[0] == 'match')
+                $query = "SELECT ".$select." FROM ".PFIX."_event_".$ev."
+			WHERE ".$score_field." IS NOT NULL
+			ORDER BY time ASC LIMIT 0, ".$u[1].";";
+        }
+        return $query;
+    }
+
     /**
      * @param string $until
      * @internal param $ev
@@ -65,31 +93,16 @@ class Ranking {
     function getRankingDetails ($until=""){
 
         global $db;
+
+
+//select from db ordered by time and only matches with results!
+//*simulation*/ /*
+
         $event = $this->event;
         $ev = $event->getId();
         $score_field = ($this->event->getScoreInputType() == 'results') ? 'score_h' : 'score';
 
-//select from db ordered by time and only matches with results!
-//*simulation*/ /*
-        $query = "SELECT * FROM ".PFIX."_event_".$ev." WHERE ".$score_field." IS NOT NULL ORDER BY time ASC;";
-        if($until!="") {
-            $u = preg_split('/:/',$until);
-            if($u[0] == 'matchday_id')
-                $query = "SELECT * FROM ".PFIX."_event_".$ev."
-			WHERE matchday_id <= '".$u[1]."'
-			AND ".$score_field." IS NOT NULL
-			ORDER BY matchday_id ASC, time ASC;";
-            elseif($u[0] == 'date')
-                $query = "SELECT *,FROM_UNIXTIME(time, '%Y%m%d') as vdate
-			FROM ".PFIX."_event_".$ev."
-			WHERE FROM_UNIXTIME(time, '%Y%m%d') <= ".$u[1]."
-			AND ".$score_field." IS NOT NULL
-			ORDER BY time ASC ;";
-            elseif($u[0] == 'match')
-                $query = "SELECT * FROM ".PFIX."_event_".$ev."
-			WHERE ".$score_field." IS NOT NULL
-			ORDER BY time ASC LIMIT 0, ".$u[1].";";
-        }
+        $query = $this->matchQuery("*",$until);
         $pastmatches =  $db->query($query);
         $jackpot = 0;
         $evUsNb = eventUserNumber($ev);
@@ -275,6 +288,28 @@ class Ranking {
         return $info;
     }
 
+    function getRanking ($until="") {
+        global $db;
+
+        $select = "";
+        foreach ($this->event->toArray($this->event->getUsersApproved()) as $id) {
+            if (strlen($select) > 0) {
+                $select .= ", ";
+            }
+            $select .= "SUM(".$id."_points) AS '".$id."'";
+        }
+
+        $query = $this->matchQuery($select,$until);
+
+        $ranking = $db->query($query)[0];
+
+        asort($ranking);
+
+        return($ranking);
+
+
+        //print_r($ranking);
+    }
 
 
     /////////////////////////////////////////////////

@@ -56,13 +56,16 @@ $header ='<!DOCTYPE html>
 
 	<script type="text/javascript" src="src/functions.js" ></script>
 
-    <script type="text/javascript" src="src/opensource/jquery/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="src/opensource/jquery/js/jquery-2.1.0.min.js"></script>
 
 
     <script type="text/javascript" src="src/opensource/jquery/js/jquery-ui-1.8.2.custom.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jquery/css/jquery-ui-1.8.2.custom.css"/>
 
     <script language="text/javascript" type="text/javascript" src="src/opensource/jqplot/jquery.jqplot.min.js"></script>
+            <script type="text/javascript" src="src/opensource/jqplot/plugins/jqplot.barRenderer.min.js"></script>
+            <script type="text/javascript" src="src/opensource/jqplot/plugins/jqplot.categoryAxisRenderer.min.js"></script>
+            <script type="text/javascript" src="src/opensource/jqplot/plugins/jqplot.pointLabels.min.js"></script>
     <link rel="stylesheet" type="text/css" href="src/opensource/jqplot/jquery.jqplot.css" />
        	'.$bootstrap.'
        	'.$bootstrap_activators.'

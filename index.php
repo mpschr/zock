@@ -79,6 +79,7 @@ if(is_dir('installation')){
 
     include_once('src/classes/class.usercollection.php');
     include_once('src/classes/class.ranking.php');
+    include_once('src/classes/class.plotter.php');
 
     include_once('src/functions.php');
 

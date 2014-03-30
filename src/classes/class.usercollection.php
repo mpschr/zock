@@ -103,4 +103,16 @@ class UserCollection extends Collection {
         return null;
     }
 
+    /**
+     * @param $userids array
+     */
+    public function getUserNames($userids)
+    {
+        $users = [];
+        foreach ($userids as $id) {
+            $users[] = $this->getUserById($id)->getLogin();
+        }
+        return $users;
+    }
+
 }

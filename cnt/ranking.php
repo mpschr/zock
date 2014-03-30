@@ -305,7 +305,7 @@ if ($betNb == 0) {
 
     $body .= '<canvas id="rankingcanvas" width="480" height="200" style="border:1px solid #c3c3c3;">
 	Your browser does not support the HTML5 canvas tag.
-	</canvas>';
+	</canvas><br/>';
 
     if (isset($type)) $body .= '  ' . $type . ': ' . $steplinks . '<br/>';
     $body .= substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));

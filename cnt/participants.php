@@ -312,7 +312,7 @@ function writeGraphScript ($points, $ranks, $users, $rankmax) {
 
         $ranksGraph
 
-        $displaygraph; 
+        $displaygraph;
         </script>
     
     "; 
