@@ -16,8 +16,9 @@ Modes:
 Requirements:
  * PHP, MySQL and Firefox ;)
 
-Developers, Translators, Artists and Thinkers are more than welcome!! Simply join the group Zockers .
+The installation requires some knowledge of PHP and MySQL I suppose, since it will not work as smoothly as expected. Feedback about particular obstacles are very welcome 
+and will be addressed!
 
-Questions and Bugs here on Launchpad, please. This software is distributed under the GPL license and will always be distributed under this or a similar Open Source software license.
+Questions and Bugs here on GitHub, please. This software is distributed under the GPL license and will always be distributed under this or a similar Open Source software license.
 
 Enjoy the Software!
