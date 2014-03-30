@@ -209,19 +209,46 @@ class EventCollection extends Collection {
 
         $eventstabs .= '<ul class="nav nav-tabs">';
 
+        $archive = "";
         foreach($events as $e) {
             /* @var $e Event */
 
-            $active = ($_SESSION['currevent'] == $e->getId())  ? 'class="active"' : "";
 
-            $eventstabs .= '<li '.$active.'>';
-            $eventstabs .=      '<a href="'.$link.'ev='.$e->getId().'">'.$e->getName().'</a>';
-            $eventstabs .= '</li>';
+            if ($e->getFinished() == true) {
+                if ($archive == "") {
+                    $archive .= '<li class="dropdown">
+                                    <a href="#" class="dropdown-toggle"
+                                        data-toggle="dropdown">Archive<b class="caret"></b>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                    ';
+                }
 
+                $archive .= '<li '.$active.'>';
+                $archive .=      '<a href="'.$link.'ev='.$e->getId().'">'.$e->getName().'</a>';
+                $archive .= '</li>';
+                //add event to dropdown
+
+            } else {
+
+                //add event to normal tab
+
+                $active = ($_SESSION['currevent'] == $e->getId())  ? 'class="active"' : "";
+
+                $eventstabs .= '<li '.$active.'>';
+                $eventstabs .=      '<a href="'.$link.'ev='.$e->getId().'">'.$e->getName().'</a>';
+                $eventstabs .= '</li>';
+
+            }
         }
 
 
-         $eventstabs .= '</ul>';
+
+        if($archive != "") {
+            $archive .= '</ul></li>';
+            $eventstabs .= $archive;
+        }
+        $eventstabs .= '</ul>';
 
         return $eventstabs;
     }

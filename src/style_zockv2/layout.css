@@ -90,7 +90,7 @@ img {
 .btn {
     margin-top: 4px;
 }
-.dropdown-menu li > a {
+div.menu_h_level_1 .dropdown-menu li > a {
     color: #ffffff;
 }
 
