@@ -1,5 +1,5 @@
-zock
-====
+zock! : The free betting office
+==========================================
 
 
 You want to bet with your friends on sport events? zock! is the web based tool for you, simply because i made it for me & my friends. It's designed for events as a soccer championship or similar!
