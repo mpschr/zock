@@ -122,7 +122,7 @@ if ($noxajax) {
 include_once('cnt/' . $site);
 
 $bodyend = '
-</div><!-- cnt-divs.. --><!-- ..closed -->';
+</div></div><!-- cnt-divs.. --><!-- ..closed -->';
 
 
 if ($noxajax) {
