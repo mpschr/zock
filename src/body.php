@@ -58,17 +58,9 @@ if (!($_SESSION['plain'])) {
     $body .= styleLogo();
 
 
-    $body .= '<div id="top_top">
-        <div id="top_bottom">
-        <div id="top_left">
-        <div id="top_right">
-        <div id="top">
+    $body .= '
             <h1>' . $settings['name'] . ' :: ' . $settings['description'] . '</h1>
-        </div>
-        </div>
-        </div>
-        </div>
-        </div>';
+       ';
 
 
 //plain view mode
@@ -76,14 +68,9 @@ if (!($_SESSION['plain'])) {
 if ($menu == 'horizontal' && !defined(INSTALLING)) {
 
 
-    $body .= '<div id="menu_h_top">
-    <div id="menu_h_bottom">
-    <div id="menu_h_left">
-    <div id="menu_h_right">
-    <div id="menu_h">';
-    $body .= '<div class="menu_h_level_1">';
+    $body .= '
+    <div id="menu_h" class="row">';
     $body .= createHorizontalMenu();
-    $body .= '</div>';
 
 
 // the following variables are needed in fucntions & other files
@@ -110,20 +97,12 @@ if ($menu == 'horizontal' && !defined(INSTALLING)) {
     $link_query = preg_replace('/menu=' . $rlink . '/', '', $_SERVER['QUERY_STRING'] . '&');
 
     $body .= '
-    </div> <!-- menu_h divs.. -->
-    </div>
-    </div>
-    </div>
-    </div><!-- ..closed -->';
+    </div> <!-- menu_h divs.. --><!-- ..closed -->';
 
 }
 
 
-$body .= ' <div id="cnt_top"><!-- cnt_divs -->
-        <div id="cnt_bottom">
-        <div id="cnt_left">
-        <div id="cnt_right">
-        <div id="cnt">';
+$body .= '<div id="cnt" class="row">';
 
 
 if (!defined(INSTALLING)) {
@@ -143,11 +122,7 @@ if ($noxajax) {
 include_once('cnt/' . $site);
 
 $bodyend = '
-</div><!-- cnt-divs.. -->
-</div>
-</div>
-</div>
-</div><!-- ..closed -->';
+</div><!-- cnt-divs.. --><!-- ..closed -->';
 
 
 if ($noxajax) {

@@ -434,9 +434,7 @@ function createHorizontalMenu($submenu=NULL){
 
         //normal menu (@ page entry)
         if (!($logged)){
-            $menuHTML .= '
-                            <div class="subnav subnav-fixed">
-                              <ul class="nav nav-pills">';
+            $menuHTML .= '<ul class="nav nav-pills">';
 
             foreach($menus['normal'] as $menu){
                 $active = '';
@@ -451,8 +449,7 @@ function createHorizontalMenu($submenu=NULL){
                                     </li>';
             }
 
-            $menuHTML .=     '</ul>
-                            </div><!-- close subnav-->';
+            $menuHTML .=     '</ul>';
 
         }else{
             //the logged user menu
@@ -470,7 +467,7 @@ function createHorizontalMenu($submenu=NULL){
             $msg = getNewMessage($_SESSION['userid']);
             if ($msg != "") {
                 //$message = makeModal($msg['title'], $msg['content'], $msg['footer'], $id, 'show');
-                $envelope = '<a class="btn  btn-primary" data-toggle="modal"
+                $envelope = '<a class="btn  btn-custom" data-toggle="modal"
                                 href="#modal_'.$msg['id'].'"  title="New Message">
                                 <span class="label label-info">1</span>
                                 <i class="icon-envelope icon-white"></i>
@@ -479,22 +476,22 @@ function createHorizontalMenu($submenu=NULL){
 
 
             $menuHTML .= '
-                       <div class="btn-group pull-right">
-                           <a class="btn  btn-primary"
+                       <div id="user-ctrl" class="btn-group pull-right">
+                           <a class="btn btn-custom"
                                 href="index.php?menu='.$off.'" rel="tooltip" title="Log Out">
                                 <span>&nbsp;</span><i class="icon-off icon-white"></i>
                            </a>
 
                            '.$envelope.'
 
-                           <a class="btn btn-primary dropdown-toggle '.$active.'" data-toggle="dropdown"
+                           <a class="btn btn-custom dropdown-toggle '.$active.'" data-toggle="dropdown"
                                 href="#" rel="tooltip" title="Account">
                                 <i class="icon-user icon-white"></i>
                                 <span>'.$userlogin.'</span>
-                                <i class="caret"></i>
+                                <i class="caret icon-white"></i>
                            </a>';
 
-            $menuHTML .= ' <ul class="btn-primary dropdown-menu">';
+            $menuHTML .= ' <ul class="btn-custom dropdown-menu">';
 
             foreach ($userprofileMenus as $usermenu) {
                 $menuText = $hasButtonImages ?
@@ -522,18 +519,23 @@ function createHorizontalMenu($submenu=NULL){
             }
 
             $menuHTML .= '</ul></div>';
-            //$menuHTML .= '
-            //           <div class="container">';
-                        /*<div class="subnav subnav-fixed">
-                          <ul class="nav nav-pills">';*/
-            /*$menuHTML .= '<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                            <span class="icon-bar icon-white"></span>
-                            <span class="icon-bar icon-white"></span>
-                            <span class="icon-bar icon-white"></span>
-                          </button>';*/
-            //$menuHTML .= '<div class="subnav nav-collapse">';
-            $menuHTML .= '<div class="subnav">';
+
+
+            $menuHTML .= '<div class="navbar">
+                            <div id="subnav" class="navbar-inner">
+                             <div class="container">';
+
+            $menuHTML .= ' <a id="collapsednav" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </a>';
+
+            $menuHTML .=  '<div class="nav-collapse collapsed">';
             $menuHTML .= '<ul class="nav nav-pills">';
+
+
+
 
 
             foreach($menus['logged'] as $menu){
@@ -550,9 +552,8 @@ function createHorizontalMenu($submenu=NULL){
 
             }
 
-                    $menuHTML .= '</ul>';
+                    $menuHTML .= '</ul></div></div></div></div>';//close navbar + container
 
-            $menuHTML .='</div><!-- close subnav-->';
 
 
         }
@@ -1281,13 +1282,12 @@ function getNewMessage($userid){
 			$intro = array( $users[$row['author']], $lang['general_time_at'], date('H:i, Y.m.d', $row['time']));
 			$message['content'] .= nl2br($row['content']);
 
-            //$message['footer'] = '<input type="submit" class="btn btn-primary" value="'.$lang['general_readparticipe'].'"/>';
             $message['footer'] .= '<h6>'.substitute($lang['admin_messages_newmessage'], $intro).'</h6>';
             $message['footer'] .=
                 '<form name="msg_read" id="msg_read" method="POST" action="">
 						<input type="hidden" name="hf_read" value="'.$row['id'].'"/>
 		        </form>
-		        <a onclick="document.forms[\'msg_read\'].submit();" class="btn btn-primary"> '.$lang['general_readparticipe'].'</a>
+		        <a onclick="document.forms[\'msg_read\'].submit();" class="btn btn-custom"> '.$lang['general_readparticipe'].'</a>
 		         <button class="btn pull-left" data-dismiss="modal" data-target="#modal_'.$row['id'].'">
                     close
                </button>
