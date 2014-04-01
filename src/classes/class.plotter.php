@@ -19,7 +19,7 @@ class Plotter {
     }
 
 
-    public function rankingBarPlot($who,$where) {
+    public function rankingBarPlot($who,$where,$strings) {
 
 
         $mdpoints = $this->event->pointsPerMatchday($who);
@@ -84,8 +84,8 @@ class Plotter {
               $('#".$where."').bind('jqplotDataClick',
                 function (ev, seriesIndex, pointIndex, data) {
                   $('#".$where."Info').html(pointsPlot.axes.yaxis.ticks[pointIndex]+
-                            ', <i>'+pointsPlot.series[seriesIndex]['label']+'</i>'+
-                            ': '+data[0]);
+                            ', <i>'+pointsPlot.series[seriesIndex]['label']+'</i><b>'+
+                            ': '+data[0]+' ".$strings['points']."</b>');
                 }
               );
             });

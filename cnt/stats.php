@@ -17,7 +17,7 @@ zock! is a free software licensed under GPL (General public license) v3
 =================================== 
 */
 
-global $db, $settings, $events, $events_test;
+global $db, $settings, $events, $events_test,$cont;
 
     $userevents = $events_test->getUserEvents();
     $nb = sizeof($userevents);
@@ -76,6 +76,7 @@ if($nb2 != NULL && $nb != NULL){
     $plotter = new Plotter($thisevent);
     $ranking = new Ranking($thisevent);
     $rankOrder = array_keys($ranking->getRanking());
+    $langDict = array('points' => $cont->get('ranking_points'));
 
 
     echo "<div class='row'><div class='span7'>
@@ -86,7 +87,7 @@ if($nb2 != NULL && $nb != NULL){
     echo "
         <div id='chartPointsScript'>
         <script type=\"text/javascript\">
-        ".$plotter->rankingBarPlot($rankOrder,'chartPoints')."
+        ".$plotter->rankingBarPlot($rankOrder,'chartPoints',$langDict)."
         </script>
         <div>";
 
