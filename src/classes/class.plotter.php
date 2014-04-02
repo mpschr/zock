@@ -33,16 +33,18 @@ class Plotter {
         foreach($mdpoints as $md) {
             $mdname = array_pop($md);
             $matchdays[] = array('label' => $mdname);
-            $series[] = array_values($md);
+
+            $vals =    array_values($md);
+            $series[] =  array_map(function($v){
+                return (is_null($v)) ? 0 : $v;
+            },$vals);
         }
 
         $series = json_encode($series, JSON_NUMERIC_CHECK);
         $serieslabels = json_encode($matchdays);
 
         $p = "
-
-        $(document).ready(function(){
-          pointsPlot = $.jqplot('".$where."', ".$series.", {
+              pointsPlot = $.jqplot('".$where."', ".$series.", {
                 // Tell the plot to stack the bars.
                 stackSeries: true,
                 animate: !$.jqplot.use_excanvas,
@@ -88,7 +90,7 @@ class Plotter {
                             ': '+data[0]+' ".$strings['points']."</b>');
                 }
               );
-            });
+
 
         ";
         return $p;

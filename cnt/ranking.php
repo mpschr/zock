@@ -91,13 +91,13 @@ if ($betNb == 0) {
     $cleanurl = preg_replace('/(showuntil=)[a-zA-Z0-9:_]+[&]/i', '', $link_query);
     $cleanurl = $link . $cleanurl;
 
-    $body .= $lang['ranking_showrankinguntil'];
-
     $body .= $events_test->createEventsTabs($userevents);
     $queryfield = ($events['u']['e' . $_REQUEST['ev']]['score_input_type'] == 'results') ? 'score_h' : 'score';
 
-
-    $body .= '<form style="display:inline;">';
+    ////////FILTER BEGIN
+    $body .= '<div class="row"><div class="span2 offset1">';
+    $body .= $lang['ranking_showrankinguntil'].'</div>';
+    $body .= '<form id="filterform" class="align-middle" style="display:inline;">';
     $body .= '<select id="matchday_id" onChange="javascript: showUntil(\'' . $cleanurl . '\', \'matchday_id\')">';
     $query = "SELECT DISTINCT matchday, matchday_id
 						FROM " . PFIX . "_event_" . $_REQUEST['ev'] . "
@@ -177,6 +177,9 @@ if ($betNb == 0) {
     }
     $body .= '</select>';
     $body .= '</form>';
+    $body .= '</div>'; //row
+    ////////FILTER END
+
     if (isset($ante) && isset($post))
         $steplinks = $ante . ' | ' . $post;
     else
@@ -303,7 +306,7 @@ if ($betNb == 0) {
 
 
 
-    $body .= '<canvas id="rankingcanvas" width="480" height="200" style="border:1px solid #c3c3c3;">
+    $body .= '<canvas id="rankingcanvas" class="align-middle" width="480" height="200" style="border:1px solid #c3c3c3;">
 	Your browser does not support the HTML5 canvas tag.
 	</canvas><br/>';
 
@@ -311,11 +314,19 @@ if ($betNb == 0) {
     $body .= substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));
 
 
+    $body .= '<div class="tabbable tabs-left">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#rankingtext" data-toggle="tab">'.$cont->get('ranking_title').'</a></li>
+                 <li><a href="#rankingplot" data-toggle="tab">Plot</a></li>
+            </ul>';
+
+    $body .= '<div class="tab-content">
+                <div class="tab-pane active" id="rankingtext">';
     $body .= '<div class="accordion" id="ranking-accordion">';
 
     $body .= '<div class="row title">
 			<div class="span1 column">' . $lang['ranking_rank'] . '</div>
-			<div class="span1 column">' . $lang['general_who'] . '</div>
+			<div class="span2 column">' . $lang['general_who'] . '</div>
 			<div class="span1 column"><a href="' . $link . 'sort=points' . $addtosorturl . '">' . $lang['ranking_points'] . '</a></div>';
     if ($evinfo['stake_mode'] == 'permatch') {
         $body .= '<div class="span1 column"><a href="' . $link . 'sort=gain' . $addtosorturl . '">' . $lang['ranking_gain'] . '</a></div>';
@@ -398,7 +409,7 @@ if ($betNb == 0) {
   		    style="text-decoration:none; color:black">
           <div class="row">
 				<div class=" span1">' . $rankrepresentation . '	</div>';
-        $body .= '<div class="span1" ><b>'. $userarray[$u] .'</b></div>';
+        $body .= '<div class="span2" ><b>'. $userarray[$u] .'</b></div>';
         $body .= '<div class=" span1 ' . $cl_points . '">' . $info['points'][$u] . '</div>';
         if ($info['rank'][$u] != '"') {
             $thisranksjackpot = $info['jackpots'][$info['rank'][$u]];
@@ -451,15 +462,47 @@ if ($betNb == 0) {
     }
     $body .= '<div class="span1">' . (array_sum($info['money']) + array_sum($info['jackpots'])) . '</div>
 			<div class="span1">' . array_sum($info['correct']) . '</div>';
-    //if ($difftrue) $body .= '<td>' . array_sum($info['diff']) . '</td>';
-    //if ($almosttrue) $body .= '<td>' . array_sum($info['almost']) . '</td>';
     $body .= '<div class="span1">' . array_sum($info['wrong']) . '</div>';
     $body .= '</div>';
-//*simulation*/ /*
+
+
+    $body .= '</div></div>
+                <div class="tab-pane" id="rankingplot">';
+
+    $plotter = new Plotter($thisevent);
+    $ranking = new Ranking($thisevent);
+    $rankOrder = array_keys($ranking->getRanking());
+    $langDict = array('points' => $cont->get('ranking_points'));
+
+
+    $body .= "<div class='row'><div class='span7'>
+            <span id='chartPointsInfo'>click chart</span>
+            <div id='chartPoints'></div></div></div>";
+
+
+    $body .= "
+        <div id='chartPointsScript'>
+        <script type=\"text/javascript\">
+        function paintRankingPlot() {
+            ".$plotter->rankingBarPlot($rankOrder,'chartPoints',$langDict)."
+            }
+        </script>
+        </div>";
+
+
+    $body .=  '</div></div></div>';
+
 
 //*simulation*/
      $body .= '
 	<script>
+
+$("a[data-toggle=\"tab\"]").on("shown", function (e) {
+    if(e.target.href.indexOf("#rankingplot")>-1) {
+        paintRankingPlot();
+    }
+})
+
 
 	var c=document.getElementById("rankingcanvas");
 	var ctx=c.getContext("2d");
