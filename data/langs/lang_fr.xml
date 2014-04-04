@@ -1,1761 +1,342 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<!--
-=================================== 
-zock!-Language File 
- 
-Translated by 
-
-* Michael Schroeder:
-   michael.p.schroeder@gmail.com
-* 
-* 
- 
-http://zock.sf.net 
- 
-zock! is a free software licensed under GPL (General public license) v3 
-      more information look in the root folder for "LICENSE". 
-=================================== 
-- Generation Time: Aug 02, 2008 at 11:17 PM
--->
-<zock>
-    <zock_lang>
-        <label>loginhome_paystake</label>
-        <cnt>S'il te plaît, payer l'organisateur le pari de l'événement: 1$. Si tu l'as déjà fait, il partage avec lui ou elle.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_reimbursement</label>
-        <cnt>Tu devriais bientôt obtenir le gain. Sinon, faire pression sur les organisateurs. :-)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_filloutbankdetails</label>
-        <cnt>Remplir les coordonnées bancaires de toi ainsi tu peux être remboursé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_filloutname</label>
-        <cnt>Remplir ton nom, pour que les joueurs sachent qui tu es.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_putpicture</label>
-        <cnt>Charge une image dans votre profil, sinon c'est un cochon.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_passed</label>
-        <cnt>passé</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_betcloses</label>
-        <cnt>Pari ferme en</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_info</label>
-        <cnt>info</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_paid</label>
-        <cnt>a payé</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notpaid</label>
-        <cnt>n'a pas payé</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_content</label>
-        <cnt>D'ici tu peux maintenir ton bureau de paris: manipuler les paramètres, gérer les jeux de pronotics &amp; les participants etc. Simplement jète un coup d'oeil sur le menu.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activate</label>
-        <cnt>Activer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activatedialog</label>
-        <cnt>Ce pas n'est pas réversible. Est-ce que veux-tu vraiment activer ce jeu de pronostics?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activatefirst</label>
-        <cnt>Ce part est seulement disponible si le jeu de pronostics est activé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_active</label>
-        <cnt>Ce jeu de pronostics est active. Les utilisateurs y peuvent s'enregistrer.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_addemptymatches</label>
-        <cnt>Ajoute des parties vides</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_addnew</label>
-        <cnt>Créer nouvel jeu de pronostics</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_adduser</label>
-        <cnt>ajouter un utilisateur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approve</label>
-        <cnt>Approuver</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approved_message</label>
-        <cnt>Salut $1 T'as été admis pour le jeu de pronostics $2! Maintenant, tu peux aller pronostiquer. http://donmiguel.sagex.ch http://donmiguel.sagex.ch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approved_subject</label>
-        <cnt>$1, T'en fait part!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_changecompetitor</label>
-        <cnt>Changer compétiteur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_competitorchangeto</label>
-        <cnt>Changer le nom en:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_competitortochange</label>
-        <cnt>Le nom à changer:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_currency</label>
-        <cnt>Monnaie:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deadline</label>
-        <cnt>Date limite</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deadlineover</label>
-        <cnt>La date limite a passé! Tu peux tout de même encore ajouter un utilisateur de plus:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deny</label>
-        <cnt>refuser</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_edit</label>
-        <cnt>Contrôler un jeu de pronostics</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_enoughadds</label>
-        <cnt>Tu ne peux pas ajouter plus de matches en une fois. Pour ajouter d'autres il faut sauvegarder avant.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_home</label>
-        <cnt>Hôte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_howmanyemptymatches</label>
-        <cnt>Combien de parties vides amerais-tu ajouter?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_inactive</label>
-        <cnt>Ce jeu de pronostics n'est pas activé et pas visible pour les utilisateurs. Les champs &quot;Date limite&quot;, &quot;Monnaie&quot;, &quot;Enjeu par match&quot; et &quot;Précision d'arrondissement&quot; ne seront plus editables dès que l'activation s'est effectué.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_installevent</label>
-        <cnt>Installer un horaire d'événement</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matchday</label>
-        <cnt>Jour</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matches_content</label>
-        <cnt>Ajoute des jeus ou edite les existants. Pour changer le nom d'une équipe, clique sur &lt;b&gt;changer competiteur&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matches_title</label>
-        <cnt>Matches</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_name</label>
-        <cnt>Nom de l'évènement:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nomatches</label>
-        <cnt>Il n'y a pas de matches pour cet évènement! Clique sur &lt;b&gt;+ Matches&lt;/b&gt; pour en ajouter quelques-uns. Fait attention que tu tape le temps des coupe d'envois au format correcte, s'il te plait.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_public</label>
-        <cnt>Public:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_results_title</label>
-        <cnt>Résultats</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_round</label>
-        <cnt>Précision d'arrondissement:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_score</label>
-        <cnt>Résultat</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_title</label>
-        <cnt>Paramètres</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_special</label>
-        <cnt>Ajout</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stake_permatch</label>
-        <cnt>Enjeu par match:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_time</label>
-        <cnt>Coup d'envoie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_title</label>
-        <cnt>Jeux de Pronostics</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_usersapproved</label>
-        <cnt>Utilisateurs admis:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_usersdenied</label>
-        <cnt>Utilisateurs refusés:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_userswaiting</label>
-        <cnt>Utilisateurs attendants:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_visitor</label>
-        <cnt>Visiteur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_wait</label>
-        <cnt>laisser attendre</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_addnew</label>
-        <cnt>Ajouter un nouvel élément.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_editbelow</label>
-        <cnt>Edite un élément de la liste ci-dessous.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listall</label>
-        <cnt>toute la liste</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listalluncompleted</label>
-        <cnt>liste de tous les éléments non complétés</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listlanguncompleted</label>
-        <cnt>liste des éléments non complétés de ta langue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_nextempty</label>
-        <cnt>prochain élément vide</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_previousempty</label>
-        <cnt>élément vide précédent</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_title</label>
-        <cnt>Langues</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text</label>
-        <cnt>Ces trois champs ci-dessous sont pour indiquer à où les participants doivent virer les enjeux. </cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text2</label>
-        <cnt>..le deuxième est pour le &lt;b&gt;numéro de compte&lt;/b&gt; (p.ex. IBAN ou numéro du compte postale).. </cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text1</label>
-        <cnt>Le premier champ est pour le &lt;b&gt;type de compte&lt;/b&gt; (p.ex. postal ou bancaire).. </cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_description</label>
-        <cnt>Description</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_descriptiontext</label>
-        <cnt>Une description/un slogan court(e) qui sera affiché(e) dans l'en-tête du site.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_formlines</label>
-        <cnt># lignes de formulaires:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_formlinestext</label>
-        <cnt>Definit combien de lignes sont montrées lors d'un formulaire long. P.ex. où tu pronostiques.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_lang</label>
-        <cnt>Choisis une langue standard pour le site.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_name</label>
-        <cnt>Nom</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_nametext</label>
-        <cnt>Quel sera le nom de ton bureau de paris?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_style</label>
-        <cnt>Style:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_styletext</label>
-        <cnt>Choisis un style pour le site web.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_title</label>
-        <cnt>Paramètres</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_title</label>
-        <cnt>Admin</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_answer</label>
-        <cnt>Réponse à:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_comment</label>
-        <cnt>Commentaire:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_commenttitle</label>
-        <cnt>Titre:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_participatefirst</label>
-        <cnt>Avant que tu puisse faire des commentaires, tu dois participer à un jeu de pronostics.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_reply</label>
-        <cnt>Répond</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_title</label>
-        <cnt>Commentaires</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_attention</label>
-        <cnt>Attention:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_commentsave</label>
-        <cnt>Aucun commentaire n'a pu être sauvegardé!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_content</label>
-        <cnt>J'aimerais &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Oui, vas-y&quot;&gt;rentrer&lt;/a&gt;!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_doesnotparticipate</label>
-        <cnt>Cet utilisateur ne participe pas à ce jeu de pronostics!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_filledform</label>
-        <cnt>Le formulaire rempli contient encore des erreurs (les entrées marquées rouges).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_login</label>
-        <cnt>Le nom de login ou le mot de passe a été faux!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_menu</label>
-        <cnt>Ce menu n'est pas disponible pour toi!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_myprofile_password</label>
-        <cnt>Une erreur est apparu! Essaie encore une fois!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_names</label>
-        <cnt>Tu dois entrer tes noms.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_notinevent</label>
-        <cnt>Tu n'as pas la permission de laisser afficher de l'information pour le jeu de pronostics demandé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register</label>
-        <cnt>Tu n'as pas pu être enrégsitré, parce que tes entrées ont provoquées un conflit.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_exists</label>
-        <cnt>Ce nom d'utilisateur est déjà occupé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_save</label>
-        <cnt>Erreur pendant enregistration! Essaie encore une fois de créer un compte.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_site</label>
-        <cnt>Ce site n'est pas disponible pour toi!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_title</label>
-        <cnt>Erreur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_cup_phase</label>
-        <cnt>Conclusions de match possibles lors de la phase coupe: &lt;b&gt;seulement&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_deadline_day_before</label>
-        <cnt>Le pronostic est à déposer en ligne au plus tard à &lt;b&gt;1 avant minuit&lt;/b&gt; le jour avant que le match a lieu. Dès que le jour du match a écloré (00:00) il n'est plus possible de pronistiquer!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_deadline_toolate</label>
-        <cnt>Ceux qui sont trop tard: Tant pis, il n'y a rien qui pouvait être changé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount</label>
-        <cnt>Compte définitif</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_gainplusjp</label>
-        <cnt>La somme gagné finale consiste en la monnaie gagné durant le jeu de pronostics et le lot du jackpot. NOTRANS</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_nobodycorrect</label>
-        <cnt>Si le résultat correct n'a pas été pronostiqué,</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_correct</label>
-        <cnt>un pronostique correcte vaut &lt;b&gt; $1 point(s)&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_almost</label>
-        <cnt>une conclusions de match pronostiqué correctement ($1 3-2 au lieu de 4-1) vaut &lt;b&gt;$2 point(s)&lt;/b&gt; </cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_correcttip</label>
-        <cnt>Si le résultat correct a été pronostiqué, le participant concernant reçevra tous les enjeux pour ce match (c.à.d.: #participants * $1)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_correcttips</label>
-        <cnt>Si plusieurs participants ont pronostiqué le résultat correct, les enjeux pour ce match est partagé entre eux le mieux possible. Un reste éventuel est déposé au jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_group_phase</label>
-        <cnt>Conclusion de match possible lors de la phase de poule:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot</label>
-        <cnt>La distribution du jackpot dépend des points. Le plus points qu'on a, le plus grand est le lot du jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_distributeon</label>
-        <cnt>La distribution s'effectue sur les premiers $1 du classement.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_linformula</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_expformula</label>
-        <cnt>La distribution s'effectuera dans une manière exponentiel. La formule est: &lt;b&gt;&lt;i&gt;&quot;Lot(Rang) = (1-k)^(Rang-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Un petit reste demeure (évidamment). Pour distribuer celui-là, la même formule est appliqué jusqu'à ce que rien ne demeure. &lt;b&gt;k&lt;/b&gt; est $1 pour ce jeu de pronostics. Ça ammène que le premier du classement reçevra un petit peu plus que $2 du jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_samerank</label>
-        <cnt>Si plusieurs participants ont gagné une totalité de points égale, les lots du jackpot pour les rangs occupé des participants en questions sont additionné est la somme est distribué symmétriquement entre les participants.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_overview</label>
-        <cnt>Pour assurer que personne ne peut tricher, les pronostics sont visibles pour les autres et les comptes sont protecté par un mot de passe.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_penalty_decision</label>
-        <cnt>Si un jeu est décidé par des tirs au but, l'équipe gangante reçoit un but additioné au résultat du match.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points</label>
-        <cnt>Durant le jeu de pronostics, des points sont distribué aux participants:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_precise_tip</label>
-        <cnt>Pour chaque match, un résultat exacte est pronostiqué:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_rules</label>
-        <cnt>La manière avec laquell le jeu de pronostics marche est expliqué par les points ci-suivants:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_sealofapproval</label>
-        <cnt>à ne pas oublier: le label de qualité le plus joli du monde du $1</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_stake</label>
-        <cnt>Enjeu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_stakepermatch</label>
-        <cnt>Les enjeux pour chaque match (chaque pronostic) est $1. $2 de jeux ont lieu lors de cet évènement. Donc, l'enjeu pour les jeux es de $3</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake</label>
-        <cnt>A ça, $1 est ajouté à l'enjeu.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake_jackpot</label>
-        <cnt>Cette parte est destinée au jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake_winner</label>
-        <cnt>Cette parte est destinée au gagnant.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_staketotal</label>
-        <cnt>L'enjeu total est de $1! Cet argent est à verser avant qu'on puisse commencer à pronostiquer.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>footer_contact</label>
-        <cnt>contacte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>footer_server_time</label>
-        <cnt>Temps du serveur actuel</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_and</label>
-        <cnt>et</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bank_account</label>
-        <cnt>Compte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bettingOffice</label>
-        <cnt>bureau de paris</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_by</label>
-        <cnt>de</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_cancel</label>
-        <cnt>annuler</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_defeat</label>
-        <cnt>défaite</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_edit</label>
-        <cnt>editer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_eg</label>
-        <cnt>p.ex.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_famname</label>
-        <cnt>Nom de famille</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_furtherevents</label>
-        <cnt>Jeux de pronostics ultérieurs:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_goback</label>
-        <cnt>retour</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_goforward</label>
-        <cnt>suivant</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hello</label>
-        <cnt>Salut</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_id</label>
-        <cnt>id</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_langchange</label>
-        <cnt>Tu veux changer la langue?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_language</label>
-        <cnt>Langue:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_maximize</label>
-        <cnt>maximiser</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minimize</label>
-        <cnt>minimiser</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_name</label>
-        <cnt>Prénom</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_no</label>
-        <cnt>Non</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_nomatches</label>
-        <cnt>Il n'y a pas encore de jeux déjà joué de ce jeu de pronostics.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_page</label>
-        <cnt>Page:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_publicevents</label>
-        <cnt>Jeux de pronostics publics:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_read</label>
-        <cnt>lire</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_redirect</label>
-        <cnt>Tu seras redirigé immédiatement.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_save</label>
-        <cnt>sauvegarder</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savechanges</label>
-        <cnt>sauvegarder changements</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savednotok</label>
-        <cnt>Erreur lors de sauvegarder!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savedok</label>
-        <cnt>sauvegardé avec succès!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_show_info</label>
-        <cnt>En montre des informations!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thislanguage</label>
-        <cnt>Français</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tie</label>
-        <cnt>nul</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_time_at</label>
-        <cnt>à</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_updating</label>
-        <cnt>Mise à jour...</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_upload</label>
-        <cnt>charger</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_victory</label>
-        <cnt>victoire</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_who</label>
-        <cnt>Qui</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_yes</label>
-        <cnt>Oui</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_yourevents</label>
-        <cnt>Tes jeux de pronostics:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_content</label>
-        <cnt>Cette site te donne la possibilité de parier sur des évènements sportifs.&lt;br /&gt; Pour pouvoir participer tu dois t'enregistrer en suivant le lien suivant : &lt;a href=&quot;?menu=register&quot;&gt;ouvrir un compte&lt;/a&gt;&lt;p /&gt; Si tu as déjà un compte, clique ici : &lt;a href=&quot;?menu=login&quot;&gt;connexion&lt;/a&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_events</label>
-        <cnt>En ce moment il y a les jeux de pronostics suivants:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_fun</label>
-        <cnt>Amuse-toi bien!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_noevents</label>
-        <cnt>Il n'y a pas encore de jeux de pronostics publics actifs au moment.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_title</label>
-        <cnt>Acceuil</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_welcome</label>
-        <cnt>Bienvenue au bureau de paris!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_content</label>
-        <cnt>Tape les informations nécessaires pour te connecter:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_title</label>
-        <cnt>Connexion</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_yourlogin</label>
-        <cnt>Ton nom:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_yourpw</label>
-        <cnt>Ton mot de passe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_content</label>
-        <cnt>Tu t'es connecté avec succès!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_newcomments</label>
-        <cnt>Ce sont les commentaires les plus récents:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_noevent</label>
-        <cnt>Tu ne participes encore à aucun jeu de pronotics. Tu peux changer ça dans &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;ton profile&lt;/a&gt; où tu peux aussi régler autres paramètres. Apart ça, il n'y a pas encore très beaucoup à ton service pour le moment.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_title</label>
-        <cnt>Acceuil</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_yourevent</label>
-        <cnt>Tu participes au jeu de pronostics suivant:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_yourevents</label>
-        <cnt>Tu participes aux jeux de pronostics suivants:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>logout_content</label>
-        <cnt>Tu es maintenant déconnecté et tu vas être redirigé immédiatement.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>logout_title</label>
-        <cnt>Déconnexion</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_nopicture</label>
-        <cnt>Pas d'image disponible.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_picture</label>
-        <cnt>Image:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_text</label>
-        <cnt>Texte:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_title</label>
-        <cnt>Apparance</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_content</label>
-        <cnt>Ici tu peux déterminer ton apparance aux autres et l'apparance du bureau de paris à toi. En plus c'est possible de changer le mot de passe.&lt;p/&gt; Pour toute modification que tu désires apporter à ton profile, utilise le sous-menu de profile.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_content</label>
-        <cnt>Tape une fois l’ancien mot de passe et après deux fois le nouveau mot de passe afin de le changer:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_new</label>
-        <cnt>Nouveau mot de passe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_old</label>
-        <cnt>Ancien mot de passe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_title</label>
-        <cnt>Mot de passe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_approved</label>
-        <cnt>approuvé:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_changeemail</label>
-        <cnt>Pour changer ton adresse email tu dois la taper deux fois:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_content</label>
-        <cnt>Ici, tu peux entre autres t'annoncer pour un jeu de pronostics.&lt;br/&gt; Un jeu de pronostics &quot;ouvert&quot; est un jeu auquel tu peux participer, &quot;attendant&quot; veux dire, qu'il faut encore attendre l'admission par l'administrateur, &quot;approuvé&quot; &amp; &quot;refusé&quot; signifient que ton inscription est acceptée définitivement pour le jeu de pronostics, ou qu'il n'est pas possible pour toi de participer.
+<properties>
+    <entry key="loginhome_paystake">S'il te plaît, payer l'organisateur le pari de l'événement: 1$. Si tu l'as déjà fait, il partage avec lui ou elle.</entry>
+    <entry key="loginhome_reimbursement">Tu devriais bientôt obtenir le gain. Sinon, faire pression sur les organisateurs. :-)</entry>
+    <entry key="loginhome_filloutbankdetails">Remplir les coordonnées bancaires de toi ainsi tu peux être remboursé.</entry>
+    <entry key="loginhome_filloutname">Remplir ton nom, pour que les joueurs sachent qui tu es.</entry>
+    <entry key="loginhome_putpicture">Charge une image dans votre profil, sinon c'est un cochon.</entry>
+    <entry key="general_passed">passé</entry>
+    <entry key="mytips_betcloses">Pari ferme en</entry>
+    <entry key="general_info">info</entry>
+    <entry key="admin_settings_paid">a payé</entry>
+    <entry key="admin_settings_notpaid">n'a pas payé</entry>
+    <entry key="admin_content">D'ici tu peux maintenir ton bureau de paris: manipuler les paramètres, gérer les jeux de pronotics &amp; les participants etc. Simplement jète un coup d'oeil sur le menu.</entry>
+    <entry key="admin_events_activate">Activer</entry>
+    <entry key="admin_events_activatedialog">Ce pas n'est pas réversible. Est-ce que veux-tu vraiment activer ce jeu de pronostics?</entry>
+    <entry key="admin_events_activatefirst">Ce part est seulement disponible si le jeu de pronostics est activé.</entry>
+    <entry key="admin_events_active">Ce jeu de pronostics est active. Les utilisateurs y peuvent s'enregistrer.</entry>
+    <entry key="admin_events_addemptymatches">Ajoute des parties vides</entry>
+    <entry key="admin_events_addnew">Créer nouvel jeu de pronostics</entry>
+    <entry key="admin_events_adduser">ajouter un utilisateur</entry>
+    <entry key="admin_events_approve">Approuver</entry>
+    <entry key="admin_events_approved_message">Salut $1 T'as été admis pour le jeu de pronostics $2! Maintenant, tu peux aller pronostiquer. http://donmiguel.sagex.ch http://donmiguel.sagex.ch</entry>
+    <entry key="admin_events_approved_subject">$1, T'en fait part!</entry>
+    <entry key="admin_events_changecompetitor">Changer compétiteur</entry>
+    <entry key="admin_events_competitorchangeto">Changer le nom en:</entry>
+    <entry key="admin_events_competitortochange">Le nom à changer:</entry>
+    <entry key="admin_events_currency">Monnaie:</entry>
+    <entry key="admin_events_deadline">Date limite</entry>
+    <entry key="admin_events_deadlineover">La date limite a passé! Tu peux tout de même encore ajouter un utilisateur de plus:</entry>
+    <entry key="admin_events_deny">refuser</entry>
+    <entry key="admin_events_edit">Contrôler un jeu de pronostics</entry>
+    <entry key="admin_events_enoughadds">Tu ne peux pas ajouter plus de matches en une fois. Pour ajouter d'autres il faut sauvegarder avant.</entry>
+    <entry key="admin_events_home">Hôte</entry>
+    <entry key="admin_events_howmanyemptymatches">Combien de parties vides amerais-tu ajouter?</entry>
+    <entry key="admin_events_inactive">Ce jeu de pronostics n'est pas activé et pas visible pour les utilisateurs. Les champs &quot;Date limite&quot;, &quot;Monnaie&quot;, &quot;Enjeu par match&quot; et &quot;Précision d'arrondissement&quot; ne seront plus editables dès que l'activation s'est effectué.</entry>
+    <entry key="admin_events_installevent">Installer un horaire d'événement</entry>
+    <entry key="admin_events_matchday">Jour</entry>
+    <entry key="admin_events_matches_content">Ajoute des jeus ou edite les existants. Pour changer le nom d'une équipe, clique sur &lt;b&gt;changer competiteur&lt;/b&gt;</entry>
+    <entry key="admin_events_matches_title">Matches</entry>
+    <entry key="admin_events_name">Nom de l'évènement:</entry>
+    <entry key="admin_events_nomatches">Il n'y a pas de matches pour cet évènement! Clique sur &lt;b&gt;+ Matches&lt;/b&gt; pour en ajouter quelques-uns. Fait attention que tu tape le temps des coupe d'envois au format correcte, s'il te plait.</entry>
+    <entry key="admin_events_public">Public:</entry>
+    <entry key="admin_events_results_title">Résultats</entry>
+    <entry key="admin_events_round">Précision d'arrondissement:</entry>
+    <entry key="admin_events_score">Résultat</entry>
+    <entry key="admin_events_settings_title">Paramètres</entry>
+    <entry key="admin_events_special">Ajout</entry>
+    <entry key="admin_events_settings_stake_permatch">Enjeu par match:</entry>
+    <entry key="admin_events_time">Coup d'envoie</entry>
+    <entry key="admin_events_title">Jeux de Pronostics</entry>
+    <entry key="admin_events_usersapproved">Utilisateurs admis:</entry>
+    <entry key="admin_events_usersdenied">Utilisateurs refusés:</entry>
+    <entry key="admin_events_userswaiting">Utilisateurs attendants:</entry>
+    <entry key="admin_events_visitor">Visiteur</entry>
+    <entry key="admin_events_wait">laisser attendre</entry>
+    <entry key="admin_lang_addnew">Ajouter un nouvel élément.</entry>
+    <entry key="admin_lang_editbelow">Edite un élément de la liste ci-dessous.</entry>
+    <entry key="admin_lang_listall">toute la liste</entry>
+    <entry key="admin_lang_listalluncompleted">liste de tous les éléments non complétés</entry>
+    <entry key="admin_lang_listlanguncompleted">liste des éléments non complétés de ta langue</entry>
+    <entry key="admin_lang_nextempty">prochain élément vide</entry>
+    <entry key="admin_lang_previousempty">élément vide précédent</entry>
+    <entry key="admin_lang_title">Langues</entry>
+    <entry key="admin_settings_bank_account_text">Ces trois champs ci-dessous sont pour indiquer à où les participants doivent virer les enjeux. </entry>
+    <entry key="admin_settings_bank_account_text2">..le deuxième est pour le &lt;b&gt;numéro de compte&lt;/b&gt; (p.ex. IBAN ou numéro du compte postale).. </entry>
+    <entry key="admin_settings_bank_account_text1">Le premier champ est pour le &lt;b&gt;type de compte&lt;/b&gt; (p.ex. postal ou bancaire).. </entry>
+    <entry key="admin_settings_description">Description</entry>
+    <entry key="admin_settings_descriptiontext">Une description/un slogan court(e) qui sera affiché(e) dans l'en-tête du site.</entry>
+    <entry key="admin_settings_formlines"># lignes de formulaires:</entry>
+    <entry key="admin_settings_formlinestext">Definit combien de lignes sont montrées lors d'un formulaire long. P.ex. où tu pronostiques.</entry>
+    <entry key="admin_settings_lang">Choisis une langue standard pour le site.</entry>
+    <entry key="admin_settings_name">Nom</entry>
+    <entry key="admin_settings_nametext">Quel sera le nom de ton bureau de paris?</entry>
+    <entry key="admin_settings_style">Style:</entry>
+    <entry key="admin_settings_styletext">Choisis un style pour le site web.</entry>
+    <entry key="admin_settings_title">Paramètres</entry>
+    <entry key="admin_title">Admin</entry>
+    <entry key="comments_answer">Réponse à:</entry>
+    <entry key="comments_comment">Commentaire:</entry>
+    <entry key="comments_commenttitle">Titre:</entry>
+    <entry key="comments_participatefirst">Avant que tu puisse faire des commentaires, tu dois participer à un jeu de pronostics.</entry>
+    <entry key="comments_reply">Répond</entry>
+    <entry key="comments_title">Commentaires</entry>
+    <entry key="error_attention">Attention:</entry>
+    <entry key="error_commentsave">Aucun commentaire n'a pu être sauvegardé!</entry>
+    <entry key="error_content">J'aimerais &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Oui, vas-y&quot;&gt;rentrer&lt;/a&gt;!</entry>
+    <entry key="error_doesnotparticipate">Cet utilisateur ne participe pas à ce jeu de pronostics!</entry>
+    <entry key="error_filledform">Le formulaire rempli contient encore des erreurs (les entrées marquées rouges).</entry>
+    <entry key="error_login">Le nom de login ou le mot de passe a été faux!</entry>
+    <entry key="error_menu">Ce menu n'est pas disponible pour toi!</entry>
+    <entry key="error_myprofile_password">Une erreur est apparu! Essaie encore une fois!</entry>
+    <entry key="error_names">Tu dois entrer tes noms.</entry>
+    <entry key="error_notinevent">Tu n'as pas la permission de laisser afficher de l'information pour le jeu de pronostics demandé.</entry>
+    <entry key="error_register">Tu n'as pas pu être enrégsitré, parce que tes entrées ont provoquées un conflit.</entry>
+    <entry key="error_register_exists">Ce nom d'utilisateur est déjà occupé.</entry>
+    <entry key="error_register_save">Erreur pendant enregistration! Essaie encore une fois de créer un compte.</entry>
+    <entry key="error_site">Ce site n'est pas disponible pour toi!</entry>
+    <entry key="error_title">Erreur</entry>
+    <entry key="eventinfo_cup_phase">Conclusions de match possibles lors de la phase coupe: &lt;b&gt;seulement&lt;/b&gt;</entry>
+    <entry key="eventinfo_deadline_day_before">Le pronostic est à déposer en ligne au plus tard à &lt;b&gt;1 avant minuit&lt;/b&gt; le jour avant que le match a lieu. Dès que le jour du match a écloré (00:00) il n'est plus possible de pronistiquer!</entry>
+    <entry key="eventinfo_deadline_toolate">Ceux qui sont trop tard: Tant pis, il n'y a rien qui pouvait être changé.</entry>
+    <entry key="eventinfo_finalaccount">Compte définitif</entry>
+    <entry key="eventinfo_finalaccount_gainplusjp">La somme gagné finale consiste en la monnaie gagné durant le jeu de pronostics et le lot du jackpot. NOTRANS</entry>
+    <entry key="eventinfo_gain_nobodycorrect">Si le résultat correct n'a pas été pronostiqué,</entry>
+    <entry key="eventinfo_points_correct">un pronostique correcte vaut &lt;b&gt; $1 point(s)&lt;/b&gt;</entry>
+    <entry key="eventinfo_points_almost">une conclusions de match pronostiqué correctement ($1 3-2 au lieu de 4-1) vaut &lt;b&gt;$2 point(s)&lt;/b&gt; </entry>
+    <entry key="eventinfo_gain_correcttip">Si le résultat correct a été pronostiqué, le participant concernant reçevra tous les enjeux pour ce match (c.à.d.: #participants * $1)</entry>
+    <entry key="eventinfo_gain_correcttips">Si plusieurs participants ont pronostiqué le résultat correct, les enjeux pour ce match est partagé entre eux le mieux possible. Un reste éventuel est déposé au jackpot.</entry>
+    <entry key="eventinfo_group_phase">Conclusion de match possible lors de la phase de poule:</entry>
+    <entry key="eventinfo_jackpot">La distribution du jackpot dépend des points. Le plus points qu'on a, le plus grand est le lot du jackpot.</entry>
+    <entry key="eventinfo_jackpot_distributeon">La distribution s'effectue sur les premiers $1 du classement.</entry>
+    <entry key="eventinfo_jackpot_expformula">La distribution s'effectuera dans une manière exponentiel. La formule est: &lt;b&gt;&lt;i&gt;&quot;Lot(Rang) = (1-k)^(Rang-1) * k * Jackpot&quot;&lt;/i&gt;&lt;/b&gt;. Un petit reste demeure (évidamment). Pour distribuer celui-là, la même formule est appliqué jusqu'à ce que rien ne demeure. &lt;b&gt;k&lt;/b&gt; est $1 pour ce jeu de pronostics. Ça ammène que le premier du classement reçevra un petit peu plus que $2 du jackpot.</entry>
+    <entry key="eventinfo_jackpot_samerank">Si plusieurs participants ont gagné une totalité de points égale, les lots du jackpot pour les rangs occupé des participants en questions sont additionné est la somme est distribué symmétriquement entre les participants.</entry>
+    <entry key="eventinfo_overview">Pour assurer que personne ne peut tricher, les pronostics sont visibles pour les autres et les comptes sont protecté par un mot de passe.</entry>
+    <entry key="eventinfo_penalty_decision">Si un jeu est décidé par des tirs au but, l'équipe gangante reçoit un but additioné au résultat du match.</entry>
+    <entry key="eventinfo_points">Durant le jeu de pronostics, des points sont distribué aux participants:</entry>
+    <entry key="eventinfo_precise_tip">Pour chaque match, un résultat exacte est pronostiqué:</entry>
+    <entry key="eventinfo_rules">La manière avec laquell le jeu de pronostics marche est expliqué par les points ci-suivants:</entry>
+    <entry key="eventinfo_sealofapproval">à ne pas oublier: le label de qualité le plus joli du monde du $1</entry>
+    <entry key="eventinfo_stake">Enjeu</entry>
+    <entry key="eventinfo_stakepermatch">Les enjeux pour chaque match (chaque pronostic) est $1. $2 de jeux ont lieu lors de cet évènement. Donc, l'enjeu pour les jeux es de $3</entry>
+    <entry key="eventinfo_extrastake">A ça, $1 est ajouté à l'enjeu.</entry>
+    <entry key="eventinfo_extrastake_jackpot">Cette parte est destinée au jackpot.</entry>
+    <entry key="eventinfo_extrastake_winner">Cette parte est destinée au gagnant.</entry>
+    <entry key="eventinfo_staketotal">L'enjeu total est de $1! Cet argent est à verser avant qu'on puisse commencer à pronostiquer.</entry>
+    <entry key="footer_contact">contacte</entry>
+    <entry key="footer_server_time">Temps du serveur actuel</entry>
+    <entry key="general_and">et</entry>
+    <entry key="general_bank_account">Compte</entry>
+    <entry key="general_bettingOffice">bureau de paris</entry>
+    <entry key="general_by">de</entry>
+    <entry key="general_cancel">annuler</entry>
+    <entry key="general_defeat">défaite</entry>
+    <entry key="general_edit">editer</entry>
+    <entry key="general_eg">p.ex.</entry>
+    <entry key="general_famname">Nom de famille</entry>
+    <entry key="general_furtherevents">Jeux de pronostics ultérieurs:</entry>
+    <entry key="general_goback">retour</entry>
+    <entry key="general_goforward">suivant</entry>
+    <entry key="general_hello">Salut</entry>
+    <entry key="general_id">id</entry>
+    <entry key="general_langchange">Tu veux changer la langue?</entry>
+    <entry key="general_language">Langue:</entry>
+    <entry key="general_maximize">maximiser</entry>
+    <entry key="general_minimize">minimiser</entry>
+    <entry key="general_name">Prénom</entry>
+    <entry key="general_no">Non</entry>
+    <entry key="general_nomatches">Il n'y a pas encore de jeux déjà joué de ce jeu de pronostics.</entry>
+    <entry key="general_page">Page:</entry>
+    <entry key="general_publicevents">Jeux de pronostics publics:</entry>
+    <entry key="general_read">lire</entry>
+    <entry key="general_redirect">Tu seras redirigé immédiatement.</entry>
+    <entry key="general_save">sauvegarder</entry>
+    <entry key="general_savechanges">sauvegarder changements</entry>
+    <entry key="general_savednotok">Erreur lors de sauvegarder!</entry>
+    <entry key="general_savedok">sauvegardé avec succès!</entry>
+    <entry key="general_show_info">En montre des informations!</entry>
+    <entry key="general_thislanguage">Français</entry>
+    <entry key="general_tie">nul</entry>
+    <entry key="general_time_at">à</entry>
+    <entry key="general_updating">Mise à jour...</entry>
+    <entry key="general_upload">charger</entry>
+    <entry key="general_victory">victoire</entry>
+    <entry key="general_who">Qui</entry>
+    <entry key="general_yes">Oui</entry>
+    <entry key="general_yourevents">Tes jeux de pronostics:</entry>
+    <entry key="home_content">Cette site te donne la possibilité de parier sur des évènements sportifs.&lt;br /&gt; Pour pouvoir participer tu dois t'enregistrer en suivant le lien suivant : &lt;a href=&quot;?menu=register&quot;&gt;ouvrir un compte&lt;/a&gt;&lt;p /&gt; Si tu as déjà un compte, clique ici : &lt;a href=&quot;?menu=login&quot;&gt;connexion&lt;/a&gt;</entry>
+    <entry key="home_events">En ce moment il y a les jeux de pronostics suivants:</entry>
+    <entry key="home_fun">Amuse-toi bien!</entry>
+    <entry key="home_noevents">Il n'y a pas encore de jeux de pronostics publics actifs au moment.</entry>
+    <entry key="home_title">Acceuil</entry>
+    <entry key="home_welcome">Bienvenue au bureau de paris!</entry>
+    <entry key="login_content">Tape les informations nécessaires pour te connecter:</entry>
+    <entry key="login_title">Connexion</entry>
+    <entry key="login_yourlogin">Ton nom:</entry>
+    <entry key="login_yourpw">Ton mot de passe:</entry>
+    <entry key="loginhome_content">Tu t'es connecté avec succès!</entry>
+    <entry key="loginhome_newcomments">Ce sont les commentaires les plus récents:</entry>
+    <entry key="loginhome_noevent">Tu ne participes encore à aucun jeu de pronotics. Tu peux changer ça dans &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;ton profile&lt;/a&gt; où tu peux aussi régler autres paramètres. Apart ça, il n'y a pas encore très beaucoup à ton service pour le moment.</entry>
+    <entry key="loginhome_title">Acceuil</entry>
+    <entry key="loginhome_yourevent">Tu participes au jeu de pronostics suivant:</entry>
+    <entry key="loginhome_yourevents">Tu participes aux jeux de pronostics suivants:</entry>
+    <entry key="logout_content">Tu es maintenant déconnecté et tu vas être redirigé immédiatement.</entry>
+    <entry key="logout_title">Déconnexion</entry>
+    <entry key="myprofile_appearance_nopicture">Pas d'image disponible.</entry>
+    <entry key="myprofile_appearance_picture">Image:</entry>
+    <entry key="myprofile_appearance_text">Texte:</entry>
+    <entry key="myprofile_appearance_title">Apparance</entry>
+    <entry key="myprofile_content">Ici tu peux déterminer ton apparance aux autres et l'apparance du bureau de paris à toi. En plus c'est possible de changer le mot de passe.&lt;p/&gt; Pour toute modification que tu désires apporter à ton profile, utilise le sous-menu de profile.</entry>
+    <entry key="myprofile_password_content">Tape une fois l’ancien mot de passe et après deux fois le nouveau mot de passe afin de le changer:</entry>
+    <entry key="myprofile_password_new">Nouveau mot de passe:</entry>
+    <entry key="myprofile_password_old">Ancien mot de passe:</entry>
+    <entry key="myprofile_password_title">Mot de passe</entry>
+    <entry key="myprofile_settings_approved">approuvé:</entry>
+    <entry key="myprofile_settings_changeemail">Pour changer ton adresse email tu dois la taper deux fois:</entry>
+    <entry key="myprofile_settings_content">Ici, tu peux entre autres t'annoncer pour un jeu de pronostics.&lt;br/&gt; Un jeu de pronostics &quot;ouvert&quot; est un jeu auquel tu peux participer, &quot;attendant&quot; veux dire, qu'il faut encore attendre l'admission par l'administrateur, &quot;approuvé&quot; &amp; &quot;refusé&quot; signifient que ton inscription est acceptée définitivement pour le jeu de pronostics, ou qu'il n'est pas possible pour toi de participer.
 &lt;p/&gt;
-&lt;font class=&quot;error&quot;&gt; Sit t'as changé quelquechose (p.ex. cliquer sur participer) tu dois cliquer sur &quot;sauver changements&quot; en bas&lt;/font&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_denied</label>
-        <cnt>refusé:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_email_notify</label>
-        <cnt>Si tu as fait ça, tu peux écrire un eMail à $1 pour informer le(s) administrateur(s)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_eventinfo</label>
-        <cnt>Cet évènment a $1 de matches sur lesquels on parie $2 par match. Donc on doit parier en totale $3 pour participer à ce jeux de pronostics. Pour être admis, il faut juste verser la somme mentionnée.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_open</label>
-        <cnt>ouvert:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_participate</label>
-        <cnt>participer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_retire</label>
-        <cnt>retirer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_staketopay</label>
-        <cnt>payer l'enjeu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_title</label>
-        <cnt>Paramètres</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_waiting</label>
-        <cnt>en attente:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_wiringcomment</label>
-        <cnt>Comme &lt;b&gt;commentaire de versement&lt;/b&gt;, ecris:&lt;br/&gt; &lt;i&gt;$1: $2 participe!&lt;/i&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_title</label>
-        <cnt>Profile</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_participatefirst</label>
-        <cnt>Tu devrait participer à un jeu de pronostics pour pronostiquer. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Va participer&lt;/a&gt; ou si t'as déjà fait ça &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;attend&lt;/a&gt; ton admission par l'administateur.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_sametip</label>
-        <cnt>Mêmes&lt;br/&gt;paries</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tendency</label>
-        <cnt>Tendence (%)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tip</label>
-        <cnt>Pronostic</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tips</label>
-        <cnt>Pronostics</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_title</label>
-        <cnt>Pronostics</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_content</label>
-        <cnt>L'aperçu fait possible que tu puisse aperçevoir toute information importante. Qu'est-ce que pronostiquent les autres? Qu'est-ce qui est le leader? &lt;br /&gt;Les résumés affichent la monnaie et les points collectionné par l'utilisateur en question. &lt;br /&gt;Si tu minimalise la navigation à la droite, il y aura plus de la place pour les informations.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_jackpot</label>
-        <cnt>Jackpot</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_noevents</label>
-        <cnt>Malheuresement, il n'y a pas encore de jeux de pronostics à apercevoir.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_onlyme</label>
-        <cnt>seulement moi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_summary</label>
-        <cnt>Résumé:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_correcttips</label>
-        <cnt>Correctes</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_summaryall</label>
-        <cnt>Résumé final:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_title</label>
-        <cnt>Aperçu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_content</label>
-        <cnt>Découvre avec qui tu joue.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_noevents</label>
-        <cnt>Il n'y a pas encore de jeux de pronostics où des participants pouvaient déjà participer.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_nousers</label>
-        <cnt>Ce jeu de pronostics n'a pas encore de participants.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_title</label>
-        <cnt>Participants</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_gain</label>
-        <cnt>Gain</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_jackpotshare</label>
-        <cnt>Lot du Jackpot</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_points</label>
-        <cnt>Points</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_provisorygain</label>
-        <cnt>Gain prov.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_rank</label>
-        <cnt>Rang</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_title</label>
-        <cnt>Classement</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_content</label>
-        <cnt>Pour que tu puisses t'annoncer à un jeux de pronostics, tu doit d'abord créer un profile d'utilisateur. Après avoir fait ça, tu peux participer à un jeu de pronostics.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_email</label>
-        <cnt>Email</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_emailsubject</label>
-        <cnt>Enregistration chez le bureau de paris.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_ok</label>
-        <cnt>Ton enregistrement s'est déroulé avec succés. Un email contenant ton mot de passe t'a été envoyé. Souvent, le message est retenu par le filtre anti-spam. Donc voici le message:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_title</label>
-        <cnt>S'enregistrer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_username</label>
-        <cnt>Nom d'utilisateur:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_normalview</label>
-        <cnt>Vue Normale</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_largeview</label>
-        <cnt>Vue Large</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_monday</label>
-        <cnt>Lundi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tuesday</label>
-        <cnt>Mardi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_wednesday</label>
-        <cnt>Mercredi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_friday</label>
-        <cnt>Vendredi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thursday</label>
-        <cnt>Jeudi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_saturday</label>
-        <cnt>Samedi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_sunday</label>
-        <cnt>Dimanche</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_write</label>
-        <cnt>écrire</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_nexttips</label>
-        <cnt>Les prochains paries:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bettinggameover</label>
-        <cnt>Ce jeux de paris est déjà terminé.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_correcttips</label>
-        <cnt>Pronostics correctes</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_closetips</label>
-        <cnt>Pronostics presque correctes</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_wrongtips</label>
-        <cnt>Pronostics faux</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_rememberme</label>
-        <cnt>Mémorise moi sur cet ordinateur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_tojackpot</label>
-        <cnt>tous les enjeux pour ce match seront déplacé au jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_almosttips</label>
-        <cnt>Presque</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_wrongtips</label>
-        <cnt>Faux</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_waitfortips</label>
-        <cnt>Les prochains pronostics ne sont pas encore publiques.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_correct</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_diff</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_almost</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_wrong</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stake_fix</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_none</label>
-        <cnt>rien</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_fix</label>
-        <cnt>fixe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_permatch</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_bank_account_intro</label>
-        <cnt>Indique à oú le gain doit être versé après le jeux de paris:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_participatereally</label>
-        <cnt>Tu veux vraiment participer en ce jeux de paris?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_profilesettings</label>
-        <cnt>Paramètres du profile</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_persdetails</label>
-        <cnt>Details personnels</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_withdrawreally</label>
-        <cnt>Ne veux-tu vraiment pas participer?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_title</label>
-        <cnt>Messages</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_send</label>
-        <cnt>envoyer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_internal</label>
-        <cnt>Interne</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_receivers</label>
-        <cnt>Destinaire(s)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_none</label>
-        <cnt>aucuns</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_add</label>
-        <cnt>ajouter</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_singleusers</label>
-        <cnt>Utilisateurs seuls</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_newmessage</label>
-        <cnt>Ça c'est un nouvau message de $1, envié $2 $3:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_readparticipe</label>
-        <cnt>lu!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_content</label>
-        <cnt>Contenu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_system</label>
-        <cnt>Système d'envoie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_notitle</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_nocontent</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_noreceivers</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_preferredlanguage</label>
-        <cnt>Choisi ta langue préférée pour le site web.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_commentnumber</label>
-        <cnt>qui sont montrés dans l'&lt;i&gt;$1&lt;/i&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text3</label>
-        <cnt>..et le troisième pour le &lt;b&gt;titulaire&lt;/b&gt; (adresse).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stake</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_matchnb</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_jackpotmode_fraction</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpotexp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpot_fraction</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpot_fix</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_distr</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_distralgorithm</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_distr_lin</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_distr_exp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_firstjackpotfixfield</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_fixshares</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_expshares</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_beton</label>
-        <cnt>Quoi pronosticer?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betonexp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_toto</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_toto</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_komatchesexp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_only</label>
-        <cnt>seulement</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_tietough</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty_addall</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty_addone</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_stakeback</label>
-        <cnt>à tous ceux qui ont estimé la conclusion du match ($1/$2/$3) correcte, l'enjeu pour ce match ($4) est rendu. Les autres enjeux seront déplacé au jackpot.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_team</label>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_nostake</label>
-        <cnt>Il n'y a pas d'enjeux pour ce jeux de pronostics. Donc tu ne dois rien payer si tu veux participer.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_fixstake</label>
-        <cnt>L'enjeu pour ce jeu de pronostics est une somme fixe de $1.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_totalgain</label>
-        <cnt>Gain total</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto</label>
-        <cnt>Dans ce jeux de pronostics, tu pronostiquerais des totos (conclusions de jeu possibles). Donc on a théoriquement ces possibilités: $1$2$3.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_1</label>
-        <cnt>1 = Hôte gagne</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_2</label>
-        <cnt>2 = Visiteur gagne</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_x</label>
-        <cnt>x = Nul</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_matches_both_types</label>
-        <cnt>Il y a des $1 bien que des $2 dans ce jeux de pronostics.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_inallmatches</label>
-        <cnt>En toutes les parties</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_in_matches</label>
-        <cnt>En</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tournamentmatches</label>
-        <cnt>parties de tournament</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_komatches</label>
-        <cnt>parties k.o.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_allpossible</label>
-        <cnt>$1/$2 &amp; $3 sont possibles.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tieno</label>
-        <cnt>&lt;b&gt;seulement&lt;/b&gt; $1/$2 sont possibles.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tietough</label>
-        <cnt>Le resultat consideré$1 serais celui du fin de la partie. (sans désicion par penaltis).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties</label>
-        <cnt>Si une partie est decidé par penaltis,</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties_one</label>
-        <cnt>un goal sera additioné pour le vainquer.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties_all</label>
-        <cnt>tout les goals de penalty seront additioné au résultat.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minute</label>
-        <cnt>minute</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minutes</label>
-        <cnt>minutes</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minute_s</label>
-        <cnt>minute(s)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hour</label>
-        <cnt>heur</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hours</label>
-        <cnt>heurs</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hour_s</label>
-        <cnt>heur(s)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_day</label>
-        <cnt>jour</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_days</label>
-        <cnt>jours</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_day_s</label>
-        <cnt>jour(s)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_bet_until</label>
-        <cnt>Les pronostics doivent être fait le plus tard jusqu'à &lt;b&gt;$1 avant $2&lt;/b&gt;.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_thefirstmatch</label>
-        <cnt>la &lt;i&gt;première&lt;/i&gt; partie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_match</label>
-        <cnt>la partie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_diff</label>
-        <cnt>une difference de goals correctement pronostiquée ($1 0-3 au lieu de 1-4) vaut &lt;b&gt;$2 point(s)&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_wrong</label>
-        <cnt>un pronostic totalement nul vaut &lt;b&gt;$3 point(s)&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_forgotpassword</label>
-    </zock_lang>
-    <zock_lang>
-        <label>login_senddata</label>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatasubject</label>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatamail</label>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatasent</label>
-    </zock_lang>
-    <zock_lang>
-        <label>error_nouserwiththisemail</label>
-    </zock_lang>
-    <zock_lang>
-        <label>error_nofunctionalsmtp</label>
-    </zock_lang>
-    <zock_lang>
-        <label>general_writetoadmin</label>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_alreadyaccount</label>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_logintoolong</label>
-    </zock_lang>
-    <zock_lang>
-        <label>login_askfordata</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_siteurl</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_siteurltext</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notifications</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notificationstext</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_participate</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_newaccount</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_withdraw</label>
-    </zock_lang>
-    <zock_lang>
-        <label>register_emailhere</label>
-    </zock_lang>
-    <zock_lang>
-        <label>general_notification</label>
-    </zock_lang>
-    <zock_lang>
-        <label>register_newaccount</label>
-    </zock_lang>
-    <zock_lang>
-        <label>register_newaccounttext</label>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifywithdraw</label>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifywithdrawtxt</label>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifyparticipate</label>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifyparticipatetxt</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpactivated</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_modifysmtp</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpexp</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpserver</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtplogin</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_fromaddress</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_fromaddressexp</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpport</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpportexp</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpdisactivated</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_mailnotsent</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_mailsent</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_testemail_subject</label>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_testemail_txt</label>
-    </zock_lang>
-    <zock_lang>
-        <label>general_contains</label>
-        <cnt>contient</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_filter</label>
-        <cnt>filtre</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_filterverb</label>
-        <cnt>filtrer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_filter_emptyresults</label>
-    </zock_lang>
-    <zock_lang>
-        <label>general_is</label>
-        <cnt>est</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_difftips</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_monday_short</label>
-        <cnt>Lun</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tuesday_short</label>
-        <cnt>Mar</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_wednesday_short</label>
-        <cnt>Mer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thursday_short</label>
-        <cnt>Jeu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_friday_short</label>
-        <cnt>Ven</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_saturday_short</label>
-        <cnt>Sam</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_sunday_short</label>
-        <cnt>Dim</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_arrangematchdays</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_showingxoutofx</label>
-        <cnt>Classement après $1 de $2 parties:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_showrankinguntil</label>
-        <cnt>Affiche le classement jusqu'à</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_match</label>
-        <cnt>Partie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_date</label>
-        <cnt>Date</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stakeback</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stakebacknotpossible</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betuntil</label>
-        <cnt>Pronostiquer jusqu'à quand?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betuntilexp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_before</label>
-        <cnt>avant</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_bettinggameinitiation</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nextstep</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nextstepdialog</label>
-        <cnt>SEULEMENT si t'es vraiment sûr que tout est réglé après tes voeux, va</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_displayinfo</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_jp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_floored</label>
-        <cnt>arrondi vers le bas</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_fixformula</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_name</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_date</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_matchnb</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_stake</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_currency</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_round</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_fraction</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_jackpotfix</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_jackpotfixshares</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_expshare</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_betuntil</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pcorrect</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pdiff</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_palmost</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pwrong</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_createevent</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_createtemplate</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_modeselection</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_scheduleactivation</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_fromphase3</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_phase3text</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_komatch</label>
-        <cnt>Partie k.o.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_showeventlist</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_inputtypeexp</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_incorrectmatchnb</label>
-        <cnt></cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_existantmatchesremoved</label>
-        <cnt>Les parties qu'existent déjà seront supprimé!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_points</label>
-        <cnt>Le gagneur est celui avec le plus points.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_langlist</label>
-        <cnt>Liste des langues</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_installlang</label>
-        <cnt>Installer/supprimer une langue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_install</label>
-        <cnt>installer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_remove</label>
-        <cnt>supprimer</cnt>
-    </zock_lang>
-</zock>
+&lt;font class=&quot;error&quot;&gt; Sit t'as changé quelquechose (p.ex. cliquer sur participer) tu dois cliquer sur &quot;sauver changements&quot; en bas&lt;/font&gt;</entry>
+    <entry key="myprofile_settings_denied">refusé:</entry>
+    <entry key="myprofile_settings_email_notify">Si tu as fait ça, tu peux écrire un eMail à $1 pour informer le(s) administrateur(s)</entry>
+    <entry key="myprofile_settings_eventinfo">Cet évènment a $1 de matches sur lesquels on parie $2 par match. Donc on doit parier en totale $3 pour participer à ce jeux de pronostics. Pour être admis, il faut juste verser la somme mentionnée.</entry>
+    <entry key="myprofile_settings_open">ouvert:</entry>
+    <entry key="myprofile_settings_participate">participer</entry>
+    <entry key="myprofile_settings_retire">retirer</entry>
+    <entry key="myprofile_settings_staketopay">payer l'enjeu</entry>
+    <entry key="myprofile_settings_title">Paramètres</entry>
+    <entry key="myprofile_settings_waiting">en attente:</entry>
+    <entry key="myprofile_settings_wiringcomment">Comme &lt;b&gt;commentaire de versement&lt;/b&gt;, ecris:&lt;br/&gt; &lt;i&gt;$1: $2 participe!&lt;/i&gt;</entry>
+    <entry key="myprofile_title">Profile</entry>
+    <entry key="mytips_participatefirst">Tu devrait participer à un jeu de pronostics pour pronostiquer. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Va participer&lt;/a&gt; ou si t'as déjà fait ça &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;attend&lt;/a&gt; ton admission par l'administateur.</entry>
+    <entry key="mytips_sametip">Mêmes&lt;br/&gt;paries</entry>
+    <entry key="mytips_tendency">Tendence (%)</entry>
+    <entry key="mytips_tip">Pronostic</entry>
+    <entry key="mytips_tips">Pronostics</entry>
+    <entry key="mytips_title">Pronostics</entry>
+    <entry key="overview_content">L'aperçu fait possible que tu puisse aperçevoir toute information importante. Qu'est-ce que pronostiquent les autres? Qu'est-ce qui est le leader? &lt;br /&gt;Les résumés affichent la monnaie et les points collectionné par l'utilisateur en question. &lt;br /&gt;Si tu minimalise la navigation à la droite, il y aura plus de la place pour les informations.</entry>
+    <entry key="overview_jackpot">Jackpot</entry>
+    <entry key="overview_noevents">Malheuresement, il n'y a pas encore de jeux de pronostics à apercevoir.</entry>
+    <entry key="overview_onlyme">seulement moi</entry>
+    <entry key="overview_summary">Résumé:</entry>
+    <entry key="ranking_correcttips">Correctes</entry>
+    <entry key="overview_summaryall">Résumé final:</entry>
+    <entry key="overview_title">Aperçu</entry>
+    <entry key="participants_content">Découvre avec qui tu joue.</entry>
+    <entry key="participants_noevents">Il n'y a pas encore de jeux de pronostics où des participants pouvaient déjà participer.</entry>
+    <entry key="participants_nousers">Ce jeu de pronostics n'a pas encore de participants.</entry>
+    <entry key="participants_title">Participants</entry>
+    <entry key="ranking_gain">Gain</entry>
+    <entry key="ranking_jackpotshare">Lot du Jackpot</entry>
+    <entry key="ranking_points">Points</entry>
+    <entry key="ranking_provisorygain">Gain prov.</entry>
+    <entry key="ranking_rank">Rang</entry>
+    <entry key="ranking_title">Classement</entry>
+    <entry key="register_content">Pour que tu puisses t'annoncer à un jeux de pronostics, tu doit d'abord créer un profile d'utilisateur. Après avoir fait ça, tu peux participer à un jeu de pronostics.</entry>
+    <entry key="register_email">Email</entry>
+    <entry key="register_emailsubject">Enregistration chez le bureau de paris.</entry>
+    <entry key="register_ok">Ton enregistrement s'est déroulé avec succés. Un email contenant ton mot de passe t'a été envoyé. Souvent, le message est retenu par le filtre anti-spam. Donc voici le message:</entry>
+    <entry key="register_title">S'enregistrer</entry>
+    <entry key="register_username">Nom d'utilisateur:</entry>
+    <entry key="general_normalview">Vue Normale</entry>
+    <entry key="general_largeview">Vue Large</entry>
+    <entry key="general_monday">Lundi</entry>
+    <entry key="general_tuesday">Mardi</entry>
+    <entry key="general_wednesday">Mercredi</entry>
+    <entry key="general_friday">Vendredi</entry>
+    <entry key="general_thursday">Jeudi</entry>
+    <entry key="general_saturday">Samedi</entry>
+    <entry key="general_sunday">Dimanche</entry>
+    <entry key="general_write">écrire</entry>
+    <entry key="ranking_nexttips">Les prochains paries:</entry>
+    <entry key="general_bettinggameover">Ce jeux de paris est déjà terminé.</entry>
+    <entry key="participants_correcttips">Pronostics correctes</entry>
+    <entry key="participants_closetips">Pronostics presque correctes</entry>
+    <entry key="participants_wrongtips">Pronostics faux</entry>
+    <entry key="login_rememberme">Mémorise moi sur cet ordinateur</entry>
+    <entry key="eventinfo_gain_tojackpot">tous les enjeux pour ce match seront déplacé au jackpot.</entry>
+    <entry key="ranking_almosttips">Presque</entry>
+    <entry key="ranking_wrongtips">Faux</entry>
+    <entry key="ranking_waitfortips">Les prochains pronostics ne sont pas encore publiques.</entry>
+    <entry key="admin_events_settings_stakemode_none">rien</entry>
+    <entry key="admin_events_settings_stakemode_fix">fixe</entry>
+    <entry key="myprofile_settings_bank_account_intro">Indique à oú le gain doit être versé après le jeux de paris:</entry>
+    <entry key="myprofile_settings_participatereally">Tu veux vraiment participer en ce jeux de paris?</entry>
+    <entry key="myprofile_settings_profilesettings">Paramètres du profile</entry>
+    <entry key="myprofile_settings_persdetails">Details personnels</entry>
+    <entry key="myprofile_settings_withdrawreally">Ne veux-tu vraiment pas participer?</entry>
+    <entry key="admin_messages_title">Messages</entry>
+    <entry key="general_send">envoyer</entry>
+    <entry key="admin_messages_internal">Interne</entry>
+    <entry key="admin_messages_receivers">Destinaire(s)</entry>
+    <entry key="general_none">aucuns</entry>
+    <entry key="general_add">ajouter</entry>
+    <entry key="admin_messages_singleusers">Utilisateurs seuls</entry>
+    <entry key="admin_messages_newmessage">Ça c'est un nouvau message de $1, envié $2 $3:</entry>
+    <entry key="general_readparticipe">lu!</entry>
+    <entry key="general_content">Contenu</entry>
+    <entry key="admin_messages_system">Système d'envoie</entry>
+    <entry key="myprofile_settings_preferredlanguage">Choisi ta langue préférée pour le site web.</entry>
+    <entry key="myprofile_settings_commentnumber">qui sont montrés dans l'&lt;i&gt;$1&lt;/i&gt;</entry>
+    <entry key="admin_settings_bank_account_text3">..et le troisième pour le &lt;b&gt;titulaire&lt;/b&gt; (adresse).</entry>
+    <entry key="admin_events_beton">Quoi pronosticer?</entry>
+    <entry key="general_only">seulement</entry>
+    <entry key="eventinfo_gain_stakeback">à tous ceux qui ont estimé la conclusion du match ($1/$2/$3) correcte, l'enjeu pour ce match ($4) est rendu. Les autres enjeux seront déplacé au jackpot.</entry>
+    <entry key="eventinfo_nostake">Il n'y a pas d'enjeux pour ce jeux de pronostics. Donc tu ne dois rien payer si tu veux participer.</entry>
+    <entry key="eventinfo_fixstake">L'enjeu pour ce jeu de pronostics est une somme fixe de $1.</entry>
+    <entry key="ranking_totalgain">Gain total</entry>
+    <entry key="eventinfo_beton_toto">Dans ce jeux de pronostics, tu pronostiquerais des totos (conclusions de jeu possibles). Donc on a théoriquement ces possibilités: $1$2$3.</entry>
+    <entry key="eventinfo_beton_toto_1">1 = Hôte gagne</entry>
+    <entry key="eventinfo_beton_toto_2">2 = Visiteur gagne</entry>
+    <entry key="eventinfo_beton_toto_x">x = Nul</entry>
+    <entry key="eventinfo_matches_both_types">Il y a des $1 bien que des $2 dans ce jeux de pronostics.</entry>
+    <entry key="eventinfo_inallmatches">En toutes les parties</entry>
+    <entry key="eventinfo_in_matches">En</entry>
+    <entry key="eventinfo_tournamentmatches">parties de tournament</entry>
+    <entry key="eventinfo_komatches">parties k.o.</entry>
+    <entry key="eventinfo_allpossible">$1/$2 &amp; $3 sont possibles.</entry>
+    <entry key="eventinfo_tieno">&lt;b&gt;seulement&lt;/b&gt; $1/$2 sont possibles.</entry>
+    <entry key="eventinfo_tietough">Le resultat consideré$1 serais celui du fin de la partie. (sans désicion par penaltis).</entry>
+    <entry key="eventinfo_afterpenalties">Si une partie est decidé par penaltis,</entry>
+    <entry key="eventinfo_afterpenalties_one">un goal sera additioné pour le vainquer.</entry>
+    <entry key="eventinfo_afterpenalties_all">tout les goals de penalty seront additioné au résultat.</entry>
+    <entry key="general_minute">minute</entry>
+    <entry key="general_minutes">minutes</entry>
+    <entry key="general_minute_s">minute(s)</entry>
+    <entry key="general_hour">heur</entry>
+    <entry key="general_hours">heurs</entry>
+    <entry key="general_hour_s">heur(s)</entry>
+    <entry key="general_day">jour</entry>
+    <entry key="general_days">jours</entry>
+    <entry key="general_day_s">jour(s)</entry>
+    <entry key="eventinfo_bet_until">Les pronostics doivent être fait le plus tard jusqu'à &lt;b&gt;$1 avant $2&lt;/b&gt;.</entry>
+    <entry key="eventinfo_thefirstmatch">la &lt;i&gt;première&lt;/i&gt; partie</entry>
+    <entry key="eventinfo_match">la partie</entry>
+    <entry key="eventinfo_points_diff">une difference de goals correctement pronostiquée ($1 0-3 au lieu de 1-4) vaut &lt;b&gt;$2 point(s)&lt;/b&gt;</entry>
+    <entry key="eventinfo_points_wrong">un pronostic totalement nul vaut &lt;b&gt;$3 point(s)&lt;/b&gt;</entry>
+    <entry key="general_contains">contient</entry>
+    <entry key="general_filter">filtre</entry>
+    <entry key="general_filterverb">filtrer</entry>
+    <entry key="general_is">est</entry>
+    <entry key="general_monday_short">Lun</entry>
+    <entry key="general_tuesday_short">Mar</entry>
+    <entry key="general_wednesday_short">Mer</entry>
+    <entry key="general_thursday_short">Jeu</entry>
+    <entry key="general_friday_short">Ven</entry>
+    <entry key="general_saturday_short">Sam</entry>
+    <entry key="general_sunday_short">Dim</entry>
+    <entry key="ranking_showingxoutofx">Classement après $1 de $2 parties:</entry>
+    <entry key="ranking_showrankinguntil">Affiche le classement jusqu'à</entry>
+    <entry key="general_match">Partie</entry>
+    <entry key="general_date">Date</entry>
+    <entry key="admin_events_betuntil">Pronostiquer jusqu'à quand?</entry>
+    <entry key="general_before">avant</entry>
+    <entry key="admin_events_nextstepdialog">SEULEMENT si t'es vraiment sûr que tout est réglé après tes voeux, va</entry>
+    <entry key="eventinfo_jackpot_floored">arrondi vers le bas</entry>
+    <entry key="admin_events_komatch">Partie k.o.</entry>
+    <entry key="admin_events_existantmatchesremoved">Les parties qu'existent déjà seront supprimé!</entry>
+    <entry key="eventinfo_finalaccount_points">Le gagneur est celui avec le plus points.</entry>
+    <entry key="admin_settings_langlist">Liste des langues</entry>
+    <entry key="admin_settings_installlang">Installer/supprimer une langue</entry>
+    <entry key="general_install">installer</entry>
+    <entry key="general_remove">supprimer</entry>
+</properties>

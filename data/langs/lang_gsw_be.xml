@@ -1,1819 +1,468 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<!--
-=================================== 
-zock!-Language File 
- 
-Translated by 
-
-* Michael Schroeder:
-   michael.p.schroeder@gmail.com
-* 
-* 
- 
-http://zock.sf.net 
- 
-zock! is a free software licensed under GPL (General public license) v3 
-      more information look in the root folder for "LICENSE". 
-=================================== 
-- Generation Time: Aug 02, 2008 at 09:34 PM
--->
-<zock>
-    <zock_lang>
-        <label>loginhome_paystake</label>
-        <cnt>Bitte bezau am Organisator dr Wettisatz für ds Ereigniss: $1 . Faus du das scho gmacht hesch, säg das ihm oder ihre.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_reimbursement</label>
-        <cnt>Baud söttisch dr Gwinn übercho. Schüsch machsch haut e chly druck ufe Organisator. :-)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_filloutbankdetails</label>
-        <cnt>Füu dini Bankdate us damit dir dr Gwinn cha zrüggzaut wärde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_filloutname</label>
-        <cnt>Füu di Name us, damit d Mitspiler wüsse wär du bisch.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_putpicture</label>
-        <cnt>Lad es Biud i dis Profiu ufe, schüsch isch es es Söili.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_passed</label>
-        <cnt>verby</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_betcloses</label>
-        <cnt>Wett schliesst in</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_info</label>
-        <cnt>info</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_paid</label>
-        <cnt>het zaut</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notpaid</label>
-        <cnt>het nid zaut</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_content</label>
-        <cnt>Vo hie us chasch du dis Wettbüro organisiere: Istellige bearbeite, Spiler &amp; Tippspiu verwaute etc. Lue dr eifach z Mönü a.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activate</label>
-        <cnt>Aktiviere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activatedialog</label>
-        <cnt>Dä Schritt chame nid rückgängig mache. Wosch das Tippspiu würklech aktiviere?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_activatefirst</label>
-        <cnt>Dä Teil isch ersch verfüegbar we ds Tippspiu aktiviert isch.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_active</label>
-        <cnt>Das Tippspiu isch aktiv. D Benutzer chöi sech dra amäude</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_addemptymatches</label>
-        <cnt>Füeg lääri Spiu hinzue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_addnew</label>
-        <cnt>Nöis Tippspiu ersteue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_adduser</label>
-        <cnt>Benutzer hinzufüege</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approve</label>
-        <cnt>zuela</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approved_message</label>
-        <cnt>Hallo $1 Du bisch bim Tippspiu $2 agno worde! Itze chasch du ga Tipps abgä. http://donmiguel.sagex.ch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_approved_subject</label>
-        <cnt>Du bisch bi $1 drbi!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_changecompetitor</label>
-        <cnt>Wettkämpfer ändere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_competitorchangeto</label>
-        <cnt>Name ändere in:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_competitortochange</label>
-        <cnt>Dr Name zum ändere:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_currency</label>
-        <cnt>Währig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deadline</label>
-        <cnt>Amäudeschluss</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deadlineover</label>
-        <cnt>Der Amäudeschluss isch verbi! Du chasch trotzdäm no e witere Benutzer bi däm Tippspiu hinzuefüege:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_deny</label>
-        <cnt>abwyse</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_edit</label>
-        <cnt>Kontrollier es Tippspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_enoughadds</label>
-        <cnt>Meh Spiu chasch du nid uf ds Mau zuefüege. Tue zersch e Mau spichere.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_home</label>
-        <cnt>Gastgäber</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_howmanyemptymatches</label>
-        <cnt>Wiviu lääar Spiu wetsch derzuefüege?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_inactive</label>
-        <cnt>Das Tippspiu isch nid aktiv und somit nid sichtbar für d Benutzer. Bir Aktivierung wärde d Fäuder &quot;Amäudeschluss&quot;, &quot;Währig&quot; &quot;Isatz pro Spiu&quot; und &quot;Rundigsgnauigkeit&quot; für d Bearbeitig gsperrt.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_installevent</label>
-        <cnt>Spiuplan installiere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matchday</label>
-        <cnt>Spiutag</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matches_content</label>
-        <cnt>Füeg Spiu derzue oder bearbeit die bestehende. Um dr Name vore Mannschaft übere ganz Alass hinwäg z ändere, klik uf &lt;b&gt;Wettkämpfer ändere&lt;/b&gt;.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_matches_title</label>
-        <cnt>Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_name</label>
-        <cnt>Ereignisname:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nomatches</label>
-        <cnt>Es het no ke Spiu für das Ereignis! Klik uf &lt;b&gt;+ Spiu&lt;/b&gt; um es Paar zuezfüege. Pass bitte uf, dass de d Astosszyte im richtige Format igisch.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_public</label>
-        <cnt>Öffentlech</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_results_title</label>
-        <cnt>Resultat</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_round</label>
-        <cnt>Rundigsgnauigkeit</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_score</label>
-        <cnt>Ergäbnis</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_title</label>
-        <cnt>Tippspiuistellige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_special</label>
-        <cnt>Zuesatz</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stake_permatch</label>
-        <cnt>Isatz pro Spiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_time</label>
-        <cnt>Astoss</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_title</label>
-        <cnt>Tippspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_usersapproved</label>
-        <cnt>Zueglani Benutzer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_usersdenied</label>
-        <cnt>Abgwisni Benutzer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_userswaiting</label>
-        <cnt>Wartendi Benutzer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_visitor</label>
-        <cnt>Bsuecher</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_wait</label>
-        <cnt>la warte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_addnew</label>
-        <cnt>Füeg es Elemänt derzue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_editbelow</label>
-        <cnt>Bearbeit es Elemänt us dr Lischte ungerhaub.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listall</label>
-        <cnt>ganzi Lischte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listalluncompleted</label>
-        <cnt>Lischte vo aune unkomplette Elemänt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_listlanguncompleted</label>
-        <cnt>Lischte vo aune unkomplette Elemänt i dr aktuelle Sprach</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_nextempty</label>
-        <cnt>z nächschte lääre Elemänt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_previousempty</label>
-        <cnt>z vordere lääre Elemänt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_lang_title</label>
-        <cnt>Sprache</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text</label>
-        <cnt>I de fougende drü Fäuder söttisch agä, wohäre das d Mitspiler z gäud müesse überwiise.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text2</label>
-        <cnt>..ds zwöite Fäud für d &lt;b&gt;Kontonummere&lt;/b&gt; (Postkontonummere oder IBAN)..</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text1</label>
-        <cnt>Ds erschte Fäud isch füre &lt;b&gt;Kontotüp&lt;/b&gt; (z.b. Bank- oder Postkonto) vorgseh.. </cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_description</label>
-        <cnt>Beschrieb</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_descriptiontext</label>
-        <cnt>E churze Beschrieb/Slogan wo im Chopf vor Site azeigt wird</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_formlines</label>
-        <cnt># Formularzile:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_formlinestext</label>
-        <cnt>Definiert wiviu Linie bi länge Formular azeigt wärde. Z.B. bi de Tipps.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_lang</label>
-        <cnt>Wäu e Sprach für d Website us.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_name</label>
-        <cnt>Name</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_nametext</label>
-        <cnt>Wie söu dis Wettbüro heisse?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_style</label>
-        <cnt>Stiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_styletext</label>
-        <cnt>Wäu e Stiu für dini Webiste us.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_title</label>
-        <cnt>Istellige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_title</label>
-        <cnt>Admin</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_answer</label>
-        <cnt>Antwort uf</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_comment</label>
-        <cnt>Kommentar:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_commenttitle</label>
-        <cnt>Titu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_participatefirst</label>
-        <cnt>Bevor du irgend e Kommentar abgä chsch, sötsch bimene Tippspiu mitmache.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_reply</label>
-        <cnt>Antworte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>comments_title</label>
-        <cnt>Kommentär</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_attention</label>
-        <cnt>Ufpasse:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_commentsave</label>
-        <cnt>Es het ke Kommentar chönne gspicheret wärde!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_content</label>
-        <cnt>Ich will nach &lt;a href=&quot;?menu=loginhome&quot; title=&quot;Ja, gang&quot;&gt;Hei&lt;/a&gt;!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_doesnotparticipate</label>
-        <cnt>Dä Benutzer macht bi däm Tippspiu nid mit!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_filledform</label>
-        <cnt>Ds usgfüute Formular het no Fähler dinne (die rot markierte)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_login</label>
-        <cnt>Nei, dr Loginname u ds Passwort si fausch gsi!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_menu</label>
-        <cnt>Das Mönü schteit dir ni zur Verfüegig!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_myprofile_password</label>
-        <cnt>Es isch e Fähler passiert! Versuechs nomau</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_names</label>
-        <cnt>Du muesch di Name agä.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_notinevent</label>
-        <cnt>Für ds abgruefnige Tippspiu hesch du ke Erloubnis, Informatione la z azeige.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register</label>
-        <cnt>Du hesch ni chönne registriert wärde wius e Konflikt mit dine Igabe het gä.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_exists</label>
-        <cnt>Dä Benutzername isch scho vergä</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_save</label>
-        <cnt>Fähler bim Spichere! Versuech nomau di z registriere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_site</label>
-        <cnt>Die Site steit dir nid zur Verfüegig!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_title</label>
-        <cnt>Fähler</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_cup_phase</label>
-        <cnt>Müglechi Spiuusgäng ir Cöpphase: &lt;b&gt;nur&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_deadline_day_before</label>
-        <cnt>Dr Tipp isch immer bis am Vortag vom Spiu bis am &lt;b&gt;1 vor Mitternacht&lt;/b&gt; onläin iztrage. Sobaud dr Tag, a welem beträffende Spiu stattfindet, abroche isch (00:00) chame nümme tippe.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_deadline_toolate</label>
-        <cnt>Wär z spät isch het Päch ka, da gits nümme z ändere.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount</label>
-        <cnt>Ändabrächnig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_gainplusjp</label>
-        <cnt>Der gwunnig Ändbetrag setzt sich usem Gäud wome währendem Tippspiu erspiut het und usem Ateil am Tschäkpott zäme. Dr Sieger isch dä, wo schlussändlech am meischte Gäud gwunne het.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_nobodycorrect</label>
-        <cnt>We ds richtige Resultat nid isch tippet worde,</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_correct</label>
-        <cnt>e korräkte Tipp gits &lt;b&gt;$1 Punkt&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_almost</label>
-        <cnt>e richtig tippete Spiuusgang ($1 3-2 anstatt 4-1) git &lt;b&gt;$2 Punkt&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_correcttip</label>
-        <cnt>We ds koräkte Resultat isch tippet worde, bechunnt dr beträffend Spiler dr gsamt Wettisatz für das Spiu (das heisst: # Mitspiler * $1)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_correcttips</label>
-        <cnt>We mehreri Spiler ds koräkte Resultat tippet hei, de wird dr gsamt Wettisatz für das Spiu so guet wie müglech zwüsche ihne ufteilt. E aufäuige Räscht fliesst i Tschäkpott.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_group_phase</label>
-        <cnt>Müglechi Spiuusgäng ir Gruppephase:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot</label>
-        <cnt>Für d Verteilig vom Tschäkpott si d Punkt usschlaggäbend. Je meh Punkt me het, desto grösser dr Ateil am Tschäkpott</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_distributeon</label>
-        <cnt>D Verteilig erfougt uf die erste $1 vor Ranglischte.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_linformula</label>
-        <cnt>Verteilt wird linear. Die zum Zug kommendi Formu isch: &lt;b&gt;&lt;i&gt;&quot;Ateil(Rang) = (Tschäckpott / &amp;#931;(Teilhaberräng)) * (Teilhaber - (Rang – 1))&quot;&lt;/i&gt;&lt;/b&gt;.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_expformula</label>
-        <cnt>Verteilt wird exponentieu. D zum Zug kommendi Formu isch: &lt;b&gt;&lt;i&gt;&quot;Ateil(Rang) = (1-k)^(Rang-1) * k * Tschäkpott&quot;&lt;/i&gt;&lt;/b&gt;. Es blibt (logischerwis) öpis vom Tschäkpott übrig. Für e Räscht z verteile wändet me ume die Formu a, bis nümme übrig blibt. &lt;b&gt;k&lt;/b&gt; ist für das Tippspiu $1. Das het zur Foug, dass dr Erschtplatziert chly meh aus $2 vom Tschäkpott überchunnt.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_samerank</label>
-        <cnt>We mehreri Spiler glichviu Punkt gmacht hei, wärde d Tschäkpottateile vo de ihne beleite Räng zämezeut u nächcär wird das Gäud glichmässig uf die betroffene Spiler verteilt.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_overview</label>
-        <cnt>Um d Gwüssheit z wahre, dass niemer cha bschisse, si d Tipps vo aune Mitspiler jederzyt isehbar für die angere und d Konti si passwortgschützt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_penalty_decision</label>
-        <cnt>Wenn es Spiu dür Penautischiesse entschide wird, so rächnetme dr Siegermannschaft e Träffer drzue.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points</label>
-        <cnt>Während em Tippspiu wärde Punkt a d Mitspiler verteilt:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_precise_tip</label>
-        <cnt>Es wird für jedes Spiu ufenes gnaus Ergäbnis tippet:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_rules</label>
-        <cnt>Wie das ds Tippspiu funktioniert, isch i de fougende Punkt festghaute:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_sealofapproval</label>
-        <cnt>nid z vergässe: ds durchdesignte Güetesigu vo $1:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_stake</label>
-        <cnt>Isatz</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_stakepermatch</label>
-        <cnt>Dr Isatz für jedes Spiu (jedi einzelni Wett) betreit $1. Es finde $2 Spiu statt - das heisst, dr Wettbetrag für aui Spiu isch $3</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake</label>
-        <cnt>Zudäm wärde $1 derzuegrächnet</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake_jackpot</label>
-        <cnt> - dä Teil vom Wettbetrag wird diräkt zum Jackpot derzuezeut.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_extrastake_winner</label>
-        <cnt> - dä Teil vom Wettbetrag wird diräkt am Gwinner i Ussicht gsteut.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_staketotal</label>
-        <cnt>Ds ergit, dass gsamt Wettbetrag betreit $1! Das Gäud isch z überwiise bevor der erscht Tipp cha abgä wärde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>footer_contact</label>
-        <cnt>Kontakt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>footer_server_time</label>
-        <cnt>Aktuelli Serverzyt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_and</label>
-        <cnt>u</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bank_account</label>
-        <cnt>Konto</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bettingOffice</label>
-        <cnt>Wettbüro!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_by</label>
-        <cnt>vo</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_cancel</label>
-        <cnt>abbräche</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_defeat</label>
-        <cnt>Niderlag</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_edit</label>
-        <cnt>bearbeite</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_eg</label>
-        <cnt>z.B.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_famname</label>
-        <cnt>Nachname</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_furtherevents</label>
-        <cnt>Witeri Tippspiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_goback</label>
-        <cnt>zrügg</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_goforward</label>
-        <cnt>witer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hello</label>
-        <cnt>Hallo</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_id</label>
-        <cnt>id</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_langchange</label>
-        <cnt>Wosch d Sprach wächsle?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_language</label>
-        <cnt>Sprach:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_maximize</label>
-        <cnt>maximiere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minimize</label>
-        <cnt>minimiere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_name</label>
-        <cnt>Vorname</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_no</label>
-        <cnt>Nä-ä</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_nomatches</label>
-        <cnt>Vo däm Tippspiu si no kener Spiu ustrage worde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_page</label>
-        <cnt>Site:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_publicevents</label>
-        <cnt>Öffentlichi Tippspiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_read</label>
-        <cnt>läse</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_redirect</label>
-        <cnt>Du wirsch sofort witergleitet.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_save</label>
-        <cnt>spichere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savechanges</label>
-        <cnt>Änderige spichere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savednotok</label>
-        <cnt>Fähler bim Spichere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_savedok</label>
-        <cnt>Spichere erfougrich!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_show_info</label>
-        <cnt>Zeig meh Infos derzue!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thislanguage</label>
-        <cnt>Bärndütsch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tie</label>
-        <cnt>Unentschide</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_time_at</label>
-        <cnt>am</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_updating</label>
-        <cnt>Aktualisiere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_upload</label>
-        <cnt>ufelade</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_victory</label>
-        <cnt>Sieg</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_who</label>
-        <cnt>Wär</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_yes</label>
-        <cnt>Iu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_yourevents</label>
-        <cnt>Dini Tippspiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_content</label>
-        <cnt>Die Sitte git dir d Müglechkeit uf Sportereignis z wette. &lt;br /&gt; Dass de chasch mitmache, muesch di registriere: &lt;a href=&quot;?menu=register&quot;&gt;Konto ersteue&lt;/a&gt;. &lt;p&gt; We de scho s Konto hesch, chasch di &lt;a href=&quot;?menu=login&quot;&gt;ilogge&lt;/a&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_events</label>
-        <cnt>Im Momänt si grad die fougende Tippspiu am loufe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_fun</label>
-        <cnt>Viu Spass</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_noevents</label>
-        <cnt>Im Momänt si no kener öffenteli Tippspiu aktiv.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_title</label>
-        <cnt>Dehei</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>home_welcome</label>
-        <cnt>Wiukomme im Wettbüro!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_content</label>
-        <cnt>Gib de benötigte Agabe i um di izlogge:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_title</label>
-        <cnt>Ilogge</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_yourlogin</label>
-        <cnt>Di Name:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_yourpw</label>
-        <cnt>Dis Passwort:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_content</label>
-        <cnt>Du hesch di erfougrich igloggt, im Fau!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_newcomments</label>
-        <cnt>Das si die letschte Kommentär:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_noevent</label>
-        <cnt>Du machsch no bi keim Tippspiu mit. I &lt;a href=&quot;?menu=myprofile&amp;submenu=settings&quot;&gt;dim Profiu&lt;/a&gt; chasch du di bi Tippspiu anmäude &amp; ageri Istelige vornä. Schüsch steit dir no grad nid so viu zur Verfüegig.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_title</label>
-        <cnt>Dehei</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_yourevent</label>
-        <cnt>Bi fougendem Tippspiu machsch mit:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>loginhome_yourevents</label>
-        <cnt>Bi fougende Tippspiu machsch mit:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>logout_content</label>
-        <cnt>Du bisch ize usgloggt und wirsch sofort witergleitet.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>logout_title</label>
-        <cnt>Uslogge</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_nopicture</label>
-        <cnt>Kes Biud vorhande.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_picture</label>
-        <cnt>Biud</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_text</label>
-        <cnt>Tegscht:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_appearance_title</label>
-        <cnt>Erschynig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_content</label>
-        <cnt>II däm Berich chasch du dis Erschinigsbiud gägeüber de angere und ds Erschinigsbiud vom Wettbüro gägeüber dir bestimmen, sowie dis Passwort ändere. &lt;p/&gt; Um zu aune beliebige Istellige z glange muesch eifach d Ungermönüs bruche.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_content</label>
-        <cnt>Gib einisch z aute u zwöi mau z gwünschte Passwort i um dis Passwort z ändere.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_new</label>
-        <cnt>zwöi mau nöi:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_old</label>
-        <cnt>aut:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_password_title</label>
-        <cnt>Passwort</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_approved</label>
-        <cnt>agno:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_changeemail</label>
-        <cnt>Um d eMail-Adrässe z ändere, muesch se zwöi mau igä.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_content</label>
-        <cnt>Hie chasch di bi Tippspiu amäude.&lt;br/&gt; Bei &quot;offene&quot; Tippspiu, chasch di amäude, bi &quot;wartende&quot; muesch druf warte, das di e Administrator lat la mitspile, u bi &quot;agnone” &amp; &quot;abgelehnte&quot; bist du defitiv mit drbi odr äbe nid
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+  <entry key="loginhome_paystake">Bitte bezau am Organisator dr Wettisatz für ds Ereigniss: $1 . Faus du das scho gmacht hesch, säg das ihm oder ihre.</entry>
+  <entry key="loginhome_reimbursement">Baud söttisch dr Gwinn übercho. Schüsch machsch haut e chly druck ufe Organisator. :-)</entry>
+  <entry key="loginhome_filloutbankdetails">Füu dini Bankdate us damit dir dr Gwinn cha zrüggzaut wärde.</entry>
+  <entry key="loginhome_filloutname">Füu di Name us, damit d Mitspiler wüsse wär du bisch.</entry>
+  <entry key="loginhome_putpicture">Lad es Biud i dis Profiu ufe, schüsch isch es es Söili.</entry>
+  <entry key="loginhome_goparticipate">Gang bim $1 ga mitmache</entry>
+  <entry key="general_passed">verby</entry>
+  <entry key="mytips_betcloses">Wett schliesst in</entry>
+  <entry key="general_info">info</entry>
+  <entry key="admin_settings_paid">het zaut</entry>
+  <entry key="admin_settings_notpaid">het nid zaut</entry>
+  <entry key="admin_content">Vo hie us chasch du dis Wettbüro organisiere: Istellige bearbeite, Spiler &amp; Tippspiu verwaute etc. Lue dr eifach z Mönü a.</entry>
+  <entry key="admin_events_activate">Aktiviere</entry>
+  <entry key="admin_events_activatedialog">Dä Schritt chame nid rückgängig mache. Wosch das Tippspiu würklech aktiviere?</entry>
+  <entry key="admin_events_activatefirst">Dä Teil isch ersch verfüegbar we ds Tippspiu aktiviert isch.</entry>
+  <entry key="admin_events_active">Das Tippspiu isch aktiv. D Benutzer chöi sech dra amäude</entry>
+  <entry key="admin_events_addemptymatches">Füeg lääri Spiu hinzue</entry>
+  <entry key="admin_events_addnew">Nöis Tippspiu ersteue</entry>
+  <entry key="admin_events_adduser">Benutzer hinzufüege</entry>
+  <entry key="admin_events_approve">zuela</entry>
+  <entry key="admin_events_approved_message">Hallo $1 Du bisch bim Tippspiu $2 agno worde! Itze chasch du ga Tipps abgä. http://donmiguel.sagex.ch</entry>
+  <entry key="admin_events_approved_subject">Du bisch bi $1 drbi!</entry>
+  <entry key="admin_events_changecompetitor">Wettkämpfer ändere</entry>
+  <entry key="admin_events_competitorchangeto">Name ändere in:</entry>
+  <entry key="admin_events_competitortochange">Dr Name zum ändere:</entry>
+  <entry key="admin_events_currency">Währig</entry>
+  <entry key="admin_events_deadline">Amäudeschluss</entry>
+  <entry key="admin_events_deadlineover">Der Amäudeschluss isch verbi! Du chasch trotzdäm no e witere Benutzer bi däm Tippspiu hinzuefüege:</entry>
+  <entry key="admin_events_deny">abwyse</entry>
+  <entry key="admin_events_edit">Kontrollier es Tippspiu</entry>
+  <entry key="admin_events_enoughadds">Meh Spiu chasch du nid uf ds Mau zuefüege. Tue zersch e Mau spichere.</entry>
+  <entry key="admin_events_home">Gastgäber</entry>
+  <entry key="admin_events_howmanyemptymatches">Wiviu lääar Spiu wetsch derzuefüege?</entry>
+  <entry key="admin_events_inactive">Das Tippspiu isch nid aktiv und somit nid sichtbar für d Benutzer. Bir Aktivierung wärde d Fäuder "Amäudeschluss", "Währig" "Isatz pro Spiu" und "Rundigsgnauigkeit" für d Bearbeitig gsperrt.</entry>
+  <entry key="admin_events_installevent">Spiuplan installiere</entry>
+  <entry key="admin_events_matchday">Spiutag</entry>
+  <entry key="admin_events_matches_content">Füeg Spiu derzue oder bearbeit die bestehende. Um dr Name vore Mannschaft übere ganz Alass hinwäg z ändere, klik uf &lt;b&gt;Wettkämpfer ändere&lt;/b&gt;.</entry>
+  <entry key="admin_events_matches_title">Spiu</entry>
+  <entry key="admin_events_name">Ereignisname:</entry>
+  <entry key="admin_events_nomatches">Es het no ke Spiu für das Ereignis! Klik uf &lt;b&gt;+ Spiu&lt;/b&gt; um es Paar zuezfüege. Pass bitte uf, dass de d Astosszyte im richtige Format igisch.</entry>
+  <entry key="admin_events_public">Öffentlech</entry>
+  <entry key="admin_events_results_title">Resultat</entry>
+  <entry key="admin_events_round">Rundigsgnauigkeit</entry>
+  <entry key="admin_events_score">Ergäbnis</entry>
+  <entry key="admin_events_settings_title">Tippspiuistellige</entry>
+  <entry key="admin_events_special">Zuesatz</entry>
+  <entry key="admin_events_settings_stake_permatch">Isatz pro Spiu:</entry>
+  <entry key="admin_events_time">Astoss</entry>
+  <entry key="admin_events_title">Tippspiu</entry>
+  <entry key="admin_events_usersapproved">Zueglani Benutzer</entry>
+  <entry key="admin_events_usersdenied">Abgwisni Benutzer</entry>
+  <entry key="admin_events_userswaiting">Wartendi Benutzer</entry>
+  <entry key="admin_events_visitor">Bsuecher</entry>
+  <entry key="admin_events_wait">la warte</entry>
+  <entry key="admin_lang_addnew">Füeg es Elemänt derzue</entry>
+  <entry key="admin_lang_editbelow">Bearbeit es Elemänt us dr Lischte ungerhaub.</entry>
+  <entry key="admin_lang_listall">ganzi Lischte</entry>
+  <entry key="admin_lang_listalluncompleted">Lischte vo aune unkomplette Elemänt</entry>
+  <entry key="admin_lang_listlanguncompleted">Lischte vo aune unkomplette Elemänt i dr aktuelle Sprach</entry>
+  <entry key="admin_lang_nextempty">z nächschte lääre Elemänt</entry>
+  <entry key="admin_lang_previousempty">z vordere lääre Elemänt</entry>
+  <entry key="admin_lang_title">Sprache</entry>
+  <entry key="admin_settings_bank_account_text">I de fougende drü Fäuder söttisch agä, wohäre das d Mitspiler z gäud müesse überwiise.</entry>
+  <entry key="admin_settings_bank_account_text2">..ds zwöite Fäud für d &lt;b&gt;Kontonummere&lt;/b&gt; (Postkontonummere oder IBAN)..</entry>
+  <entry key="admin_settings_bank_account_text1">Ds erschte Fäud isch füre &lt;b&gt;Kontotüp&lt;/b&gt; (z.b. Bank- oder Postkonto) vorgseh.. </entry>
+  <entry key="admin_settings_description">Beschrieb</entry>
+  <entry key="admin_settings_descriptiontext">E churze Beschrieb/Slogan wo im Chopf vor Site azeigt wird</entry>
+  <entry key="admin_settings_formlines"># Formularzile:</entry>
+  <entry key="admin_settings_formlinestext">Definiert wiviu Linie bi länge Formular azeigt wärde. Z.B. bi de Tipps.</entry>
+  <entry key="admin_settings_lang">Wäu e Sprach für d Website us.</entry>
+  <entry key="admin_settings_name">Name</entry>
+  <entry key="admin_settings_nametext">Wie söu dis Wettbüro heisse?</entry>
+  <entry key="admin_settings_style">Stiu:</entry>
+  <entry key="admin_settings_styletext">Wäu e Stiu für dini Webiste us.</entry>
+  <entry key="admin_settings_title">Istellige</entry>
+  <entry key="admin_title">Admin</entry>
+  <entry key="comments_answer">Antwort uf</entry>
+  <entry key="comments_comment">Kommentar:</entry>
+  <entry key="comments_commenttitle">Titu:</entry>
+  <entry key="comments_participatefirst">Bevor du irgend e Kommentar abgä chsch, sötsch bimene Tippspiu mitmache.</entry>
+  <entry key="comments_reply">Antworte</entry>
+  <entry key="comments_title">Kommentär</entry>
+  <entry key="error_attention">Ufpasse:</entry>
+  <entry key="error_commentsave">Es het ke Kommentar chönne gspicheret wärde!</entry>
+  <entry key="error_content">Ich will nach &lt;a href="?menu=loginhome" title="Ja, gang"&gt;Hei&lt;/a&gt;!</entry>
+  <entry key="error_doesnotparticipate">Dä Benutzer macht bi däm Tippspiu nid mit!</entry>
+  <entry key="error_filledform">Ds usgfüute Formular het no Fähler dinne (die rot markierte)</entry>
+  <entry key="error_login">Nei, dr Loginname u ds Passwort si fausch gsi!</entry>
+  <entry key="error_menu">Das Mönü schteit dir ni zur Verfüegig!</entry>
+  <entry key="error_myprofile_password">Es isch e Fähler passiert! Versuechs nomau</entry>
+  <entry key="error_names">Du muesch di Name agä.</entry>
+  <entry key="error_notinevent">Für ds abgruefnige Tippspiu hesch du ke Erloubnis, Informatione la z azeige.</entry>
+  <entry key="error_register">Du hesch ni chönne registriert wärde wius e Konflikt mit dine Igabe het gä.</entry>
+  <entry key="error_register_exists">Dä Benutzername isch scho vergä</entry>
+  <entry key="error_register_save">Fähler bim Spichere! Versuech nomau di z registriere</entry>
+  <entry key="error_site">Die Site steit dir nid zur Verfüegig!</entry>
+  <entry key="error_title">Fähler</entry>
+  <entry key="eventinfo_cup_phase">Müglechi Spiuusgäng ir Cöpphase: &lt;b&gt;nur&lt;/b&gt;</entry>
+  <entry key="eventinfo_deadline_day_before">Dr Tipp isch immer bis am Vortag vom Spiu bis am &lt;b&gt;1 vor Mitternacht&lt;/b&gt; onläin iztrage. Sobaud dr Tag, a welem beträffende Spiu stattfindet, abroche isch (00:00) chame nümme tippe.</entry>
+  <entry key="eventinfo_deadline_toolate">Wär z spät isch het Päch ka, da gits nümme z ändere.</entry>
+  <entry key="eventinfo_finalaccount">Ändabrächnig</entry>
+  <entry key="eventinfo_finalaccount_gainplusjp">Der gwunnig Ändbetrag setzt sich usem Gäud wome währendem Tippspiu erspiut het und usem Ateil am Tschäkpott zäme. Dr Sieger isch dä, wo schlussändlech am meischte Gäud gwunne het.</entry>
+  <entry key="eventinfo_gain_nobodycorrect">We ds richtige Resultat nid isch tippet worde,</entry>
+  <entry key="eventinfo_points_correct">e korräkte Tipp gits &lt;b&gt;$1 Punkt&lt;/b&gt;</entry>
+  <entry key="eventinfo_points_almost">e richtig tippete Spiuusgang ($1 3-2 anstatt 4-1) git &lt;b&gt;$2 Punkt&lt;/b&gt;</entry>
+  <entry key="eventinfo_gain_correcttip">We ds koräkte Resultat isch tippet worde, bechunnt dr beträffend Spiler dr gsamt Wettisatz für das Spiu (das heisst: # Mitspiler * $1)</entry>
+  <entry key="eventinfo_gain_correcttips">We mehreri Spiler ds koräkte Resultat tippet hei, de wird dr gsamt Wettisatz für das Spiu so guet wie müglech zwüsche ihne ufteilt. E aufäuige Räscht fliesst i Tschäkpott.</entry>
+  <entry key="eventinfo_group_phase">Müglechi Spiuusgäng ir Gruppephase:</entry>
+  <entry key="eventinfo_jackpot">Für d Verteilig vom Tschäkpott si d Punkt usschlaggäbend. Je meh Punkt me het, desto grösser dr Ateil am Tschäkpott</entry>
+  <entry key="eventinfo_jackpot_distributeon">D Verteilig erfougt uf die erste $1 vor Ranglischte.</entry>
+  <entry key="eventinfo_jackpot_linformula">Verteilt wird linear. Die zum Zug kommendi Formu isch: &lt;b&gt;&lt;i&gt;"Ateil(Rang) = (Tschäckpott / &amp;#931;(Teilhaberräng)) * (Teilhaber - (Rang – 1))"&lt;/i&gt;&lt;/b&gt;.</entry>
+  <entry key="eventinfo_jackpot_expformula">Verteilt wird exponentieu. D zum Zug kommendi Formu isch: &lt;b&gt;&lt;i&gt;"Ateil(Rang) = (1-k)^(Rang-1) * k * Tschäkpott"&lt;/i&gt;&lt;/b&gt;. Es blibt (logischerwis) öpis vom Tschäkpott übrig. Für e Räscht z verteile wändet me ume die Formu a, bis nümme übrig blibt. &lt;b&gt;k&lt;/b&gt; ist für das Tippspiu $1. Das het zur Foug, dass dr Erschtplatziert chly meh aus $2 vom Tschäkpott überchunnt.</entry>
+  <entry key="eventinfo_jackpot_samerank">We mehreri Spiler glichviu Punkt gmacht hei, wärde d Tschäkpottateile vo de ihne beleite Räng zämezeut u nächcär wird das Gäud glichmässig uf die betroffene Spiler verteilt.</entry>
+  <entry key="eventinfo_overview">Um d Gwüssheit z wahre, dass niemer cha bschisse, si d Tipps vo aune Mitspiler jederzyt isehbar für die angere und d Konti si passwortgschützt</entry>
+  <entry key="eventinfo_penalty_decision">Wenn es Spiu dür Penautischiesse entschide wird, so rächnetme dr Siegermannschaft e Träffer drzue.</entry>
+  <entry key="eventinfo_points">Während em Tippspiu wärde Punkt a d Mitspiler verteilt:</entry>
+  <entry key="eventinfo_precise_tip">Es wird für jedes Spiu ufenes gnaus Ergäbnis tippet:</entry>
+  <entry key="eventinfo_rules">Wie das ds Tippspiu funktioniert, isch i de fougende Punkt festghaute:</entry>
+  <entry key="eventinfo_sealofapproval">nid z vergässe: ds durchdesignte Güetesigu vo $1:</entry>
+  <entry key="eventinfo_stake">Isatz</entry>
+  <entry key="eventinfo_stakepermatch">Dr Isatz für jedes Spiu (jedi einzelni Wett) betreit $1. Es finde $2 Spiu statt - das heisst, dr Wettbetrag für aui Spiu isch $3</entry>
+  <entry key="eventinfo_extrastake">Zudäm wärde $1 derzuegrächnet</entry>
+  <entry key="eventinfo_extrastake_jackpot"> - dä Teil vom Wettbetrag wird diräkt zum Jackpot derzuezeut.</entry>
+  <entry key="eventinfo_extrastake_winner"> - dä Teil vom Wettbetrag wird diräkt am Gwinner i Ussicht gsteut.</entry>
+  <entry key="eventinfo_staketotal">Ds ergit, dass gsamt Wettbetrag betreit $1! Das Gäud isch z überwiise bevor der erscht Tipp cha abgä wärde.</entry>
+  <entry key="footer_contact">Kontakt</entry>
+  <entry key="footer_server_time">Aktuelli Serverzyt</entry>
+  <entry key="general_and">u</entry>
+  <entry key="general_bank_account">Konto</entry>
+  <entry key="general_bettingOffice">Wettbüro!</entry>
+  <entry key="general_by">vo</entry>
+  <entry key="general_cancel">abbräche</entry>
+  <entry key="general_defeat">Niderlag</entry>
+  <entry key="general_edit">bearbeite</entry>
+  <entry key="general_eg">z.B.</entry>
+  <entry key="general_famname">Nachname</entry>
+  <entry key="general_furtherevents">Witeri Tippspiu:</entry>
+  <entry key="general_goback">zrügg</entry>
+  <entry key="general_goforward">witer</entry>
+  <entry key="general_hello">Hallo</entry>
+  <entry key="general_id">id</entry>
+  <entry key="general_langchange">Wosch d Sprach wächsle?</entry>
+  <entry key="general_language">Sprach:</entry>
+  <entry key="general_maximize">maximiere</entry>
+  <entry key="general_minimize">minimiere</entry>
+  <entry key="general_name">Vorname</entry>
+  <entry key="general_no">Nä-ä</entry>
+  <entry key="general_nomatches">Vo däm Tippspiu si no kener Spiu ustrage worde.</entry>
+  <entry key="general_page">Site:</entry>
+  <entry key="general_publicevents">Öffentlichi Tippspiu:</entry>
+  <entry key="general_read">läse</entry>
+  <entry key="general_redirect">Du wirsch sofort witergleitet.</entry>
+  <entry key="general_save">spichere</entry>
+  <entry key="general_savechanges">Änderige spichere</entry>
+  <entry key="general_savednotok">Fähler bim Spichere</entry>
+  <entry key="general_savedok">Spichere erfougrich!</entry>
+  <entry key="general_show_info">Zeig meh Infos derzue!</entry>
+  <entry key="general_thislanguage">Bärndütsch</entry>
+  <entry key="general_tie">Unentschide</entry>
+  <entry key="general_time_at">am</entry>
+  <entry key="general_updating">Aktualisiere</entry>
+  <entry key="general_upload">ufelade</entry>
+  <entry key="general_victory">Sieg</entry>
+  <entry key="general_who">Wär</entry>
+  <entry key="general_yes">Iu</entry>
+  <entry key="general_yourevents">Dini Tippspiu:</entry>
+  <entry key="home_content">Die Sitte git dir d Müglechkeit uf Sportereignis z wette. &lt;br /&gt; Dass de chasch mitmache, muesch di registriere: &lt;a href="?menu=register"&gt;Konto ersteue&lt;/a&gt;. &lt;p&gt; We de scho s Konto hesch, chasch di &lt;a href="?menu=login"&gt;ilogge&lt;/a&gt;</entry>
+  <entry key="home_events">Im Momänt si grad die fougende Tippspiu am loufe:</entry>
+  <entry key="home_fun">Viu Spass</entry>
+  <entry key="home_noevents">Im Momänt si no kener öffenteli Tippspiu aktiv.</entry>
+  <entry key="home_title">Dehei</entry>
+  <entry key="home_welcome">Wiukomme im Wettbüro!</entry>
+  <entry key="login_content">Gib de benötigte Agabe i um di izlogge:</entry>
+  <entry key="login_title">Ilogge</entry>
+  <entry key="login_yourlogin">Di Name:</entry>
+  <entry key="login_yourpw">Dis Passwort:</entry>
+  <entry key="loginhome_content">Du hesch di erfougrich igloggt, im Fau!</entry>
+  <entry key="loginhome_newcomments">Das si die letschte Kommentär:</entry>
+  <entry key="loginhome_noevent">Du machsch no bi keim Tippspiu mit. I &lt;a href="?menu=myprofile&amp;submenu=settings"&gt;dim Profiu&lt;/a&gt; chasch du di bi Tippspiu anmäude &amp; ageri Istelige vornä. Schüsch steit dir no grad nid so viu zur Verfüegig.</entry>
+  <entry key="loginhome_title">Dehei</entry>
+  <entry key="loginhome_yourevent">Bi fougendem Tippspiu machsch mit:</entry>
+  <entry key="loginhome_yourevents">Bi fougende Tippspiu machsch mit:</entry>
+  <entry key="logout_content">Du bisch ize usgloggt und wirsch sofort witergleitet.</entry>
+  <entry key="logout_title">Uslogge</entry>
+  <entry key="myprofile_appearance_nopicture">Kes Biud vorhande.</entry>
+  <entry key="myprofile_appearance_picture">Biud</entry>
+  <entry key="myprofile_appearance_text">Tegscht:</entry>
+  <entry key="myprofile_appearance_title">Erschynig</entry>
+  <entry key="myprofile_content">II däm Berich chasch du dis Erschinigsbiud gägeüber de angere und ds Erschinigsbiud vom Wettbüro gägeüber dir bestimmen, sowie dis Passwort ändere. &lt;p/&gt; Um zu aune beliebige Istellige z glange muesch eifach d Ungermönüs bruche.</entry>
+  <entry key="myprofile_password_content">Gib einisch z aute u zwöi mau z gwünschte Passwort i um dis Passwort z ändere.</entry>
+  <entry key="myprofile_password_new">zwöi mau nöi:</entry>
+  <entry key="myprofile_password_old">aut:</entry>
+  <entry key="myprofile_password_title">Passwort</entry>
+  <entry key="myprofile_settings_approved">agno:</entry>
+  <entry key="myprofile_settings_changeemail">Um d eMail-Adrässe z ändere, muesch se zwöi mau igä.</entry>
+  <entry key="myprofile_settings_content">Hie chasch di bi Tippspiu amäude.&lt;br/&gt; Bei "offene" Tippspiu, chasch di amäude, bi "wartende" muesch druf warte, das di e Administrator lat la mitspile, u bi "agnone” &amp; "abgelehnte" bist du defitiv mit drbi odr äbe nid
 &lt;p/&gt;
-&lt;font class=&quot;error&quot;&gt; Nachdäm irgendöpis hesch gänderet (z.b. uf mitmache klicke) muesch unge uf &quot;Änderige spichere&quot; klicke&lt;/font&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_denied</label>
-        <cnt>abgwise:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_email_notify</label>
-        <cnt>Wede das gmacht hesch , chasch du zur Info s eMail a $1 schribe.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_eventinfo</label>
-        <cnt>Das Ereignis het $1 Spiu, wobi jewius $2 pro Spiu gewettet wird. Därum muesme $3 wette um a däm Tippspiu teilznä. Um bim Tippspiu agno z wärde söttme dr gnannti Betrag izale.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_open</label>
-        <cnt>offe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_participate</label>
-        <cnt>mitmache</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_retire</label>
-        <cnt>zrüggzie</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_staketopay</label>
-        <cnt>Isatz zale</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_title</label>
-        <cnt>Istellige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_waiting</label>
-        <cnt>wartend:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_wiringcomment</label>
-        <cnt>Aus &lt;b&gt;Buchigstegscht&lt;/b&gt; söttisch schribe:&lt;br/&gt; &lt;i&gt;$1: $2 isch drbi!&lt;/i&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_title</label>
-        <cnt>Mis Profiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_participatefirst</label>
-        <cnt>Du sötsch bimene Tippspiu derbi si bevor de chasch tippe. &lt;a href=&quot;index.php?menu=myprofile&amp;submenu=settings&quot;&gt;Mäud di a&lt;/a&gt; odr &lt;a href=&quot;http://www.planetdan.net/pics/misc/georgie.htm&quot; target=&quot;_blank&quot;&gt;wart&lt;/a&gt; bis de vom Administator agno wirsch wede das scho gmacht hesch.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_sametip</label>
-        <cnt>Glichi&lt;br/&gt;Tipps</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tendency</label>
-        <cnt>Tendänz (%)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tip</label>
-        <cnt>Tipp</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_tips</label>
-        <cnt>Tipps</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>mytips_title</label>
-        <cnt>Mini Tipps</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_content</label>
-        <cnt>Die Übersicht dient derzue, aues wichtige zumene Tippspiu z überlicke. Was tippe die angere? Wär isch bsungers guet? &lt;br /&gt;D Zämefassige zeige gsammlets/i Gäud u Punkt a. &lt;br /&gt;Ds Mönü rächts chasch de minimiere, dass meh Informatione ir Site Platz hei.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_jackpot</label>
-        <cnt>Tschäkpott</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_noevents</label>
-        <cnt>Es git leider no ke Tippspiu z überblicke</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_onlyme</label>
-        <cnt>nume ig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_summary</label>
-        <cnt>Zämefassig:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_correcttips</label>
-        <cnt>Korrekt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_summaryall</label>
-        <cnt>Ändzämefassig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>overview_title</label>
-        <cnt>Übersicht</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_content</label>
-        <cnt>Fing use wär dini Mitspiler si.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_noevents</label>
-        <cnt>Es git no ke Tippspiu, wo scho Spiler chönnte mitmache.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_nousers</label>
-        <cnt>Das Tippspiu het no kener Mitspiler</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_title</label>
-        <cnt>Mitspiler</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_gain</label>
-        <cnt>Gwinn</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_jackpotshare</label>
-        <cnt>Tschäkpottateil</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_points</label>
-        <cnt>Punkt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_provisorygain</label>
-        <cnt>prov. Gwinn</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_rank</label>
-        <cnt>Rang</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_title</label>
-        <cnt>Ranglischte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_content</label>
-        <cnt>Um di bimene Tippspiu azmäude, muesch du zersch es Benutzerprofiu ersteue, mit welem du di när chasch ilogge. Ersch denn chasch di bimene Tippspiu amäude.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_email</label>
-        <cnt>Email</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_emailsubject</label>
-        <cnt>Registrierig bim Wettbüro</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_ok</label>
-        <cnt>Du bisch erfougrych registriert wrode. Es eMail mit em ne Passwort isch dr zuegsandt worde.Oft blibt das Mail im Spamfiuter hange – därum: hie isches:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_title</label>
-        <cnt>Registriere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_username</label>
-        <cnt>Benutzername:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_normalview</label>
-        <cnt>Normauasicht</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_largeview</label>
-        <cnt>Breitasicht</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_monday</label>
-        <cnt>Mänti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tuesday</label>
-        <cnt>Zisti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_wednesday</label>
-        <cnt>Mitwuch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_friday</label>
-        <cnt>Friti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thursday</label>
-        <cnt>Donschti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_saturday</label>
-        <cnt>Samschti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_sunday</label>
-        <cnt>Sunnti</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_write</label>
-        <cnt>schribe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_nexttips</label>
-        <cnt>Die nächschte Tips:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_bettinggameover</label>
-        <cnt>Das Tippspiu isch fertig.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_correcttips</label>
-        <cnt>Korräkti Tips</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_closetips</label>
-        <cnt>Fasch korrekti Tips</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>participants_wrongtips</label>
-        <cnt>Fauschi Tips</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_rememberme</label>
-        <cnt>A mi erinnere mi uf däm Kompjuter</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_tojackpot</label>
-        <cnt>geit dr ganz gsamt Wettisatz für das Spiu i Tschäckpott.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_almosttips</label>
-        <cnt>Fasch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_wrongtips</label>
-        <cnt>Fausch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_waitfortips</label>
-        <cnt>Die nächschte Tipps si noni freigä.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr</label>
-        <cnt>Punkteverteilig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_correct</label>
-        <cnt>Korrekt tippets Resultat</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_diff</label>
-        <cnt>Richtig tippete Goudifferänz für die richtigi Mannschaft (z.B. 3-2 anstatt 2-1)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_almost</label>
-        <cnt>Richtig tippete Spiuusgang (wie Toto) für die Richtigi Mannschaft (z.B. 1-0 anstatt 4-1)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_wrong</label>
-        <cnt>Fauschi Tipps</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stake_fix</label>
-        <cnt>Isatz für Tippspiel</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_none</label>
-        <cnt>nüt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_fix</label>
-        <cnt>fix</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_stakemode_permatch</label>
-        <cnt>pro Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_bank_account_intro</label>
-        <cnt>Gib a wohi das dr Gwinn söu überwise wärde nachem Tippspiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_participatereally</label>
-        <cnt>Wosch würklech a däm Tippspiu mitmache?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_profilesettings</label>
-        <cnt>Profiuistellige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_persdetails</label>
-        <cnt>Personali Agabe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_withdrawreally</label>
-        <cnt>Wosch würklech nid mitmache?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_title</label>
-        <cnt>Mitteilige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_send</label>
-        <cnt>versände</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_internal</label>
-        <cnt>Intern</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_receivers</label>
-        <cnt>Empfänger</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_none</label>
-        <cnt>kenr</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_add</label>
-        <cnt>hinzuefüege</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_singleusers</label>
-        <cnt>Einzelni Benutzer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_newmessage</label>
-        <cnt>Das isch e nöii Nachricht vom $1, gsändet $2 $3:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_readparticipe</label>
-        <cnt>gläse!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_content</label>
-        <cnt>Inhaut</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_system</label>
-        <cnt>Versandsystem</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_notitle</label>
-        <cnt>ke Titu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_nocontent</label>
-        <cnt>ke Inhaut</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_messages_noreceivers</label>
-        <cnt>ke Empfänger</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_preferredlanguage</label>
-        <cnt>Wäu dini bevorzugti Sprach us für d Websitte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_commentnumber</label>
-        <cnt>wo azeigt im &lt;i&gt;$1&lt;/i&gt; azeigt wärde</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_bank_account_text3</label>
-        <cnt>..und ds dritte für e &lt;b&gt;Kontoinhaber&lt;/b&gt; (Adrässe).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stake</label>
-        <cnt>Isatz</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_matchnb</label>
-        <cnt># Spiu für das Tippspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_jackpotmode_fraction</label>
-        <cnt>bruchteil</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpotexp</label>
-        <cnt>Verteil dr Jackpot ufene &lt;b&gt;Bruchteil&lt;/b&gt; vo de Teilnämer (in %) oder ufene &lt;b&gt;fixi&lt;/b&gt; Azau.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpot_fraction</label>
-        <cnt>Gib dr Bruchteil in Prozänt i (z.B. 33% füre erscht Drittu)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_jackpot_fix</label>
-        <cnt>Gib a bis zu welem Rang das dr Jackpot verteilt wird.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_distr</label>
-        <cnt>Tschäckpottverteilig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_distralgorithm</label>
-        <cnt>Es git drü Verteiligsaugorütme:&lt;br/&gt;
+&lt;font class="error"&gt; Nachdäm irgendöpis hesch gänderet (z.b. uf mitmache klicke) muesch unge uf "Änderige spichere" klicke&lt;/font&gt;</entry>
+  <entry key="myprofile_settings_denied">abgwise:</entry>
+  <entry key="myprofile_settings_email_notify">Wede das gmacht hesch , chasch du zur Info s eMail a $1 schribe.</entry>
+  <entry key="myprofile_settings_eventinfo">Das Ereignis het $1 Spiu, wobi jewius $2 pro Spiu gewettet wird. Därum muesme $3 wette um a däm Tippspiu teilznä. Um bim Tippspiu agno z wärde söttme dr gnannti Betrag izale.</entry>
+  <entry key="myprofile_settings_open">offe:</entry>
+  <entry key="myprofile_settings_participate">mitmache</entry>
+  <entry key="myprofile_settings_retire">zrüggzie</entry>
+  <entry key="myprofile_settings_staketopay">Isatz zale</entry>
+  <entry key="myprofile_settings_title">Istellige</entry>
+  <entry key="myprofile_settings_waiting">wartend:</entry>
+  <entry key="myprofile_settings_wiringcomment">Aus &lt;b&gt;Buchigstegscht&lt;/b&gt; söttisch schribe:&lt;br/&gt; &lt;i&gt;$1: $2 isch drbi!&lt;/i&gt;</entry>
+  <entry key="myprofile_title">Mis Profiu</entry>
+  <entry key="mytips_participatefirst">Du sötsch bimene Tippspiu derbi si bevor de chasch tippe. &lt;a href="index.php?menu=myprofile&amp;submenu=settings"&gt;Mäud di a&lt;/a&gt; odr &lt;a href="http://www.planetdan.net/pics/misc/georgie.htm" target="_blank"&gt;wart&lt;/a&gt; bis de vom Administator agno wirsch wede das scho gmacht hesch.</entry>
+  <entry key="mytips_sametip">Glichi&lt;br/&gt;Tipps</entry>
+  <entry key="mytips_tendency">Tendänz (%)</entry>
+  <entry key="mytips_tip">Tipp</entry>
+  <entry key="mytips_tips">Tipps</entry>
+  <entry key="mytips_title">Mini Tipps</entry>
+  <entry key="overview_content">Die Übersicht dient derzue, aues wichtige zumene Tippspiu z überlicke. Was tippe die angere? Wär isch bsungers guet? &lt;br /&gt;D Zämefassige zeige gsammlets/i Gäud u Punkt a. &lt;br /&gt;Ds Mönü rächts chasch de minimiere, dass meh Informatione ir Site Platz hei.</entry>
+  <entry key="overview_jackpot">Tschäkpott</entry>
+  <entry key="overview_noevents">Es git leider no ke Tippspiu z überblicke</entry>
+  <entry key="overview_onlyme">nume ig</entry>
+  <entry key="overview_summary">Zämefassig:</entry>
+  <entry key="ranking_correcttips">Korrekt</entry>
+  <entry key="overview_summaryall">Ändzämefassig</entry>
+  <entry key="overview_title">Übersicht</entry>
+  <entry key="participants_content">Fing use wär dini Mitspiler si.</entry>
+  <entry key="participants_noevents">Es git no ke Tippspiu, wo scho Spiler chönnte mitmache.</entry>
+  <entry key="participants_nousers">Das Tippspiu het no kener Mitspiler</entry>
+  <entry key="participants_title">Mitspiler</entry>
+  <entry key="ranking_gain">Gwinn</entry>
+  <entry key="ranking_jackpotshare">Tschäkpottateil</entry>
+  <entry key="ranking_points">Punkt</entry>
+  <entry key="ranking_provisorygain">prov. Gwinn</entry>
+  <entry key="ranking_rank">Rang</entry>
+  <entry key="ranking_title">Ranglischte</entry>
+  <entry key="register_content">Um di bimene Tippspiu azmäude, muesch du zersch es Benutzerprofiu ersteue, mit welem du di när chasch ilogge. Ersch denn chasch di bimene Tippspiu amäude.</entry>
+  <entry key="register_email">Email</entry>
+  <entry key="register_emailsubject">Registrierig bim Wettbüro</entry>
+  <entry key="register_ok">Du bisch erfougrych registriert wrode. Es eMail mit em ne Passwort isch dr zuegsandt worde.Oft blibt das Mail im Spamfiuter hange – därum: hie isches:</entry>
+  <entry key="register_title">Registriere</entry>
+  <entry key="register_username">Benutzername:</entry>
+  <entry key="general_normalview">Normauasicht</entry>
+  <entry key="general_largeview">Breitasicht</entry>
+  <entry key="general_monday">Mänti</entry>
+  <entry key="general_tuesday">Zisti</entry>
+  <entry key="general_wednesday">Mitwuch</entry>
+  <entry key="general_friday">Friti</entry>
+  <entry key="general_thursday">Donschti</entry>
+  <entry key="general_saturday">Samschti</entry>
+  <entry key="general_sunday">Sunnti</entry>
+  <entry key="general_write">schribe</entry>
+  <entry key="ranking_nexttips">Die nächschte Tips:</entry>
+  <entry key="general_bettinggameover">Das Tippspiu isch fertig.</entry>
+  <entry key="participants_correcttips">Korräkti Tips</entry>
+  <entry key="participants_closetips">Fasch korrekti Tips</entry>
+  <entry key="participants_wrongtips">Fauschi Tips</entry>
+  <entry key="login_rememberme">A mi erinnere mi uf däm Kompjuter</entry>
+  <entry key="eventinfo_gain_tojackpot">geit dr ganz gsamt Wettisatz für das Spiu i Tschäckpott.</entry>
+  <entry key="ranking_almosttips">Fasch</entry>
+  <entry key="ranking_wrongtips">Fausch</entry>
+  <entry key="ranking_waitfortips">Die nächschte Tipps si noni freigä.</entry>
+  <entry key="admin_events_pointdistr">Punkteverteilig</entry>
+  <entry key="admin_events_pointdistr_correct">Korrekt tippets Resultat</entry>
+  <entry key="admin_events_pointdistr_diff">Richtig tippete Goudifferänz für die richtigi Mannschaft (z.B. 3-2 anstatt 2-1)</entry>
+  <entry key="admin_events_pointdistr_almost">Richtig tippete Spiuusgang (wie Toto) für die Richtigi Mannschaft (z.B. 1-0 anstatt 4-1)</entry>
+  <entry key="admin_events_pointdistr_wrong">Fauschi Tipps</entry>
+  <entry key="admin_events_settings_stake_fix">Isatz für Tippspiel</entry>
+  <entry key="admin_events_settings_stakemode_none">nüt</entry>
+  <entry key="admin_events_settings_stakemode_fix">fix</entry>
+  <entry key="admin_events_settings_stakemode_permatch">pro Spiu</entry>
+  <entry key="myprofile_settings_bank_account_intro">Gib a wohi das dr Gwinn söu überwise wärde nachem Tippspiu:</entry>
+  <entry key="myprofile_settings_participatereally">Wosch würklech a däm Tippspiu mitmache?</entry>
+  <entry key="myprofile_settings_profilesettings">Profiuistellige</entry>
+  <entry key="myprofile_settings_persdetails">Personali Agabe</entry>
+  <entry key="myprofile_settings_withdrawreally">Wosch würklech nid mitmache?</entry>
+  <entry key="admin_messages_title">Mitteilige</entry>
+  <entry key="general_send">versände</entry>
+  <entry key="admin_messages_internal">Intern</entry>
+  <entry key="admin_messages_receivers">Empfänger</entry>
+  <entry key="general_none">kenr</entry>
+  <entry key="general_add">hinzuefüege</entry>
+  <entry key="admin_messages_singleusers">Einzelni Benutzer</entry>
+  <entry key="admin_messages_newmessage">Das isch e nöii Nachricht vom $1, gsändet $2 $3:</entry>
+  <entry key="general_readparticipe">gläse!</entry>
+  <entry key="general_content">Inhaut</entry>
+  <entry key="admin_messages_system">Versandsystem</entry>
+  <entry key="admin_messages_notitle">ke Titu</entry>
+  <entry key="admin_messages_nocontent">ke Inhaut</entry>
+  <entry key="admin_messages_noreceivers">ke Empfänger</entry>
+  <entry key="myprofile_settings_preferredlanguage">Wäu dini bevorzugti Sprach us für d Websitte</entry>
+  <entry key="myprofile_settings_commentnumber">wo azeigt im &lt;i&gt;$1&lt;/i&gt; azeigt wärde</entry>
+  <entry key="admin_settings_bank_account_text3">..und ds dritte für e &lt;b&gt;Kontoinhaber&lt;/b&gt; (Adrässe).</entry>
+  <entry key="admin_events_stake">Isatz</entry>
+  <entry key="admin_events_settings_matchnb"># Spiu für das Tippspiu</entry>
+  <entry key="admin_events_settings_jackpotmode_fraction">bruchteil</entry>
+  <entry key="admin_events_jackpotexp">Verteil dr Jackpot ufene &lt;b&gt;Bruchteil&lt;/b&gt; vo de Teilnämer (in %) oder ufene &lt;b&gt;fixi&lt;/b&gt; Azau.</entry>
+  <entry key="admin_events_jackpot_fraction">Gib dr Bruchteil in Prozänt i (z.B. 33% füre erscht Drittu)</entry>
+  <entry key="admin_events_jackpot_fix">Gib a bis zu welem Rang das dr Jackpot verteilt wird.</entry>
+  <entry key="admin_events_distr">Tschäckpottverteilig</entry>
+  <entry key="admin_events_distralgorithm">Es git drü Verteiligsaugorütme:&lt;br/&gt;
 &lt;b&gt;$1&lt;/b&gt;: Du gisch a weli Räng wiviu Prozänt usem Tschäckpott bechöme.&lt;br/&gt;
 &lt;b&gt;$2&lt;/b&gt;: Dr Tschäckpott wird linear uf die Beteiligte verteilt. Die Variante isch sehr usgliche.&lt;br/&gt; D Formle isch: &lt;i&gt;Ateil(Rang) = (Tschäckpott / &amp;#931;(Teilhaberräng)) * (Teilhaber - (Rang – 1))&lt;/i&gt;&lt;br/&gt;
-&lt;b&gt;$3&lt;/b&gt;: Dr Tschäckpott wird exponentiell uf die Beteiligte verteilt. Abhängig vom Koeffizient k (wo du agisch), cha das sehr unusgliche (drfür interessanter füre 1.) sy. D Formle isch: &lt;i&gt;Ateil(Rang) = (1-k)^(Rang-1) * k * Tschäckpott&lt;/i&gt;.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_distr_lin</label>
-        <cnt>linear</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_settings_distr_exp</label>
-        <cnt>exponentieu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_firstjackpotfixfield</label>
-        <cnt>Du muesch zersch d Azau beteiligte Räng festlege!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_fixshares</label>
-        <cnt>Das Fäud git die fixi Ufteilig vom Jackpot a (klick uf $1 odr iz Fäud um änderige vorznä).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_expshares</label>
-        <cnt>Gib e Koeffiziänt i (chlyner aus 1) für die exponentielli Verteilig. Dr Erscht wird ungfähr dä Teil usem Jackpot erhaute (Koeffiziänt * Tschäckpott).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_beton</label>
-        <cnt>Was tippe?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betonexp</label>
-        <cnt>Entweder tippetme uf &lt;br/&gt;
+&lt;b&gt;$3&lt;/b&gt;: Dr Tschäckpott wird exponentiell uf die Beteiligte verteilt. Abhängig vom Koeffizient k (wo du agisch), cha das sehr unusgliche (drfür interessanter füre 1.) sy. D Formle isch: &lt;i&gt;Ateil(Rang) = (1-k)^(Rang-1) * k * Tschäckpott&lt;/i&gt;.</entry>
+  <entry key="admin_events_settings_distr_lin">linear</entry>
+  <entry key="admin_events_settings_distr_exp">exponentieu</entry>
+  <entry key="admin_events_firstjackpotfixfield">Du muesch zersch d Azau beteiligte Räng festlege!</entry>
+  <entry key="admin_events_fixshares">Das Fäud git die fixi Ufteilig vom Jackpot a (klick uf $1 odr iz Fäud um änderige vorznä).</entry>
+  <entry key="admin_events_expshares">Gib e Koeffiziänt i (chlyner aus 1) für die exponentielli Verteilig. Dr Erscht wird ungfähr dä Teil usem Jackpot erhaute (Koeffiziänt * Tschäckpott).</entry>
+  <entry key="admin_events_beton">Was tippe?</entry>
+  <entry key="admin_events_betonexp">Entweder tippetme uf &lt;br/&gt;
 - &lt;b&gt;Resultat&lt;/b&gt; vo de Partie: 3-2, 1-3, 0-0&lt;br/&gt;
-- &lt;b&gt;Toto&lt;/b&gt; vo de Partie: 1 = Heimmanschaft gwinnt, 2 = Uswärtsmannschaft gwinnt, x = Unentschieden</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_toto</label>
-        <cnt>Toto</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_pointdistr_toto</label>
-        <cnt>Richtig tippets Toto</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_komatchesexp</label>
-        <cnt>Gits i däm Tippspiu Cöp-Spiu? D.h. dass es e Sieger mues gä, dr Verlürer usscheidet und darum kes Unentschide müglech isch.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_only</label>
-        <cnt>nume</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_tietough</label>
-        <cnt>Trotzdäm Unentschide ermügleche?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty</label>
-        <cnt>Wie wird ds Resultat sy nach em ne mügleche Penautischiesse?&lt;br/&gt;
+- &lt;b&gt;Toto&lt;/b&gt; vo de Partie: 1 = Heimmanschaft gwinnt, 2 = Uswärtsmannschaft gwinnt, x = Unentschieden</entry>
+  <entry key="admin_events_toto">Toto</entry>
+  <entry key="admin_events_pointdistr_toto">Richtig tippets Toto</entry>
+  <entry key="admin_events_komatchesexp">Gits i däm Tippspiu Cöp-Spiu? D.h. dass es e Sieger mues gä, dr Verlürer usscheidet und darum kes Unentschide müglech isch.</entry>
+  <entry key="general_only">nume</entry>
+  <entry key="admin_events_tietough">Trotzdäm Unentschide ermügleche?</entry>
+  <entry key="admin_events_afterpenalty">Wie wird ds Resultat sy nach em ne mügleche Penautischiesse?&lt;br/&gt;
 - zeu aui Penautis zum Resultat derzue&lt;br/&gt;
-- zeu ei Träffer für d Siegermannschaft derzue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty_addall</label>
-        <cnt>zeu aui derzue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_afterpenalty_addone</label>
-        <cnt>zeu eine derzue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_gain_stakeback</label>
-        <cnt>bechöme die, wo trotzdäm ufe koräkt Spiuusgang ($1/$2/$3) tippet hei, ihre Wettinsatz für die Rundi ($4) zrügg. Die räschtleche Spiuisätz wandere i Tschäkpott.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_team</label>
-        <cnt>Mannschaft</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_nostake</label>
-        <cnt>Für das Tippspiu gits ke Isatz. D.h. du muesch nüt zale um mitzmache.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_fixstake</label>
-        <cnt>Dr Isatz für das Tippspiu isch e Fixbetrag vo $1.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_totalgain</label>
-        <cnt>Totaugwinn</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto</label>
-        <cnt>I däm Tippspiu wird uf Toto (möglechi Spiuusgäng) tippet. Das heisst mi het die theoretisch die drü Müglechkeite: $1$2$3.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_1</label>
-        <cnt>1 = Heimmannschaft gwinnt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_2</label>
-        <cnt>2 = Uswärtsmannschaft gwinnt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_beton_toto_x</label>
-        <cnt>x = Unentschide</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_matches_both_types</label>
-        <cnt>Es git $1 sowie $2 i däm Tippspiu.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_inallmatches</label>
-        <cnt>Bi aune Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_in_matches</label>
-        <cnt>Bi de</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tournamentmatches</label>
-        <cnt>Turnierspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_komatches</label>
-        <cnt>K.O.-Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_allpossible</label>
-        <cnt>sy $1/$2 &amp; $3 möglech.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tieno</label>
-        <cnt>sy &lt;b&gt;nur&lt;/b&gt; $1/$2 müglech.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_tietough</label>
-        <cnt>Es wird$1 eifach ds Resultat am Ändi vom Spiu (ohni Penautischiesse) berücksichtiget.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties</label>
-        <cnt>We es Spiu dür Penautischiesse entschide wird,</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties_one</label>
-        <cnt>wird ei Träffer zum Resultat vor Siegermannschaft derzuezeut.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_afterpenalties_all</label>
-        <cnt>wärde aui Penautiträffer zum Resultat derzuezeut.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minute</label>
-        <cnt>Minute</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minutes</label>
-        <cnt>Minute</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_minute_s</label>
-        <cnt>Minute</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hour</label>
-        <cnt>Stung</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hours</label>
-        <cnt>Stung</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_hour_s</label>
-        <cnt>Stung</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_day</label>
-        <cnt>Tag</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_days</label>
-        <cnt>Täg</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_day_s</label>
-        <cnt>Tag/Täg</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_bet_until</label>
-        <cnt>D Tipps müesse bis spetischtens &lt;b&gt;$1 vor $2&lt;/b&gt; igä wärde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_thefirstmatch</label>
-        <cnt>em &lt;i&gt;erschte&lt;/i&gt; Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_match</label>
-        <cnt>em Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_diff</label>
-        <cnt>e richtig tippeti Goudifferänz ($1 0-3 anstatt 1-4) git &lt;b&gt;$2 Punkt&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_points_wrong</label>
-        <cnt>e absolut fausche Tipp git &lt;b&gt;$3 Punkt&lt;/b&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_forgotpassword</label>
-        <cnt>Benutzerdate vergässe?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_senddata</label>
-        <cnt>Benutzerdate sände</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatasubject</label>
-        <cnt>Dini Benutzerdate (nöis Passwort)</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatamail</label>
-        <cnt>Du hesch dini Benutzerdate agforderet bim $1. Es isch outomatisch es nöis Passwort ersteut worde, wo du ohni Problem chasch ändere.&lt;br/&gt;$2&lt;br/&gt;$3&lt;br/&gt;-----------------------------&lt;br/&gt;&lt;a href=&quot;$4&quot;&gt;$4&lt;/a&gt;</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_userdatasent</label>
-        <cnt>Dini Benutzeragabe si dir uf $1 gschickt worde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_nouserwiththisemail</label>
-        <cnt>Es git kes Benutzerkonto mit dere eMail-Adrässe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_nofunctionalsmtp</label>
-        <cnt>Es isch leider nid müglech, eMails vo däm Server ds versände.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_writetoadmin</label>
-        <cnt>Bitte schrib am Administrator es eMail w$ge dim Problem. D Adrässe fingsch im Fuess vor Site.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_alreadyaccount</label>
-        <cnt>Es git scho es Benutzerkonto mit dere eMail!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_register_logintoolong</label>
-        <cnt>Dr Benutzername darf maximau nume 15 Zeiche enthaute</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>login_askfordata</label>
-        <cnt>Hie chasch dini Benutzerdate anhand vo dire eMail-Adrässe afordere.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_siteurl</label>
-        <cnt>Site-URL</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_siteurltext</label>
-        <cnt>Gib d URL a, um uf die Site z glange.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notifications</label>
-        <cnt>Benachrichtigunge</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notificationstext</label>
-        <cnt>Wäu us i weune Fäu und wie das du wosch benachrichtigt.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_participate</label>
-        <cnt>Bir e Amäudig amene Tippspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_newaccount</label>
-        <cnt>Bim ersteue vomene neue Benutzerkonto</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_notify_withdraw</label>
-        <cnt>Bime ne Rückzug vomene Tippspiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_emailhere</label>
-        <cnt>Därum wird z eMail hie azeigt:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_notification</label>
-        <cnt>Benachrichtigung</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_newaccount</label>
-        <cnt>Nöis Benutzerkonto</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>register_newaccounttext</label>
-        <cnt>Es isch e neue Benutzeraccount ersteut worde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifywithdraw</label>
-        <cnt>Rückzug</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifywithdrawtxt</label>
-        <cnt>&lt;b&gt;$1&lt;/b&gt; het sech vom Tippspiu &lt;b&gt;$2&lt;/b&gt; zrüggzoge</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifyparticipate</label>
-        <cnt>Amäudig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>myprofile_settings_notifyparticipatetxt</label>
-        <cnt>&lt;b&gt;$1 möcht bim Tippspiu &lt;b&gt;$2&lt;/b&gt; mitmache.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpactivated</label>
-        <cnt>Dr Versand vo Emails per SMTP isch aktiviert!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_modifysmtp</label>
-        <cnt>SMTP-Zuegang bearbeite</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpexp</label>
-        <cnt>Um chönne Emails z versände, bruchsch e SMTP-Zuegang. Entweder steit dir eine uf däm Server zur verfüegig, oder du benützisch eine vomene angere Server (z.B. vo dire private Email-Adrässe).</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpserver</label>
-        <cnt>SMTP-Server</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtplogin</label>
-        <cnt>SMTP-Benutzername</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_fromaddress</label>
-        <cnt>Absänderadrässe</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_fromaddressexp</label>
-        <cnt>D Absänderadrässe mues nid unbedingt mit der Adrässe vom SMTP-Zuegang überistimme. S paar Server akzeptiere aber nume &quot;frömdi&quot; Adrässene we si anhand vonere Bestätigung si überprüeft worde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpport</label>
-        <cnt>SMTP-Port</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpportexp</label>
-        <cnt>Isch nume i säutene fäu nid 465</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_smtpdisactivated</label>
-        <cnt>Dr Versand vo Emails per SMTP isch &lt;b&gt;desaktiviert!&lt;/b&gt; Es chöi kener Emails vo dere Site verschikt wärde!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_mailnotsent</label>
-        <cnt>Ds Testmail het mit dene Istellige nid chönne versändet wärde! Dr Mailversand isch ize deaktiviert!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_mailsent</label>
-        <cnt>Es sich erfougrich es Teschtemail a d Adrässe $1 versändet worde! Dr Mailversand isch ize aktiviert.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_testemail_subject</label>
-        <cnt>Erfougrich eMail-Versand per SMTP aktiviert!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_testemail_txt</label>
-        <cnt>Ab itze chasch du di per Email vor Website us la benachrichtige oder Benutzer e benachrichtigung la schicke. Zudäm isch ds Registriere ize besser, wiu am neue Benutzer s eMail mitem Passwort gschickt wird.
+- zeu ei Träffer für d Siegermannschaft derzue</entry>
+  <entry key="admin_events_afterpenalty_addall">zeu aui derzue</entry>
+  <entry key="admin_events_afterpenalty_addone">zeu eine derzue</entry>
+  <entry key="eventinfo_gain_stakeback">bechöme die, wo trotzdäm ufe koräkt Spiuusgang ($1/$2/$3) tippet hei, ihre Wettinsatz für die Rundi ($4) zrügg. Die räschtleche Spiuisätz wandere i Tschäkpott.</entry>
+  <entry key="general_team">Mannschaft</entry>
+  <entry key="eventinfo_nostake">Für das Tippspiu gits ke Isatz. D.h. du muesch nüt zale um mitzmache.</entry>
+  <entry key="eventinfo_fixstake">Dr Isatz für das Tippspiu isch e Fixbetrag vo $1.</entry>
+  <entry key="ranking_totalgain">Totaugwinn</entry>
+  <entry key="eventinfo_beton_toto">I däm Tippspiu wird uf Toto (möglechi Spiuusgäng) tippet. Das heisst mi het die theoretisch die drü Müglechkeite: $1$2$3.</entry>
+  <entry key="eventinfo_beton_toto_1">1 = Heimmannschaft gwinnt</entry>
+  <entry key="eventinfo_beton_toto_2">2 = Uswärtsmannschaft gwinnt</entry>
+  <entry key="eventinfo_beton_toto_x">x = Unentschide</entry>
+  <entry key="eventinfo_matches_both_types">Es git $1 sowie $2 i däm Tippspiu.</entry>
+  <entry key="eventinfo_inallmatches">Bi aune Spiu</entry>
+  <entry key="eventinfo_in_matches">Bi de</entry>
+  <entry key="eventinfo_tournamentmatches">Turnierspiu</entry>
+  <entry key="eventinfo_komatches">K.O.-Spiu</entry>
+  <entry key="eventinfo_allpossible">sy $1/$2 &amp; $3 möglech.</entry>
+  <entry key="eventinfo_tieno">sy &lt;b&gt;nur&lt;/b&gt; $1/$2 müglech.</entry>
+  <entry key="eventinfo_tietough">Es wird$1 eifach ds Resultat am Ändi vom Spiu (ohni Penautischiesse) berücksichtiget.</entry>
+  <entry key="eventinfo_afterpenalties">We es Spiu dür Penautischiesse entschide wird,</entry>
+  <entry key="eventinfo_afterpenalties_one">wird ei Träffer zum Resultat vor Siegermannschaft derzuezeut.</entry>
+  <entry key="eventinfo_afterpenalties_all">wärde aui Penautiträffer zum Resultat derzuezeut.</entry>
+  <entry key="general_minute">Minute</entry>
+  <entry key="general_minutes">Minute</entry>
+  <entry key="general_minute_s">Minute</entry>
+  <entry key="general_hour">Stung</entry>
+  <entry key="general_hours">Stung</entry>
+  <entry key="general_hour_s">Stung</entry>
+  <entry key="general_day">Tag</entry>
+  <entry key="general_days">Täg</entry>
+  <entry key="general_day_s">Tag/Täg</entry>
+  <entry key="eventinfo_bet_until">D Tipps müesse bis spetischtens &lt;b&gt;$1 vor $2&lt;/b&gt; igä wärde.</entry>
+  <entry key="eventinfo_thefirstmatch">em &lt;i&gt;erschte&lt;/i&gt; Spiu</entry>
+  <entry key="eventinfo_match">em Spiu</entry>
+  <entry key="eventinfo_points_diff">e richtig tippeti Goudifferänz ($1 0-3 anstatt 1-4) git &lt;b&gt;$2 Punkt&lt;/b&gt;</entry>
+  <entry key="eventinfo_points_wrong">e absolut fausche Tipp git &lt;b&gt;$3 Punkt&lt;/b&gt;</entry>
+  <entry key="login_forgotpassword">Benutzerdate vergässe?</entry>
+  <entry key="login_senddata">Benutzerdate sände</entry>
+  <entry key="login_userdatasubject">Dini Benutzerdate (nöis Passwort)</entry>
+  <entry key="login_userdatamail">Du hesch dini Benutzerdate agforderet bim $1. Es isch outomatisch es nöis Passwort ersteut worde, wo du ohni Problem chasch ändere.&lt;br/&gt;$2&lt;br/&gt;$3&lt;br/&gt;-----------------------------&lt;br/&gt;&lt;a href="$4"&gt;$4&lt;/a&gt;</entry>
+  <entry key="login_userdatasent">Dini Benutzeragabe si dir uf $1 gschickt worde.</entry>
+  <entry key="error_nouserwiththisemail">Es git kes Benutzerkonto mit dere eMail-Adrässe</entry>
+  <entry key="error_nofunctionalsmtp">Es isch leider nid müglech, eMails vo däm Server ds versände.</entry>
+  <entry key="general_writetoadmin">Bitte schrib am Administrator es eMail w$ge dim Problem. D Adrässe fingsch im Fuess vor Site.</entry>
+  <entry key="error_register_alreadyaccount">Es git scho es Benutzerkonto mit dere eMail!</entry>
+  <entry key="error_register_logintoolong">Dr Benutzername darf maximau nume 15 Zeiche enthaute</entry>
+  <entry key="login_askfordata">Hie chasch dini Benutzerdate anhand vo dire eMail-Adrässe afordere.</entry>
+  <entry key="admin_settings_siteurl">Site-URL</entry>
+  <entry key="admin_settings_siteurltext">Gib d URL a, um uf die Site z glange.</entry>
+  <entry key="admin_settings_notifications">Benachrichtigunge</entry>
+  <entry key="admin_settings_notificationstext">Wäu us i weune Fäu und wie das du wosch benachrichtigt.</entry>
+  <entry key="admin_settings_notify_participate">Bir e Amäudig amene Tippspiu</entry>
+  <entry key="admin_settings_notify_newaccount">Bim ersteue vomene neue Benutzerkonto</entry>
+  <entry key="admin_settings_notify_withdraw">Bime ne Rückzug vomene Tippspiu</entry>
+  <entry key="register_emailhere">Därum wird z eMail hie azeigt:</entry>
+  <entry key="general_notification">Benachrichtigung</entry>
+  <entry key="register_newaccount">Nöis Benutzerkonto</entry>
+  <entry key="register_newaccounttext">Es isch e neue Benutzeraccount ersteut worde.</entry>
+  <entry key="myprofile_settings_notifywithdraw">Rückzug</entry>
+  <entry key="myprofile_settings_notifywithdrawtxt">&lt;b&gt;$1&lt;/b&gt; het sech vom Tippspiu &lt;b&gt;$2&lt;/b&gt; zrüggzoge</entry>
+  <entry key="myprofile_settings_notifyparticipate">Amäudig</entry>
+  <entry key="myprofile_settings_notifyparticipatetxt">&lt;b&gt;$1 möcht bim Tippspiu &lt;b&gt;$2&lt;/b&gt; mitmache.</entry>
+  <entry key="admin_settings_smtpactivated">Dr Versand vo Emails per SMTP isch aktiviert!</entry>
+  <entry key="admin_settings_modifysmtp">SMTP-Zuegang bearbeite</entry>
+  <entry key="admin_settings_smtpexp">Um chönne Emails z versände, bruchsch e SMTP-Zuegang. Entweder steit dir eine uf däm Server zur verfüegig, oder du benützisch eine vomene angere Server (z.B. vo dire private Email-Adrässe).</entry>
+  <entry key="admin_settings_smtpserver">SMTP-Server</entry>
+  <entry key="admin_settings_smtplogin">SMTP-Benutzername</entry>
+  <entry key="admin_settings_fromaddress">Absänderadrässe</entry>
+  <entry key="admin_settings_fromaddressexp">D Absänderadrässe mues nid unbedingt mit der Adrässe vom SMTP-Zuegang überistimme. S paar Server akzeptiere aber nume "frömdi" Adrässene we si anhand vonere Bestätigung si überprüeft worde.</entry>
+  <entry key="admin_settings_smtpport">SMTP-Port</entry>
+  <entry key="admin_settings_smtpportexp">Isch nume i säutene fäu nid 465</entry>
+  <entry key="admin_settings_smtpdisactivated">Dr Versand vo Emails per SMTP isch &lt;b&gt;desaktiviert!&lt;/b&gt; Es chöi kener Emails vo dere Site verschikt wärde!</entry>
+  <entry key="admin_settings_mailnotsent">Ds Testmail het mit dene Istellige nid chönne versändet wärde! Dr Mailversand isch ize deaktiviert!</entry>
+  <entry key="admin_settings_mailsent">Es sich erfougrich es Teschtemail a d Adrässe $1 versändet worde! Dr Mailversand isch ize aktiviert.</entry>
+  <entry key="admin_settings_testemail_subject">Erfougrich eMail-Versand per SMTP aktiviert!</entry>
+  <entry key="admin_settings_testemail_txt">Ab itze chasch du di per Email vor Website us la benachrichtige oder Benutzer e benachrichtigung la schicke. Zudäm isch ds Registriere ize besser, wiu am neue Benutzer s eMail mitem Passwort gschickt wird.
 &lt;p/&gt;
 Meh Informatione zu SMTP: &lt;br/&gt;
-&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;http://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol&quot;&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;http://mail.google.com/support/bin/answer.py?hlrm=en&amp;answer=13287&quot;&gt;Google support&lt;/a&gt;&lt;/li&gt;
+&lt;ul&gt;&lt;li&gt;&lt;a href="http://de.wikipedia.org/wiki/Simple_Mail_Transfer_Protocol"&gt;Wikipedia&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://mail.google.com/support/bin/answer.py?hlrm=en&amp;answer=13287"&gt;Google support&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_contains</label>
-        <cnt>enthautet</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_filter</label>
-        <cnt>Fiuter:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_filterverb</label>
-        <cnt>fiutere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_filter_emptyresults</label>
-        <cnt>Däm Fiuter entspräche kener Iträg.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_is</label>
-        <cnt>isch</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_difftips</label>
-        <cnt>Differänz</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_monday_short</label>
-        <cnt>Mä</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_tuesday_short</label>
-        <cnt>Zi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_wednesday_short</label>
-        <cnt>Mi</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_thursday_short</label>
-        <cnt>Do</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_friday_short</label>
-        <cnt>Fr</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_saturday_short</label>
-        <cnt>Sa</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_sunday_short</label>
-        <cnt>Su</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_arrangematchdays</label>
-        <cnt>Tue d Spiutäg ordne</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_showingxoutofx</label>
-        <cnt>Ranglischte nach $1 von $2 Spiu:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>ranking_showrankinguntil</label>
-        <cnt>Zeig d Ranglischte bis und mit</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_match</label>
-        <cnt>Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_date</label>
-        <cnt>Datum</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stakeback</label>
-        <cnt>Im Fau, das niemer ds richtige Resultat tippet het, söu der Rundeisatz a diejenige wo zmigscht dr korräkt Spiuusgang tippet hei zrügggä wärde? Bi nei, wanderet dr ganz Rundeisatz i Tschäckpott.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_stakebacknotpossible</label>
-        <cnt>Es isch nume müglech dr Rundeisatz zrüggzgä weme uf Resultat tippet!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betuntil</label>
-        <cnt>Bis wenn tippe?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_betuntilexp</label>
-        <cnt>Bis wenn söue d Tipps abgä wärde?&lt;/br&gt;
+</entry>
+  <entry key="general_contains">enthautet</entry>
+  <entry key="general_filter">Fiuter:</entry>
+  <entry key="general_filterverb">fiutere</entry>
+  <entry key="error_filter_emptyresults">Däm Fiuter entspräche kener Iträg.</entry>
+  <entry key="general_is">isch</entry>
+  <entry key="ranking_difftips">Differänz</entry>
+  <entry key="general_monday_short">Mä</entry>
+  <entry key="general_tuesday_short">Zi</entry>
+  <entry key="general_wednesday_short">Mi</entry>
+  <entry key="general_thursday_short">Do</entry>
+  <entry key="general_friday_short">Fr</entry>
+  <entry key="general_saturday_short">Sa</entry>
+  <entry key="general_sunday_short">Su</entry>
+  <entry key="admin_events_arrangematchdays">Tue d Spiutäg ordne</entry>
+  <entry key="ranking_showingxoutofx">Ranglischte nach $1 von $2 Spiu:</entry>
+  <entry key="ranking_showrankinguntil">Zeig d Ranglischte bis und mit</entry>
+  <entry key="general_match">Spiu</entry>
+  <entry key="general_date">Datum</entry>
+  <entry key="admin_events_stakeback">Im Fau, das niemer ds richtige Resultat tippet het, söu der Rundeisatz a diejenige wo zmigscht dr korräkt Spiuusgang tippet hei zrügggä wärde? Bi nei, wanderet dr ganz Rundeisatz i Tschäckpott.</entry>
+  <entry key="admin_events_stakebacknotpossible">Es isch nume müglech dr Rundeisatz zrüggzgä weme uf Resultat tippet!</entry>
+  <entry key="admin_events_betuntil">Bis wenn tippe?</entry>
+  <entry key="admin_events_betuntilexp">Bis wenn söue d Tipps abgä wärde?&lt;/br&gt;
 Entweder e bestimmti Azau Minute oder Tag vorem jewilige Spiu oder vom Tippspiubeginn.&lt;/br&gt;
 Bei Minute wird exakt d Zyt abgmässe, bi de Tage jedoch isch NUR ds Datum usschlaggäbend. 1 Tag zuvor = Am Tag vorhär&lt;/br&gt;
-Vor em Tippspiubeginn bedeutet, dass AUI Tipps vor em Beginn igä müesse wärde.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_before</label>
-        <cnt>vor</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_bettinggameinitiation</label>
-        <cnt>Tippspiubeginn</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nextstep</label>
-        <cnt>zum nächschte Schritt</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_nextstepdialog</label>
-        <cnt>NUR we du dir sicher bisch, das aues so igsteut isch wie de wosch, de gang witer</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_displayinfo</label>
-        <cnt>Info für die Istellige azeige</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_jp</label>
-        <cnt>Dr gwunnig Ändbetrag isch dr Ateil am Tschäckpott. Dr Spiler mit de meischte Punkt überchunnt dr gröscht Ateil und isch somit Sieger.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_floored</label>
-        <cnt>abgrundet</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_jackpot_fixformula</label>
-        <cnt>Fougendermasse wird die fixi Verteilig abloufe:</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_name</label>
-        <cnt>Ungüutige Name!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_date</label>
-        <cnt>Ungüutigs Datum!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_matchnb</label>
-        <cnt>Ungüutigi Spiuazau!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_stake</label>
-        <cnt>Ungüutige Ysatz!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_currency</label>
-        <cnt>Ungüutigi Währig!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_round</label>
-        <cnt>Ungültigi Rundigsgnauigkeit!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_fraction</label>
-        <cnt>Ungüutige Bruchteil!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_jackpotfix</label>
-        <cnt>Ungüutige Rang bir fixe Tschäckpottverteilig!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_jackpotfixshares</label>
-        <cnt>D Anzau Räng stimmt nicht mit dr fixe Ufteilig vom Tschäckpott übery!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_expshare</label>
-        <cnt>Ungüutige Koeffiziänt für die exponentieui Verteilig!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_betuntil</label>
-        <cnt>Ungüutigi Ygab füre Wettzytpunkt!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pcorrect</label>
-        <cnt>Ungüutigi Punktzau für korrekti Tipps!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pdiff</label>
-        <cnt>Ungüutigi Punktzau für Goudifferänztipps!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_palmost</label>
-        <cnt>Ungüutigi Punktzau für Spiuusgangtipps!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_err_invalid_pwrong</label>
-        <cnt>Ungüutigi Punktzau für fauschi Tipps!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_createevent</label>
-        <cnt>Tippspiu Ersteue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_createtemplate</label>
-        <cnt>Vorlag ersteue</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_modeselection</label>
-        <cnt>Modususwau</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_scheduleactivation</label>
-        <cnt>Zytplan &amp; Aktivierig</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_fromphase3</label>
-        <cnt>Dä Teil isch ersch ab dr Phase 3 verfüegbar</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_phase3text</label>
-        <cnt>Itze hesch d Möglechkeit dr &lt;a href=&quot;$1&quot;&gt;Spiuplan izrichte&lt;/a&gt;, solang dass ds Tippspiu no nid sichtbar isch. &lt;b&gt;Aues usser &quot;$2&quot;&lt;/b&gt; wo du itze chasch Isteue, isch ou no machbar nach der Aktivation, &lt;b&gt;aber&lt;/b&gt; tue nume aktiviere wede wosch dases für d Benutzer sichtbar söu sy!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_komatch</label>
-        <cnt>K.O.-Spiu</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_showeventlist</label>
-        <cnt>Zeig d Tippspiulischte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_inputtypeexp</label>
-        <cnt>Wie söu ds Resultat igä wärde?</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>error_incorrectmatchnb</label>
-        <cnt>D Azau Spiu im Spiuplan stimmt nid mit dr Azau Spiu i de Tippspiuistellige überi.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_events_existantmatchesremoved</label>
-        <cnt>Die Mätsche wo scho itreit si, wärde glösche wärde!</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>eventinfo_finalaccount_points</label>
-        <cnt>Dr Siiger isch dä mit em Meischte Punkt.</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_langlist</label>
-        <cnt>Sprachelischte</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>admin_settings_installlang</label>
-        <cnt>Sprach installiere/entfärne</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_install</label>
-        <cnt>installiere</cnt>
-    </zock_lang>
-    <zock_lang>
-        <label>general_remove</label>
-        <cnt>entfärne</cnt>
-    </zock_lang>
-</zock>
+Vor em Tippspiubeginn bedeutet, dass AUI Tipps vor em Beginn igä müesse wärde.</entry>
+  <entry key="general_before">vor</entry>
+  <entry key="admin_events_bettinggameinitiation">Tippspiubeginn</entry>
+  <entry key="admin_events_nextstep">zum nächschte Schritt</entry>
+  <entry key="admin_events_nextstepdialog">NUR we du dir sicher bisch, das aues so igsteut isch wie de wosch, de gang witer</entry>
+  <entry key="admin_events_displayinfo">Info für die Istellige azeige</entry>
+  <entry key="eventinfo_finalaccount_jp">Dr gwunnig Ändbetrag isch dr Ateil am Tschäckpott. Dr Spiler mit de meischte Punkt überchunnt dr gröscht Ateil und isch somit Sieger.</entry>
+  <entry key="eventinfo_jackpot_floored">abgrundet</entry>
+  <entry key="eventinfo_jackpot_fixformula">Fougendermasse wird die fixi Verteilig abloufe:</entry>
+  <entry key="admin_events_err_invalid_name">Ungüutige Name!</entry>
+  <entry key="admin_events_err_invalid_date">Ungüutigs Datum!</entry>
+  <entry key="admin_events_err_invalid_matchnb">Ungüutigi Spiuazau!</entry>
+  <entry key="admin_events_err_invalid_stake">Ungüutige Ysatz!</entry>
+  <entry key="admin_events_err_invalid_currency">Ungüutigi Währig!</entry>
+  <entry key="admin_events_err_invalid_round">Ungültigi Rundigsgnauigkeit!</entry>
+  <entry key="admin_events_err_invalid_fraction">Ungüutige Bruchteil!</entry>
+  <entry key="admin_events_err_invalid_jackpotfix">Ungüutige Rang bir fixe Tschäckpottverteilig!</entry>
+  <entry key="admin_events_err_invalid_jackpotfixshares">D Anzau Räng stimmt nicht mit dr fixe Ufteilig vom Tschäckpott übery!</entry>
+  <entry key="admin_events_err_invalid_expshare">Ungüutige Koeffiziänt für die exponentieui Verteilig!</entry>
+  <entry key="admin_events_err_invalid_betuntil">Ungüutigi Ygab füre Wettzytpunkt!</entry>
+  <entry key="admin_events_err_invalid_pcorrect">Ungüutigi Punktzau für korrekti Tipps!</entry>
+  <entry key="admin_events_err_invalid_pdiff">Ungüutigi Punktzau für Goudifferänztipps!</entry>
+  <entry key="admin_events_err_invalid_palmost">Ungüutigi Punktzau für Spiuusgangtipps!</entry>
+  <entry key="admin_events_err_invalid_pwrong">Ungüutigi Punktzau für fauschi Tipps!</entry>
+  <entry key="admin_events_createevent">Tippspiu Ersteue</entry>
+  <entry key="admin_events_createtemplate">Vorlag ersteue</entry>
+  <entry key="admin_events_modeselection">Modususwau</entry>
+  <entry key="admin_events_scheduleactivation">Zytplan &amp; Aktivierig</entry>
+  <entry key="admin_events_fromphase3">Dä Teil isch ersch ab dr Phase 3 verfüegbar</entry>
+  <entry key="admin_events_phase3text">Itze hesch d Möglechkeit dr &lt;a href="$1"&gt;Spiuplan izrichte&lt;/a&gt;, solang dass ds Tippspiu no nid sichtbar isch. &lt;b&gt;Aues usser "$2"&lt;/b&gt; wo du itze chasch Isteue, isch ou no machbar nach der Aktivation, &lt;b&gt;aber&lt;/b&gt; tue nume aktiviere wede wosch dases für d Benutzer sichtbar söu sy!</entry>
+  <entry key="admin_events_komatch">K.O.-Spiu</entry>
+  <entry key="admin_events_showeventlist">Zeig d Tippspiulischte</entry>
+  <entry key="admin_events_inputtypeexp">Wie söu ds Resultat igä wärde?</entry>
+  <entry key="error_incorrectmatchnb">D Azau Spiu im Spiuplan stimmt nid mit dr Azau Spiu i de Tippspiuistellige überi.</entry>
+  <entry key="admin_events_existantmatchesremoved">Die Mätsche wo scho itreit si, wärde glösche wärde!</entry>
+  <entry key="eventinfo_finalaccount_points">Dr Siiger isch dä mit em Meischte Punkt.</entry>
+  <entry key="admin_settings_langlist">Sprachelischte</entry>
+  <entry key="admin_settings_installlang">Sprach installiere/entfärne</entry>
+  <entry key="general_install">installiere</entry>
+  <entry key="general_remove">entfärne</entry>
+</properties>
