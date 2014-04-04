@@ -120,6 +120,7 @@ if (isset($_POST['hf_read'])){
 //the function
 include_once('src/classes/class.event.php');
 include_once('src/classes/class.eventcollection.php');
+include_once('src/classes/class.zockqueries.php');
 
 $events_test = new EventCollection($_SESSION['userid']);
 

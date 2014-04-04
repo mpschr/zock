@@ -572,7 +572,7 @@ class Event {
     // METHODS
     /////////////////////////////////////////////////
 
-    private function points_per($subject,$who) {
+    private function points_per($subject,$who,$until="") {
 
         global $db;
 
@@ -592,7 +592,7 @@ class Event {
             $users[] = $user;
         }
         $pointssql .= $subject;
-        $pointssql .= " from zock_event_".$this->getId()." ";
+        $pointssql .= " from (".str_replace(';','',$this->matchQuery("*",$until)).") AS q1 ";
         $pointssql .= " group by ".$subject.";";
 
         $mdranking =  $db->query($pointssql);
@@ -600,14 +600,29 @@ class Event {
         return($mdranking);
     }
 
-    public function pointsPerMatchday($who) {
-        return($this->points_per('matchday',$who));
+    public function pointsPerMatchday($who,$until="") {
+        return($this->points_per('matchday',$who,$until));
     }
 
 
-    public function points_per_team() {
-        return($this->points_per('team_h'));
+    public function matchQuery($select,$until="") {
+
+        $q = new ZockQueries();
+
+
+        $event = $this;
+        $ev = $event->getId();
+
+        $query = "SELECT ".$q->selectEvent($select,$until);
+        $query .= $q->fromEvent($ev);
+        $query .= $q->wherePaste(array($q->filterMatchWithResult($event->getScoreInputType()), $q->filterUntil($until)));
+        $query .= $q->orderEvent($until);
+        $query .= $q->limitUntil($until);
+        $query .= ";";
+
+        return $query;
     }
+
 
     /**
      * @param int $userID

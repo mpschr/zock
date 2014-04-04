@@ -187,14 +187,15 @@ if ($betNb == 0) {
     $body .= '<br/><br/>';
 
     $ranking = new Ranking($thisevent);
+    $until = "";
+
     if (isset($_REQUEST['showuntil'])) {
         //$info = rankingCalculate($_REQUEST['ev'], $_REQUEST['showuntil']);
-        $info = $ranking->getRankingDetails($_REQUEST['showuntil']);
+        $until = $_REQUEST['showuntil'];
         $addtosorturl = '&showuntil=' . $_REQUEST['showuntil'];
-    } else {
-        //$info = rankingCalculate($_REQUEST['ev']);
-        $info = $ranking->getRankingDetails();
     }
+    $info = $ranking->getRankingDetails($until);
+
 
     //get info for tooltips
     //recenttips
@@ -470,8 +471,7 @@ if ($betNb == 0) {
                 <div class="tab-pane" id="rankingplot">';
 
     $plotter = new Plotter($thisevent);
-    $ranking = new Ranking($thisevent);
-    $rankOrder = array_keys($ranking->getRanking());
+    $rankOrder = array_keys($ranking->getRanking($until));
     $langDict = array('points' => $cont->get('ranking_points'));
 
 
@@ -484,7 +484,7 @@ if ($betNb == 0) {
         <div id='chartPointsScript'>
         <script type=\"text/javascript\">
         function paintRankingPlot() {
-            ".$plotter->rankingBarPlot($rankOrder,'chartPoints',$langDict)."
+            ".$plotter->rankingBarPlot($rankOrder,'chartPoints',$langDict,$until)."
             }
         </script>
         </div>";

@@ -19,10 +19,10 @@ class Plotter {
     }
 
 
-    public function rankingBarPlot($who,$where,$strings) {
+    public function rankingBarPlot($who,$where,$strings,$until="") {
 
 
-        $mdpoints = $this->event->pointsPerMatchday($who);
+        $mdpoints = $this->event->pointsPerMatchday($who,$until);
 
         $userscollection = new UserCollection($this->event->getId());
 
