@@ -1,0 +1,10 @@
+1,$substitute/\t/   /g
+1,$substitute/zock>/properties>/
+1,$substitute/zock_lang/entry/ 
+1,$substitute/<label>/key="
+1,$substitute/<\/label>/">
+1,$substitute/<entry>\n \+/<entry /
+1,$substitute/\n \+<cnt>/<cnt>/
+1,$substitute/<\/\?cnt>//g
+1,$substitute/\n \+<\//<\/
+1,$substitute/.*<entry.*"><\/entry>\n//
