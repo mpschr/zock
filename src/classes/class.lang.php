@@ -51,9 +51,9 @@ class Lang {
 
         $filename="data/langs/lang_$langid.xml";
         $xml = simplexml_load_file($filename);
-        foreach($xml->zock_lang as $entry) {
-            $lab = (string) $entry->label;
-            $this->contents[$lab] = (string) $entry->cnt;
+        foreach($xml->entry as $entry) {
+            $lab = (string)  $entry->attributes()->key;
+            $this->contents[$lab] = (string) $entry;
         }
     }
 

@@ -182,17 +182,15 @@ function redirect($where, $wait=0, $properURL=0){
 }
 
 function languageSelector($standard=NULL){
-$langObj = new bDb;
 if ($standard == NULL) $standard='en';
 $langid=$standard;
 
     $lang= array();
     $filename="data/langs/lang_$langid.xml";
     $xml = simplexml_load_file($filename);
-    foreach($xml->zock_lang as $entry) {
-        $lab = (string) $entry->label;
-        #$lang[$lab] = utf8_decode((string) $entry->$langid);
-        $lang[$lab] = (string) $entry->cnt;
+    foreach($xml->entry as $entry) {
+        $lab = (string) $entry->attributes()->key;
+        $lang[$lab] = $entry;
     }
     
 return $lang;	
