@@ -106,7 +106,7 @@ if($nb2 != NULL && $nb != NULL){
 						.$lang['ranking_points'].': <b>'.$points.'</b><br/> '
 						.$lang['ranking_gain'].': <b>'.$money.' '.$events['p']['e'.$_REQUEST['ev']]['currency'].'</b><p/>'
 						.$lang['participants_correcttips'].': <b>'.$correct.'</b><br/>'
-						.$lang['participants_difftips'].': <b>'.$diff.'</b><br/>'
+						.$lang['ranking_almosttips'].': <b>'.$diff.'</b><br/>'
 						.$lang['participants_closetips'].': <b>'.$almost.'</b><br/>'
 						.$lang['participants_wrongtips'].': <b>'.$wrong.'</b><br/>';
 

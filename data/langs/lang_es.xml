@@ -15,7 +15,7 @@
   <entry key="admin_content">Desde aquí puedes organizar tu oficina de apuestas, es decir ajustar cosas y miembros y administrar las apuestas etc. Fíjate en el menu.</entry>
   <entry key="admin_events_activate">Activar</entry>
   <entry key="admin_events_activatedialog">Este paso es irreversible. Quieres activar el juego de apuestas?</entry>
-  <entry key="admin_events_activatefirst">Esta sección no esta disponible hasta sea activado el juego de apuestos.</entry>
+  <entry key="admin_events_activatefirst">Esta sección no esta disponible hasta sea activado el juego de apuestas.</entry>
   <entry key="admin_events_active">El juego de apuestas está activado. Los miembros se pueden inscribir.</entry>
   <entry key="admin_events_addemptymatches">Añade partidas vacías</entry>
   <entry key="admin_events_addnew">Nuevo juego de apuestas</entry>
@@ -86,7 +86,7 @@
   <entry key="error_attention">Cuidado:</entry>
   <entry key="error_commentsave">Ningún comentario ha podido ser guardado.</entry>
   <entry key="error_content">Quiero ir a &lt;a href="?menu=loginhome" title="Si, lárgate ya"&gt;a casa&lt;/a&gt;</entry>
-  <entry key="error_doesnotparticipate">Este usuario no es miembro de este juego de apuestos</entry>
+  <entry key="error_doesnotparticipate">Este usuario no es miembro de este juego de apuestas</entry>
   <entry key="error_filledform">El formulario rellenado todavia tiene faltas (las entradas marquadas en rojo).</entry>
   <entry key="error_login">El nombre de usuario o la contraseña son incorrectos.</entry>
   <entry key="error_menu">Este menu no es disponible para tí.</entry>
@@ -107,7 +107,7 @@
   <entry key="eventinfo_points_correct">con el pronostico ganas  &lt;b&gt;$1 punto(s) &lt;/b&gt;</entry>
   <entry key="eventinfo_points_almost">con el ganador correcto ganas ($1 3-2 en lugar de 4-1) &lt;b&gt;$2 punto(s) &lt;/b&gt;</entry>
   <entry key="eventinfo_gain_correcttip">Si alguien apostó al resultado correcto gana todo el importe de los ampuestas de este partido (es decir: # participantes * $1)</entry>
-  <entry key="eventinfo_gain_correcttips">Si hay más de un jugador que han apostado al resultado correcto, el importe de los apuestos de este día del partido será repartido entre ellos. Si queda un resto será depazado al bote.</entry>
+  <entry key="eventinfo_gain_correcttips">Si hay más de un jugador que han apostado al resultado correcto, el importe de los apuestas de este día del partido será repartido entre ellos. Si queda un resto será depazado al bote.</entry>
   <entry key="eventinfo_group_phase">Conclusiones de partidos possibles en la fase primera (fase de grupos):</entry>
   <entry key="eventinfo_jackpot">La repartición del bote depende de los puntos ganados.Si ganas más puntos ganas más del bote.</entry>
   <entry key="eventinfo_jackpot_distributeon">La repartición del bote será efectuada a los primeros $1 de la clasificación.</entry>
@@ -170,7 +170,7 @@
   <entry key="home_content">En esta página web puedes apostar a eventos deportivos. &lt;br /&gt; Para partizipar tienes que registrarte: &lt;a href="?menu=register"&gt;hacer una cuenta de usuario&lt;/a&gt;. &lt;p&gt; Si ya tienes una cuenta de usuario puedes &lt;a href="?menu=login"&gt;entrar aquí&lt;/a&gt;</entry>
   <entry key="home_events">De momento hay estos juegos de apuestas:</entry>
   <entry key="home_fun">pásalo bien!</entry>
-  <entry key="home_noevents">De momento no hay juegos de apuestos públicos activos.</entry>
+  <entry key="home_noevents">De momento no hay juegos de apuestas públicos activos.</entry>
   <entry key="home_title">Casa</entry>
   <entry key="home_welcome">Bienvenido a la oficina de apuestas!</entry>
   <entry key="login_content">introduzca las infomaciones necesidadas</entry>
@@ -189,7 +189,7 @@
   <entry key="myprofile_appearance_picture">Imagen:</entry>
   <entry key="myprofile_appearance_text">Texto:</entry>
   <entry key="myprofile_appearance_title">Aparición</entry>
-  <entry key="myprofile_content">Aquí puedes modificar tu aparición contra los otros y la aparición de la oficina de apuestos contra tí mismo, y puedes cambiar tu contraseña. &lt;p /&gt; Para llegar a las reglajes tienes que navigar con los sub-menus.</entry>
+  <entry key="myprofile_content">Aquí puedes modificar tu aparición contra los otros y la aparición de la oficina de apuestas contra tí mismo, y puedes cambiar tu contraseña. &lt;p /&gt; Para llegar a las reglajes tienes que navigar con los sub-menus.</entry>
   <entry key="myprofile_password_content">Introduce una vez la vieja y dos veces la nueva contraseña para cambiarla.</entry>
   <entry key="myprofile_password_new">Dos veces la nueva:</entry>
   <entry key="myprofile_password_old">La vieja:</entry>
@@ -235,7 +235,7 @@
   <entry key="ranking_rank">Posición</entry>
   <entry key="ranking_title">Clasificación</entry>
   <entry key="register_content">Para inscribirte en un juego de apuestas tienes que hacer una cuenta de usuario. Solamente así podrás participar en un evento.</entry>
-  <entry key="register_email">E-mail</entry>
+  <entry key="register_email">Correo electronico</entry>
   <entry key="register_emailsubject">Inscripción a la oficina de apuestas</entry>
   <entry key="register_ok">Has sido registrado. Un e-mail ha sido enviado con la contraseña. A veces no llega a causa del filtro spam - por esto: aquí la tienes:</entry>
   <entry key="register_title">Registrarse</entry>
@@ -250,16 +250,16 @@
   <entry key="general_saturday">Sábado</entry>
   <entry key="general_sunday">Domingo</entry>
   <entry key="general_write">escribir</entry>
-  <entry key="ranking_nexttips">Las próximos apuestos:</entry>
-  <entry key="general_bettinggameover">Este juego de apuestos ya está terminado.</entry>
-  <entry key="participants_correcttips">Apuestos correctos</entry>
-  <entry key="participants_closetips">Apuestos casi correctos</entry>
-  <entry key="participants_wrongtips">Apuestos falsos</entry>
+  <entry key="ranking_nexttips">Las próximos apuestas:</entry>
+  <entry key="general_bettinggameover">Este juego de apuestas ya está terminado.</entry>
+  <entry key="participants_correcttips">Apuestas correctos</entry>
+  <entry key="participants_closetips">Apuestas casi correctos</entry>
+  <entry key="participants_wrongtips">Apuestas equivocadas</entry>
   <entry key="login_rememberme">Recordame en este equipo</entry>
   <entry key="eventinfo_gain_tojackpot">todo el importe de los ampuestas de este partido será deplazado al bote.</entry>
   <entry key="ranking_almosttips">Casi</entry>
   <entry key="ranking_wrongtips">Falsos</entry>
-  <entry key="ranking_waitfortips">Los próximos apuestos no son público todavía.</entry>
+  <entry key="ranking_waitfortips">Las próximas apuestas no son públicas todavía.</entry>
   <entry key="admin_events_pointdistr">Distribución de puntos</entry>
   <entry key="admin_events_pointdistr_correct">Apuestas acertadas</entry>
   <entry key="admin_events_pointdistr_diff">Apuestas acertadas en diferencias de goles (p.ej. 3-2 en vez de 2-1)</entry>
@@ -269,8 +269,8 @@
   <entry key="admin_events_settings_stakemode_none">nada</entry>
   <entry key="admin_events_settings_stakemode_fix">fijo</entry>
   <entry key="admin_events_settings_stakemode_permatch">por partido</entry>
-  <entry key="myprofile_settings_bank_account_intro">Indica el lugar a donde la ganancia tiene que ser tranferita despues el juego de apuestos:</entry>
-  <entry key="myprofile_settings_participatereally">¿De verdad quieres participar en este juego de apuestos?</entry>
+  <entry key="myprofile_settings_bank_account_intro">Indica el lugar a donde la ganancia tiene que ser tranferita despues el juego de apuestas:</entry>
+  <entry key="myprofile_settings_participatereally">¿De verdad quieres participar en este juego de apuestas?</entry>
   <entry key="myprofile_settings_profilesettings">Reglaje del perfil</entry>
   <entry key="myprofile_settings_persdetails">Detales personales</entry>
   <entry key="myprofile_settings_withdrawreally">De verdad no quieras participar?</entry>
@@ -304,7 +304,7 @@
   <entry key="admin_events_firstjackpotfixfield">Tienes que definir primero cuanta gente va a recibir algo del bote!</entry>
   <entry key="admin_events_fixshares">Este campo indica una cantidad fija del bote (clica $1 o en el campo para hacer cambios)</entry>
   <entry key="admin_events_expshares">Entra un coeficiente (0 a 1) para la distribución exponencial. The jugador en el rango uno recibirá el esto: Bote * Coeficiente.</entry>
-  <entry key="admin_events_beton">¿Qué pronosticar?</entry>
+  <entry key="admin_events_beton">¿Qué se pronostica?</entry>
   <entry key="admin_events_betonexp">Se puede apostar una de las opciones:&lt;/br&gt;
 - &lt;b&gt;Resultado&lt;/b&gt; del partido: 3-2, 1-3, 0-0..&lt;br/&gt;
 - &lt;b&gt;Quiniela&lt;/b&gt; del partido: 1 = Gana equipo de casa, 2 = Gana eqipo visitante, x = empate</entry>
@@ -318,9 +318,9 @@
 - se añade un gol para el equipo vencedor al resultado del partido</entry>
   <entry key="admin_events_afterpenalty_addall">añade todos</entry>
   <entry key="admin_events_afterpenalty_addone">añadir un gol</entry>
-  <entry key="eventinfo_gain_stakeback">a aquellos que han apostado al ganador del partido correcto ($1/$2/$3) revolvemos el importe de la ampuesta ($4) de este día de partido. El resto de los apuestos será deplazado al bote.</entry>
+  <entry key="eventinfo_gain_stakeback">a aquellos que han apostado al ganador del partido correcto ($1/$2/$3) revolvemos el importe de la ampuesta ($4) de este día de partido. El resto de los apuestas será deplazado al bote.</entry>
   <entry key="general_team">Equipo</entry>
-  <entry key="eventinfo_nostake">No hay importe de apuesto para este juego de apuestas. Entonces no tienes pagar nada si quieres participar.</entry>
+  <entry key="eventinfo_nostake">No hay importe de apuesta para este juego de apuestas. Entonces no tienes pagar nada si quieres participar.</entry>
   <entry key="eventinfo_fixstake">El importe fijo de apuesta para este juego de apuestas está $1.</entry>
   <entry key="ranking_totalgain">Ganancia total</entry>
   <entry key="eventinfo_beton_toto">En este juego de apuestas, pronosticarás totos (conclusiones de juegos posibles). Entonces, teórico se pueden estes tres posibilidades: $1$2$3.</entry>
@@ -331,7 +331,7 @@
   <entry key="eventinfo_inallmatches">En todas las partidas</entry>
   <entry key="eventinfo_in_matches">En</entry>
   <entry key="eventinfo_tournamentmatches">partidas de torneo</entry>
-  <entry key="eventinfo_komatches">partidas k.o.</entry>
+  <entry key="eventinfo_komatches">partidos elim.</entry>
   <entry key="eventinfo_allpossible">$1/$2 &amp; $3 están posibles.</entry>
   <entry key="eventinfo_tieno">&lt;b&gt;solamente&lt;/b&gt; $1/$2 están posibles.</entry>
   <entry key="eventinfo_tietough">El resulto considerado$1 será este del fin de la partida (sin desición por penaltis).</entry>
@@ -347,9 +347,9 @@
   <entry key="general_day">día</entry>
   <entry key="general_days">días</entry>
   <entry key="general_day_s">día(s)</entry>
-  <entry key="eventinfo_bet_until">Las apuestas tienen que ser hecho lo más tarde &lt;b&gt;$1 antes $2&lt;/b&gt;.</entry>
-  <entry key="eventinfo_thefirstmatch">la &lt;i&gt;primera&lt;/i&gt; partida</entry>
-  <entry key="eventinfo_match">la partida</entry>
+  <entry key="eventinfo_bet_until">Las apuestas tienen que se tienen que hacer como más tarde &lt;b&gt;$1 antes $2&lt;/b&gt;.</entry>
+  <entry key="eventinfo_thefirstmatch">el &lt;i&gt;primer&lt;/i&gt; partido</entry>
+  <entry key="eventinfo_match">el partido</entry>
   <entry key="eventinfo_points_diff">con una diferencia de goles ($1 0-3 en el lugar de 1-4) ganas &lt;b&gt;$2 punto(s)&lt;/b&gt;</entry>
   <entry key="eventinfo_points_wrong">y con un resultado totalmente falso ganas &lt;b&gt;$3 punto(s) &lt;/b&gt;.</entry>
   <entry key="login_forgotpassword">¿Has olvidado los datos de usuario?</entry>
@@ -432,12 +432,12 @@ Before the start of the betting game means, that ALL the bets have to be placed 
   <entry key="eventinfo_jackpot_floored">arrondizad hacia abajo</entry>
   <entry key="eventinfo_jackpot_fixformula">El reparto fijado se producirá de la siguente manera:</entry>
   <entry key="admin_events_err_invalid_name">¡Nombre no válido!</entry>
-  <entry key="admin_events_err_invalid_date">Invalid date!</entry>
-  <entry key="admin_events_err_invalid_matchnb">Invalid match amount!</entry>
-  <entry key="admin_events_err_invalid_stake">Invalid stake!</entry>
-  <entry key="admin_events_err_invalid_currency">Invalid currency!</entry>
-  <entry key="admin_events_err_invalid_round">Invalid round presicion!</entry>
-  <entry key="admin_events_err_invalid_fraction">Invalid fraction!</entry>
+  <entry key="admin_events_err_invalid_date">¡Fecha no válida!</entry>
+  <entry key="admin_events_err_invalid_matchnb">¡Suma de partidos no válida!</entry>
+  <entry key="admin_events_err_invalid_stake">¡Suma de apuesta no válida!</entry>
+  <entry key="admin_events_err_invalid_currency">¡Moneda no válida!</entry>
+  <entry key="admin_events_err_invalid_round">¡Precisión de arrondeo no válida!</entry>
+  <entry key="admin_events_err_invalid_fraction">¡Fracción no válida!</entry>
   <entry key="admin_events_err_invalid_jackpotfix">Invalid rank for fix jackpot distribution!</entry>
   <entry key="admin_events_err_invalid_jackpotfixshares">The amount of ranks does not correspond to the fix jackpot shares.</entry>
   <entry key="admin_events_err_invalid_expshare">Invalid coefficient for the exponential distribution!</entry>
@@ -446,18 +446,18 @@ Before the start of the betting game means, that ALL the bets have to be placed 
   <entry key="admin_events_err_invalid_pdiff">Invalid point amount for score difference bets!</entry>
   <entry key="admin_events_err_invalid_palmost">Invalid point amount for final match state bets!</entry>
   <entry key="admin_events_err_invalid_pwrong">Invalid point amount for wrong bets!</entry>
-  <entry key="admin_events_createevent">Creating Betting Game</entry>
-  <entry key="admin_events_createtemplate">Create template</entry>
-  <entry key="admin_events_modeselection">Mode selection</entry>
-  <entry key="admin_events_scheduleactivation">Schedule &amp; Activation</entry>
-  <entry key="admin_events_fromphase3">This part is only available from phase 3 on.</entry>
+  <entry key="admin_events_createevent">Crear un juego de apuestas</entry>
+  <entry key="admin_events_createtemplate">Crear plantilla</entry>
+  <entry key="admin_events_modeselection">Selección de modo</entry>
+  <entry key="admin_events_scheduleactivation">Calendario &amp; Activación</entry>
+  <entry key="admin_events_fromphase3">Solamente disponible a partir de la fase 3</entry>
   <entry key="admin_events_phase3text">Now you have the possibility to &lt;a href="$1"&gt;adjust the schedule&lt;/a&gt;, as long the betting game not visible. &lt;b&gt;Everything except "$2"&lt;/b&gt; you can adjust now, you can also adjust after the activation, &lt;b&gt;but&lt;/b&gt; only activate if you really want that it should be visible to the users!</entry>
-  <entry key="admin_events_komatch">Partida k.o.</entry>
-  <entry key="admin_events_showeventlist">Show the betting game list</entry>
+  <entry key="admin_events_komatch">Partido eliminatorio</entry>
+  <entry key="admin_events_showeventlist">Lista de juego de apuestas</entry>
   <entry key="admin_events_inputtypeexp">How would you enter the score after the game?</entry>
   <entry key="error_incorrectmatchnb">El número de partidos en el calendario no es el mismo que la cantidad de partidos indicadas para este juego de apuestas.</entry>
-  <entry key="admin_events_existantmatchesremoved">Las partidas que ya son existiendo serán borrado!</entry>
-  <entry key="eventinfo_finalaccount_points">El ganador es el jugador con mÃ¡s puntos.</entry>
+  <entry key="admin_events_existantmatchesremoved">Los partidos que ya existien serán borrados!</entry>
+  <entry key="eventinfo_finalaccount_points">El ganador será el jugador con más puntos.</entry>
   <entry key="admin_settings_langlist">Lista de idiomas</entry>
   <entry key="admin_settings_installlang">Instalar/borrar idioma</entry>
   <entry key="general_install">instalar</entry>
