@@ -532,7 +532,7 @@ class Match implements Bet{
         $betuntil = $this->getDueDate();
         $remaining = $betuntil - $now;
         if ($remaining < 0)
-            return 'passed';
+            return '-';
 
         $remainingString = '';
         //days

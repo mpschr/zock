@@ -493,16 +493,17 @@ function findPos(obj) {
 	function placeFloatingLayer(i) {
 		
 		  if (i) {
-			var w_height;
+              var w_height;
 			w_height2 = window.innerHeight;
 			w_height = document.documentElement.clientHeight;
 			var i_height;
 			i_height = i.offsetHeight;
 			cntdiv = findPos(document.getElementById("cnt"));
-			if(dom && !document.all) i.style.top = (window.pageYOffset + w_height/2 - i_height/2 - cntdiv[1]) + "px";
+			//if(dom && !document.all) i.style.top = (window.pageYOffset + w_height/2 - i_height/2 - cntdiv[1]) + "px";
+            i.style.top = "20px";
 /*			if (dom && !document.all) {i.style.top = (window.pageYOffset + w_height2/2 - i_height/2) + "px";}*/
 /*			  if (document.all) {i.style.top = document.documentElement.scrollTop + (document.documentElement.clientHeight - (document.documentElement.clientHeight-y1)) + "px";}*/
-			  window.setTimeout(function (){ placeFloatingLayer(i);}, 500); }
+			window.setTimeout(function (){ placeFloatingLayer(i);}, 5000); }
 	 }
 
 

@@ -25,10 +25,6 @@ global $db, $settings, $langs;
 
 
 
-<div id="footer_top">
-<div id="footer_bottom">
-<div id="footer_left">
-<div id="footer_right">
 <div id="footer">
 <table class="footer">
 <tr><th width="10%">
@@ -54,10 +50,6 @@ echo $lang['footer_server_time'].': '.date('H:i:s', time());
 </th></tr>
 </table>
 </div><!-- footer divs.. -->
-</div>
-</div>
-</div>
-</div><!-- ..closed -->
 
 
 <div id="version_license"> <a href="http://zock.sf.net">zock!</a> <? echo VERSION . ' | &copy; 2006-2020' ?> | <a href="http://opensource.org/licenses/gpl-3.0.html">GPLv3</a></div>
@@ -66,6 +58,6 @@ echo $lang['footer_server_time'].': '.date('H:i:s', time());
 </div><!-- motherdiv closed -->
 
 
-</div><!-- first closed -->
+<!--/div><!-- first closed -->
 </body>
 </html>

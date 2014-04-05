@@ -34,7 +34,7 @@ $body .= '
 <body onLoad="placeFloatingLayers(), sClock(\'' . $hour . '\',\'' . $min . '\',\'' . $sec . '\', \'' . $lang['footer_server_time'] . '\') ' . $additionalFunctions . '"> <!-- load the layer if one\'s constructed -->
 <script type="text/javascript" src="src/opensource/wz_tooltip.js" ></script> ';
 
-$body .= styleComment();
+//$body .= styleComment();
 
 //plain view mode
 if ($style['plainviewcompatible']) {
@@ -50,10 +50,10 @@ if (!($_SESSION['plain'])) {
         $body .= '<div id="plain"> <a href="' . $uri . '">' . $lang['general_largeview'] . '</a></div>';
     }
 
-    $body .= '<div align="center"> <!-- will be closed by footer.php -->
+    //$body .= '<div class="container"> <!-- will be closed by footer.php -->
 
 
-	<div id="motherdiv"> <!-- will be closed by footer.php -->';
+	$body .= '<div id="motherdiv">'; // <!-- will be closed by footer.php -->';
 
     $body .= styleLogo();
 

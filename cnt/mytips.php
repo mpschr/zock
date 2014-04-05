@@ -188,23 +188,25 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 		$tipplus .= ' 2 )';
 
 		//content
-        $MATCHHEADER .= '<table class="showmatches">';
-		$MATCHHEADER .= '<tr class=title>
-			<td class=title><a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
-			<td class=title>'.$lang['admin_events_time'].'</td>
-			<td class=title><a href="'.$link.orderBy('matchDay', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
-			<td class=title><a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
-			<td class=title><a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>
-			<td class=title>'.$lang['admin_events_score'].'</td>';
+        $MATCHHEADER .= '<table id="tipstable" class="showmatches  table table-striped">';
+		$MATCHHEADER .= '<tr class="title">
+			<td class=" visible-desktop"><a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
+			<td class="visible-desktop">'.$lang['admin_events_time'].'</td>
+			<td class="visible-desktop"><a href="'.$link.orderBy('matchDay', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
+			<td span="2">
+			    <div  class="span1 visible-desktop"><a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></div>
+			    <div class="span1 visible-desktop"><a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></div>
+			</td>
+			<td class="visible-desktop">'.$lang['admin_events_score'].'</td>';
 			if($evdat['bet_on']=='results'){
-				$MATCHHEADER .= '<td class=title>'.$lang['mytips_tip'].'</td>';
+				$MATCHHEADER .= '<td class="visible-desktop">'.$lang['mytips_tip'].'</td>';
 			}else{
-				$MATCHHEADER .='<td class="title" colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
+				$MATCHHEADER .='<td class="visible-desktop" colspan="'.$colspan.'">'.$lang['mytips_tip'].' '.$tipplus.'</td>';
 			}
-			$MATCHHEADER .= '<td class=title>'.$lang['mytips_sametip'].'</td>
-			<td class=title>'.$lang['mytips_tendency'].'</td>
-			<td>Extra</td>
-			<td ></td>
+			$MATCHHEADER .= '<td class="visible-desktop">'.$lang['mytips_sametip'].'</td>
+			<td class="visible-desktop">'.$lang['mytips_tendency'].'</td>
+			<td class="visible-desktop">Extra</td>
+			<td class="visible-desktop"></td>
 			</tr>';
 
         $QUESTIONHEADER .= '<table class="showmatches">';
@@ -401,25 +403,30 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 				//the form can continue here
 				$MATCHESSTRING .= '<tr>
 				    <td class="input" id="remains_'.$betid.'">'.$remainingTime.'</td>
-					<td class="input">'.weekday($matchtime,1).', '.$time1.' <br/>'.$lang['general_time_at'].' '.$time2.'</td>
-					<td class="input">'.$matchday.'</td>
-					<td class="input" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesHome.'">'.$home.'</td>
-					<td class="input" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesVisitor.'">'.$visitor.'</td>
-					<td class="input">'.$result.'</td>';
+					<td class="input  visible-desktop">'.weekday($matchtime,1).', '.$time1.' <br/>'.$lang['general_time_at'].' '.$time2.'</td>
+					<td class="input  visible-desktop">'.$matchday.'</td>
+					<td class="input" span="2">
+					 <div class="span1" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesHome.'">'.$home.'</div>
+					 <div class="span"><b>-</b></div>
+					 <div class="span1" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesVisitor.'">'.$visitor.'<div>
+					</td>
+					<td class="input  visible-desktop">'.$result.'</td>';
 
 					if($evdat['bet_on']=='results'){
-						$MATCHESSTRING .= '<td><nobr>
-                                             <input type="number" class="input-mini"
-                                                style="height:25px;"
-                                                size="2"
-                                                id="h_'.$betid.'"
-                                                '.$ro.'
-                                                name="score_h_'.$betid.'"
-                                                value="'.$score_h.'"
-                                                oninput="savebet(event,\''.$betid.'\')"
-                                            >
-                                            : '
-                                                .'<input type="number" class="input-mini"
+						$MATCHESSTRING .= '<td>
+						                    <div class="span1">
+                                                 <input type="number" class="input-mini"
+                                                    style="height:25px;"
+                                                    size="2"
+                                                    id="h_'.$betid.'"
+                                                    '.$ro.'
+                                                    name="score_h_'.$betid.'"
+                                                    value="'.$score_h.'"
+                                                    oninput="savebet(event,\''.$betid.'\')"
+                                                >
+                                            </div>
+						                    <div class="span1">
+                                                <input type="number" class="input-mini"
                                                     style="height:25px;"
                                                     size="2"
                                                     id="v_'.$betid.'"
@@ -428,7 +435,8 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                                                     value="'.$score_v.'"
                                                     oninput="savebet(event,\''.$betid.'\')"
                                                   >
-                                            </nobr></td>';
+                                              </div>
+                                            </td>';
 
 					}elseif($evdat['bet_on']=='toto'){
 						if($robool=='true'){
@@ -451,7 +459,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 						}
 					}
 					$MATCHESSTRING .= '<td class="input" id="samebet_'.$betid.'">'.$sameBet.'</td>
-					                    <td class="input"  id="tendency_'.$betid.'"">'.$tendency.'</td>
+					                    <td class="input  hidden-phone"  id="tendency_'.$betid.'"">'.$tendency.'</td>
 					                    <td>'.$pointsFactor.'</td>
 					                    <td id="savestatus_'.$betid.'"></td>
 					                    </tr>';

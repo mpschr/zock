@@ -392,7 +392,7 @@ class Question implements Bet{
         $betuntil = $this->getDueDate();
         $remaining = $betuntil - $now;
         if ($remaining < 0)
-            return 'passed';
+            return '-';
 
         $remainingString = '';
         $rdays = ($remaining/$sec_day > 0) ? floor($remaining/$sec_day) : '0';

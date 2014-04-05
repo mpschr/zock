@@ -28,7 +28,8 @@ global $header;
 
 $style_css = '<link rel="stylesheet" type="text/css" href="src/style_'.$settings['style'].'/layout.css" />';
 
-$bootstrap = '<script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.js"></script>
+$bootstrap = ' <meta content="maximum-scale=1.0, initial-scale=1.0, width=device-width" name="viewport">
+            <script type="text/javascript" src="src/opensource/bootstrap/js/bootstrap.js"></script>
             <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap.min.css"/>
             <link rel="stylesheet" type="text/css" href="src/opensource/bootstrap/css/bootstrap-responsive.min.css"/>';
 
