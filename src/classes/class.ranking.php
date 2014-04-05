@@ -140,7 +140,7 @@ class Ranking {
 
         $round = $event_info[0]['round'];
         $reciprocal = 1/$round;
-        $jackpots[] = array();
+        $jackpots = array();
         $counter = 0;
         $jackpotparts = 0;
 
@@ -272,9 +272,8 @@ class Ranking {
         }
 
         $query = $this->event->matchQuery($select,$until);
-
-        $ranking = $db->query($query)[0];
-
+        $ranking = $db->query($query);
+        $ranking = $ranking[0];
         asort($ranking);
 
         return($ranking);

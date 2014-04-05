@@ -106,9 +106,8 @@ class UserCollection extends Collection {
     /**
      * @param $userids array
      */
-    public function getUserNames($userids)
-    {
-        $users = [];
+    public function getUserNames($userids){
+        $users = array();
         foreach ($userids as $id) {
             $users[] = $this->getUserById($id)->getLogin();
         }

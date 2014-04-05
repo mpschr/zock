@@ -28,8 +28,8 @@ class Plotter {
 
         $ticks = json_encode($userscollection->getUserNames($who));
 
-        $series = [];
-        $matchdays = [];
+        $series = array();
+        $matchdays = array();
         foreach($mdpoints as $md) {
             $mdname = array_pop($md);
             $matchdays[] = array('label' => $mdname);
