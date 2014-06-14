@@ -193,7 +193,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			<td class=" visible-desktop"><a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['mytips_betcloses'].'</a></td>
 			<td class="visible-desktop">'.$lang['admin_events_time'].'</td>
 			<td class="visible-desktop"><a href="'.$link.orderBy('matchDay', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
-			<td span="2">
+			<td class="visible-desktop" span="2">
 			    <div  class="span1 visible-desktop"><a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></div>
 			    <div class="span1 visible-desktop"><a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></div>
 			</td>

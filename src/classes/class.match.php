@@ -90,7 +90,7 @@ class Match implements Bet{
      * @var int;
      */
     protected $points_factor;
-
+    
 
     /////////////////////////////////////////////////
     // CONSTRUCTOR
@@ -713,6 +713,10 @@ class Match implements Bet{
             return false;
 
         global $events, $db;
+        
+        if (is_null($this->points_factor)) {
+            $this->points_factor = 1;
+        }
 
         //prepare data for a lot of calculating
 
@@ -731,11 +735,11 @@ class Match implements Bet{
         //how many tipped CORRECT (1), DIFF/ALMOST (0) correct, WRONG (-1)
         //+ creating array with success value ($good, indicated in brackets) for each user
         //+ creating array with pionts for each user
-        $nbCorrect = $nbDiff = $nbAlmost = $nbWrong = 0;
+        $nbCorrect = $nbDiff = $nbAlmost = $nbWrong = 0;       
         $success = array();
         foreach($evUsers as $p){
 //            if($this->event->getBetOn()=='results' && $this->event->getScoreInputType()=='results'){
-
+                    
             $userpoints = $p.'_points';
 
             if($this->isCorrectBet($p)){
@@ -760,7 +764,7 @@ class Match implements Bet{
                 $this->$userpoints = $wrong * $this->points_factor;
             }
         }
-
+        
         /*
         //======DEBUG
         $nb=80;

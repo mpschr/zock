@@ -241,6 +241,8 @@ if ($betNb == 0) {
         $picture[$u->getId()] = ($userpic == "") ? 'nopic-thumb.jpg' : $userpic;
     }
 
+    $cl_gain = $cl_almost = $cl_totgain = $cl_correct = $cl_diff = $cl_almost = $cl_wrong = $cl_points = 'visible-desktop';
+
     switch ($_REQUEST['sort']) {
         case 'gain':
             $listsource = $info['money'];
@@ -315,7 +317,7 @@ if ($betNb == 0) {
     $body .= substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));
 
 
-    $body .= '<div class="tabbable tabs-left">
+    $body .= '<div class="tabbable tabs-top">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#rankingtext" data-toggle="tab">'.$cont->get('ranking_title').'</a></li>
                  <li><a href="#rankingplot" data-toggle="tab">Plot</a></li>
@@ -333,8 +335,10 @@ if ($betNb == 0) {
         $body .= '<div class="span1 column"><a href="' . $link . 'sort=gain' . $addtosorturl . '">' . $lang['ranking_gain'] . '</a></div>';
         $body .= '<div class="span1 column"><a href="' . $link . 'sort=jackpotshare' . $addtosorturl . '">' . $lang['ranking_jackpotshare'] . '</a></div>';
     }
-    $body .= '<div class="span1 column"><a href="' . $link . 'sort=provgain' . $addtosorturl . '">' . $lang['ranking_provisorygain'] . '</a></div>
-			<div class="span1 column"><a href="' . $link . 'sort=correct' . $addtosorturl . '">' . $lang['ranking_correcttips'] . '</a></div>';
+    if ($evinfo['stake_mode'] != 'none') {
+            $body .= '<div class="span1 column"><a href="' . $link . 'sort=provgain' . $addtosorturl . '">' . $lang['ranking_provisorygain'] . '</a></div>';
+    }
+	$body .=	'<div class="span1 column"><a href="' . $link . 'sort=correct' . $addtosorturl . '">' . $lang['ranking_correcttips'] . '</a></div>';
     //if ($difftrue) $body .= '<div class="span1 column"><a href="' . $link . 'sort=diff' . $addtosorturl . '">' . $lang['ranking_difftips'] . '</a></div>';
     //if ($almosttrue) $body .= '<div class="span1 column"><a href="' . $link . 'sort=almost' . $addtosorturl . '">' . $lang['ranking_almosttips'] . '</a></div>';
     $body .= '<div class="span1 column "><a href="' . $link . 'sort=wrong' . $addtosorturl . '">' . $lang['ranking_wrongtips'] . '</a></div>
@@ -409,7 +413,7 @@ if ($betNb == 0) {
   		  <a class="accordeon-toggle" data-toggle="collapse" data-parent="#ranking-accordeon" href="#collapse' . $u . '"
   		    style="text-decoration:none; color:black">
           <div class="row">
-				<div class=" span1">' . $rankrepresentation . '	</div>';
+				<div class=" span1"> Rang ' . $rankrepresentation . '	</div>';
         $body .= '<div class="span2" ><b>'. $userarray[$u] .'</b></div>';
         $body .= '<div class=" span1 ' . $cl_points . '">' . $info['points'][$u] . '</div>';
         if ($info['rank'][$u] != '"') {
@@ -422,8 +426,9 @@ if ($betNb == 0) {
             $body .= '<div class=" span1 ' . $cl_gain . '">' . $info['money'][$u] . '</div>';
             $body .= '<div class=" span1">' . $thisranksjackpot . '</div>';
         }
-        if ($evinfo['stake_mode'] != 'none')
+        if ($evinfo['stake_mode'] != 'none') {
             $body .= '<div class=" span1 ' . $cl_totgain . '">' . ($thisranksjackpot + $info['money'][$u]) . '</div>';
+        }
         $body .= '<div class=" span1 ' . $cl_correct . '">' . $info['correct'][$u] . '</div>';
         //if ($difftrue) $body .= '<div class=" span1 ' . $cl_diff . '">' . $info['diff'][$u] . '</div>';
         //if ($almosttrue) $body .= '<div class=" span1 ' . $cl_almost . '">' . $info['almost'][$u] . '</div>';
