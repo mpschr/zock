@@ -226,8 +226,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 
 
 		if (!isset($_REQUEST['orderby']) && !isset($_REQUEST['mnb'])){
-			$closestGame = closestGame($_REQUEST['ev'], time());
-            //$closestGame = closestGame($_REQUEST['ev'], time()+abs(betUntil(0, $_REQUEST['ev'])));
+			$closestGame = $event->getBetsContainer()->getNextBetIndex();
 
             $page = ($closestGame%$settings['formlines'] == 0)  ?
 				$closestGame/$settings['formlines'] - 1  : 
