@@ -115,7 +115,7 @@ if($nb2 != NULL && $nb != NULL){
 				echo '<tr><td><img title="'.$details[0]['login'].'" src="'.$imgsrc.'" alt="'.$lang['myprofile_appearance_nopicture'].'" width="'.$imgsize['0'].'px" height="'.$imgsize[1].'px">';
 				echo '<br/><font class="piccomment">'.$details[0]['text'].'</font></td>';
 				echo '<td class="participantdeitails">'.$gamestandings.'<p/>
-					<a href="'.$link.'&menu=overview&u='.$_REQUEST['showuser'].'">'.
+					<a href="'.$link.'&menu=overview&col='.$_REQUEST['showuser'].'">'.
 					$lang['mytips_tips'].'</a></td></tr>';
                 echo '<tr><td><br></td><td></td></tr>';
                 echo '<tr><td colspan=2>
