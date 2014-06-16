@@ -386,6 +386,7 @@ class Match implements Bet{
           $toto1 = 0;
           $toto2 = 0;
           $totoX = 0;
+          $toto_all;
           $userstring = $this->event->getUsersApproved();
           $users = preg_split('/:/',$userstring);
 
@@ -395,24 +396,34 @@ class Match implements Bet{
               if ($this->event->getBetOn()=="results") {
                   $home = $u.'_h';
                   $visitor = $u.'_v';
-                  if($this->$home == '' || $this->$visitor == ''){
-                      ++$toto0;
+                  if($this->isEmptyBet($u)){
+                      continue;
                   }else if($this->$home > $this->$visitor){
                          ++$toto1;
+                         ++$toto_all;
                   }else if($this->$home < $this->$visitor){
                      ++$toto2;
+                     ++$toto_all;
                   }else{
                      ++$totoX;
+                     ++$toto_all;
                   }
               }
-              elseif ($this->event->getBetOn()=="toto") {
-                if ($this->toto == 0) ++$toto0;
-                elseif ($this->toto == 1) ++$toto1;
-                elseif ($this->toto == 2) ++$toto2;
-                elseif ($this->toto == 3) ++$totoX;
+              elseif ($this->event->getBetOn()=="toto") {                
+                if ($this->toto == 1) { 
+                    ++$toto1;
+                    ++$toto_all;
+                }
+                elseif ($this->toto == 2) {
+                    ++$toto2;
+                    ++$toto_all;
+                }
+                elseif ($this->toto == 3){
+                    ++$totoX;
+                    ++$toto_all;
+                }
               }
           }
-          $toto_all= count($users) - $toto0;
 
           if($toto1>0){$toto_trend1=round($toto1/$toto_all*100);}else{$toto_trend1=0;}
           if($totoX>0){ $toto_trendX=round($totoX/$toto_all*100);}else{$toto_trendX=0;}

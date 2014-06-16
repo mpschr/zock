@@ -378,7 +378,9 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                        class="' . $rclass . '" '.$popoverTags.'>'.$userbetString;
                             }
                         } else {
-                            $body .= '<td class=ow>x';
+                            if (!$bet->isEmptyBet($uid)) {
+                                $body .= '<td class=ow>x';
+                            }
                         }
 
                     }

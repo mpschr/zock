@@ -351,7 +351,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
                 $sameBet = $bet->getSameBets($userbet);
                 $tendency = $bet->getTendency();
                 $matchday = $bet->getMatchday();
-                $remainingTime = $bet->getRemainingTime();
+                $remainingTime = timeOrMatchDetails($bet);
                 $pointsFactor = "";
                 if ($bet instanceof Match) {
                     if ($bet->getPointsFactor() != 1) {
@@ -668,6 +668,18 @@ $body .= '<script type="text/javascript" charset="UTF-8">
            /* ]]> */
            </script>';
 
+function timeOrMatchDetails($bet){
+    /* @var $bet Bet */
+    $remainingTime = $bet->getRemainingTime();
+    if ($remainingTime == "-") {
+        return '<a class="btn btn-small" href="index.php?menu=overview&row='.preg_replace('/\D/', '', $bet->getId()).'">
+            <i class="icon-info-sign"></i>
+          </a>';
+    } else {
+        return $remainingTime;
+    }   
+}
+
 function  checkmatches($idsstring) {
     global $events_test;
     $response = new xajaxResponse();
@@ -681,7 +693,7 @@ function  checkmatches($idsstring) {
 
 
         /** @var $bet Bet */
-        $response->assign('remains_'.$id,'innerHTML', $bet->getRemainingTime());
+        $response->assign('remains_'.$id,'innerHTML', timeOrMatchDetails($bet));
         $response->assign('samebet_'.$id,'innerHTML', $bet->getSameBets($bet->getBet($_SESSION['userid'])));
         $response->assign('tendency_'.$id,'innerHTML', $bet->getTendency());
 

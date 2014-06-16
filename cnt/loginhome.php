@@ -53,11 +53,12 @@ if ($nb > 0) {
 if ($hasNotPaidEvent) {
     $body .= indication($cont->get('loginhome_paystake'));
 }
-else if ($thisuser->getAccountDetails() == "") {
+/*else if ($thisuser->getAccountDetails() == "") {
     $body .= indication($cont->get('loginhome_filloutbankdetails'));
 }else if ($notGottenReimbursed) {
     $body .= indication($cont->get('loginhome_reimbursement'));
-} else  if ($thisuser->getPicture() == ""){
+} else*/  
+if ($thisuser->getPicture() == ""){
     $body .= indication($cont->get('loginhome_putpicture'));
 } else if ($thisuser->getName() == "" || $thisuser->getFamname() == "") {
     $body .= indication($cont->get('loginhome_filloutname'));
@@ -79,6 +80,9 @@ if($nb > 0){
 	foreach ($userevents as $ev){
         /* @var $ev Event */
 
+        if ($ev->getFinished() == true) {
+            continue;
+        }
         $eventid = $ev->getId();
         $eventid_array[] = $eventid;
         $eventid_string .= $eventid + ', ';

@@ -289,7 +289,7 @@ function errorTxtMsg($txt){
 }
 
 function indication($txt){
-	return '<div class="indication"><font>'.$txt.'</font></div>';
+	return '<div class="alert"><font>'.$txt.'</font></div>';
 }
 
 
