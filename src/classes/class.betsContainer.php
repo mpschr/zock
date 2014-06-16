@@ -158,6 +158,19 @@ class BetsContainer {
         }
     }
 
+    public function getNextBetIndex() {
+        $now = time();
+        $bets = $this->getBets();
+        $counter = 0;
+        foreach ($bets as $bet) {
+            $counter++;
+            if($bet->getDueDate() - $now > 0) {
+                return ($counter);
+            }
+        }
+    }
+
+
     /**
      * @param string $filter
      * @return array
