@@ -238,7 +238,7 @@ if ($betNb == 0) {
         /* @var $u User */
         $userarray[$u->getId()] = $u->getLogin();
         $userpic = $u->getPicture();
-        $picture[$u->getId()] = ($userpic == "") ? 'nopic-thumb.jpg' : $userpic;
+        $picture[$u->getId()] = ($userpic == "") ? 'default-pig.jpg' : $userpic;
     }
 
     $cl_gain = $cl_almost = $cl_totgain = $cl_correct = $cl_diff = $cl_almost = $cl_wrong = $cl_points = 'visible-desktop';
@@ -308,10 +308,14 @@ if ($betNb == 0) {
 
 
 
+    $body .= '<div class="row">
+                <div class="span10 offset1">';
 
-    $body .= '<canvas id="rankingcanvas" class="align-middle" width="480" height="200" style="border:1px solid #c3c3c3;">
+    $body .= '<canvas id="rankingcanvas" width="480" height="200" style="border:1px solid #c3c3c3;">
 	Your browser does not support the HTML5 canvas tag.
 	</canvas><br/>';
+    $body .= '</div></div>';
+    
 
     if (isset($type)) $body .= '  ' . $type . ': ' . $steplinks . '<br/>';
     $body .= substitute($lang['ranking_showingxoutofx'], Array($info['pastmatches'], $info['totalmatches']));
@@ -552,8 +556,8 @@ $("a[data-toggle=\"tab\"]").on("shown", function (e) {
 	        ctx.font="30px Arial";
 	        ctx.fillText("3",370,190);
         }
-
+        
 	</script>';
-
+     
 }
 ?>

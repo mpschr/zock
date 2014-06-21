@@ -344,7 +344,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                     foreach ($userbet as $ub)  $userbetString .= '<br/>'.$ub;
                                 }
 
-                                $popoverTags = 'rel="popover" data-original-title="'.$user->getLogin() .'" ';
+                                $popoverTags = 'rel="popover" data-html="true" data-original-title="'.$user->getLogin() .'" ';
                                 $body .=  '<td data-content="'
                                     . '<img class=&quot;overview-user-img&quot; src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
                                     . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/> <br/>'
@@ -370,7 +370,7 @@ if (eventIsPublic($_REQUEST['ev']) || $event->userIsApproved($_SESSION['userid']
                                     }
 
                                 }
-                                $popoverTags = 'rel="popover" data-original-title="'.$user->getLogin() .'" ';
+                                $popoverTags = 'rel="popover" data-html="true" data-original-title="'.$user->getLogin() .'" ';
                                 $body .=  '<td data-content="'
                                     . '<img class=&quot;overview-user-img&quot; src=&quot;./data/user_img/' . $user->getPicture() . '&quot; '
                                     . 'alt=&quot;' . $lang['general_nopic'] . '&quot;/> <br/>'

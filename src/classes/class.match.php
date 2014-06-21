@@ -592,10 +592,13 @@ class Match implements Bet{
 
         if ($this->event->getBetOn()=='results') {
             $betparts = preg_split('/:/',$bet);
-            if (sizeof($betparts) != 2)
+            if (sizeof($betparts) != 2) {
                 return false;
-            if (!(is_numeric($betparts[0]) && is_numeric($betparts[1])))
+            }
+            else if (!(is_numeric($betparts[0]) && is_numeric($betparts[1]))
+                    || ($betparts[0] < 0 || $betparts[1] < 0)) {
                 return false;
+            }
 
             $home = $user."_h";
             $visitor = $user."_v";

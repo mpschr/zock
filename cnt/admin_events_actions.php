@@ -166,6 +166,7 @@ if($_REQUEST['evac'] == 'save'){
 							."score_v INT DEFAULT NULL,"
 							."score_special TINYTEXT DEFAULT NULL,"
 							."jackpot FLOAT DEFAULT NULL,"
+                            ."points_factor float DEFAULT 1, "
 							."PRIMARY KEY (id)"
 							.")";
 					}else{
@@ -180,6 +181,7 @@ if($_REQUEST['evac'] == 'save'){
 							."score INT DEFAULT NULL,"
 							."score_special TINYTEXT DEFAULT NULL,"
 							."jackpot FLOAT DEFAULT NULL,"
+                            ."points_factor float DEFAULT 1, "
 							."PRIMARY KEY (id)"
 							.")";
 					}
@@ -401,14 +403,14 @@ if($_REQUEST['evac'] == 'save'){
 				$matchday_id = '999999';
 			}
 
-
 			$query_changes = "UPDATE ".PFIX."_event_".$_POST['event']."
 						SET time = '".$unixtime[$x]."',
 						matchday = '".$_POST['matchday_'.$x]."',
 						matchday_id = '".$matchday_id."',
 						home = '".$_POST['home_'.$x]."',
 						visitor = '".$_POST['visitor_'.$x]."',
-						komatch = '".$_POST['komatch_'.$x]."'
+						komatch = '".$_POST['komatch_'.$x]."',
+						points_factor = '".$_POST['points_factor_'.$x]."'                            
 						WHERE id = '".$x."';";
 			$db->query($query_changes);
 		}

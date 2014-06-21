@@ -50,6 +50,16 @@ if ($nb > 0) {
 }
 
 
+function pigPicReminder() {
+    $pigPigContent = 'Is that you? <br/>
+        If not, <b>change you profile picture under   
+        <a href="index.php?menu=myprofile&submenu=appearance">Appearance.</b><br/>
+        <img width="200px" src="./data/user_img/default-pig.jpg" /> <br/>
+';
+    return $pigPigContent;
+}
+
+
 if ($hasNotPaidEvent) {
     $body .= indication($cont->get('loginhome_paystake'));
 }
@@ -59,7 +69,7 @@ if ($hasNotPaidEvent) {
     $body .= indication($cont->get('loginhome_reimbursement'));
 } else*/  
 if ($thisuser->getPicture() == ""){
-    $body .= indication($cont->get('loginhome_putpicture'));
+    $body .= indication(pigPicReminder());
 } else if ($thisuser->getName() == "" || $thisuser->getFamname() == "") {
     $body .= indication($cont->get('loginhome_filloutname'));
 }

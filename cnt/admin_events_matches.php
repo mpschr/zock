@@ -90,7 +90,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 
 	//get the info by applying the insight of $orderby
 	if ($orderby[0] == 'matchday_id') $orderplus = ", time ASC";
-	$query = "SELECT id, time, matchday, home, visitor, komatch  
+	$query = "SELECT id, time, matchday, home, visitor, komatch, points_factor  
 				FROM ".PFIX."_event_".$_REQUEST['ev']
 				.$filter.
 				" ORDER BY ".$orderby[0]." ".$orderby[1].$orderplus.";";
@@ -255,6 +255,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 					$matchday = $data['matchday_'.$m['id']];
 					$home = $data['home_'.$m['id']];
 					$visitor = $data['visitor_'.$m['id']];
+                    $points_factor = $data['points_factor_'.$m['id']];
 					$sel[$m['komatch']] = ' checked="checked" ';
 				}else{
 					$id = $m['id'];
@@ -263,6 +264,7 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 					$matchday = $m['matchday'];
 					$home = $m['home'];
 					$visitor = $m['visitor'];
+                    $points_factor = $m['points_factor'];
 					$sel[$m['komatch']] = ' checked="checked" ';
 				}
 
@@ -302,6 +304,10 @@ if ($events['i']['e'.$_REQUEST['ev']]['active']==-1){
 					if(!$past || $past && isset($sel[0])) $body .=  $lang['general_no'].'
 					</td>';
 				}
+                //POINTS FACTOR                
+                $body .= '<td class="input"><input class=" '.$ro2.' inpupt-small time "
+								name="points_factor_'.$m['id'].'"
+								value="'.$points_factor.'" '.$ro.'> ';
 				$body .=  '</tr>';
 					$body .=  '<input type="hidden" name="ro_'.$m['id'].'" value="'.$ro2.'">';
 
