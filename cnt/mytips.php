@@ -405,9 +405,9 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					<td class="input  visible-desktop">'.weekday($matchtime,1).', '.$time1.' <br/>'.$lang['general_time_at'].' '.$time2.'</td>
 					<td class="input  visible-desktop">'.$matchday.'</td>
 					<td class="input" span="2">
-					 <div class="span1" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesHome.'">'.$home.'</div>
+					 <div class="span1" rel="popover" data-title="lastgames" data-placement="top" data-html="true" data-content="'.$lastGamesHome.'">'.$home.'</div>
 					 <div class="span"><b>-</b></div>
-					 <div class="span1" rel="popover" data-original-title="lastgames" data-content="'.$lastGamesVisitor.'">'.$visitor.'<div>
+					 <div class="span1" rel="popover" data-title="lastgames" data-placement="top" data-html="true" data-content="'.$lastGamesVisitor.'">'.$visitor.'<div>
 					</td>
 					<td class="input  visible-desktop">'.$result.'</td>';
 
