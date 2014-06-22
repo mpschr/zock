@@ -90,18 +90,17 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 		//$MATCHESHEADER .= '<form action="?menu=admin&submenu=events&'.'evac=saveresults&which='.$mnb.'" method="POST" name="matches">';
         $MATCHESHEADER .= '<table class="showmatches" id="showresults">';
         $MATCHESHEADER .= '<tr class=title>
-			<td> '.$lang['general_id'].'</a></td>
-			<td> <a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
-			<td> <a href="'.$link.orderBy('matchday', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
-			<td> <a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></td>
-			<td> <a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></td>';
+			<td class="visible-desktop"> <a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
+            <td span="2">
+			    <div  class="span1 visible-desktop"><a href="'.$link.orderBy('home', $orderby, $link_query).'"> '.$lang['admin_events_home'].'</a></div>
+			    <div class="span1 visible-desktop"><a href="'.$link.orderBy('visitor', $orderby, $link_query).'"> '.$lang['admin_events_visitor'].'</a></div>
+			</td>';
 			if($event->getScoreInputType()=='results'){
                 $MATCHESHEADER .= '<td>'.$lang['admin_events_score'].'</td>';
 			}else{
                 $MATCHESHEADER .=  '<td colspan="'.$colspan.'">'.$lang['admin_events_score'].' '.$tipplus.'</td>';
 			}
         $MATCHESHEADER .=  '<td>'.$lang['admin_events_special'].'<td>
-                 			<td>save</td>
 
 			</tr>';
 
@@ -109,7 +108,6 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
         $QUESTIONSHEADER .= '<tr class="title">
         			<td> '.$lang['general_id'].'</a></td>
 					<td> <a href="'.$link.orderBy('dueDate', $orderby, $link_query).'"> '.$lang['admin_events_time'].'</a></td>
-    				<td> <a href="'.$link.orderBy('matchday', $orderby, $link_query).'"> '.$lang['admin_events_matchday'].'</a></td>
     				<td> Question </td>
     				<td> Answer </td>
     				<td>save</td>
@@ -160,18 +158,17 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
 
                     $time1 = date('d.m.Y', $bet->getTime());
                     $time2 = date('H:i', $bet->getTime());
-                    $matchday = $bet->getMatchdayId();
                     $home = $bet->getHome();
                     $visitor = $bet->getVisitor();
 
                     $MATCHESTABLE .=  '<tr>
-                        <td class="input"> '.$id.'</td>
-                        <td class="input">'.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
-                        <td class="input">'.$matchday.'</td>
-                        <td class="input">'.$home.'</td>
-                        <td class="input">'.$visitor.'</td>';
+                        <td class="input visible-desktop">'.$time1.' '.$lang['general_time_at'].' '.$time2.'</td>
+                        <td class="input" span="2">'
+                            .$home.'<b> - </b>'.$visitor.'
+                        </td>';
                         if($event->getScoreInputType()=='results'){
-                            $MATCHESTABLE .= '<td><input
+                            $MATCHESTABLE .= '<td>
+                                                <input
                                                  type="number"
                                                  class="input-mini"
                                                  style="height:25px;"
@@ -189,7 +186,8 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
                                                  name="score_v_'.$id.'"
                                                  value="'.$score_v.'"
                                                  oninput="savematchresult(event,\''.$betid.'\')"
-                                                 ></td>';
+                                                 >
+                                               </td>';
                         }elseif($event->getScoreInputType()=='toto'){
                             $MATCHESTABLE .= '<td class="input">';
                             $MATCHESTABLE .= '<input '.$dis.' id="s1_'.$id.'" type="radio" value="1"  name="toto_'.$id.'">';
@@ -218,14 +216,21 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
                                     class="input-mini"
                                     name="special_'.$id.'"
                                     value="'.$special.'"></td>';
-                    $MATCHESTABLE .= '<td class="input"><a href="javascript:
-                                editResult(\''.$id.'\', \''.$lines.'\')">
-                                <img id="im_'.$id.'" src="'.$imgsrc.'"
-                                alt="'.$lang['general_edit'].'" title="'.$lang['general_edit'].'" /></a></td>';
+                    $MATCHESTABLE .= '<td id = "savestatus_'.$betid.'" class="input">
+                                        <a class="btn btn-small" 
+                                        href="javascript:editResult(\''.$id.'\', \''.$lines.'\')">
+                                            <i class="icon-edit"> </i>
+                                        </a>
+                                      </td>';
+                    
+                    $infobutton = '<a class="btn btn-small" href="index.php?menu=overview&row='.preg_replace('/\D/', '', $bet->getId()).'">
+            </i>
+          </a><br/>';
+                    
                     $MATCHESTABLE .= '</tr>';
                     $MATCHESTABLE .= '<input id="ro_'.$id.'" name="ro_'.$id.'" type="hidden" value="'.$robool.'">';
                     $MATCHESTABLE .= '<input id="komatch_'.$id.'" name="komatch_'.$id.'" type="hidden" value="'.$bet->getKomatch().'">';
-                    $MATCHESTABLE .= '<td id = "savestatus_'.$betid.'"></td>';
+                    $MATCHESTABLE .= '<td ></td>';
 
                 } else if ($bet instanceof Question) {
                     /* @var $bet Question */
@@ -270,7 +275,6 @@ if (!(isset($events['u']['e'.$_REQUEST['ev']]))){
                     $QUESTIONSTABLE .= '<tr>
                             <td>'. $bet->getId() .'</td>
                             <td> '. $bet->getDueDate() .' </td>
-                            <td>'. $bet->getMatchdayId() .'</td>
                             <td> '. $bet->getQuestion() .' </td>
                             <td> '. $betinput .' </td>
                             <td id = "savestatus_'.$betid.'"></td>

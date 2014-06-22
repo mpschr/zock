@@ -206,7 +206,6 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 			$MATCHHEADER .= '<td class="visible-desktop">'.$lang['mytips_sametip'].'</td>
 			<td class="visible-desktop">'.$lang['mytips_tendency'].'</td>
 			<td class="visible-desktop">Extra</td>
-			<td class="visible-desktop"></td>
 			</tr>';
 
         $QUESTIONHEADER .= '<table class="showmatches">';
@@ -459,8 +458,7 @@ if($nb >= 1 && !(isset($_REQUEST['mtac']))){
 					}
 					$MATCHESSTRING .= '<td class="input" id="samebet_'.$betid.'">'.$sameBet.'</td>
 					                    <td class="input  hidden-phone"  id="tendency_'.$betid.'"">'.$tendency.'</td>
-					                    <td>'.$pointsFactor.'</td>
-					                    <td id="savestatus_'.$betid.'"></td>
+					                    <td>'.$pointsFactor. ' <span id="savestatus_'.$bet->getId().'"></span></td>
 					                    </tr>';
 				$MATCHESSTRING .= '<input id="ro_'.$bet->getId().'" name="ro_'.$bet->getId().'" type="hidden" value="'.$robool.'">';
 				$MATCHESSTRING .= '<input id="komatch_'.$bet->getId().'" name="komatch_'.$bet->getId().'" type="hidden" value="'.$m['komatch'].'">';
@@ -670,12 +668,13 @@ $body .= '<script type="text/javascript" charset="UTF-8">
 function timeOrMatchDetails($bet){
     /* @var $bet Bet */
     $remainingTime = $bet->getRemainingTime();
-    if ($remainingTime == "-") {
-        return '<a class="btn btn-small" href="index.php?menu=overview&row='.preg_replace('/\D/', '', $bet->getId()).'">
+    $infobutton = '<a class="btn btn-small" href="index.php?menu=overview&row='.preg_replace('/\D/', '', $bet->getId()).'">
             <i class="icon-info-sign"></i>
-          </a>';
+          </a><br/>';
+    if ($remainingTime == "-") {
+        return $infobutton;
     } else {
-        return $remainingTime;
+        return $remainingTime.'<br/>'.$infobutton;
     }   
 }
 
